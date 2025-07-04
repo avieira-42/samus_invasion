@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 18:56:31 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/03 22:08:59 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/07/04 18:06:46 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,24 +53,4 @@ Map functionalities:
 
 int	main(void)
 {
-	void	*mlx_ptr;
-
-	mlx_ptr = mlx_init();
-	if (!mlx_ptr)
-		return (1);
-	win = mlx_new_window(mlx, 800, 600, ESC_INFO_MESSAGE);
-}
-
-// KEY INPUTS //
-
-int	handle_key(int keycode, void *param)
-{
-	(void)param;
-
-	if (keycode == ESC_KEY)
-	{
-		ft_printf(ESC_PRESSED);
-		mlx_destroy_display(mlx_ptr);
-		free(mlx_ptr);
-	}
 }
