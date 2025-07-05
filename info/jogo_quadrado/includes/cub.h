@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/05 23:32:44 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/06/27 15:25:12 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define SCREEN_SIZE_Y 600
 # define LINE_COLOR 0xFFFFFF
 # define TILE_SIZE 32
-# define GRAVITY 2000
+# define GRAVITY 250
 # define MAX_SPEED 500
 # define ACCEL 500
 
@@ -35,50 +35,12 @@ typedef struct s_point
 	float	y;
 }	t_point;
 
-typedef struct s_jump
-{
-	bool	active;
-	float	duration;
-	float	t_started;
-	float	t_elapsed;
-}	t_jump;
-
-typedef struct s_dash
-{
-	bool	active;
-	float	duration;
-	float	t_started;
-	float	t_elapsed;
-	t_point	direction;
-}	t_dash;
-
-typedef struct s_proj
-{
-	bool	active;
-	float	duration;
-	float	t_started;
-	float	t_elapsed;
-	t_point	direction;
-}	t_proj;
-
-typedef	struct s_atck
-{
-	bool	active;
-	float	duration;
-	float	t_started;
-	float	t_elapsed;
-	t_point	direction;
-}	t_atck;
-
 typedef struct s_player
 {
 	t_point pos;
 	t_point direction;
 	t_point velocity;
-	t_jump 	jump;
-	t_dash	dash;
-	t_atck	attack;
-	t_proj	projectile;
+	bool 	jump;
 
 }	t_player;
 
@@ -101,14 +63,6 @@ typedef struct s_image
 	int		line_length;
 	int		endian;
 }	t_image;
-
-typedef struct s_attack
-{
-	bool	is_active;
-	float	t_started;
-	float	t_elapsed;
-	t_point	direction;
-}	t_attack;
 
 typedef struct s_cub
 {

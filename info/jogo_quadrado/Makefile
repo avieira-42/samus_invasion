@@ -28,12 +28,13 @@ $(SRCS_DIR)/input_handler.c
 
 OBJS=$(SRCS:.c=.o)
 
-all: $(NAME) clean
+all: $(NAME)
 
 $(NAME) : $(MLX) $(LIBFT) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
 
-%.o : %.c $(CC) $(CFLAGS) -I $(INCLUDES) -c $^ -o $@
+%.o : %.c
+	$(CC) $(CFLAGS) -I $(INCLUDES) -c $^ -o $@
 
 $(LIBFT):
 	@make -C $(LIBFT_DIR) --no-print-directory
