@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/06 18:10:07 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/07/06 18:39:01 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,7 @@ void		drawobj(t_image *image, t_point pos, t_point size, int color);
 t_image		*get_wall_color_from_direction(t_cub *cub, int side, float ray_x, float ray_y);
 void		ft_pixelput(t_image *data, int x, int y, int color);
 void		drawline(t_cub *cub, t_point start, t_point dest);
-void		drawtexture(t_image *image, t_image *texture, t_point pos, float scale);
+void		drawtexture(t_image *image, t_image *texture, t_point pos);
 void		circleBres(t_cub *cub, int xc, int yc, int r);
 
 t_point		get_mouse_position(t_cub *cub);

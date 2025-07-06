@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:06:28 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/06 18:19:02 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/07/06 19:15:24 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	update(t_cub *cub)
 	{
 		cub->player.velocity.y += 25000 * cub->delta;
 	}
-	if (cub->player.pos.y >= SCREEN_SIZE_Y - 30)
+	if (cub->player.pos.y >= SCREEN_SIZE_Y - 54)
 		cub->player.velocity.y = 0;
 
 	// JUMPING (check_jump())
@@ -60,7 +60,7 @@ int	update(t_cub *cub)
 			cub->player.velocity.y *= 0.997f;
 		if (cub->player.jump.t_elapsed >= cub->player.jump.duration * 0.90f
 			&& cub->player.jump.t_elapsed < cub->player.jump.duration)
-			cub->player.velocity.y = -0.4f;
+			cub->player.velocity.y = -0.4f * cub->delta;
 		if (cub->player.jump.t_elapsed >= cub->player.jump.duration)
 		{
 			cub->player.velocity.y += 25000 * cub->delta;
@@ -85,8 +85,8 @@ int	renderer(t_cub *cub)
 	t_point middle_screen;
 	middle_screen.x = SCREEN_SIZE_X / 2;
 	middle_screen.y = SCREEN_SIZE_Y / 2;
-	drawtexture(&cub->image, &cub->bckgrnd, (t_point){30, 30}, 1);
-	drawtexture(&cub->player.sprite.image, &cub->player.sprite, (t_point){30,30}, 1);
+	drawtexture(&cub->image, &cub->bckgrnd, (t_point){00, 00});
+	drawtexture(&cub->image, &cub->player.sprite , cub->player.pos);
 	//drawobj(&cub->image, cub->player.pos, (t_point){30, 30}, 0xFFFFFF1);
 
 	mlx_put_image_to_window(cub->mlx_ptr, cub->win_ptr, cub->image.image, 0, 0);

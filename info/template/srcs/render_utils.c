@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:00:38 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/06 17:59:20 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/07/06 19:27:45 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,22 @@ int ft_get_color(t_image *data, int x, int y)
 	return (*color);
 }
 
-void	drawtexture(t_image *image, t_image *texture, t_point pos, float scale)
+void	drawtexture(t_image *image, t_image *texture, t_point pos)
 {
 	int	x = 0;
 	int y = 0;
 	int	color;
 
 	color = 0;
-	while (x < texture->x * scale)
+	while (x < texture->x)
 	{
 		y = 0;
-		while (y < texture->y * scale)
+		while (y < texture->y)
 		{
-			color = ft_get_color(texture, x / scale, y / scale);
-			ft_pixelput(image, pos.x + x, pos.y + y++, color);
+			color = ft_get_color(texture, x, y);
+			if (color != 16711901)
+				ft_pixelput(image, pos.x + x, pos.y + y, color);
+			y++;
 		}
 		x++;
 	}
