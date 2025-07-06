@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:03:20 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/06 00:09:05 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/07/06 18:11:03 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,32 @@ void	cub_init(t_cub *cub)
 	cub->player.pos.y = SCREEN_SIZE_Y / 2;
 	cub->player.velocity.x = 0;
 	cub->player.velocity.y = 0;
+
+	// INITIALIZE JUMP (jump_init())
 	cub->player.jump.active = false;
 	cub->player.jump.duration = 0.5f;
 	cub->player.jump.t_elapsed = 0;
+
+	// INITIALIZE DASH (dash_init())
 	cub->player.dash.active = false;
 	cub->player.dash.duration = 0.5f;
 	cub->player.dash.t_elapsed = 0;
+
+	// INITIALIZE PROJECTILE (projectile_init())
 	cub->player.projectile.active = false;
 	cub->player.projectile.duration = 6.0f;
 	cub->player.projectile.t_elapsed = 0;
+
+	// INITIALIZE ATTACK (attack_init())
 	cub->player.attack.active = false;
 	cub->player.attack.duration = 4.0f;
 	cub->player.attack.t_elapsed = 0;
+
+	// INITIALIZE BACKGROUND (bckgrnd_init())
+	cub->bckgrnd.image = mlx_xpm_file_to_image(cub->mlx_ptr, "sprites/quasar.xpm", &cub->bckgrnd.x, &cub->bckgrnd.y);
+	cub->bckgrnd.addr = mlx_get_data_addr(cub->bckgrnd.image, &cub->bckgrnd.bits_per_pixel, &cub->bckgrnd.line_length, &cub->bckgrnd.endian);
+
+	// INITIALIZE SPRITES
+	cub->player.sprite.image = mlx_xpm_file_to_image(cub->mlx_ptr, "sprites/breno.xpm", &cub->player.sprite.x, &cub->player.sprite.y);
+	cub->player.sprite.addr = mlx_get_data_addr(cub->player.sprite.image, &cub->player.sprite.bits_per_pixel, &cub->player.sprite.line_length, &cub->player.sprite.endian);
 }
