@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/06 18:39:01 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/07/06 23:12:10 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ typedef struct s_cub
 	t_player	player;
 	t_image		bckgrnd;
 	t_image		image;
+	t_image		tile;
 	t_image		platform;
 }	t_cub;
 
@@ -145,6 +146,7 @@ void		ft_pixelput(t_image *data, int x, int y, int color);
 void		drawline(t_cub *cub, t_point start, t_point dest);
 void		drawtexture(t_image *image, t_image *texture, t_point pos);
 void		circleBres(t_cub *cub, int xc, int yc, int r);
+void		draw_map(t_image *image, t_image *texture, t_point pos);
 
 t_point		get_mouse_position(t_cub *cub);
 //struct utils

@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:03:20 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/06 18:11:03 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/07/07 00:14:04 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,9 @@ void	cub_init(t_cub *cub)
 	// INITIALIZE SPRITES
 	cub->player.sprite.image = mlx_xpm_file_to_image(cub->mlx_ptr, "sprites/breno.xpm", &cub->player.sprite.x, &cub->player.sprite.y);
 	cub->player.sprite.addr = mlx_get_data_addr(cub->player.sprite.image, &cub->player.sprite.bits_per_pixel, &cub->player.sprite.line_length, &cub->player.sprite.endian);
+	cub->tile.image = mlx_xpm_file_to_image(cub->mlx_ptr, "sprites/tile.xpm", &cub->tile.x, &cub->image.y);
+	cub->tile.addr = mlx_get_data_addr(cub->tile.image, &cub->tile.bits_per_pixel, &cub->tile.line_length, &cub->tile.endian);
+	
+	//INITIALIZE MAP
+	cub->map = draw_map();
 }
