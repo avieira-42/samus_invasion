@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:03:20 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/07 04:24:09 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/07 19:14:48 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,25 @@ void	cub_init(t_cub *cub)
 {
 	//INITIALIZE ALL MEHCANICS FIELDS//
 	//SEPERATE INIT PER FIELD//
+	
+
 	cub->fd = 0;
 	cub->delta = 0;
 	cub->last_frame_time = get_time();
 	cub->player.direction.x = 0;
 	cub->player.direction.y = 0;
-	cub->player.pos.x  = SCREEN_SIZE_X / 2;
+	cub->player.pos.x  = 500;
 	cub->player.pos.y = SCREEN_SIZE_Y / 2;
+
+// INIT VELOCITY (vel_init())
 	cub->player.velocity.x = 0;
-	cub->player.velocity.y = 0;
+	cub->player.velocity.y = VELOCITY_Y;
 
 	// INITIALIZE JUMP (jump_init())
 	cub->player.jump.active = false;
-	cub->player.jump.duration = 0.5f;
+	cub->player.jump.duration = 0.3f;
 	cub->player.jump.t_elapsed = 0;
+	cub->player.jump.d_traveled = 0;
 
 	// INITIALIZE DASH (dash_init())
 	cub->player.dash.active = false;

@@ -1,2 +1,2 @@
-syn keyword CTagsFunction update ft_get_color ft_free_arr read_map clamp key_released init_window draw_map cub_init drawtexture main free_displays ft_freesplit calculate_Delta drawobj game_loop ft_free ft_pixelput get_time key_pressed normalize renderer ft_abs get_mouse_position
+syn keyword CTagsFunction get_mouse_position ft_free drawobj calculate_Delta ft_get_color renderer key_pressed ft_pixelput main drawtexture init_window get_time free_displays draw_map ft_free_arr normalize update read_map game_loop ft_abs ft_freesplit cub_init clamp key_released drawplayer
 

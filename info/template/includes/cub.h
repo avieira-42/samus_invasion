@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/07 04:19:06 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/07 21:39:24 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,22 @@
 
 # define SCREEN_SIZE_X 1008
 # define SCREEN_SIZE_Y 565.5
+# define SCREEN_END_X 5935
 # define LINE_COLOR 0xFFFFFF
 # define TILE_SIZE_X 32 * 1.5
 # define TILE_SIZE_Y 29 * 1.5
-# define GRAVITY 2000
+# define GRAVITY 3000
+# define VELOCITY_Y -1000
+# define VELOCITY_X	400
 # define MAX_SPEED 500
-# define ACCEL 500
+# define PLAYER_VEL_X cub->player.velocity.x
+# define PLAYER_VEL_Y cub->player.velocity.y
+# define JUMP_VEL cub->player.jump.velocity
+# define PLAYER_POS_X cub->player.pos.x
+# define PLAYER_POS_Y cub->player.pos.y
+# define PLAYER_DIR_X cub->player.direction.x
+# define PLAYER_DIR_Y cub->player.direction.y
+# define DELTA_T cub->delta
 
 typedef struct s_point
 {
@@ -42,6 +52,8 @@ typedef struct s_jump
 	float	duration;
 	float	t_started;
 	float	t_elapsed;
+	float	velocity;
+	float	d_traveled;
 }	t_jump;
 
 typedef struct s_dash
@@ -90,6 +102,7 @@ typedef struct s_attack
 	t_point	direction;
 }	t_attack;
 
+
 typedef struct s_player
 {
 	t_point pos;
@@ -101,6 +114,7 @@ typedef struct s_player
 	t_proj	projectile;
 	t_image	sprite;
 }	t_player;
+
 
 typedef struct s_cub
 {
