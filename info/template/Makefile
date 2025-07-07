@@ -1,8 +1,7 @@
-
 NAME= cub3d
 CC= cc
-CFLAGS = -g -Wall -Wextra -Werror -I $(INCLUDES)
-LDFLAGS =  -L $(LIBFT_DIR) -lft -L $(MLX_DIR) -lmlx_Linux -lXext -lX11 -lm
+CFLAGS = -g -Wall -Wextra -Werror -std=c99 -I $(INCLUDES)
+LDFLAGS =  -L $(LIBFT_DIR) -lft -L $(MLX_DIR) -Lmlx -lmlx -lXext -lX11 -lbsd -lXext -lX11 -lm 
 INCLUDES= ./includes
 LIBFT_DIR= ./libs/libft
 MLX_DIR= ./libs/mlx
@@ -29,7 +28,7 @@ OBJS=$(SRCS:.c=.o)
 all: $(NAME) clean
 
 $(NAME) : $(MLX) $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) $(MLX) -o $(NAME)
 
 %.o : %.c $(CC) $(CFLAGS) -I $(INCLUDES) -c $^ -o $@
 

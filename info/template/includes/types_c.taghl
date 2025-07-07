@@ -1,0 +1,5 @@
+syn keyword CTagsStructure s_point s_jump s_attack s_image s_atck s_player s_dash s_proj s_cub
+syn keyword CTagsMember north_texture t_elapsed win_ptr map player line_length delta tile platform direction map_width active pos addr dash attack jump y t_started last_frame_time mlx_ptr duration image camera projectile x bits_per_pixel south_texture east_texture sprite velocity west_texture endian is_active map_height fd bckgrnd
+syn keyword CTagsType t_dash t_player t_cub t_attack t_jump t_image t_proj t_atck t_point
+syn keyword CTagsDefinedName SCREEN_SIZE_X TILE_SIZE_Y MAX_SPEED LINE_COLOR GRAVITY TILE_SIZE_X SCREEN_SIZE_Y cub_H ACCEL
+

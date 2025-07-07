@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:00:38 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/07 00:12:59 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/07/07 04:36:09 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,21 @@ int ft_get_color(t_image *data, int x, int y)
 	return (*color);
 }
 
-void	drawtexture(t_image *image, t_image *texture, t_point pos)
+void	drawtexture(t_image *image, t_image *texture, t_point pos, float scale)
 {
-	int	x = 0;
-	int y = 0;
+	int	x;
+	int y;
 	int	color;
 
 	color = 0;
-	while (x < texture->x)
+	x = 0;
+	y = 0;
+	while (x < texture->x * scale)
 	{
 		y = 0;
-		while (y < texture->y)
+		while (y < texture->y * scale)
 		{
-			color = ft_get_color(texture, x, y);
+			color = ft_get_color(texture, x / scale, y / scale);
 			if (color != 16711901)
 				ft_pixelput(image, pos.x + x, pos.y + y, color);
 			y++;
@@ -81,29 +83,34 @@ char	**read_map(void)
 		free(line);
 		free(map_buffer);
 	}
-	map = ft_splut(map_holder, '\n');
+	map = ft_split(map_holder, '\n');
 	free(map_holder);
 	close(fd);
 	return (map);
 }
 
-void	drawtexture(t_image *image, t_image *texture, t_point pos)
 void draw_map(t_cub *cub)
 {
-	int	y;
-	int	x;
+	int		y;
+	int		x;
+	t_point	pos;
 
 	y = 0;
-	while (game->map[y])
+	while (cub->map[y])
 	{
 		x = 0;
-		while (cub->tile[y][x])
+		while (cub->map[y][x])
 		{
-			if (game->map[y][x] == '1')
-				img_draw(cub, game->img_colect, x, y);
+			if (cub->map[y][x] == '1')
+			{
+				cub->camera.x = cub->player.pos.x - SCREEN_SIZE_X / 2;
+				cub->camera.y = cub->player.pos.y - SCREEN_SIZE_Y / 2;
+				pos.x = x * TILE_SIZE_X - cub->camera.x;
+				pos.y = y * TILE_SIZE_Y - cub->camera.y;
+				drawtexture(&cub->image, &cub->tile, pos, 1.5);
+			}
 			x++;
 		}
 		y++;
 	}
-	return (0);
 }

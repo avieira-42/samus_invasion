@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/06 23:12:10 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/07/07 04:19:06 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@
 # include <sys/time.h>
 # include <stdbool.h>
 
-# define SCREEN_SIZE_X 1000
-# define SCREEN_SIZE_Y 600
+# define SCREEN_SIZE_X 1008
+# define SCREEN_SIZE_Y 565.5
 # define LINE_COLOR 0xFFFFFF
-# define TILE_SIZE 32
+# define TILE_SIZE_X 32 * 1.5
+# define TILE_SIZE_Y 29 * 1.5
 # define GRAVITY 2000
 # define MAX_SPEED 500
 # define ACCEL 500
@@ -119,6 +120,7 @@ typedef struct s_cub
 	t_image		bckgrnd;
 	t_image		image;
 	t_image		tile;
+	t_point		camera;
 	t_image		platform;
 }	t_cub;
 
@@ -137,16 +139,17 @@ int	key_pressed(int keysym, t_cub *cub);
 int	key_released(int keysym, t_cub *cub);
 
 //map
-int	ft_load_map(char *map, t_cub *cub);
+int		ft_load_map(char *map, t_cub *cub);
+char	**read_map(void);
+void	draw_map(t_cub *cub);
 
 //render utils
 void		drawobj(t_image *image, t_point pos, t_point size, int color);
 t_image		*get_wall_color_from_direction(t_cub *cub, int side, float ray_x, float ray_y);
 void		ft_pixelput(t_image *data, int x, int y, int color);
 void		drawline(t_cub *cub, t_point start, t_point dest);
-void		drawtexture(t_image *image, t_image *texture, t_point pos);
+void		drawtexture(t_image *image, t_image *texture, t_point pos, float scale);
 void		circleBres(t_cub *cub, int xc, int yc, int r);
-void		draw_map(t_image *image, t_image *texture, t_point pos);
 
 t_point		get_mouse_position(t_cub *cub);
 //struct utils

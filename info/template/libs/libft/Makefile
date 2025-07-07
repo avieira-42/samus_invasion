@@ -6,7 +6,7 @@
 #    By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/01 16:45:58 by rafaelfe          #+#    #+#              #
-#    Updated: 2024/11/01 16:45:58 by rafaelfe         ###   ########.fr        #
+#    Updated: 2025/07/07 02:19:59 by a-soeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ $(PRINTF_DIR)/ft_putnbrs.c $(GET_DIR)/get_next_line.c $(GET_DIR)/get_next_line_u
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c99 -fPIC
 
 INCLUDES = includes/
 

@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:09:07 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/06 19:05:49 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/07/07 04:43:36 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	key_pressed(int keysym, t_cub *cub)
 	}
 	if (keysym == XK_space
 		&& cub->player.jump.active == false
-		&& cub->player.pos.y >= SCREEN_SIZE_Y - 54)
+		&& cub->player.pos.y >= SCREEN_SIZE_Y - TILE_SIZE_Y * 4.7)
 	{
 		cub->player.jump.active = true;
 	}

@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:06:28 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/06 23:12:05 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/07/07 04:42:50 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,22 @@ int	update(t_cub *cub)
 	if (cub->player.direction.x != 0)
 	{
 		cub->player.velocity.x += cub->player.direction.x * 500 * cub->delta;
-		if (cub->player.velocity.x >= 160)
-			cub->player.velocity.x = 160;
-		if (cub->player.velocity.x <= -160)
-			cub->player.velocity.x = -160;
+		if (cub->player.velocity.x >= 180)
+			cub->player.velocity.x = 180;
+		if (cub->player.velocity.x <= -180)
+			cub->player.velocity.x = -180;
 	}
 	else if (cub->player.direction.x == 0)
 		cub->player.velocity.x = 0;
 
 	// FALLING UNTIL FLOOR (check falling())
-	if (cub->player.pos.y < SCREEN_SIZE_Y
+	if (cub->player.pos.y < SCREEN_SIZE_Y - TILE_SIZE_Y
 		&& cub->player.velocity.y == 0
 		&& cub->player.jump.active == false)
 	{
 		cub->player.velocity.y += 25000 * cub->delta;
 	}
-	if (cub->player.pos.y >= SCREEN_SIZE_Y - 54)
+	if (cub->player.pos.y >= SCREEN_SIZE_Y - TILE_SIZE_Y * 4.7)
 		cub->player.velocity.y = 0;
 
 	// JUMPING (check_jump())
@@ -79,15 +79,17 @@ int	update(t_cub *cub)
 
 int	renderer(t_cub *cub)
 {
+	/*t_point middle_screen;
+
+	middle_screen.x = SCREEN_SIZE_X / 2;
+	middle_screen.y = SCREEN_SIZE_Y / 2;*/
+
 	(*cub).image.image = mlx_new_image((*cub).mlx_ptr, SCREEN_SIZE_X, SCREEN_SIZE_Y);
 	(*cub).image.addr = mlx_get_data_addr((*cub).image.image, &(*cub).image.bits_per_pixel, &(*cub).image.line_length, &(*cub).image.endian);
 
-	t_point middle_screen;
-	middle_screen.x = SCREEN_SIZE_X / 2;
-	middle_screen.y = SCREEN_SIZE_Y / 2;
-	drawtexture(&cub->image, &cub->bckgrnd, (t_point){00, 00});
-	drawtexture(&cub->image, &cub->player.sprite, cub->player.pos);
-	draw_map(&cub->image, &cub->tile, cub->player.pos);
+	drawtexture(&cub->image, &cub->bckgrnd, (t_point){00, 00}, 1);
+	drawtexture(&cub->image, &cub->player.sprite, cub->player.pos, 1.5);
+	draw_map(cub);
 
 	mlx_put_image_to_window(cub->mlx_ptr, cub->win_ptr, cub->image.image, 0, 0);
 	mlx_destroy_image(cub->mlx_ptr, cub->image.image);
