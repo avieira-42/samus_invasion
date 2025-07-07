@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:00:38 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/07 04:36:09 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:02:49 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,17 +96,18 @@ void draw_map(t_cub *cub)
 	t_point	pos;
 
 	y = 0;
+	cub->camera.x = cub->player.pos.x - SCREEN_SIZE_X / 2;
+	if (cub->camera.x < 0)
+	cub->camera.x = 0;
 	while (cub->map[y])
 	{
 		x = 0;
 		while (cub->map[y][x])
 		{
+			pos.x = x * TILE_SIZE_X - cub->camera.x;
+			pos.y = y * TILE_SIZE_Y;
 			if (cub->map[y][x] == '1')
 			{
-				cub->camera.x = cub->player.pos.x - SCREEN_SIZE_X / 2;
-				cub->camera.y = cub->player.pos.y - SCREEN_SIZE_Y / 2;
-				pos.x = x * TILE_SIZE_X - cub->camera.x;
-				pos.y = y * TILE_SIZE_Y - cub->camera.y;
 				drawtexture(&cub->image, &cub->tile, pos, 1.5);
 			}
 			x++;

@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:06:28 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/07 04:42:50 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/07 13:48:23 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,19 @@ int	update(t_cub *cub)
 	printf("velocity.y: %f \n", cub->player.velocity.y);
 	printf("delta: %f \n", cub->delta);
 	printf("pos.y: %f \n", cub->player.pos.y);
+	printf("pos.x: %f \n", cub->player.pos.x);
 	printf("jump_started: %f \n", cub->player.jump.t_started);
 	printf("jump_elapsed: %f \n", cub->player.jump.t_elapsed);
+	printf("camera.x: %f \n", cub->camera.x);
 
 	// VELOCITY(get_velocity())
 	if (cub->player.direction.x != 0)
 	{
 		cub->player.velocity.x += cub->player.direction.x * 500 * cub->delta;
-		if (cub->player.velocity.x >= 180)
-			cub->player.velocity.x = 180;
-		if (cub->player.velocity.x <= -180)
-			cub->player.velocity.x = -180;
+		if (cub->player.velocity.x >= 200)
+			cub->player.velocity.x = 200;
+		if (cub->player.velocity.x <= -200)
+			cub->player.velocity.x = -200;
 	}
 	else if (cub->player.direction.x == 0)
 		cub->player.velocity.x = 0;
@@ -41,10 +43,14 @@ int	update(t_cub *cub)
 		&& cub->player.velocity.y == 0
 		&& cub->player.jump.active == false)
 	{
-		cub->player.velocity.y += 25000 * cub->delta;
+		cub->player.velocity.y += 20000 * cub->delta;
 	}
-	if (cub->player.pos.y >= SCREEN_SIZE_Y - TILE_SIZE_Y * 4.7)
+	if (cub->player.pos.y >= SCREEN_SIZE_Y - TILE_SIZE_Y * 2.9)
 		cub->player.velocity.y = 0;
+	if ((cub->player.pos.x <= TILE_SIZE_X
+		&& cub->player.direction.x == -1)
+		|| cub->player.pos.x >= SCREEN_SIZE_X * 6)
+		cub->player.velocity.x = 0;
 
 	// JUMPING (check_jump())
 	if (cub->player.jump.active == true)

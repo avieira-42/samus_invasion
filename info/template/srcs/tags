@@ -9,7 +9,7 @@ clamp	math.c	/^float clamp(float value, float min, float max)$/;"	f
 cub_init	init_cub.c	/^void	cub_init(t_cub *cub)$/;"	f
 draw_map	render_utils.c	/^void draw_map(t_cub *cub)$/;"	f
 drawobj	render_utils.c	/^void	drawobj(t_image *image, t_point pos, t_point size, int color)$/;"	f
-drawtexture	render_utils.c	/^void	drawtexture(t_image *image, t_image *texture, t_point pos)$/;"	f
+drawtexture	render_utils.c	/^void	drawtexture(t_image *image, t_image *texture, t_point pos, float scale)$/;"	f
 free_displays	free_displays.c	/^int	free_displays(t_cub *cub)$/;"	f
 ft_abs	math.c	/^int	ft_abs(int num)$/;"	f
 ft_free_arr	ft_free.c	/^void	ft_free_arr(char **arr)$/;"	f
