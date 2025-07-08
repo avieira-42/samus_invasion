@@ -1,103 +1,76 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_loop.c                                        :+:      :+:    :+:   */
+/*   init_cub.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 17:06:28 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/07 16:37:56 by a-soeiro         ###   ########.fr       */
+/*   Created: 2025/05/21 17:03:20 by rafaelfe          #+#    #+#             */
+/*   Updated: 2025/07/08 02:47:44 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub.h"
-#include <stdio.h>
 
-int	update(t_cub *cub)
+void	cub_init(t_cub *cub)
 {
-	calculate_Delta(cub);
-	printf("direction: %f \n", cub->player.direction.x);
-	printf("velocity.x: %f \n", cub->player.velocity.x);
-	printf("velocity.y: %f \n", cub->player.velocity.y);
-	printf("delta: %f \n", cub->delta);
-	printf("pos.y: %f \n", cub->player.pos.y);
-	printf("pos.x: %f \n", cub->player.pos.x);
-	printf("jump_started: %f \n", cub->player.jump.t_started);
-	printf("jump_elapsed: %f \n", cub->player.jump.t_elapsed);
-	printf("camera.x: %f \n", cub->camera.x);
+	//INITIALIZE ALL MEHCANICS FIELDS//
+	//SEPERATE INIT PER FIELD//
+	
 
-	//INIT VELOCITY (vel_init())
-	cub->player.velocity
+	cub->fd = 0;
+	cub->delta = 0;
+	cub->last_frame_time = get_time();
+	cub->player.direction.x = 0;
+	cub->player.direction.y = 0;
+	cub->player.pos.x  = 500;
+	cub->player.pos.y = SCREEN_SIZE_Y / 2;
+	cub->enemy.pos.x = cub->player.pos.x + 30;
+	cub->enemy.pos.y = cub->player.pos.y;
 
-	// FALLING UNTIL FLOOR (check falling())
-	if (cub->player.pos.y < SCREEN_SIZE_Y - TILE_SIZE_Y
-		&& cub->player.velocity.y == 0
-		&& cub->player.jump.active == false)
-	{
-		cub->player.velocity.y += 20000 * cub->delta;
-	}
-	if (cub->player.pos.y >= SCREEN_SIZE_Y - TILE_SIZE_Y * 2.9)
-		cub->player.velocity.y = 0;
+// INIT VELOCITY (vel_init())
+	cub->player.velocity.x = 0;
+	cub->player.velocity.y = VELOCITY_Y;
 
-	// SCREEN LIMITS is_play_area()
-	if ((cub->player.pos.x <= TILE_SIZE_X
-		&& cub->player.direction.x == -1)
-		|| cub->player.pos.x >= SCREEN_SIZE_X * 6)
-		PAYER_VEL_X = 0;
+	// INITIALIZE JUMP (jump_init())
+	cub->player.jump.active = false;
+	cub->player.jump.duration = 0.3f;
+	cub->player.jump.t_elapsed = 0;
+	cub->player.jump.d_traveled = 0;
 
-	// JUMPING (check_jump())
-	if (cub->player.jump.active == true)
-	{
-		if (cub->player.velocity.y == 0)
-			cub->player.velocity.y = -250;
+	// INITIALIZE DASH (dash_init())
+	cub->player.dash.active = false;
+	cub->player.dash.duration = 0.5f;
+	cub->player.dash.t_elapsed = 0;
 
-		if(cub->player.jump.t_started == 0)
-			cub->player.jump.t_started = cub->delta;
+	// INITIALIZE PROJECTILE (projectile_init())
+	cub->player.projectile.active = false;
+	cub->player.projectile.duration = 6.0f;
+	cub->player.projectile.t_elapsed = 0;
 
-		cub->player.jump.t_elapsed += cub->delta;
-		if (cub->player.velocity.y < 0)
-			cub->player.velocity.y *= 0.997f;
-		if (cub->player.jump.t_elapsed >= cub->player.jump.duration * 0.90f
-			&& cub->player.jump.t_elapsed < cub->player.jump.duration)
-			cub->player.velocity.y = -0.4f * cub->delta;
-		if (cub->player.jump.t_elapsed >= cub->player.jump.duration)
-		{
-			cub->player.velocity.y += 25000 * cub->delta;
-			cub->player.jump.active = false;
-			cub->player.jump.t_started = 0;
-			cub->player.jump.t_elapsed = 0;
-		}
-	}
-		
+	// INITIALIZE ATTACK (attack_init())
+	cub->player.attack.active = false;
+	cub->player.attack.duration = 4.0f;
+	cub->player.attack.t_elapsed = 0;
 
-	// MOVEMENT (get_movement())
-	PLAYER_POS_Y += PLAYER_VEL_Y * DELTA_T;
-	PLAYER_POS_X += PLAYER_DIR_X * PLAYER_VEL_X * DELTA_T;
-	return (1);
-}
+	// INITIALIZE BACKGROUND (bckgrnd_init())
+	cub->bckgrnd.image = mlx_xpm_file_to_image(cub->mlx_ptr, "sprites/quasar.xpm", &cub->bckgrnd.x, &cub->bckgrnd.y);
+	cub->bckgrnd.addr = mlx_get_data_addr(cub->bckgrnd.image, &cub->bckgrnd.bits_per_pixel, &cub->bckgrnd.line_length, &cub->bckgrnd.endian);
 
-int	renderer(t_cub *cub)
-{
-	/*t_point middle_screen;
-
-	middle_screen.x = SCREEN_SIZE_X / 2;
-	middle_screen.y = SCREEN_SIZE_Y / 2;*/
-
-	(*cub).image.image = mlx_new_image((*cub).mlx_ptr, SCREEN_SIZE_X, SCREEN_SIZE_Y);
-	(*cub).image.addr = mlx_get_data_addr((*cub).image.image, &(*cub).image.bits_per_pixel, &(*cub).image.line_length, &(*cub).image.endian);
-
-	drawtexture(&cub->image, &cub->bckgrnd, (t_point){00, 00}, 1);
-	drawtexture(&cub->image, &cub->player.sprite, cub->player.pos, 1.5);
-	draw_map(cub);
-
-	mlx_put_image_to_window(cub->mlx_ptr, cub->win_ptr, cub->image.image, 0, 0);
-	mlx_destroy_image(cub->mlx_ptr, cub->image.image);
-	return (1);
-}
-
-int	game_loop(t_cub *cub)
-{
-	update(cub);
-	renderer(cub);
-	return (1);
+	// INITIALIZE SPRITES
+	cub->player.sprite.image = mlx_xpm_file_to_image(cub->mlx_ptr, "sprites/breno.xpm", &cub->player.sprite.x, &cub->player.sprite.y);
+	cub->player.sprite.addr = mlx_get_data_addr(cub->player.sprite.image, &cub->player.sprite.bits_per_pixel, &cub->player.sprite.line_length, &cub->player.sprite.endian);
+	cub->tile.image = mlx_xpm_file_to_image(cub->mlx_ptr, "sprites/tile.xpm", &cub->tile.x, &cub->tile.y);
+	cub->tile.addr = mlx_get_data_addr(cub->tile.image, &cub->tile.bits_per_pixel, &cub->tile.line_length, &cub->tile.endian);
+	cub->enemy.sprite.image = mlx_xpm_file_to_image(cub->mlx_ptr, "sprites/samus.xpm", &cub->enemy.sprite.x, &cub->enemy.sprite.y);
+	cub->enemy.sprite.addr = mlx_get_data_addr(cub->enemy.sprite.image, &cub->enemy.sprite.bits_per_pixel, &cub->enemy.sprite.line_length, &cub->enemy.sprite.endian);
+	cub->ship.image = mlx_xpm_file_to_image(cub->mlx_ptr, "sprites/spaceship.xpm", &cub->ship.sprite.x, &cub->ship.sprite.y);
+	cub->ship.addr = mlx_get_data_addr(cub->ship.sprite.image, &cub->ship.sprite.bits_per_pixel, &cub->ship.sprite.line_lenth, &cub->ship.sprite.endian);
+	
+	// INITIALIZE MAP
+	cub->map = read_map();
+	
+	// INITIALIZE CAMERA
+	cub->camera.x = cub->player.pos.x - SCREEN_SIZE_X / 2;
+	cub->camera.y = cub->player.pos.y - SCREEN_SIZE_Y / 2;
 }

@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:00:38 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/08 05:20:30 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/08 04:19:17 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	drawobj(t_image *image, t_point pos, t_point size, int color)
 {
-	int	x = 0; int y = 0;
+	int	x = 0;
+	int y = 0;
 
 	while (x < size.x)
 	{
@@ -102,32 +103,35 @@ void draw_map(t_cub *cub)
 			// update_stationary_pos(cub, x, y)
 			cub->tile.pos.x = x * TILE_SIZE_X - cub->camera.x;
 			cub->tile.pos.y = y * TILE_SIZE_Y;
-			cub->ship.pos.x = x * 50 - cub->camera.x;
-			cub->ship.pos.y = y * 37;
-			cub->enemy.pos.x = x * 32 - cub->camera.x;
-			cub->enemy.pos.y = y * 41.8;
-			cub->towel.pos.x = x * 55 - cub->camera.x;
-			cub->towel.pos.y = y * 43;
+			cub->ship.pos.x = x * 1908 - cub->camera.x;
+			cub->ship.pos.y = y * 103;
 			/*cub->portal.pos.x = x * PORTAL_SIZE_X - cub->camera.x;
-			  cub->portal.pos.y = y * PORTAL_SIZE_Y*/  // IF PLAYER MEETS EXIT AND COLLECTIBLE ARE ALL GATHERED, EXIT
-													   // find_creatures(cub, x, y)
-			// position_player(cub);
-			if (cub->game_start == false && cub->map[y][x] == 'P')
+			cub->portal.pos.y = y * PORTAL_SIZE_Y*/  // IF PLAYER MEETS EXIT AND COLLECTIBLE ARE ALL GATHERED, EXIT
+			// find_creatures(cub, x, y)
+			if (cub->game_start == false || cub->game_start == true) // FIND A WAY TO ONLY KEEP PLAYER ON CAMERA
 			{
-				PLAYER_POS_X = x * 50;
-				PLAYER_POS_Y = y * 50;
+				if (cub->map[y][x] == 'P')
+				{
+					PLAYER_POS_X = x * 50;
+					PLAYER_POS_Y = y * 50;
+				}
+				else if (cub->map[y][x] == 'X')
+				{
+					cub->enemy.pos.x = x * 32 - cub->camera.x;
+					cub->enemy.pos.y = y * 39;
+				}
+				else if (cub->map[y][x] == 'C')
+				{
+					cub->towel.pos.x = x * 21;
+					cub->towel.pos.y = y * 21;
+				}
 			}
 
 			// draw_element(cub, x, y)
 			if (cub->map[y][x] == '1')
 				drawtexture(&cub->image, &cub->tile.sprite, cub->tile.pos, 1.5);
 			else if (cub->map[y][x] == 'S')
-				drawtexture(&cub->image, &cub->ship.sprite, cub->ship.pos, 1.8);
-			else if (cub->map[y][x] == 'C')
-				drawtexture(&cub->image, &cub->towel.sprite, cub->towel.pos, 1.2);
-			else if (cub->map[y][x] == 'X')
-				drawtexture(&cub->image, &cub->enemy.sprite, cub->enemy.pos, 1.7);
-
+				drawtexture(&cub->image, &cub->ship.sprite, cub->ship.pos, 1);
 			x++;
 		}
 		y++;

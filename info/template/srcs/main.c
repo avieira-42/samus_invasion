@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 14:32:35 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/06 15:59:44 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/07/08 04:30:01 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ int	main(void)
 
 	init_window(&cub);
 	cub_init(&cub);
-	mlx_hook(cub.win_ptr, 02, (1L<<0), key_pressed, &cub); // Listen for key presses
-	mlx_hook(cub.win_ptr, 03, (1L<<1), key_released, &cub); // Listen for key releases
+	mlx_hook(cub.win_ptr, 02, (1L<<0), key_pressed, &cub);
+	mlx_hook(cub.win_ptr, 03, (1L<<1), key_released, &cub);
+	mlx_hook(cub.win_ptr, 17, 0, free_displays, &cub);
 	mlx_loop_hook(cub.mlx_ptr, game_loop, &cub);
 	mlx_loop(cub.mlx_ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/07 21:39:24 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/08 04:55:47 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <sys/time.h>
 # include <stdbool.h>
 
-# define SCREEN_SIZE_X 1008
-# define SCREEN_SIZE_Y 565.5
+# define SCREEN_SIZE_X 1920
+# define SCREEN_SIZE_Y 1080
 # define SCREEN_END_X 5935
 # define LINE_COLOR 0xFFFFFF
 # define TILE_SIZE_X 32 * 1.5
@@ -78,9 +78,7 @@ typedef	struct s_atck
 {
 	bool	active;
 	float	duration;
-	float	t_started;
-	float	t_elapsed;
-	t_point	direction;
+	float	t_started; float	t_elapsed; t_point	direction;
 }	t_atck;
 
 typedef struct s_image
@@ -102,6 +100,23 @@ typedef struct s_attack
 	t_point	direction;
 }	t_attack;
 
+typedef struct s_item
+{
+	t_point	pos;
+	t_image	sprite;
+}	t_item;
+
+typedef struct s_enemy
+{
+	t_point	pos;
+	t_image	sprite;
+}	t_enemy;
+
+typedef struct s_bckgrnd
+{
+	t_point		pos;
+	t_image		sprite;
+}	t_bckgrnd;
 
 typedef struct s_player
 {
@@ -113,29 +128,40 @@ typedef struct s_player
 	t_atck	attack;
 	t_proj	projectile;
 	t_image	sprite;
+	t_point	camera;
 }	t_player;
 
+typedef struct s_tile
+{
+	t_image	sprite;
+	t_point	pos;
+}	t_tile;
+
+typedef struct s_ship
+{
+	t_image sprite;
+	t_point	pos;
+}	t_ship;
 
 typedef struct s_cub
 {
+	bool		game_start;
 	void		*mlx_ptr;
 	void		*win_ptr;
 	char		**map;
 	int			fd;
 	int			map_height;
 	int			map_width;
-	t_image		north_texture;
-	t_image		south_texture;
-	t_image		east_texture;
-	t_image		west_texture;
-	long long	last_frame_time;
 	float		delta;
-	t_player	player;
-	t_image		bckgrnd;
+	long long	last_frame_time;
 	t_image		image;
-	t_image		tile;
+	t_bckgrnd	bckgrnd;
+	t_tile		tile;
+	t_ship		ship;
+	t_item		towel;
 	t_point		camera;
-	t_image		platform;
+	t_enemy		enemy;
+	t_player	player;
 }	t_cub;
 
 int			free_displays(t_cub *cub);
