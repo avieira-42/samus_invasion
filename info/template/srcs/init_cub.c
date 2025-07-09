@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:03:20 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/08 04:29:40 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/09 02:03:11 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ void	cub_init(t_cub *cub)
 	cub->ship.sprite.addr = mlx_get_data_addr(cub->ship.sprite.image, &cub->ship.sprite.bits_per_pixel, &cub->ship.sprite.line_length, &cub->ship.sprite.endian);
 	cub->towel.sprite.image = mlx_xpm_file_to_image(cub->mlx_ptr, "sprites/towel.xpm", &cub->towel.sprite.x, &cub->towel.sprite.y);
 	cub->towel.sprite.addr = mlx_get_data_addr(cub->towel.sprite.image, &cub->towel.sprite.bits_per_pixel, &cub->towel.sprite.line_length, &cub->towel.sprite.endian);
+	cub->stairs.sprite.image = mlx_xpm_file_to_image(cub->mlx_ptr, "sprites/stairs.xpm", &cub->stairs.sprite.x, &cub->stairs.sprite.y);
+	cub->stairs.sprite.addr = mlx_get_data_addr(cub->stairs.sprite.image, &cub->stairs.sprite.bits_per_pixel, &cub->stairs.sprite.line_length, &cub->stairs.sprite.endian);
 	
 	// INITIALIZE MAP
 	cub->map = read_map();

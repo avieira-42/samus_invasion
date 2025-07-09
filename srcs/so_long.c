@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 18:56:31 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/04 18:06:46 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/07/08 17:55:14 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ Mandatory functionalities:
 2. Winow management must remain smooth(switching to another window, minimizing, etc.)
 4. Pressing ESC must close the window and quit the program in a clean way.
 5. CLicking on the cross of the window must do the same as the ESC.
-6. Use of images of the MiniLibX is mandatory.(???)
 
 Map functionalities:
 

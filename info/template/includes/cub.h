@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/08 04:55:47 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/09 02:00:32 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,12 @@ typedef struct s_bckgrnd
 	t_image		sprite;
 }	t_bckgrnd;
 
+typedef struct s_stairs
+{
+	t_point		pos;
+	t_image		sprite;
+}	t_stairs;
+
 typedef struct s_player
 {
 	t_point pos;
@@ -162,6 +168,7 @@ typedef struct s_cub
 	t_point		camera;
 	t_enemy		enemy;
 	t_player	player;
+	t_stairs	stairs;
 }	t_cub;
 
 int			free_displays(t_cub *cub);

@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:00:38 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/08 05:20:30 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/09 02:14:27 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,9 +108,11 @@ void draw_map(t_cub *cub)
 			cub->enemy.pos.y = y * 41.8;
 			cub->towel.pos.x = x * 55 - cub->camera.x;
 			cub->towel.pos.y = y * 43;
+			cub->stairs.pos.x = x * TILE_SIZE_X - cub->camera.x;
+			cub->stairs.pos.y = y * TILE_SIZE_Y;
 			/*cub->portal.pos.x = x * PORTAL_SIZE_X - cub->camera.x;
 			  cub->portal.pos.y = y * PORTAL_SIZE_Y*/  // IF PLAYER MEETS EXIT AND COLLECTIBLE ARE ALL GATHERED, EXIT
-													   // find_creatures(cub, x, y)
+
 			// position_player(cub);
 			if (cub->game_start == false && cub->map[y][x] == 'P')
 			{
@@ -127,7 +129,8 @@ void draw_map(t_cub *cub)
 				drawtexture(&cub->image, &cub->towel.sprite, cub->towel.pos, 1.2);
 			else if (cub->map[y][x] == 'X')
 				drawtexture(&cub->image, &cub->enemy.sprite, cub->enemy.pos, 1.7);
-
+			else if (cub->map[y][x] == 'U')
+				drawtexture(&cub->image, &cub->stairs.sprite, cub->stairs.pos, 1.5);
 			x++;
 		}
 		y++;
