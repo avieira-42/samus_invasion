@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:06:28 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/08 05:12:11 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/09 12:53:03 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	update(t_cub *cub) {
 	if (cub->player.jump.active == true)
 	{
 
-		if (PLAYER_POS_Y >= SCREEN_SIZE_Y - TILE_SIZE_Y * 3.75
+		if (PLAYER_POS_Y >= SCREEN_SIZE_Y - TILE_SIZE_Y * 2
 			&& cub->player.jump.t_started > 0)
 		{
 			cub->player.jump.active = false;
@@ -59,15 +59,15 @@ int	update(t_cub *cub) {
 	}
 
 	// FALLING UNTIL FLOOR (check falling())
-	if (PLAYER_POS_Y < SCREEN_SIZE_Y - TILE_SIZE_Y
+	if (PLAYER_POS_Y < SCREEN_SIZE_Y - TILE_SIZE_Y * 2
 		&& cub->player.jump.active == false)
 	{
 		JUMP_VEL = -VELOCITY_Y;
 	}
-	if (PLAYER_POS_Y >= SCREEN_SIZE_Y - TILE_SIZE_Y * 3.75
+	if (PLAYER_POS_Y >= SCREEN_SIZE_Y - TILE_SIZE_Y * 2
 		&& cub->player.jump.active == false )
 	{
-		PLAYER_POS_Y = SCREEN_SIZE_Y - TILE_SIZE_Y * 3.75;
+		PLAYER_POS_Y = SCREEN_SIZE_Y - TILE_SIZE_Y * 2;
 		JUMP_VEL = 0;
 	}
 
@@ -97,7 +97,7 @@ int	renderer(t_cub *cub)
 
 	drawtexture(&cub->image, &cub->bckgrnd.sprite, cub->bckgrnd.pos, 1);
 	draw_map(cub);
-	drawtexture(&cub->image, &cub->player.sprite, cub->player.camera, 1.5);
+	drawtexture(&cub->image, &cub->player.sprite, cub->player.camera, 1);
 
 	mlx_put_image_to_window(cub->mlx_ptr, cub->win_ptr, cub->image.image, 0, 0);
 	mlx_destroy_image(cub->mlx_ptr, cub->image.image);

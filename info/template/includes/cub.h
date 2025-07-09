@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/09 02:00:32 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/09 12:47:25 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
 # include <stdbool.h>
 
 # define SCREEN_SIZE_X 1920
-# define SCREEN_SIZE_Y 1080
+# define SCREEN_SIZE_Y 1056
 # define SCREEN_END_X 5935
 # define LINE_COLOR 0xFFFFFF
-# define TILE_SIZE_X 32 * 1.5
-# define TILE_SIZE_Y 29 * 1.5
+# define TILE_SIZE_X 48
+# define TILE_SIZE_Y 48
 # define GRAVITY 3000
 # define VELOCITY_Y -1000
 # define VELOCITY_X	400

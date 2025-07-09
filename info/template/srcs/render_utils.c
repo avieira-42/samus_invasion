@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:00:38 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/09 02:14:27 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/09 12:43:51 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,10 +104,10 @@ void draw_map(t_cub *cub)
 			cub->tile.pos.y = y * TILE_SIZE_Y;
 			cub->ship.pos.x = x * 50 - cub->camera.x;
 			cub->ship.pos.y = y * 37;
-			cub->enemy.pos.x = x * 32 - cub->camera.x;
-			cub->enemy.pos.y = y * 41.8;
-			cub->towel.pos.x = x * 55 - cub->camera.x;
-			cub->towel.pos.y = y * 43;
+			cub->enemy.pos.x = x * TILE_SIZE_X - cub->camera.x;
+			cub->enemy.pos.y = y * TILE_SIZE_Y;
+			cub->towel.pos.x = x * TILE_SIZE_X - cub->camera.x;
+			cub->towel.pos.y = y * TILE_SIZE_Y;
 			cub->stairs.pos.x = x * TILE_SIZE_X - cub->camera.x;
 			cub->stairs.pos.y = y * TILE_SIZE_Y;
 			/*cub->portal.pos.x = x * PORTAL_SIZE_X - cub->camera.x;
@@ -116,21 +116,21 @@ void draw_map(t_cub *cub)
 			// position_player(cub);
 			if (cub->game_start == false && cub->map[y][x] == 'P')
 			{
-				PLAYER_POS_X = x * 50;
-				PLAYER_POS_Y = y * 50;
+				PLAYER_POS_X = x * TILE_SIZE_X;
+				PLAYER_POS_Y = y * TILE_SIZE_Y;
 			}
 
 			// draw_element(cub, x, y)
 			if (cub->map[y][x] == '1')
-				drawtexture(&cub->image, &cub->tile.sprite, cub->tile.pos, 1.5);
+				drawtexture(&cub->image, &cub->tile.sprite, cub->tile.pos, 1);
 			else if (cub->map[y][x] == 'S')
 				drawtexture(&cub->image, &cub->ship.sprite, cub->ship.pos, 1.8);
 			else if (cub->map[y][x] == 'C')
-				drawtexture(&cub->image, &cub->towel.sprite, cub->towel.pos, 1.2);
+				drawtexture(&cub->image, &cub->towel.sprite, cub->towel.pos, 1);
 			else if (cub->map[y][x] == 'X')
-				drawtexture(&cub->image, &cub->enemy.sprite, cub->enemy.pos, 1.7);
+				drawtexture(&cub->image, &cub->enemy.sprite, cub->enemy.pos, 1);
 			else if (cub->map[y][x] == 'U')
-				drawtexture(&cub->image, &cub->stairs.sprite, cub->stairs.pos, 1.5);
+				drawtexture(&cub->image, &cub->stairs.sprite, cub->stairs.pos, 1);
 			x++;
 		}
 		y++;
