@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 18:01:59 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/15 03:16:53 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/15 13:29:04 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,14 +62,15 @@ void	clear_item(t_cub *cub)
 	items = cub->items;
 	while (items)
 	{
-		if (items->next->pos.x == PLAYER_POS_X
-			&& items->next->pos.y == PLAYER_POS_Y)
+		if ((PLAYER_POS_X <= items->pos.x + 20 && PLAYER_POS_X >= items->pos.x - 15)
+			&& (PLAYER_POS_Y <= items->pos.y + 20 && PLAYER_POS_Y >= items->pos.y - 15))
 		{
-			tmp = items->next->next;
-			free(items->next);
-			items->next = tmp;
+			tmp = items;
+			items = items->next;
+			free(tmp);
 		}
-		items = items->next;
+		else
+			items = items->next;
 	}
 }
 

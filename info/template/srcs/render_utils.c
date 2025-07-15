@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:00:38 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/15 02:28:07 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/15 14:36:22 by a-soeiro         ###   ########.fr       */
 /* ************************************************************************** */
 
 #include "../includes/cub.h"
@@ -120,15 +120,14 @@ void draw_map(t_cub *cub)
 					PLAYER_POS_X = x * TILE_SIZE_X;
 					PLAYER_POS_Y = y * TILE_SIZE_Y;
 				}
-				else if (cub->map[y][x] == 'C')
+				else if (cub->map[y][x] == 'C') //position_items(cub);
 					position_item(cub);
-				//position_items(cub);
+				else if (cub->map[y][x] == '1')
+					position_wall(cub);
 			}
 
 			// draw_element(cub, x, y)
-			if (cub->map[y][x] == '1')
-				drawtexture(&cub->image, &cub->tile.sprite, cub->tile.pos, 1);
-			else if (cub->map[y][x] == 'S')
+			if (cub->map[y][x] == 'S')
 				drawtexture(&cub->image, &cub->ship.sprite, cub->ship.pos, 1.8);
 			else if (cub->map[y][x] == 'X')
 				drawtexture(&cub->image, &cub->enemy.sprite, cub->enemy.pos, 1);

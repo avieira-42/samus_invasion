@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:06:28 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/15 03:13:21 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/15 15:14:03 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 int	update(t_cub *cub)
 {
 	calculate_Delta(cub);
+	TOUCHING_FLOOR = is_touching_floor(cub);
+	TOUCHING_LEFTWALL = is_touching_wall_left(cub);
+	TOUCHING_RIGHTWALL = is_touching_wall_right(cub);
 	//printf("direction: %f \n", cub->player.direction.x);
 	//printf("velocity.x: %f \n", cub->player.velocity.x);
 	//printf("delta: %f \n", cub->delta); printf("pos.y: %f \n", cub->player.pos.y);
@@ -24,7 +27,7 @@ int	update(t_cub *cub)
 	//printf("jump_elapsed: %f \n", cub->player.jump.t_elapsed);
 	//printf("camera.x: %f \n", cub->camera.x);
 	//printf("velocity.y: %f \n", cub->player.velocity.y);
-	//printf("item_no: %i \n", items_count(cub->items));
+	printf("item_no: %i \n", items_count(cub->items));
 	if (cub->items)
 	{
 		printf("item.x: %f \n", cub->items->pos.x);
@@ -36,8 +39,8 @@ int	update(t_cub *cub)
 
 
 	// SCREEN LIMITS is_play_area()
-	if ((PLAYER_POS_X <= TILE_SIZE_X && PLAYER_DIR_X == -1)
-			|| (PLAYER_POS_X >= SCREEN_END_X && PLAYER_DIR_X == 1))
+	if ((TOUCHING_RIGHTWALL && PLAYER_DIR_X == -1)
+			|| (TOUCHING_LEFTWALL && PLAYER_DIR_X == 1))
 		PLAYER_VEL_X = 0;
 
 
@@ -45,7 +48,7 @@ int	update(t_cub *cub)
 	if (cub->player.jump.active == true)
 	{
 
-		if (PLAYER_POS_Y >= GROUND_LEVEL
+		if (TOUCHING_FLOOR
 				&& cub->player.jump.t_started > 0)
 		{
 			cub->player.jump.active = false; cub->player.jump.t_elapsed = 0; cub->player.jump.t_started = 0;
@@ -69,10 +72,9 @@ int	update(t_cub *cub)
 	{
 		JUMP_VEL = -VELOCITY_Y;
 	}
-	if (PLAYER_POS_Y >= GROUND_LEVEL
+	if (TOUCHING_FLOOR
 			&& cub->player.jump.active == false )
 	{
-		PLAYER_POS_Y = GROUND_LEVEL;
 		JUMP_VEL = 0;
 	}
 
@@ -82,10 +84,10 @@ int	update(t_cub *cub)
 	// MOVEMENT (get_movement())
 	PLAYER_POS_Y += PLAYER_VEL_Y * DELTA_T;
 	PLAYER_POS_X += PLAYER_DIR_X * PLAYER_VEL_X * DELTA_T;
-	return (1);
 
 	// ITEM COLLECTING
 	clear_item(cub);
+	return (1);
 }
 
 int	renderer(t_cub *cub)
@@ -109,6 +111,7 @@ int	renderer(t_cub *cub)
 	drawtexture(&cub->image, &cub->bckgrnd.sprite, cub->bckgrnd.pos, cub->bckgrnd.scale *= multiplier);
 	draw_map(cub);
 	draw_items(cub);
+	draw_walls(cub);
 	drawtexture(&cub->image, &cub->player.sprite, cub->player.camera, 1);
 
 	mlx_put_image_to_window(cub->mlx_ptr, cub->win_ptr, cub->image.image, 0, 0);

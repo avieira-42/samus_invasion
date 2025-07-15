@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/15 02:52:27 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/15 14:30:01 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@
 # define PLAYER_POS_Y cub->player.pos.y
 # define PLAYER_DIR_X cub->player.direction.x
 # define PLAYER_DIR_Y cub->player.direction.y
+# define TOUCHING_FLOOR cub->player.touching_ground
+# define TOUCHING_LEFTWALL cub->player.touching_leftwall
+# define TOUCHING_RIGHTWALL cub->player.touching_rightwall
 # define DELTA_T cub->delta
 
 typedef struct s_point
@@ -133,6 +136,9 @@ typedef struct s_stairs
 
 typedef struct s_player
 {
+	bool	touching_ground;
+	bool	touching_leftwall;
+	bool	touching_rightwall;
 	t_point pos;
 	t_point direction;
 	t_point velocity;
@@ -146,8 +152,9 @@ typedef struct s_player
 
 typedef struct s_tile
 {
-	t_image	sprite;
-	t_point	pos;
+	t_image			sprite;
+	t_point			pos;
+	struct s_tile	*next;
 }	t_tile;
 
 typedef struct s_ship
@@ -170,6 +177,7 @@ typedef struct s_cub
 	t_image		image;
 	t_bckgrnd	bckgrnd;
 	t_tile		tile;
+	t_tile		*walls;
 	t_ship		ship;
 	t_item		towel;
 	t_item		*items;
@@ -216,6 +224,18 @@ void	clear_item(t_cub *cub);
 void	add_item(t_item **items, t_item *new_item);
 void	free_item(t_item *items);
 t_item	*new_item(t_cub* cub);
+
+//wall render
+void	position_wall(t_cub *cub);
+void	draw_walls(t_cub *cub);
+int		is_touching_floor(t_cub *cub);
+
+//wall render utils
+t_tile *new_wall(t_cub *cub);
+void	add_wall(t_tile **walls, t_tile *new_wall);
+int		is_touching_wall_left(t_cub *cub);
+int		is_touching_wall_right(t_cub *cub);
+int		is_touching_floor(t_cub *cub);
 
 //struct utils
 int			check_args(char *str);
