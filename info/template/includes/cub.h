@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/15 14:30:01 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/15 23:56:37 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define TILE_SIZE_Y 48
 # define GRAVITY 3000
 # define VELOCITY_Y -1000
+# define WALL_VELOCITY -100
 # define VELOCITY_X	400
 # define MAX_SPEED 500
 # define PLAYER_VEL_X cub->player.velocity.x
@@ -173,6 +174,7 @@ typedef struct s_cub
 	int			map_height;
 	int			map_width;
 	float		delta;
+	float		ground_pos;
 	long long	last_frame_time;
 	t_image		image;
 	t_bckgrnd	bckgrnd;

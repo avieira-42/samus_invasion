@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 20:00:15 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/15 15:10:55 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/16 00:20:26 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,14 @@ int	is_touching_floor(t_cub *cub)
 	walls = cub->walls;
 	while (walls)
 	{
-		if (PLAYER_POS_Y >= walls->pos.y - 30
-			&& PLAYER_POS_Y <= walls->pos.y
+		if (PLAYER_POS_Y >= walls->pos.y - 48
+			&& PLAYER_POS_Y <= walls->pos.y - 10
 			&& PLAYER_POS_X >= walls->pos.x - 48
 			&& PLAYER_POS_X <= walls->pos.x + 48)
+		{
+			cub->ground_pos = walls->pos.y - 48;
 			return (1);
+		}
 		walls = walls->next;
 	}
 	return (0);

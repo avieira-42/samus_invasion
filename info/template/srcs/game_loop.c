@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:06:28 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/15 15:14:03 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/15 23:56:01 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ int	update(t_cub *cub)
 	//printf("jump_elapsed: %f \n", cub->player.jump.t_elapsed);
 	//printf("camera.x: %f \n", cub->camera.x);
 	//printf("velocity.y: %f \n", cub->player.velocity.y);
-	printf("item_no: %i \n", items_count(cub->items));
+	//printf("item_no: %i \n", items_count(cub->items));
+	printf("tile_pos.x: %f \n", cub->towel.pos.x);
+	printf("tile_pos.y: %f \n", cub->towel.pos.y);
 	if (cub->items)
 	{
 		printf("item.x: %f \n", cub->items->pos.x);
@@ -76,13 +78,18 @@ int	update(t_cub *cub)
 			&& cub->player.jump.active == false )
 	{
 		JUMP_VEL = 0;
+		PLAYER_POS_Y = cub->ground_pos;
 	}
+	
+	if (TOUCHING_RIGHTWALL || TOUCHING_LEFTWALL)
+		PLAYER_POS_Y += PLAYER_DIR_Y * WALL_VELOCITY * DELTA_T;
 
 	//INIT VELOCITY (vel_init())
 	PLAYER_VEL_Y = JUMP_VEL + GRAVITY * cub->player.jump.t_elapsed;
 
 	// MOVEMENT (get_movement())
-	PLAYER_POS_Y += PLAYER_VEL_Y * DELTA_T;
+	if (!TOUCHING_RIGHTWALL && !TOUCHING_LEFTWALL)
+		PLAYER_POS_Y += PLAYER_VEL_Y * DELTA_T;
 	PLAYER_POS_X += PLAYER_DIR_X * PLAYER_VEL_X * DELTA_T;
 
 	// ITEM COLLECTING

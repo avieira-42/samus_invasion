@@ -29,6 +29,7 @@ game_start	game_loop.c	/^void	game_start(t_cub *cub)$/;"	f
 get_mouse_position	get_mouse_pos.c	/^t_point get_mouse_position(t_cub *cub)$/;"	f
 get_time	get_time.c	/^long long	get_time(void)$/;"	f
 init_window	init_window.c	/^void	init_window(t_cub *cub)$/;"	f
+is_touching_floor	wall_render.c	/^int	is_touching_floor(t_cub *cub)$/;"	f
 is_touching_wall_left	wall_render_utils.c	/^int	is_touching_wall_left(t_cub *cub)$/;"	f
 is_touching_wall_right	wall_render_utils.c	/^int	is_touching_wall_right(t_cub *cub)$/;"	f
 items_count	item_render_utils.c	/^int	items_count(t_item *items)$/;"	f
@@ -36,11 +37,10 @@ key_pressed	input_handler.c	/^int	key_pressed(int keysym, t_cub *cub)$/;"	f
 key_released	input_handler.c	/^int	key_released(int keysym, t_cub *cub)$/;"	f
 main	main.c	/^int	main(void)$/;"	f
 new_item	item_render_utils.c	/^t_item  *new_item(t_cub* cub)$/;"	f
-new_wall	wall_render_utils.c	/^t_tile  *new_wall(t_cub* cub)$/;"	f
+new_wall	wall_render_utils.c	/^t_tile  *new_wall(t_cub *cub)$/;"	f
 normalize	math.c	/^t_point	normalize(t_point point)$/;"	f
 position_item	item_render.c	/^void	position_item(t_cub *cub)$/;"	f
 position_wall	wall_render.c	/^void	position_wall(t_cub *cub)$/;"	f
 read_map	render_utils.c	/^char	**read_map(void)$/;"	f
 renderer	game_loop.c	/^int	renderer(t_cub *cub)$/;"	f
-touching_floor	wall_render.c	/^void	touching_floor(t_cub *cub)$/;"	f
 update	game_loop.c	/^int	update(t_cub *cub)$/;"	f
