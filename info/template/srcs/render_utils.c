@@ -6,8 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:00:38 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/09 12:43:51 by a-soeiro         ###   ########.fr       */
-/*                                                                            */
+/*   Updated: 2025/07/15 02:28:07 by a-soeiro         ###   ########.fr       */
 /* ************************************************************************** */
 
 #include "../includes/cub.h"
@@ -37,7 +36,7 @@ int ft_get_color(t_image *data, int x, int y)
 	return (*color);
 }
 
-void	drawtexture(t_image *image, t_image *texture, t_point pos, float scale)
+void	drawtexture(t_image *image, t_image *texture, t_point pos, long double scale)
 {
 	int	x;
 	int y;
@@ -106,18 +105,24 @@ void draw_map(t_cub *cub)
 			cub->ship.pos.y = y * 37;
 			cub->enemy.pos.x = x * TILE_SIZE_X - cub->camera.x;
 			cub->enemy.pos.y = y * TILE_SIZE_Y;
-			cub->towel.pos.x = x * TILE_SIZE_X - cub->camera.x;
+			cub->towel.pos.x = x * TILE_SIZE_X;
 			cub->towel.pos.y = y * TILE_SIZE_Y;
 			cub->stairs.pos.x = x * TILE_SIZE_X - cub->camera.x;
 			cub->stairs.pos.y = y * TILE_SIZE_Y;
 			/*cub->portal.pos.x = x * PORTAL_SIZE_X - cub->camera.x;
 			  cub->portal.pos.y = y * PORTAL_SIZE_Y*/  // IF PLAYER MEETS EXIT AND COLLECTIBLE ARE ALL GATHERED, EXIT
 
-			// position_player(cub);
-			if (cub->game_start == false && cub->map[y][x] == 'P')
+			if (cub->game_start == false)
 			{
-				PLAYER_POS_X = x * TILE_SIZE_X;
-				PLAYER_POS_Y = y * TILE_SIZE_Y;
+				if (cub->map[y][x] == 'P')
+				{
+					// position_player(cu);
+					PLAYER_POS_X = x * TILE_SIZE_X;
+					PLAYER_POS_Y = y * TILE_SIZE_Y;
+				}
+				else if (cub->map[y][x] == 'C')
+					position_item(cub);
+				//position_items(cub);
 			}
 
 			// draw_element(cub, x, y)
@@ -125,8 +130,6 @@ void draw_map(t_cub *cub)
 				drawtexture(&cub->image, &cub->tile.sprite, cub->tile.pos, 1);
 			else if (cub->map[y][x] == 'S')
 				drawtexture(&cub->image, &cub->ship.sprite, cub->ship.pos, 1.8);
-			else if (cub->map[y][x] == 'C')
-				drawtexture(&cub->image, &cub->towel.sprite, cub->towel.pos, 1);
 			else if (cub->map[y][x] == 'X')
 				drawtexture(&cub->image, &cub->enemy.sprite, cub->enemy.pos, 1);
 			else if (cub->map[y][x] == 'U')

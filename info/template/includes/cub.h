@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/09 12:47:25 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/15 02:52:27 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@
 # include <sys/time.h>
 # include <stdbool.h>
 
-# define SCREEN_SIZE_X 1920
-# define SCREEN_SIZE_Y 1056
-# define SCREEN_END_X 5935
+# define SCREEN_SIZE_X 1296
+# define SCREEN_SIZE_Y 720
+# define SCREEN_END_X 2304
+# define CAMERA_END_X 1104
+# define GROUND_LEVEL 624
 # define LINE_COLOR 0xFFFFFF
 # define TILE_SIZE_X 48
 # define TILE_SIZE_Y 48
@@ -34,6 +36,7 @@
 # define PLAYER_VEL_X cub->player.velocity.x
 # define PLAYER_VEL_Y cub->player.velocity.y
 # define JUMP_VEL cub->player.jump.velocity
+# define PLAYER_POS cub->player.pos
 # define PLAYER_POS_X cub->player.pos.x
 # define PLAYER_POS_Y cub->player.pos.y
 # define PLAYER_DIR_X cub->player.direction.x
@@ -78,7 +81,9 @@ typedef	struct s_atck
 {
 	bool	active;
 	float	duration;
-	float	t_started; float	t_elapsed; t_point	direction;
+	float	t_started;
+	float	t_elapsed;
+	t_point	direction;
 }	t_atck;
 
 typedef struct s_image
@@ -102,8 +107,9 @@ typedef struct s_attack
 
 typedef struct s_item
 {
-	t_point	pos;
-	t_image	sprite;
+	t_point			pos;
+	t_image			sprite;
+	struct s_item	*next;
 }	t_item;
 
 typedef struct s_enemy
@@ -116,6 +122,7 @@ typedef struct s_bckgrnd
 {
 	t_point		pos;
 	t_image		sprite;
+	long double	scale;
 }	t_bckgrnd;
 
 typedef struct s_stairs
@@ -165,6 +172,7 @@ typedef struct s_cub
 	t_tile		tile;
 	t_ship		ship;
 	t_item		towel;
+	t_item		*items;
 	t_point		camera;
 	t_enemy		enemy;
 	t_player	player;
@@ -192,13 +200,23 @@ void	draw_map(t_cub *cub);
 
 //render utils
 void		drawobj(t_image *image, t_point pos, t_point size, int color);
-t_image		*get_wall_color_from_direction(t_cub *cub, int side, float ray_x, float ray_y);
 void		ft_pixelput(t_image *data, int x, int y, int color);
 void		drawline(t_cub *cub, t_point start, t_point dest);
-void		drawtexture(t_image *image, t_image *texture, t_point pos, float scale);
+void		drawtexture(t_image *image, t_image *texture, t_point pos, long double scale);
 void		circleBres(t_cub *cub, int xc, int yc, int r);
+t_image		*get_wall_color_from_direction(t_cub *cub, int side, float ray_x, float ray_y);
 
-t_point		get_mouse_position(t_cub *cub);
+//item render
+void    position_item(t_cub *cub);
+void    draw_items(t_cub *cub);
+
+//item render utils
+int		items_count(t_item *items);
+void	clear_item(t_cub *cub);
+void	add_item(t_item **items, t_item *new_item);
+void	free_item(t_item *items);
+t_item	*new_item(t_cub* cub);
+
 //struct utils
 int			check_args(char *str);
 

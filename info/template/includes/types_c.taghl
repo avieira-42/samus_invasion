@@ -1,5 +1,5 @@
-syn keyword CTagsStructure s_point s_jump s_attack s_image s_atck s_player s_dash s_proj s_cub
-syn keyword CTagsMember north_texture t_elapsed win_ptr map player line_length delta tile platform direction map_width active pos addr dash attack jump y t_started last_frame_time mlx_ptr duration image camera projectile x bits_per_pixel south_texture east_texture sprite velocity west_texture endian is_active map_height fd bckgrnd
-syn keyword CTagsType t_dash t_player t_cub t_attack t_jump t_image t_proj t_atck t_point
-syn keyword CTagsDefinedName SCREEN_SIZE_X TILE_SIZE_Y MAX_SPEED LINE_COLOR GRAVITY TILE_SIZE_X SCREEN_SIZE_Y cub_H ACCEL
+syn keyword CTagsStructure s_point s_player s_proj s_jump s_atck s_ship s_stairs s_image s_bckgrnd s_attack s_enemy s_cub s_tile s_dash s_item
+syn keyword CTagsMember map pos d_traveled velocity projectile ship direction enemy endian active delta stairs tile map_height duration last_frame_time items attack map_width bits_per_pixel line_length y bckgrnd camera player offset game_start addr x sprite jump towel fd t_started mlx_ptr image win_ptr is_active t_elapsed scale next dash
+syn keyword CTagsType t_point t_atck t_jump t_tile t_enemy t_cub t_image t_player t_proj t_ship t_stairs t_dash t_attack t_bckgrnd t_item
+syn keyword CTagsDefinedName TILE_SIZE_X VELOCITY_X LINE_COLOR PLAYER_VEL_Y SCREEN_SIZE_X DELTA_T PLAYER_DIR_X JUMP_VEL MAX_SPEED SCREEN_SIZE_Y CAMERA_END_X PLAYER_VEL_X GRAVITY cub_H TILE_SIZE_Y PLAYER_DIR_Y PLAYER_POS_Y SCREEN_END_X GROUND_LEVEL VELOCITY_Y PLAYER_POS_X
 

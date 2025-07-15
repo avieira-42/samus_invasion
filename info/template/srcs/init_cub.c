@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:03:20 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/09 02:03:11 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/15 00:29:12 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	cub_init(t_cub *cub)
 	
 
 	cub->fd = 0;
+	cub->items = NULL;
 	cub->delta = 0;
 	cub->game_start = false;
 	cub->last_frame_time = get_time();
@@ -59,6 +60,7 @@ void	cub_init(t_cub *cub)
 	cub->player.attack.t_elapsed = 0;
 
 	// INITIALIZE BACKGROUND (bckgrnd_init())
+	cub->bckgrnd.scale = 0.7;
 	cub->bckgrnd.sprite.image = mlx_xpm_file_to_image(cub->mlx_ptr, "sprites/quasar.xpm", &cub->bckgrnd.sprite.x, &cub->bckgrnd.sprite.y);
 	cub->bckgrnd.sprite.addr = mlx_get_data_addr(cub->bckgrnd.sprite.image, &cub->bckgrnd.sprite.bits_per_pixel, &cub->bckgrnd.sprite.line_length, &cub->bckgrnd.sprite.endian);
 

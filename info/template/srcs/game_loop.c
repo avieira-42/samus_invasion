@@ -6,30 +6,38 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:06:28 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/09 12:53:03 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/15 03:13:21 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub.h"
 #include <stdio.h>
-int	update(t_cub *cub) {
+int	update(t_cub *cub)
+{
 	calculate_Delta(cub);
-	printf("direction: %f \n", cub->player.direction.x);
-	printf("velocity.x: %f \n", cub->player.velocity.x);
-	printf("delta: %f \n", cub->delta); printf("pos.y: %f \n", cub->player.pos.y);
+	//printf("direction: %f \n", cub->player.direction.x);
+	//printf("velocity.x: %f \n", cub->player.velocity.x);
+	//printf("delta: %f \n", cub->delta); printf("pos.y: %f \n", cub->player.pos.y);
 	printf("pos.x: %f \n", cub->player.pos.x);
-	printf("jump_started: %f \n", cub->player.jump.t_started);
-	printf("jump_elapsed: %f \n", cub->player.jump.t_elapsed);
-	printf("camera.x: %f \n", cub->camera.x);
-	printf("velocity.y: %f \n", cub->player.velocity.y);
+	printf("pos.y: %f \n", cub->player.pos.y);
+	//printf("jump_started: %f \n", cub->player.jump.t_started);
+	//printf("jump_elapsed: %f \n", cub->player.jump.t_elapsed);
+	//printf("camera.x: %f \n", cub->camera.x);
+	//printf("velocity.y: %f \n", cub->player.velocity.y);
+	//printf("item_no: %i \n", items_count(cub->items));
+	if (cub->items)
+	{
+		printf("item.x: %f \n", cub->items->pos.x);
+		printf("item.y: %f \n", cub->items->pos.y);
+	}
 
 	//INIT VELOCITY_X
 	PLAYER_VEL_X = VELOCITY_X;
 
 
 	// SCREEN LIMITS is_play_area()
-	if ((PLAYER_POS_X <= TILE_SIZE_Y && PLAYER_DIR_X == -1)
-		|| (PLAYER_POS_X >= SCREEN_END_X && PLAYER_DIR_X == 1))
+	if ((PLAYER_POS_X <= TILE_SIZE_X && PLAYER_DIR_X == -1)
+			|| (PLAYER_POS_X >= SCREEN_END_X && PLAYER_DIR_X == 1))
 		PLAYER_VEL_X = 0;
 
 
@@ -37,37 +45,34 @@ int	update(t_cub *cub) {
 	if (cub->player.jump.active == true)
 	{
 
-		if (PLAYER_POS_Y >= SCREEN_SIZE_Y - TILE_SIZE_Y * 2
-			&& cub->player.jump.t_started > 0)
+		if (PLAYER_POS_Y >= GROUND_LEVEL
+				&& cub->player.jump.t_started > 0)
 		{
-			cub->player.jump.active = false;
-			cub->player.jump.t_elapsed = 0;
-			cub->player.jump.t_started = 0;
+			cub->player.jump.active = false; cub->player.jump.t_elapsed = 0; cub->player.jump.t_started = 0;
 			cub->player.jump.d_traveled = 0;
 		}
-
 		if (PLAYER_VEL_Y == 0 && cub->player.jump.t_started == 0)
 			JUMP_VEL = VELOCITY_Y;
 
 		if(cub->player.jump.active == true)
 		{
 			if (cub->player.jump.t_started == 0)
-			cub->player.jump.t_started = cub->delta;
+				cub->player.jump.t_started = cub->delta;
 
 			cub->player.jump.t_elapsed += cub->delta;
 		}
 	}
 
 	// FALLING UNTIL FLOOR (check falling())
-	if (PLAYER_POS_Y < SCREEN_SIZE_Y - TILE_SIZE_Y * 2
-		&& cub->player.jump.active == false)
+	if (PLAYER_POS_Y <= GROUND_LEVEL
+			&& cub->player.jump.active == false)
 	{
 		JUMP_VEL = -VELOCITY_Y;
 	}
-	if (PLAYER_POS_Y >= SCREEN_SIZE_Y - TILE_SIZE_Y * 2
-		&& cub->player.jump.active == false )
+	if (PLAYER_POS_Y >= GROUND_LEVEL
+			&& cub->player.jump.active == false )
 	{
-		PLAYER_POS_Y = SCREEN_SIZE_Y - TILE_SIZE_Y * 2;
+		PLAYER_POS_Y = GROUND_LEVEL;
 		JUMP_VEL = 0;
 	}
 
@@ -78,25 +83,32 @@ int	update(t_cub *cub) {
 	PLAYER_POS_Y += PLAYER_VEL_Y * DELTA_T;
 	PLAYER_POS_X += PLAYER_DIR_X * PLAYER_VEL_X * DELTA_T;
 	return (1);
+
+	// ITEM COLLECTING
+	clear_item(cub);
 }
 
 int	renderer(t_cub *cub)
 {
+	long double	multiplier;
+
+	multiplier = 1.000;
 	cub->camera.x = cub->player.pos.x - SCREEN_SIZE_X / 2;
 
 	// update_camera(cub);
 	if (cub->camera.x < 0)
 		cub->camera.x = 0;
-	if (cub->camera.x > 4129)
-		cub->camera.x = 4129;
+	if (cub->camera.x > CAMERA_END_X)
+		cub->camera.x = CAMERA_END_X;
 	cub->player.camera.x = PLAYER_POS_X - cub->camera.x;
 	cub->player.camera.y = PLAYER_POS_Y;
 
 	(*cub).image.image = mlx_new_image((*cub).mlx_ptr, SCREEN_SIZE_X, SCREEN_SIZE_Y);
 	(*cub).image.addr = mlx_get_data_addr((*cub).image.image, &(*cub).image.bits_per_pixel, &(*cub).image.line_length, &(*cub).image.endian);
 
-	drawtexture(&cub->image, &cub->bckgrnd.sprite, cub->bckgrnd.pos, 1);
+	drawtexture(&cub->image, &cub->bckgrnd.sprite, cub->bckgrnd.pos, cub->bckgrnd.scale *= multiplier);
 	draw_map(cub);
+	draw_items(cub);
 	drawtexture(&cub->image, &cub->player.sprite, cub->player.camera, 1);
 
 	mlx_put_image_to_window(cub->mlx_ptr, cub->win_ptr, cub->image.image, 0, 0);
