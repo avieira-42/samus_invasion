@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/16 21:20:35 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/16 22:37:59 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@
 # define LINE_COLOR 0xFFFFFF
 # define TILE_SIZE_X 48
 # define TILE_SIZE_Y 48
-# define GRAVITY 1000
-# define VELOCITY_Y -1000
+# define GRAVITY_ACC 800
+# define GRAVITY cub->gravity
+# define VELOCITY_Y -900
 # define WALL_VELOCITY -100
 # define VELOCITY_X	400
 # define MAX_SPEED 500
@@ -187,6 +188,7 @@ typedef struct s_cub
 	int			fd;
 	int			map_height;
 	int			map_width;
+	int			gravity;
 	float		delta;
 	float		ground_pos;
 	float		right_wall_pos;

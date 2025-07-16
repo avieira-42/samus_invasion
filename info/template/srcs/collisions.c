@@ -6,19 +6,11 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:17:13 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/16 17:41:07 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/16 22:21:34 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub.h"
-
-int	aabb_overlap(t_point apos, t_vect avect, t_point bpos, t_vect bvect)
-{
-	return (apos.x < bpos.x + bvect.width
-			&& apos.x + avect.width > bpos.x
-			&& apos.y < bpos.y + bvect.height 
-			&& apos.y + avect.height > bpos.y);
-}
 
 int	is_touching_wall_left(t_cub *cub)
 {
@@ -27,9 +19,12 @@ int	is_touching_wall_left(t_cub *cub)
 	walls = cub->walls;
 	while (walls)
 	{
-		if (aabb_overlap(PLAYER_POS, PLAYER_VECT, walls->pos, walls->vect)
-			&& PLAYER_POS_X <= walls->pos.x)
+		if (PLAYER_POS_X + PLAYER_WIDTH <= walls->pos.x + TILE_SIZE_X / 2
+			&& PLAYER_POS_X + PLAYER_WIDTH >= walls->pos.x - 10
+			&& PLAYER_POS_Y >= walls->pos.y - 40
+			&& PLAYER_POS_Y <= walls->pos.y)
 		{
+			cub->left_wall_pos = walls->pos.x - PLAYER_WIDTH - 7;
 			return (1);
 		}
 		walls = walls->next;
@@ -37,16 +32,19 @@ int	is_touching_wall_left(t_cub *cub)
 	return (0);
 }
 
-int is_touching_wall_right(t_cub *cub)
+int	is_touching_wall_right(t_cub *cub)
 {
 	t_tile *walls;
 
 	walls = cub->walls;
 	while (walls)
 	{
-		if (aabb_overlap(PLAYER_POS, PLAYER_VECT, walls->pos, walls->vect)
-				&& PLAYER_POS_X >= walls->pos.x + walls->vect.width)
+		if (PLAYER_POS_X >= walls->pos.x + TILE_SIZE_X / 2
+			&& PLAYER_POS_X <= walls->pos.x + TILE_SIZE_X + 10
+			&& PLAYER_POS_Y >= walls->pos.y - 40
+			&& PLAYER_POS_Y <= walls->pos.y)
 		{
+			cub->right_wall_pos = walls->pos.x + TILE_SIZE_X + 7;
 			return (1);
 		}
 		walls = walls->next;
@@ -61,10 +59,14 @@ int	is_touching_floor(t_cub *cub)
 	walls = cub->walls;
 	while (walls)
 	{
-		if (aabb_overlap(PLAYER_POS, PLAYER_VECT, walls->pos, walls->vect)
-			&& PLAYER_POS_Y <= walls->pos.y)
+		if (PLAYER_POS_Y + PLAYER_HEIGHT + 23 >= walls->pos.y
+			&& PLAYER_POS_Y + PLAYER_HEIGHT / 2 <= walls->pos.y
+			&& ((PLAYER_POS_X + PLAYER_WIDTH <= walls->pos.x + TILE_SIZE_X
+			&& PLAYER_POS_X + PLAYER_WIDTH >= walls->pos.x)
+			|| (PLAYER_POS_X >= walls->pos.x
+			&& PLAYER_POS_X <= walls->pos.x + TILE_SIZE_X)))
 		{
-			cub->ground_pos = walls->pos.y - 100;
+			cub->ground_pos = walls->pos.y - 48;
 			return (1);
 		}
 		walls = walls->next;

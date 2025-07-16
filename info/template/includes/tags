@@ -5,48 +5,55 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 CAMERA_END_X	cub.h	27;"	d
-DELTA_T	cub.h	47;"	d
-GRAVITY	cub.h	32;"	d
+DELTA_T	cub.h	54;"	d
+GRABBING_WALL	cub.h	53;"	d
+GRAVITY_ACC	cub.h	32;"	d
+GRAVITY	cub.h	33;"	d
 GROUND_LEVEL	cub.h	28;"	d
-JUMP_VEL	cub.h	38;"	d
+JUMP_VEL	cub.h	44;"	d
 LINE_COLOR	cub.h	29;"	d
-MAX_SPEED	cub.h	35;"	d
-PLAYER_DIR_X	cub.h	42;"	d
-PLAYER_DIR_Y	cub.h	43;"	d
-PLAYER_POS_X	cub.h	40;"	d
-PLAYER_POS_Y	cub.h	41;"	d
-PLAYER_POS	cub.h	39;"	d
-PLAYER_VEL_X	cub.h	36;"	d
-PLAYER_VEL_Y	cub.h	37;"	d
+MAX_SPEED	cub.h	37;"	d
+PLAYER_DIR_X	cub.h	48;"	d
+PLAYER_DIR_Y	cub.h	49;"	d
+PLAYER_HEIGHT	cub.h	39;"	d
+PLAYER_POS_X	cub.h	46;"	d
+PLAYER_POS_Y	cub.h	47;"	d
+PLAYER_POS	cub.h	40;"	d
+PLAYER_POS	cub.h	45;"	d
+PLAYER_VECT	cub.h	41;"	d
+PLAYER_VEL_X	cub.h	42;"	d
+PLAYER_VEL_Y	cub.h	43;"	d
+PLAYER_WIDTH	cub.h	38;"	d
 SCREEN_END_X	cub.h	26;"	d
 SCREEN_SIZE_X	cub.h	24;"	d
 SCREEN_SIZE_Y	cub.h	25;"	d
 TILE_SIZE_X	cub.h	30;"	d
 TILE_SIZE_Y	cub.h	31;"	d
-TOUCHING_FLOOR	cub.h	44;"	d
-TOUCHING_LEFTWALL	cub.h	45;"	d
-TOUCHING_RIGHTWALL	cub.h	46;"	d
-VELOCITY_X	cub.h	34;"	d
-VELOCITY_Y	cub.h	33;"	d
+TOUCHING_FLOOR	cub.h	50;"	d
+TOUCHING_LEFTWALL	cub.h	51;"	d
+TOUCHING_RIGHTWALL	cub.h	52;"	d
+VELOCITY_X	cub.h	36;"	d
+VELOCITY_Y	cub.h	34;"	d
+WALL_VELOCITY	cub.h	35;"	d
 active	cub.h	/^	bool	active;$/;"	m	struct:s_atck
 active	cub.h	/^	bool	active;$/;"	m	struct:s_dash
 active	cub.h	/^	bool	active;$/;"	m	struct:s_jump
 active	cub.h	/^	bool	active;$/;"	m	struct:s_proj
 addr	cub.h	/^	char	*addr;$/;"	m	struct:s_image
-attack	cub.h	/^	t_atck	attack;$/;"	m	struct:s_player
+attack	cub.h	/^	t_atck			attack;$/;"	m	struct:s_player
 bckgrnd	cub.h	/^	t_bckgrnd	bckgrnd;$/;"	m	struct:s_cub
 bits_per_pixel	cub.h	/^	int		bits_per_pixel;$/;"	m	struct:s_image
+camera	cub.h	/^	t_point			camera;$/;"	m	struct:s_player
 camera	cub.h	/^	t_point		camera;$/;"	m	struct:s_cub
-camera	cub.h	/^	t_point	camera;$/;"	m	struct:s_player
 cub_H	cub.h	14;"	d
 d_traveled	cub.h	/^	float	d_traveled;$/;"	m	struct:s_jump
-dash	cub.h	/^	t_dash	dash;$/;"	m	struct:s_player
+dash	cub.h	/^	t_dash			dash;$/;"	m	struct:s_player
 delta	cub.h	/^	float		delta;$/;"	m	struct:s_cub
 direction	cub.h	/^	t_point	direction;$/;"	m	struct:s_atck
 direction	cub.h	/^	t_point	direction;$/;"	m	struct:s_attack
 direction	cub.h	/^	t_point	direction;$/;"	m	struct:s_dash
 direction	cub.h	/^	t_point	direction;$/;"	m	struct:s_proj
-direction	cub.h	/^	t_point direction;$/;"	m	struct:s_player
+direction	cub.h	/^	t_point 		direction;$/;"	m	struct:s_player
 duration	cub.h	/^	float	duration;$/;"	m	struct:s_atck
 duration	cub.h	/^	float	duration;$/;"	m	struct:s_dash
 duration	cub.h	/^	float	duration;$/;"	m	struct:s_jump
@@ -55,12 +62,17 @@ endian	cub.h	/^	int		endian;$/;"	m	struct:s_image
 enemy	cub.h	/^	t_enemy		enemy;$/;"	m	struct:s_cub
 fd	cub.h	/^	int			fd;$/;"	m	struct:s_cub
 game_start	cub.h	/^	bool		game_start;$/;"	m	struct:s_cub
+grabbing_wall	cub.h	/^	bool			grabbing_wall;$/;"	m	struct:s_player
+gravity	cub.h	/^	int			gravity;$/;"	m	struct:s_cub
+ground_pos	cub.h	/^	float		ground_pos;$/;"	m	struct:s_cub
+height	cub.h	/^	float	height;$/;"	m	struct:s_vect
 image	cub.h	/^	t_image		image;$/;"	m	struct:s_cub
 image	cub.h	/^	void	*image;$/;"	m	struct:s_image
 is_active	cub.h	/^	bool	is_active;$/;"	m	struct:s_attack
 items	cub.h	/^	t_item		*items;$/;"	m	struct:s_cub
-jump	cub.h	/^	t_jump 	jump;$/;"	m	struct:s_player
+jump	cub.h	/^	t_jump 			jump;$/;"	m	struct:s_player
 last_frame_time	cub.h	/^	long long	last_frame_time;$/;"	m	struct:s_cub
+left_wall_pos	cub.h	/^	float		left_wall_pos;$/;"	m	struct:s_cub
 line_length	cub.h	/^	int		line_length;$/;"	m	struct:s_image
 map_height	cub.h	/^	int			map_height;$/;"	m	struct:s_cub
 map_width	cub.h	/^	int			map_width;$/;"	m	struct:s_cub
@@ -75,8 +87,9 @@ pos	cub.h	/^	t_point		pos;$/;"	m	struct:s_bckgrnd
 pos	cub.h	/^	t_point		pos;$/;"	m	struct:s_stairs
 pos	cub.h	/^	t_point	pos;$/;"	m	struct:s_enemy
 pos	cub.h	/^	t_point	pos;$/;"	m	struct:s_ship
-pos	cub.h	/^	t_point pos;$/;"	m	struct:s_player
-projectile	cub.h	/^	t_proj	projectile;$/;"	m	struct:s_player
+pos	cub.h	/^	t_point 		pos;$/;"	m	struct:s_player
+projectile	cub.h	/^	t_proj			projectile;$/;"	m	struct:s_player
+right_wall_pos	cub.h	/^	float		right_wall_pos;$/;"	m	struct:s_cub
 s_atck	cub.h	/^typedef	struct s_atck$/;"	s
 s_attack	cub.h	/^typedef struct s_attack$/;"	s
 s_bckgrnd	cub.h	/^typedef struct s_bckgrnd$/;"	s
@@ -92,14 +105,15 @@ s_proj	cub.h	/^typedef struct s_proj$/;"	s
 s_ship	cub.h	/^typedef struct s_ship$/;"	s
 s_stairs	cub.h	/^typedef struct s_stairs$/;"	s
 s_tile	cub.h	/^typedef struct s_tile$/;"	s
+s_vect	cub.h	/^typedef struct s_vect$/;"	s
 scale	cub.h	/^	long double	scale;$/;"	m	struct:s_bckgrnd
 ship	cub.h	/^	t_ship		ship;$/;"	m	struct:s_cub
 sprite	cub.h	/^	t_image			sprite;$/;"	m	struct:s_item
+sprite	cub.h	/^	t_image			sprite;$/;"	m	struct:s_player
 sprite	cub.h	/^	t_image			sprite;$/;"	m	struct:s_tile
 sprite	cub.h	/^	t_image		sprite;$/;"	m	struct:s_bckgrnd
 sprite	cub.h	/^	t_image		sprite;$/;"	m	struct:s_stairs
 sprite	cub.h	/^	t_image	sprite;$/;"	m	struct:s_enemy
-sprite	cub.h	/^	t_image	sprite;$/;"	m	struct:s_player
 sprite	cub.h	/^	t_image sprite;$/;"	m	struct:s_ship
 stairs	cub.h	/^	t_stairs	stairs;$/;"	m	struct:s_cub
 t_atck	cub.h	/^}	t_atck;$/;"	t	typeref:struct:s_atck
@@ -127,14 +141,18 @@ t_started	cub.h	/^	float	t_started;$/;"	m	struct:s_dash
 t_started	cub.h	/^	float	t_started;$/;"	m	struct:s_jump
 t_started	cub.h	/^	float	t_started;$/;"	m	struct:s_proj
 t_tile	cub.h	/^}	t_tile;$/;"	t	typeref:struct:s_tile
+t_vect	cub.h	/^}	t_vect;$/;"	t	typeref:struct:s_vect
 tile	cub.h	/^	t_tile		tile;$/;"	m	struct:s_cub
-touching_ground	cub.h	/^	bool	touching_ground;$/;"	m	struct:s_player
-touching_leftwall	cub.h	/^	bool	touching_leftwall;$/;"	m	struct:s_player
-touching_rightwall	cub.h	/^	bool	touching_rightwall;$/;"	m	struct:s_player
+touching_ground	cub.h	/^	bool			touching_ground;$/;"	m	struct:s_player
+touching_leftwall	cub.h	/^	bool			touching_leftwall;$/;"	m	struct:s_player
+touching_rightwall	cub.h	/^	bool			touching_rightwall;$/;"	m	struct:s_player
 towel	cub.h	/^	t_item		towel;$/;"	m	struct:s_cub
+vect	cub.h	/^	t_vect			vect;$/;"	m	struct:s_player
+vect	cub.h	/^	t_vect			vect;$/;"	m	struct:s_tile
 velocity	cub.h	/^	float	velocity;$/;"	m	struct:s_jump
-velocity	cub.h	/^	t_point velocity;$/;"	m	struct:s_player
-walls	cub.h	/^	t_tile		walls;$/;"	m	struct:s_cub
+velocity	cub.h	/^	t_point 		velocity;$/;"	m	struct:s_player
+walls	cub.h	/^	t_tile		*walls;$/;"	m	struct:s_cub
+width	cub.h	/^	float	width;$/;"	m	struct:s_vect
 win_ptr	cub.h	/^	void		*win_ptr;$/;"	m	struct:s_cub
 x	cub.h	/^	float	x;$/;"	m	struct:s_point
 x	cub.h	/^	int		x;$/;"	m	struct:s_image

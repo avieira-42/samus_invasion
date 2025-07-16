@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:03:20 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/15 00:29:12 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/16 22:40:08 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,17 @@ void	cub_init(t_cub *cub)
 	cub->delta = 0;
 	cub->game_start = false;
 	cub->last_frame_time = get_time();
+	cub->gravity = GRAVITY_ACC;
+
+	// init_enemy(cub)
+	cub->enemy.pos.x = cub->player.pos.x + 30;
+	cub->enemy.pos.y = cub->player.pos.y;
+
+	// init_player(cub)
 	cub->player.direction.x = 0;
 	cub->player.direction.y = 0;
 	cub->player.pos.x  = 500;
 	cub->player.pos.y = SCREEN_SIZE_Y / 2;
-	cub->enemy.pos.x = cub->player.pos.x + 30;
-	cub->enemy.pos.y = cub->player.pos.y;
 
 	// init_background(cub)
 	cub->bckgrnd.pos.x = 0;

@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:06:28 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/16 21:16:08 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/16 21:37:41 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	update(t_cub *cub)
 	{
 		JUMP_VEL = -VELOCITY_Y;
 	}
-	if (TOUCHING_FLOOR && PLAYER_DIR_Y == 0
+	if (TOUCHING_FLOOR
 		&& cub->player.jump.active == false )
 	{
 		JUMP_VEL = 0;
@@ -93,15 +93,10 @@ int	update(t_cub *cub)
 	}
 
 	//INIT VELOCITY (vel_init())
-	if (PLAYER_DIR_Y == 0)
-	{
-		PLAYER_VEL_Y = JUMP_VEL + GRAVITY * cub->player.jump.t_elapsed;
-		PLAYER_POS_Y += PLAYER_VEL_Y * DELTA_T;
-	}
-	else
-		PLAYER_POS_Y += PLAYER_DIR_Y * PLAYER_VEL_X * DELTA_T;
+	PLAYER_VEL_Y = JUMP_VEL + GRAVITY * cub->player.jump.t_elapsed;
 
 	// MOVEMENT (get_movement())
+	PLAYER_POS_Y += PLAYER_VEL_Y * DELTA_T;
 	PLAYER_POS_X += PLAYER_DIR_X * PLAYER_VEL_X * DELTA_T;
 
 	// ITEM COLLECTING
