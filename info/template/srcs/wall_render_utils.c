@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 18:01:59 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/16 02:17:37 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/16 20:52:43 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,14 @@ int	is_touching_wall_left(t_cub *cub)
 	walls = cub->walls;
 	while (walls)
 	{
-		if (PLAYER_POS_X >= walls->pos.x - 48
-			&& PLAYER_POS_X <= walls->pos.x
+		if (PLAYER_POS_X + PLAYER_WIDTH <= walls->pos.x + TILE_SIZE_X / 2
+			&& PLAYER_POS_X + PLAYER_WIDTH >= walls->pos.x - 10
 			&& PLAYER_POS_Y >= walls->pos.y - 40
 			&& PLAYER_POS_Y <= walls->pos.y)
+		{
+			cub->left_wall_pos = walls->pos.x - PLAYER_WIDTH - 7;
 			return (1);
+		}
 		walls = walls->next;
 	}
 	return (0);
@@ -65,12 +68,12 @@ int	is_touching_wall_right(t_cub *cub)
 	walls = cub->walls;
 	while (walls)
 	{
-		if (PLAYER_POS_X <= walls->pos.x + 48
-			&& PLAYER_POS_X >= walls->pos.x + 48
+		if (PLAYER_POS_X >= walls->pos.x + TILE_SIZE_X / 2
+			&& PLAYER_POS_X <= walls->pos.x + TILE_SIZE_X + 10
 			&& PLAYER_POS_Y >= walls->pos.y - 40
 			&& PLAYER_POS_Y <= walls->pos.y)
 		{
-			cub->right_wall_pos = walls->pos.x - 48;
+			cub->right_wall_pos = walls->pos.x + TILE_SIZE_X + 7;
 			return (1);
 		}
 		walls = walls->next;

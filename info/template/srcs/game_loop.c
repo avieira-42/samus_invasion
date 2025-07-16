@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:06:28 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/16 02:16:01 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/16 21:16:08 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,26 +77,31 @@ int	update(t_cub *cub)
 
 	// FALLING UNTIL FLOOR (check falling())
 	if (!TOUCHING_FLOOR
-			&& cub->player.jump.active == false)
+		&& cub->player.jump.active == false)
 	{
 		JUMP_VEL = -VELOCITY_Y;
 	}
-	if (TOUCHING_FLOOR && !TOUCHING_RIGHTWALL && !TOUCHING_LEFTWALL
-			&& cub->player.jump.active == false )
+	if (TOUCHING_FLOOR && PLAYER_DIR_Y == 0
+		&& cub->player.jump.active == false )
 	{
 		JUMP_VEL = 0;
 		PLAYER_POS_Y = cub->ground_pos;
+		if (TOUCHING_RIGHTWALL)
+			PLAYER_POS_X = cub->right_wall_pos;
+		if (TOUCHING_LEFTWALL)
+			PLAYER_POS_X = cub->left_wall_pos;
 	}
 
-	if (TOUCHING_RIGHTWALL || TOUCHING_LEFTWALL)
-		PLAYER_POS_Y += PLAYER_DIR_Y * WALL_VELOCITY * DELTA_T;
-
 	//INIT VELOCITY (vel_init())
-	PLAYER_VEL_Y = JUMP_VEL + GRAVITY * cub->player.jump.t_elapsed;
+	if (PLAYER_DIR_Y == 0)
+	{
+		PLAYER_VEL_Y = JUMP_VEL + GRAVITY * cub->player.jump.t_elapsed;
+		PLAYER_POS_Y += PLAYER_VEL_Y * DELTA_T;
+	}
+	else
+		PLAYER_POS_Y += PLAYER_DIR_Y * PLAYER_VEL_X * DELTA_T;
 
 	// MOVEMENT (get_movement())
-	if (!TOUCHING_RIGHTWALL && !TOUCHING_LEFTWALL)
-		PLAYER_POS_Y += PLAYER_VEL_Y * DELTA_T;
 	PLAYER_POS_X += PLAYER_DIR_X * PLAYER_VEL_X * DELTA_T;
 
 	// ITEM COLLECTING

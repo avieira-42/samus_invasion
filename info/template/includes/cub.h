@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/16 02:15:46 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/16 21:20:35 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,15 @@
 # define LINE_COLOR 0xFFFFFF
 # define TILE_SIZE_X 48
 # define TILE_SIZE_Y 48
-# define GRAVITY 3000
+# define GRAVITY 1000
 # define VELOCITY_Y -1000
 # define WALL_VELOCITY -100
 # define VELOCITY_X	400
 # define MAX_SPEED 500
+# define PLAYER_WIDTH 48
+# define PLAYER_HEIGHT 48
+# define PLAYER_POS cub->player.pos
+# define PLAYER_VECT cub->player.vect
 # define PLAYER_VEL_X cub->player.velocity.x
 # define PLAYER_VEL_Y cub->player.velocity.y
 # define JUMP_VEL cub->player.jump.velocity
@@ -45,6 +49,7 @@
 # define TOUCHING_FLOOR cub->player.touching_ground
 # define TOUCHING_LEFTWALL cub->player.touching_leftwall
 # define TOUCHING_RIGHTWALL cub->player.touching_rightwall
+# define GRABBING_WALL cub->player.grabbing_wall
 # define DELTA_T cub->delta
 
 typedef struct s_point
@@ -52,6 +57,12 @@ typedef struct s_point
 	float	x;
 	float	y;
 }	t_point;
+
+typedef struct s_vect
+{
+	float	height;
+	float	width;
+}	t_vect;
 
 typedef struct s_jump
 {
@@ -137,18 +148,20 @@ typedef struct s_stairs
 
 typedef struct s_player
 {
-	bool	touching_ground;
-	bool	touching_leftwall;
-	bool	touching_rightwall;
-	t_point pos;
-	t_point direction;
-	t_point velocity;
-	t_jump 	jump;
-	t_dash	dash;
-	t_atck	attack;
-	t_proj	projectile;
-	t_image	sprite;
-	t_point	camera;
+	bool			touching_ground;
+	bool			touching_leftwall;
+	bool			touching_rightwall;
+	bool			grabbing_wall;
+	t_point 		pos;
+	t_point 		direction;
+	t_point 		velocity;
+	t_jump 			jump;
+	t_dash			dash;
+	t_atck			attack;
+	t_proj			projectile;
+	t_image			sprite;
+	t_point			camera;
+	t_vect			vect;
 }	t_player;
 
 typedef struct s_tile
@@ -156,6 +169,7 @@ typedef struct s_tile
 	t_image			sprite;
 	t_point			pos;
 	struct s_tile	*next;
+	t_vect			vect;
 }	t_tile;
 
 typedef struct s_ship
@@ -233,6 +247,7 @@ t_item	*new_item(t_cub* cub);
 void	position_wall(t_cub *cub);
 void	draw_walls(t_cub *cub);
 int		is_touching_floor(t_cub *cub);
+int		is_grabbing_wall(t_cub *cub);
 
 //wall render utils
 t_tile *new_wall(t_cub *cub);
@@ -250,6 +265,8 @@ long long	get_time(void);
 float		 clamp(float value, float min, float max);
 t_point		normalize(t_point point);
 
+//collisions
+int	aabb_overlap(t_point apos, t_vect avect, t_point bpos, t_vect bvect);
 //free utils
 
 void	ft_free_arr(char **arr);
