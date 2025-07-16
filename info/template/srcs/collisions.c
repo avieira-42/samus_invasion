@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:17:13 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/16 22:21:34 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/16 23:51:10 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,25 @@ int	is_touching_floor(t_cub *cub)
 			cub->ground_pos = walls->pos.y - 48;
 			return (1);
 		}
+		walls = walls->next;
+	}
+	return (0);
+}
+
+int	is_touching_ceiling(t_cub *cub)
+{
+	t_tile *walls;
+
+	walls = cub->walls;
+	while (walls)
+	{
+		if (PLAYER_POS_Y >= walls->pos.y + TILE_SIZE_Y * 0.7
+			&& PLAYER_POS_Y <= walls->pos.y + TILE_SIZE_Y
+			&& ((PLAYER_POS_X + PLAYER_WIDTH <= walls->pos.x + TILE_SIZE_X
+			&& PLAYER_POS_X + PLAYER_WIDTH >= walls->pos.x)
+			|| (PLAYER_POS_X >= walls->pos.x
+			&& PLAYER_POS_X <= walls->pos.x + TILE_SIZE_X)))
+			return (1);
 		walls = walls->next;
 	}
 	return (0);

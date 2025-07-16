@@ -6,7 +6,6 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 CAMERA_END_X	cub.h	27;"	d
 DELTA_T	cub.h	54;"	d
-GRABBING_WALL	cub.h	53;"	d
 GRAVITY_ACC	cub.h	32;"	d
 GRAVITY	cub.h	33;"	d
 GROUND_LEVEL	cub.h	28;"	d
@@ -29,6 +28,7 @@ SCREEN_SIZE_X	cub.h	24;"	d
 SCREEN_SIZE_Y	cub.h	25;"	d
 TILE_SIZE_X	cub.h	30;"	d
 TILE_SIZE_Y	cub.h	31;"	d
+TOUCHING_CEILING	cub.h	53;"	d
 TOUCHING_FLOOR	cub.h	50;"	d
 TOUCHING_LEFTWALL	cub.h	51;"	d
 TOUCHING_RIGHTWALL	cub.h	52;"	d
@@ -143,6 +143,7 @@ t_started	cub.h	/^	float	t_started;$/;"	m	struct:s_proj
 t_tile	cub.h	/^}	t_tile;$/;"	t	typeref:struct:s_tile
 t_vect	cub.h	/^}	t_vect;$/;"	t	typeref:struct:s_vect
 tile	cub.h	/^	t_tile		tile;$/;"	m	struct:s_cub
+touching_ceiling	cub.h	/^	bool			touching_ceiling;$/;"	m	struct:s_player
 touching_ground	cub.h	/^	bool			touching_ground;$/;"	m	struct:s_player
 touching_leftwall	cub.h	/^	bool			touching_leftwall;$/;"	m	struct:s_player
 touching_rightwall	cub.h	/^	bool			touching_rightwall;$/;"	m	struct:s_player

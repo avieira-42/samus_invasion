@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:06:28 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/16 21:37:41 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/16 23:50:44 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	update(t_cub *cub)
 	TOUCHING_FLOOR = is_touching_floor(cub);
 	TOUCHING_LEFTWALL = is_touching_wall_left(cub);
 	TOUCHING_RIGHTWALL = is_touching_wall_right(cub);
+	TOUCHING_CEILING = is_touching_ceiling(cub);
 	//printf("direction: %f \n", cub->player.direction.x);
 	//printf("velocity.x: %f \n", cub->player.velocity.x);
 	//printf("delta: %f \n", cub->delta); printf("pos.y: %f \n", cub->player.pos.y);
@@ -91,6 +92,8 @@ int	update(t_cub *cub)
 		if (TOUCHING_LEFTWALL)
 			PLAYER_POS_X = cub->left_wall_pos;
 	}
+	if (TOUCHING_CEILING)
+		JUMP_VEL = 0;
 
 	//INIT VELOCITY (vel_init())
 	PLAYER_VEL_Y = JUMP_VEL + GRAVITY * cub->player.jump.t_elapsed;

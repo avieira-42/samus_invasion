@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:09:07 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/16 22:54:36 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/16 23:34:13 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	key_pressed(int keysym, t_cub *cub)
 	}
 	if (keysym == XK_s && !is_touching_floor(cub))
 	{
-		GRAVITY = 1000;
+		JUMP_VEL = 0;;
 	}
 	return (1);
 }

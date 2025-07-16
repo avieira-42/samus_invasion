@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/16 22:37:59 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/16 23:48:01 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@
 # define TOUCHING_FLOOR cub->player.touching_ground
 # define TOUCHING_LEFTWALL cub->player.touching_leftwall
 # define TOUCHING_RIGHTWALL cub->player.touching_rightwall
-# define GRABBING_WALL cub->player.grabbing_wall
+# define TOUCHING_CEILING cub->player.touching_ceiling
 # define DELTA_T cub->delta
 
 typedef struct s_point
@@ -152,6 +152,7 @@ typedef struct s_player
 	bool			touching_ground;
 	bool			touching_leftwall;
 	bool			touching_rightwall;
+	bool			touching_ceiling;
 	bool			grabbing_wall;
 	t_point 		pos;
 	t_point 		direction;
@@ -248,15 +249,10 @@ t_item	*new_item(t_cub* cub);
 //wall render
 void	position_wall(t_cub *cub);
 void	draw_walls(t_cub *cub);
-int		is_touching_floor(t_cub *cub);
-int		is_grabbing_wall(t_cub *cub);
 
 //wall render utils
 t_tile *new_wall(t_cub *cub);
 void	add_wall(t_tile **walls, t_tile *new_wall);
-int		is_touching_wall_left(t_cub *cub);
-int		is_touching_wall_right(t_cub *cub);
-int		is_touching_floor(t_cub *cub);
 
 //struct utils
 int			check_args(char *str);
@@ -268,7 +264,12 @@ float		 clamp(float value, float min, float max);
 t_point		normalize(t_point point);
 
 //collisions
-int	aabb_overlap(t_point apos, t_vect avect, t_point bpos, t_vect bvect);
+int		is_touching_floor(t_cub *cub);
+int		is_touching_ceiling(t_cub *cub);
+int		is_touching_wall_left(t_cub *cub);
+int		is_touching_wall_right(t_cub *cub);
+int		is_touching_floor(t_cub *cub);
+
 //free utils
 
 void	ft_free_arr(char **arr);
