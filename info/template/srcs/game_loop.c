@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:06:28 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/15 23:56:01 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/16 02:16:01 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,16 @@ int	update(t_cub *cub)
 
 
 	// SCREEN LIMITS is_play_area()
-	if ((TOUCHING_RIGHTWALL && PLAYER_DIR_X == -1)
-			|| (TOUCHING_LEFTWALL && PLAYER_DIR_X == 1))
+	if (TOUCHING_RIGHTWALL && PLAYER_DIR_X == -1)
+	{
 		PLAYER_VEL_X = 0;
+		PLAYER_POS_X = cub->right_wall_pos;
+	}
+	if (TOUCHING_LEFTWALL && PLAYER_DIR_X == 1)
+	{
+		PLAYER_VEL_X = 0;
+		PLAYER_POS_X = cub->left_wall_pos;
+	}
 
 
 	// JUMPING (check_jump())
@@ -69,18 +76,18 @@ int	update(t_cub *cub)
 	}
 
 	// FALLING UNTIL FLOOR (check falling())
-	if (PLAYER_POS_Y <= GROUND_LEVEL
+	if (!TOUCHING_FLOOR
 			&& cub->player.jump.active == false)
 	{
 		JUMP_VEL = -VELOCITY_Y;
 	}
-	if (TOUCHING_FLOOR
+	if (TOUCHING_FLOOR && !TOUCHING_RIGHTWALL && !TOUCHING_LEFTWALL
 			&& cub->player.jump.active == false )
 	{
 		JUMP_VEL = 0;
 		PLAYER_POS_Y = cub->ground_pos;
 	}
-	
+
 	if (TOUCHING_RIGHTWALL || TOUCHING_LEFTWALL)
 		PLAYER_POS_Y += PLAYER_DIR_Y * WALL_VELOCITY * DELTA_T;
 

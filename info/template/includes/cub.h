@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/15 23:56:37 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/16 02:15:46 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,8 @@ typedef struct s_cub
 	int			map_width;
 	float		delta;
 	float		ground_pos;
+	float		right_wall_pos;
+	float		left_wall_pos;
 	long long	last_frame_time;
 	t_image		image;
 	t_bckgrnd	bckgrnd;
