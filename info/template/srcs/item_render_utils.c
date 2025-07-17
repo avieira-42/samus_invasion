@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 18:01:59 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/15 13:29:04 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/17 03:01:52 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,28 @@ int	items_count(t_item *items)
 
 void	clear_item(t_cub *cub)
 {
-	t_item	*tmp;
-	t_item	*items;
+	t_item	*curr;
+	t_item	*prev;
+	t_item	*to_free;
 
-	items = cub->items;
-	while (items)
+	curr = cub->items;
+	prev = NULL;
+	while (curr)
 	{
-		if ((PLAYER_POS_X <= items->pos.x + 20 && PLAYER_POS_X >= items->pos.x - 15)
-			&& (PLAYER_POS_Y <= items->pos.y + 20 && PLAYER_POS_Y >= items->pos.y - 15))
+		if ((PLAYER_POS_X <= curr->pos.x + 20 && PLAYER_POS_X >= curr->pos.x - 15)
+			&& (PLAYER_POS_Y <= curr->pos.y + 20 && PLAYER_POS_Y >= curr->pos.y - 15))
 		{
-			tmp = items;
-			items = items->next;
-			free(tmp);
+			to_free = curr;
+			if (prev == NULL)
+				cub->items = curr->next;
+			else
+				prev->next = curr->next;
+			curr = curr->next;
+			free(to_free);
+			return ;
 		}
-		else
-			items = items->next;
+		prev = curr;
+		curr = curr->next;
 	}
 }
 

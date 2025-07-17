@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:17:13 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/16 23:51:10 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/17 03:38:25 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,13 @@ int	is_touching_ceiling(t_cub *cub)
 			return (1);
 		walls = walls->next;
 	}
+	return (0);
+}
+
+int	is_touching_exit(t_cub *cub)
+{
+	if ((PLAYER_POS_X >= cub->portal.pos.x && PLAYER_POS_X <= cub->portal.pos.x + 48)
+		&& (PLAYER_POS_Y >= cub->portal.pos.y && PLAYER_POS_Y <= cub->portal.pos.y + 48))
+		return (1);
 	return (0);
 }

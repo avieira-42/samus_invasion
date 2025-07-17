@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:06:28 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/16 23:50:44 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/17 03:44:07 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	update(t_cub *cub)
 	TOUCHING_LEFTWALL = is_touching_wall_left(cub);
 	TOUCHING_RIGHTWALL = is_touching_wall_right(cub);
 	TOUCHING_CEILING = is_touching_ceiling(cub);
+	TOUCHING_EXIT = is_touching_exit(cub);
 	//printf("direction: %f \n", cub->player.direction.x);
 	//printf("velocity.x: %f \n", cub->player.velocity.x);
 	//printf("delta: %f \n", cub->delta); printf("pos.y: %f \n", cub->player.pos.y);
@@ -29,8 +30,10 @@ int	update(t_cub *cub)
 	//printf("camera.x: %f \n", cub->camera.x);
 	//printf("velocity.y: %f \n", cub->player.velocity.y);
 	//printf("item_no: %i \n", items_count(cub->items));
-	printf("tile_pos.x: %f \n", cub->towel.pos.x);
-	printf("tile_pos.y: %f \n", cub->towel.pos.y);
+	//printf("tile_pos.x: %f \n", cub->towel.pos.x);
+	//printf("tile_pos.y: %f \n", cub->towel.pos.y);
+	printf("exit_pos.x: %f \n", cub->portal.pos.x);
+	printf("exit_pos.y: %f \n", cub->portal.pos.y);
 	if (cub->items)
 	{
 		printf("item.x: %f \n", cub->items->pos.x);
@@ -61,8 +64,9 @@ int	update(t_cub *cub)
 		if (TOUCHING_FLOOR
 				&& cub->player.jump.t_started > 0)
 		{
-			cub->player.jump.active = false; cub->player.jump.t_elapsed = 0; cub->player.jump.t_started = 0;
-			cub->player.jump.d_traveled = 0;
+			cub->player.jump.active = false;
+			cub->player.jump.t_elapsed = 0;
+			cub->player.jump.t_started = 0;
 		}
 		if (PLAYER_VEL_Y == 0 && cub->player.jump.t_started == 0)
 			JUMP_VEL = VELOCITY_Y;
@@ -104,6 +108,8 @@ int	update(t_cub *cub)
 
 	// ITEM COLLECTING
 	clear_item(cub);
+	if (TOUCHING_EXIT && cub->items == NULL)
+		free_displays(cub);
 	return (1);
 }
 
@@ -129,6 +135,7 @@ int	renderer(t_cub *cub)
 	draw_map(cub);
 	draw_items(cub);
 	draw_walls(cub);
+	draw_portal(cub);
 	drawtexture(&cub->image, &cub->player.sprite, cub->player.camera, 1);
 
 	mlx_put_image_to_window(cub->mlx_ptr, cub->win_ptr, cub->image.image, 0, 0);

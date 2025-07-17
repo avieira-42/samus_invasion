@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:03:20 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/16 22:40:08 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/17 03:10:28 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@ void	cub_init(t_cub *cub)
 
 	cub->fd = 0;
 	cub->items = NULL;
-	cub->delta = 0;
-	cub->game_start = false;
+	cub->delta = 0; cub->game_start = false;
 	cub->last_frame_time = get_time();
-	cub->gravity = GRAVITY_ACC;
 
 	// init_enemy(cub)
 	cub->enemy.pos.x = cub->player.pos.x + 30;
@@ -41,28 +39,13 @@ void	cub_init(t_cub *cub)
 
 	// INIT VELOCITY (vel_init())
 	cub->player.velocity.x = 0;
-	cub->player.velocity.y = VELOCITY_Y;
+	cub->player.velocity.y = 0;
 
 	// INITIALIZE JUMP (jump_init())
 	cub->player.jump.active = false;
-	cub->player.jump.duration = 0.3f;
 	cub->player.jump.t_elapsed = 0;
-	cub->player.jump.d_traveled = 0;
-
-	// INITIALIZE DASH (dash_init())
-	cub->player.dash.active = false;
-	cub->player.dash.duration = 0.5f;
-	cub->player.dash.t_elapsed = 0;
-
-	// INITIALIZE PROJECTILE (projectile_init())
-	cub->player.projectile.active = false;
-	cub->player.projectile.duration = 6.0f;
-	cub->player.projectile.t_elapsed = 0;
-
-	// INITIALIZE ATTACK (attack_init())
-	cub->player.attack.active = false;
-	cub->player.attack.duration = 4.0f;
-	cub->player.attack.t_elapsed = 0;
+	cub->player.jump.t_started = 0;
+	cub->player.jump.velocity = 0;
 
 	// INITIALIZE BACKGROUND (bckgrnd_init())
 	cub->bckgrnd.scale = 0.7;
@@ -76,12 +59,12 @@ void	cub_init(t_cub *cub)
 	cub->tile.sprite.addr = mlx_get_data_addr(cub->tile.sprite.image, &cub->tile.sprite.bits_per_pixel, &cub->tile.sprite.line_length, &cub->tile.sprite.endian);
 	cub->enemy.sprite.image = mlx_xpm_file_to_image(cub->mlx_ptr, "sprites/samus.xpm", &cub->enemy.sprite.x, &cub->enemy.sprite.y);
 	cub->enemy.sprite.addr = mlx_get_data_addr(cub->enemy.sprite.image, &cub->enemy.sprite.bits_per_pixel, &cub->enemy.sprite.line_length, &cub->enemy.sprite.endian);
-	cub->ship.sprite.image = mlx_xpm_file_to_image(cub->mlx_ptr, "sprites/spaceship.xpm", &cub->ship.sprite.x, &cub->ship.sprite.y);
-	cub->ship.sprite.addr = mlx_get_data_addr(cub->ship.sprite.image, &cub->ship.sprite.bits_per_pixel, &cub->ship.sprite.line_length, &cub->ship.sprite.endian);
 	cub->towel.sprite.image = mlx_xpm_file_to_image(cub->mlx_ptr, "sprites/towel.xpm", &cub->towel.sprite.x, &cub->towel.sprite.y);
 	cub->towel.sprite.addr = mlx_get_data_addr(cub->towel.sprite.image, &cub->towel.sprite.bits_per_pixel, &cub->towel.sprite.line_length, &cub->towel.sprite.endian);
-	cub->stairs.sprite.image = mlx_xpm_file_to_image(cub->mlx_ptr, "sprites/stairs.xpm", &cub->stairs.sprite.x, &cub->stairs.sprite.y);
-	cub->stairs.sprite.addr = mlx_get_data_addr(cub->stairs.sprite.image, &cub->stairs.sprite.bits_per_pixel, &cub->stairs.sprite.line_length, &cub->stairs.sprite.endian);
+	cub->portal.sprite.image = mlx_xpm_file_to_image(cub->mlx_ptr, "sprites/offportal.xpm", &cub->portal.sprite.x, &cub->portal.sprite.y);
+	cub->portal.sprite.addr = mlx_get_data_addr(cub->portal.sprite.image, &cub->portal.sprite.bits_per_pixel, &cub->portal.sprite.line_length, &cub->portal.sprite.endian);
+	cub->portal.sprite2.image = mlx_xpm_file_to_image(cub->mlx_ptr, "sprites/portal.xpm", &cub->portal.sprite2.x, &cub->portal.sprite2.y);
+	cub->portal.sprite2.addr = mlx_get_data_addr(cub->portal.sprite2.image, &cub->portal.sprite2.bits_per_pixel, &cub->portal.sprite2.line_length, &cub->portal.sprite2.endian);
 	
 	// INITIALIZE MAP
 	cub->map = read_map();

@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/16 23:48:01 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/17 03:44:35 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@
 # define TOUCHING_LEFTWALL cub->player.touching_leftwall
 # define TOUCHING_RIGHTWALL cub->player.touching_rightwall
 # define TOUCHING_CEILING cub->player.touching_ceiling
+# define TOUCHING_EXIT cub->player.touching_exit
 # define DELTA_T cub->delta
 
 typedef struct s_point
@@ -68,39 +69,10 @@ typedef struct s_vect
 typedef struct s_jump
 {
 	bool	active;
-	float	duration;
 	float	t_started;
 	float	t_elapsed;
 	float	velocity;
-	float	d_traveled;
 }	t_jump;
-
-typedef struct s_dash
-{
-	bool	active;
-	float	duration;
-	float	t_started;
-	float	t_elapsed;
-	t_point	direction;
-}	t_dash;
-
-typedef struct s_proj
-{
-	bool	active;
-	float	duration;
-	float	t_started;
-	float	t_elapsed;
-	t_point	direction;
-}	t_proj;
-
-typedef	struct s_atck
-{
-	bool	active;
-	float	duration;
-	float	t_started;
-	float	t_elapsed;
-	t_point	direction;
-}	t_atck;
 
 typedef struct s_image
 {
@@ -112,14 +84,6 @@ typedef struct s_image
 	int		line_length;
 	int		endian;
 }	t_image;
-
-typedef struct s_attack
-{
-	bool	is_active;
-	float	t_started;
-	float	t_elapsed;
-	t_point	direction;
-}	t_attack;
 
 typedef struct s_item
 {
@@ -141,26 +105,17 @@ typedef struct s_bckgrnd
 	long double	scale;
 }	t_bckgrnd;
 
-typedef struct s_stairs
-{
-	t_point		pos;
-	t_image		sprite;
-}	t_stairs;
-
 typedef struct s_player
 {
 	bool			touching_ground;
 	bool			touching_leftwall;
 	bool			touching_rightwall;
 	bool			touching_ceiling;
-	bool			grabbing_wall;
+	bool			touching_exit;
 	t_point 		pos;
 	t_point 		direction;
 	t_point 		velocity;
 	t_jump 			jump;
-	t_dash			dash;
-	t_atck			attack;
-	t_proj			projectile;
 	t_image			sprite;
 	t_point			camera;
 	t_vect			vect;
@@ -174,11 +129,13 @@ typedef struct s_tile
 	t_vect			vect;
 }	t_tile;
 
-typedef struct s_ship
+typedef struct s_portal
 {
-	t_image sprite;
+	t_image	sprite;
+	t_image	sprite2;
+	t_point	tmp_pos;
 	t_point	pos;
-}	t_ship;
+}	t_portal;
 
 typedef struct s_cub
 {
@@ -199,13 +156,12 @@ typedef struct s_cub
 	t_bckgrnd	bckgrnd;
 	t_tile		tile;
 	t_tile		*walls;
-	t_ship		ship;
 	t_item		towel;
 	t_item		*items;
 	t_point		camera;
 	t_enemy		enemy;
 	t_player	player;
-	t_stairs	stairs;
+	t_portal	portal;
 }	t_cub;
 
 int			free_displays(t_cub *cub);
@@ -232,8 +188,6 @@ void		drawobj(t_image *image, t_point pos, t_point size, int color);
 void		ft_pixelput(t_image *data, int x, int y, int color);
 void		drawline(t_cub *cub, t_point start, t_point dest);
 void		drawtexture(t_image *image, t_image *texture, t_point pos, long double scale);
-void		circleBres(t_cub *cub, int xc, int yc, int r);
-t_image		*get_wall_color_from_direction(t_cub *cub, int side, float ray_x, float ray_y);
 
 //item render
 void    position_item(t_cub *cub);
@@ -249,10 +203,12 @@ t_item	*new_item(t_cub* cub);
 //wall render
 void	position_wall(t_cub *cub);
 void	draw_walls(t_cub *cub);
-
-//wall render utils
-t_tile *new_wall(t_cub *cub);
 void	add_wall(t_tile **walls, t_tile *new_wall);
+t_tile *new_wall(t_cub *cub);
+
+//portal render
+void	position_portal(t_cub *cub);
+void	draw_portal(t_cub *cub);
 
 //struct utils
 int			check_args(char *str);
@@ -268,7 +224,7 @@ int		is_touching_floor(t_cub *cub);
 int		is_touching_ceiling(t_cub *cub);
 int		is_touching_wall_left(t_cub *cub);
 int		is_touching_wall_right(t_cub *cub);
-int		is_touching_floor(t_cub *cub);
+int		is_touching_exit(t_cub *cub);
 
 //free utils
 

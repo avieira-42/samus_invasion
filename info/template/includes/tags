@@ -5,7 +5,7 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 CAMERA_END_X	cub.h	27;"	d
-DELTA_T	cub.h	54;"	d
+DELTA_T	cub.h	55;"	d
 GRAVITY_ACC	cub.h	32;"	d
 GRAVITY	cub.h	33;"	d
 GROUND_LEVEL	cub.h	28;"	d
@@ -29,46 +29,31 @@ SCREEN_SIZE_Y	cub.h	25;"	d
 TILE_SIZE_X	cub.h	30;"	d
 TILE_SIZE_Y	cub.h	31;"	d
 TOUCHING_CEILING	cub.h	53;"	d
+TOUCHING_EXIT	cub.h	54;"	d
 TOUCHING_FLOOR	cub.h	50;"	d
 TOUCHING_LEFTWALL	cub.h	51;"	d
 TOUCHING_RIGHTWALL	cub.h	52;"	d
 VELOCITY_X	cub.h	36;"	d
 VELOCITY_Y	cub.h	34;"	d
 WALL_VELOCITY	cub.h	35;"	d
-active	cub.h	/^	bool	active;$/;"	m	struct:s_atck
-active	cub.h	/^	bool	active;$/;"	m	struct:s_dash
 active	cub.h	/^	bool	active;$/;"	m	struct:s_jump
-active	cub.h	/^	bool	active;$/;"	m	struct:s_proj
 addr	cub.h	/^	char	*addr;$/;"	m	struct:s_image
-attack	cub.h	/^	t_atck			attack;$/;"	m	struct:s_player
 bckgrnd	cub.h	/^	t_bckgrnd	bckgrnd;$/;"	m	struct:s_cub
 bits_per_pixel	cub.h	/^	int		bits_per_pixel;$/;"	m	struct:s_image
 camera	cub.h	/^	t_point			camera;$/;"	m	struct:s_player
 camera	cub.h	/^	t_point		camera;$/;"	m	struct:s_cub
 cub_H	cub.h	14;"	d
-d_traveled	cub.h	/^	float	d_traveled;$/;"	m	struct:s_jump
-dash	cub.h	/^	t_dash			dash;$/;"	m	struct:s_player
 delta	cub.h	/^	float		delta;$/;"	m	struct:s_cub
-direction	cub.h	/^	t_point	direction;$/;"	m	struct:s_atck
-direction	cub.h	/^	t_point	direction;$/;"	m	struct:s_attack
-direction	cub.h	/^	t_point	direction;$/;"	m	struct:s_dash
-direction	cub.h	/^	t_point	direction;$/;"	m	struct:s_proj
 direction	cub.h	/^	t_point 		direction;$/;"	m	struct:s_player
-duration	cub.h	/^	float	duration;$/;"	m	struct:s_atck
-duration	cub.h	/^	float	duration;$/;"	m	struct:s_dash
-duration	cub.h	/^	float	duration;$/;"	m	struct:s_jump
-duration	cub.h	/^	float	duration;$/;"	m	struct:s_proj
 endian	cub.h	/^	int		endian;$/;"	m	struct:s_image
 enemy	cub.h	/^	t_enemy		enemy;$/;"	m	struct:s_cub
 fd	cub.h	/^	int			fd;$/;"	m	struct:s_cub
 game_start	cub.h	/^	bool		game_start;$/;"	m	struct:s_cub
-grabbing_wall	cub.h	/^	bool			grabbing_wall;$/;"	m	struct:s_player
 gravity	cub.h	/^	int			gravity;$/;"	m	struct:s_cub
 ground_pos	cub.h	/^	float		ground_pos;$/;"	m	struct:s_cub
 height	cub.h	/^	float	height;$/;"	m	struct:s_vect
 image	cub.h	/^	t_image		image;$/;"	m	struct:s_cub
 image	cub.h	/^	void	*image;$/;"	m	struct:s_image
-is_active	cub.h	/^	bool	is_active;$/;"	m	struct:s_attack
 items	cub.h	/^	t_item		*items;$/;"	m	struct:s_cub
 jump	cub.h	/^	t_jump 			jump;$/;"	m	struct:s_player
 last_frame_time	cub.h	/^	long long	last_frame_time;$/;"	m	struct:s_cub
@@ -81,69 +66,49 @@ mlx_ptr	cub.h	/^	void		*mlx_ptr;$/;"	m	struct:s_cub
 next	cub.h	/^	struct s_item	*next;$/;"	m	struct:s_item	typeref:struct:s_item::s_item
 next	cub.h	/^	struct s_tile	*next;$/;"	m	struct:s_tile	typeref:struct:s_tile::s_tile
 player	cub.h	/^	t_player	player;$/;"	m	struct:s_cub
+portal	cub.h	/^	t_portal	portal;$/;"	m	struct:s_cub
 pos	cub.h	/^	t_point			pos;$/;"	m	struct:s_item
 pos	cub.h	/^	t_point			pos;$/;"	m	struct:s_tile
 pos	cub.h	/^	t_point		pos;$/;"	m	struct:s_bckgrnd
-pos	cub.h	/^	t_point		pos;$/;"	m	struct:s_stairs
 pos	cub.h	/^	t_point	pos;$/;"	m	struct:s_enemy
-pos	cub.h	/^	t_point	pos;$/;"	m	struct:s_ship
 pos	cub.h	/^	t_point 		pos;$/;"	m	struct:s_player
-projectile	cub.h	/^	t_proj			projectile;$/;"	m	struct:s_player
 right_wall_pos	cub.h	/^	float		right_wall_pos;$/;"	m	struct:s_cub
-s_atck	cub.h	/^typedef	struct s_atck$/;"	s
-s_attack	cub.h	/^typedef struct s_attack$/;"	s
 s_bckgrnd	cub.h	/^typedef struct s_bckgrnd$/;"	s
 s_cub	cub.h	/^typedef struct s_cub$/;"	s
-s_dash	cub.h	/^typedef struct s_dash$/;"	s
 s_enemy	cub.h	/^typedef struct s_enemy$/;"	s
 s_image	cub.h	/^typedef struct s_image$/;"	s
 s_item	cub.h	/^typedef struct s_item$/;"	s
 s_jump	cub.h	/^typedef struct s_jump$/;"	s
 s_player	cub.h	/^typedef struct s_player$/;"	s
 s_point	cub.h	/^typedef struct s_point$/;"	s
-s_proj	cub.h	/^typedef struct s_proj$/;"	s
-s_ship	cub.h	/^typedef struct s_ship$/;"	s
-s_stairs	cub.h	/^typedef struct s_stairs$/;"	s
+s_portal	cub.h	/^typedef struct s_portal$/;"	s
 s_tile	cub.h	/^typedef struct s_tile$/;"	s
 s_vect	cub.h	/^typedef struct s_vect$/;"	s
 scale	cub.h	/^	long double	scale;$/;"	m	struct:s_bckgrnd
-ship	cub.h	/^	t_ship		ship;$/;"	m	struct:s_cub
+sprite2	cub.h	/^	t_image	sprite2;$/;"	m	struct:s_portal
 sprite	cub.h	/^	t_image			sprite;$/;"	m	struct:s_item
 sprite	cub.h	/^	t_image			sprite;$/;"	m	struct:s_player
 sprite	cub.h	/^	t_image			sprite;$/;"	m	struct:s_tile
 sprite	cub.h	/^	t_image		sprite;$/;"	m	struct:s_bckgrnd
-sprite	cub.h	/^	t_image		sprite;$/;"	m	struct:s_stairs
 sprite	cub.h	/^	t_image	sprite;$/;"	m	struct:s_enemy
-sprite	cub.h	/^	t_image sprite;$/;"	m	struct:s_ship
-stairs	cub.h	/^	t_stairs	stairs;$/;"	m	struct:s_cub
-t_atck	cub.h	/^}	t_atck;$/;"	t	typeref:struct:s_atck
-t_attack	cub.h	/^}	t_attack;$/;"	t	typeref:struct:s_attack
+sprite	cub.h	/^	t_image	sprite;$/;"	m	struct:s_portal
 t_bckgrnd	cub.h	/^}	t_bckgrnd;$/;"	t	typeref:struct:s_bckgrnd
 t_cub	cub.h	/^}	t_cub;$/;"	t	typeref:struct:s_cub
-t_dash	cub.h	/^}	t_dash;$/;"	t	typeref:struct:s_dash
-t_elapsed	cub.h	/^	float	t_elapsed;$/;"	m	struct:s_atck
-t_elapsed	cub.h	/^	float	t_elapsed;$/;"	m	struct:s_attack
-t_elapsed	cub.h	/^	float	t_elapsed;$/;"	m	struct:s_dash
 t_elapsed	cub.h	/^	float	t_elapsed;$/;"	m	struct:s_jump
-t_elapsed	cub.h	/^	float	t_elapsed;$/;"	m	struct:s_proj
 t_enemy	cub.h	/^}	t_enemy;$/;"	t	typeref:struct:s_enemy
 t_image	cub.h	/^}	t_image;$/;"	t	typeref:struct:s_image
 t_item	cub.h	/^}	t_item;$/;"	t	typeref:struct:s_item
 t_jump	cub.h	/^}	t_jump;$/;"	t	typeref:struct:s_jump
 t_player	cub.h	/^}	t_player;$/;"	t	typeref:struct:s_player
 t_point	cub.h	/^}	t_point;$/;"	t	typeref:struct:s_point
-t_proj	cub.h	/^}	t_proj;$/;"	t	typeref:struct:s_proj
-t_ship	cub.h	/^}	t_ship;$/;"	t	typeref:struct:s_ship
-t_stairs	cub.h	/^}	t_stairs;$/;"	t	typeref:struct:s_stairs
-t_started	cub.h	/^	float	t_started;$/;"	m	struct:s_atck
-t_started	cub.h	/^	float	t_started;$/;"	m	struct:s_attack
-t_started	cub.h	/^	float	t_started;$/;"	m	struct:s_dash
+t_portal	cub.h	/^}	t_portal;$/;"	t	typeref:struct:s_portal
 t_started	cub.h	/^	float	t_started;$/;"	m	struct:s_jump
-t_started	cub.h	/^	float	t_started;$/;"	m	struct:s_proj
 t_tile	cub.h	/^}	t_tile;$/;"	t	typeref:struct:s_tile
 t_vect	cub.h	/^}	t_vect;$/;"	t	typeref:struct:s_vect
 tile	cub.h	/^	t_tile		tile;$/;"	m	struct:s_cub
+tmp_pos	cub.h	/^	t_point	tmp_pos;$/;"	m	struct:s_portal
 touching_ceiling	cub.h	/^	bool			touching_ceiling;$/;"	m	struct:s_player
+touching_exit	cub.h	/^	bool			touching_exit;$/;"	m	struct:s_player
 touching_ground	cub.h	/^	bool			touching_ground;$/;"	m	struct:s_player
 touching_leftwall	cub.h	/^	bool			touching_leftwall;$/;"	m	struct:s_player
 touching_rightwall	cub.h	/^	bool			touching_rightwall;$/;"	m	struct:s_player

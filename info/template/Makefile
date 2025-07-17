@@ -25,6 +25,7 @@ $(SRCS_DIR)/input_handler.c \
 $(SRCS_DIR)/item_render.c \
 $(SRCS_DIR)/item_render_utils.c \
 $(SRCS_DIR)/wall_render.c \
+$(SRCS_DIR)/portal_render.c \
 $(SRCS_DIR)/collisions.c
 
 OBJS=$(SRCS:.c=.o)
