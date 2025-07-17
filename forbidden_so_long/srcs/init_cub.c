@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_cub.c                                         :+:      :+:    :+:   */
+/*   init_game.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:03:20 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/17 17:48:20 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/17 03:10:28 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,28 @@ void	game_init(t_game *game)
 
 	game->fd = 0;
 	game->items = NULL;
-	game->delta = 0;
-	game->game_start = false;
+	game->delta = 0; game->game_start = false;
 	game->last_frame_time = get_time();
-	game->gravity = GRAVITY_ACC;
 
 	// init_enemy(game)
 	game->enemy.pos.x = game->player.pos.x + 30;
 	game->enemy.pos.y = game->player.pos.y;
 
+	// init_player(game)
+	game->player.direction.x = 0;
+	game->player.direction.y = 0;
+	game->player.pos.x  = 500;
+	game->player.pos.y = SCREEN_SIZE_Y / 2;
 
 	// init_background(game)
 	game->bckgrnd.pos.x = 0;
 	game->bckgrnd.pos.y = 0;
 
-	// init_player(game)
-	game->player.movements = 0;
+	// INIT VELOCITY (vel_init())
 	game->player.velocity.x = 0;
 	game->player.velocity.y = 0;
-	game->player.direction.x = 0;
-	game->player.direction.y = 0;
+
+	// INITIALIZE JUMP (jump_init())
 	game->player.jump.active = false;
 	game->player.jump.t_elapsed = 0;
 	game->player.jump.t_started = 0;

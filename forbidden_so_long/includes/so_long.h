@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   game.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/17 17:55:03 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/17 03:44:35 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,14 @@
 # define LINE_COLOR 0xFFFFFF
 # define TILE_SIZE_X 48
 # define TILE_SIZE_Y 48
-# define GRAVITY_ACC 900
+# define GRAVITY_ACC 800
 # define GRAVITY game->gravity
-# define VELOCITY_Y -1000
+# define VELOCITY_Y -900
 # define WALL_VELOCITY -100
 # define VELOCITY_X	400
-# define MAX_FALL_SPEED 500
+# define MAX_SPEED 500
 # define PLAYER_WIDTH 48
 # define PLAYER_HEIGHT 48
-# define MOVEMENTS game->player.movements
 # define PLAYER_POS game->player.pos
 # define PLAYER_VECT game->player.vect
 # define PLAYER_VEL_X game->player.velocity.x
@@ -46,8 +45,6 @@
 # define PLAYER_POS game->player.pos
 # define PLAYER_POS_X game->player.pos.x
 # define PLAYER_POS_Y game->player.pos.y
-# define PLAYER_TMP_POS_X game->player.tmp_pos.x
-# define PLAYER_TMP_POS_Y game->player.tmp_pos.y
 # define PLAYER_DIR_X game->player.direction.x
 # define PLAYER_DIR_Y game->player.direction.y
 # define TOUCHING_FLOOR game->player.touching_ground
@@ -98,7 +95,6 @@ typedef struct s_item
 typedef struct s_enemy
 {
 	t_point	pos;
-	t_point	tmp_pos;
 	t_image	sprite;
 }	t_enemy;
 
@@ -108,6 +104,22 @@ typedef struct s_bckgrnd
 	t_image		sprite;
 	long double	scale;
 }	t_bckgrnd;
+
+typedef struct s_player
+{
+	bool			touching_ground;
+	bool			touching_leftwall;
+	bool			touching_rightwall;
+	bool			touching_ceiling;
+	bool			touching_exit;
+	t_point 		pos;
+	t_point 		direction;
+	t_point 		velocity;
+	t_jump 			jump;
+	t_image			sprite;
+	t_point			camera;
+	t_vect			vect;
+}	t_player;
 
 typedef struct s_tile
 {
@@ -121,27 +133,9 @@ typedef struct s_portal
 {
 	t_image	sprite;
 	t_image	sprite2;
-	t_point	pos;
 	t_point	tmp_pos;
+	t_point	pos;
 }	t_portal;
-
-typedef struct s_player
-{
-	int				movements;
-	bool			touching_ground;
-	bool			touching_leftwall;
-	bool			touching_rightwall;
-	bool			touching_ceiling;
-	bool			touching_exit;
-	t_point 		pos;
-	t_point			tmp_pos;
-	t_point 		direction;
-	t_point 		velocity;
-	t_jump 			jump;
-	t_image			sprite;
-	t_point			camera;
-	t_vect			vect;
-}	t_player;
 
 typedef struct s_game
 {
@@ -216,10 +210,6 @@ t_tile *new_wall(t_game *game);
 void	position_portal(t_game *game);
 void	draw_portal(t_game *game);
 
-//enemy render
-void	position_enemy(t_game *game);
-void	draw_enemy(t_game *game);
-
 //struct utils
 int			check_args(char *str);
 
@@ -228,9 +218,6 @@ int			ft_abs(int num);
 long long	get_time(void);
 float		 clamp(float value, float min, float max);
 t_point		normalize(t_point point);
-
-//display moves
-void	display_moves(t_game *game);
 
 //collisions
 int		is_touching_floor(t_game *game);

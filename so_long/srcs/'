@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:03:20 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/17 17:48:20 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/17 17:11:56 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	game_init(t_game *game)
 	game->delta = 0;
 	game->game_start = false;
 	game->last_frame_time = get_time();
-	game->gravity = GRAVITY_ACC;
+	game->gravity = GRAVITY ACC;
 
 	// init_enemy(game)
 	game->enemy.pos.x = game->player.pos.x + 30;
@@ -35,7 +35,6 @@ void	game_init(t_game *game)
 	game->bckgrnd.pos.y = 0;
 
 	// init_player(game)
-	game->player.movements = 0;
 	game->player.velocity.x = 0;
 	game->player.velocity.y = 0;
 	game->player.direction.x = 0;

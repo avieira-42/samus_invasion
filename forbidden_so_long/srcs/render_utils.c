@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:00:38 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/17 17:45:41 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/17 03:40:52 by a-soeiro         ###   ########.fr       */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
@@ -17,7 +17,8 @@ void	drawobj(t_image *image, t_point pos, t_point size, int color)
 
 	while (x < size.x)
 	{
-		y = 0; while (y < size.y)
+		y = 0;
+		while (y < size.y)
 		{
 			ft_pixelput(image, pos.x + x, pos.y + y++, color);
 		}
@@ -98,14 +99,14 @@ void draw_map(t_game *game)
 		while (game->map[y][x])
 		{
 			// update_stationary_pos(game, x, y)
-			game->tile.pos.x = x * TILE_SIZE_X;
+			game->tile.pos.x = x * TILE_SIZE_X - game->camera.x;
 			game->tile.pos.y = y * TILE_SIZE_Y;
+			game->enemy.pos.x = x * TILE_SIZE_X - game->camera.x;
+			game->enemy.pos.y = y * TILE_SIZE_Y;
 			game->towel.pos.x = x * TILE_SIZE_X;
 			game->towel.pos.y = y * TILE_SIZE_Y;
-			game->portal.tmp_pos.x = x * TILE_SIZE_X;
+			game->portal.tmp_pos.x = x * TILE_SIZE_X - game->camera.x;
 			game->portal.tmp_pos.y = y * TILE_SIZE_Y;
-			game->enemy.tmp_pos.x = x * TILE_SIZE_X;
-			game->enemy.tmp_pos.y = y * TILE_SIZE_Y;
 
 			if (game->game_start == false)
 			{
@@ -114,19 +115,18 @@ void draw_map(t_game *game)
 					// position_player(cu);
 					PLAYER_POS_X = x * TILE_SIZE_X;
 					PLAYER_POS_Y = y * TILE_SIZE_Y;
-					PLAYER_TMP_POS_X = x * TILE_SIZE_X;
-					PLAYER_TMP_POS_Y = y * TILE_SIZE_Y;
 				}
 				else if (game->map[y][x] == 'C') //position_items(game);
 					position_item(game);
 				else if (game->map[y][x] == '1')
 					position_wall(game);
-				// draw_element(game, x, y)
-				else if (game->map[y][x] == 'X')
-					position_enemy(game); 
 				else if (game->map[y][x] == 'E')
 					position_portal(game);
 			}
+
+			// draw_element(game, x, y)
+			if (game->map[y][x] == 'X')
+				drawtexture(&game->image, &game->enemy.sprite, game->enemy.pos, 1);
 			x++;
 		}
 		y++;

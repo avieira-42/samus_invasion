@@ -27,6 +27,7 @@ $(SRCS_DIR)/item_render_utils.c \
 $(SRCS_DIR)/wall_render.c \
 $(SRCS_DIR)/portal_render.c \
 $(SRCS_DIR)/enemy_render.c \
+$(SRCS_DIR)/display_moves.c \
 $(SRCS_DIR)/collisions.c
 
 OBJS=$(SRCS:.c=.o)
