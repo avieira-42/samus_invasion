@@ -1,0 +1,2 @@
+syn keyword CTagsFunction get_mouse_position position_wall game_start ft_free_arr ft_free ft_pixelput init_window new_item read_map draw_map ft_get_color ft_freesplit is_touching_floor normalize renderer free_walls is_touching_wall_right draw_walls get_time clamp position_item free_displays new_wall add_item draw_items main free_items clear_item drawtexture is_touching_wall_left drawobj add_wall cub_init ft_abs key_released key_pressed items_count update calculate_Delta game_loop
+

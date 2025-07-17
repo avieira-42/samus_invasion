@@ -1,0 +1,5 @@
+syn keyword CTagsStructure s_vect s_enemy s_player s_portal s_cub s_tile s_item s_image s_point s_jump s_bckgrnd
+syn keyword CTagsMember fd bckgrnd touching_leftwall map_height touching_ground win_ptr player left_wall_pos t_started vect velocity walls map_width touching_ceiling items camera t_elapsed enemy ground_pos endian last_frame_time line_length jump image x height touching_exit mlx_ptr width tile sprite2 delta direction right_wall_pos scale towel map active portal pos tmp_pos next y gravity touching_rightwall bits_per_pixel addr sprite game_start
+syn keyword CTagsType t_cub t_item t_point t_image t_player t_portal t_tile t_vect t_bckgrnd t_enemy t_jump
+syn keyword CTagsDefinedName TOUCHING_LEFTWALL TILE_SIZE_Y PLAYER_POS GROUND_LEVEL PLAYER_VEL_Y PLAYER_DIR_Y TILE_SIZE_X cub_H SCREEN_SIZE_X SCREEN_END_X DELTA_T PLAYER_VEL_X MAX_SPEED PLAYER_POS_X VELOCITY_Y GRAVITY_ACC PLAYER_HEIGHT GRAVITY TOUCHING_EXIT PLAYER_POS_Y SCREEN_SIZE_Y TOUCHING_FLOOR LINE_COLOR TOUCHING_RIGHTWALL WALL_VELOCITY JUMP_VEL CAMERA_END_X VELOCITY_X PLAYER_WIDTH PLAYER_DIR_X TOUCHING_CEILING PLAYER_VECT
+
