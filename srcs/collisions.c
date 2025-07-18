@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:17:13 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/18 01:47:58 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/18 15:32:50 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	is_touching_wall_left(t_game *game)
 	{
 		if (PLAYER_POS_X + PLAYER_WIDTH <= walls->pos.x + TILE_SIZE_X / 2
 			&& PLAYER_POS_X + PLAYER_WIDTH >= walls->pos.x - 10
-			&& PLAYER_POS_Y >= walls->pos.y - 40
+			&& PLAYER_POS_Y >= walls->pos.y - 46
 			&& PLAYER_POS_Y <= walls->pos.y)
 		{
 			game->left_wall_pos = walls->pos.x - PLAYER_WIDTH - 7;
@@ -41,7 +41,7 @@ int	is_touching_wall_right(t_game *game)
 	{
 		if (PLAYER_POS_X >= walls->pos.x + TILE_SIZE_X / 2
 			&& PLAYER_POS_X <= walls->pos.x + TILE_SIZE_X + 10
-			&& PLAYER_POS_Y >= walls->pos.y - 40
+			&& PLAYER_POS_Y >= walls->pos.y - 46
 			&& PLAYER_POS_Y <= walls->pos.y)
 		{
 			game->right_wall_pos = walls->pos.x + TILE_SIZE_X + 7;
@@ -64,7 +64,8 @@ int	is_touching_floor(t_game *game)
 			&& ((PLAYER_POS_X + PLAYER_WIDTH <= walls->pos.x + TILE_SIZE_X
 			&& PLAYER_POS_X + PLAYER_WIDTH >= walls->pos.x)
 			|| (PLAYER_POS_X >= walls->pos.x
-			&& PLAYER_POS_X <= walls->pos.x + TILE_SIZE_X)))
+			&& PLAYER_POS_X <= walls->pos.x + TILE_SIZE_X))
+			&& !contiguous_ceiling(game, walls->pos))
 		{
 			game->ground_pos = walls->pos.y - 48;
 			return (1);
@@ -86,9 +87,10 @@ int	is_touching_ceiling(t_game *game)
 			&& ((PLAYER_POS_X + PLAYER_WIDTH <= walls->pos.x + TILE_SIZE_X
 			&& PLAYER_POS_X + PLAYER_WIDTH >= walls->pos.x)
 			|| (PLAYER_POS_X >= walls->pos.x
-			&& PLAYER_POS_X <= walls->pos.x + TILE_SIZE_X)))
+			&& PLAYER_POS_X <= walls->pos.x + TILE_SIZE_X))
+			&& !contiguous_floor(game, walls->pos))
 		{
-			game->ceiling_pos = walls->pos.y + TILE_SIZE_Y + 5;
+			game->ceiling_pos = walls->pos.y + TILE_SIZE_Y;
 			return (1);
 		}
 		walls = walls->next;

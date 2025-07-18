@@ -9,7 +9,8 @@ add_wall	wall_render.c	/^void	add_wall(t_tile **walls, t_tile *new_wall)$/;"	f
 calculate_Delta	delta.c	/^void	calculate_Delta(t_game *game)$/;"	f
 clamp	math.c	/^float clamp(float value, float min, float max)$/;"	f
 clear_item	item_render_utils.c	/^void	clear_item(t_game *game)$/;"	f
-display_moves	display_moves.c	/^void	display_moves(t_game *game)$/;"	f
+contiguous_ceiling	collisions_utils.c	/^int	contiguous_ceiling(t_game *game, t_point floor_pos)$/;"	f
+display_moves	display_moves.c	/^void display_moves(t_game *game)$/;"	f
 draw_enemy	enemy_render.c	/^void	draw_enemy(t_game *game)$/;"	f
 draw_items	item_render.c	/^void	draw_items(t_game *game)$/;"	f
 draw_map	render_utils.c	/^void draw_map(t_game *game)$/;"	f
@@ -41,6 +42,7 @@ items_count	item_render_utils.c	/^int	items_count(t_item *items)$/;"	f
 key_pressed	input_handler.c	/^int	key_pressed(int keysym, t_game *game)$/;"	f
 key_released	input_handler.c	/^int	key_released(int keysym, t_game *game)$/;"	f
 main	main.c	/^int	main(void)$/;"	f
+map_parse	map_parse.c	/^void	map_parse(t_game *game)$/;"	f
 new_item	item_render_utils.c	/^t_item  *new_item(t_game* game)$/;"	f
 new_wall	wall_render.c	/^t_tile  *new_wall(t_game *game)$/;"	f
 normalize	math.c	/^t_point	normalize(t_point point)$/;"	f

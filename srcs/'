@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_parse.c                                        :+:      :+:    :+:   */
+/*   collisions_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/18 01:57:47 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/18 12:40:58 by a-soeiro         ###   ########.fr       */
+/*   Created: 2025/07/18 13:00:57 by a-soeiro          #+#    #+#             */
+/*   Updated: 2025/07/18 13:45:57 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	map_parse(t_game *game)
+int	contiguous_ceiling(t_game *game, t_point floor_pos)
 {
-	char **map;
-	char	P_count;
-	char	E_count;
-	
-	map = game->map;
-	// Only contain: 0 1 C E P X
-	while (map++)
+	t_tile *walls;
+
+	walls = game->walls;
+	while (walls)
 	{
-
+		if (floor_pos + TILE_SIZE_Y + 5 > 
+		walls = walls->next;
 	}
-	
-	// Only one of: P E
-
-	// At least one of: C, P, E, X
-	
-	// Sourrounded by: 1
-	
-	// Has to be rectangular
-	
-	// Path to collectibles then exit has to be possible
 }
