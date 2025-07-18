@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/18 15:22:23 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/18 19:12:53 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,14 @@
 # define TOUCHING_CEILING game->player.touching_ceiling
 # define TOUCHING_EXIT game->player.touching_exit
 # define DELTA_T game->delta
+
+typedef struct s_map
+{
+	int	C_count;
+	int	P_count;
+	int	E_count;
+	int	X_count;
+}	t_map;
 
 typedef struct s_point
 {
@@ -173,6 +181,18 @@ typedef struct s_game
 
 int			free_displays(t_game *game);
 void		init_window(t_game *game);
+
+//map parse
+int		is_allowed_char(char **map);
+int		is_one_PE(char **map);
+int		is_at_least_one_CPEX(char **map);
+int		is_rectangular(char **map);
+int		map_parse(char **map);
+
+//map parse utils
+int		get_map_height(char **map);
+int		is_only_1(char *map_line);
+int		is_surrounded_by_1(char **map);
 
 //gameloop
 int		game_loop(t_game *game);

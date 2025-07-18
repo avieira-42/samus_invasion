@@ -29,7 +29,9 @@ $(SRCS_DIR)/portal_render.c \
 $(SRCS_DIR)/enemy_render.c \
 $(SRCS_DIR)/display_moves.c \
 $(SRCS_DIR)/collisions.c \
-$(SRCS_DIR)/collisions_utils.c
+$(SRCS_DIR)/collisions_utils.c\
+$(SRCS_DIR)/map_parse.c \
+$(SRCS_DIR)/map_parse_utils.c
 
 OBJS=$(SRCS:.c=.o)
 
