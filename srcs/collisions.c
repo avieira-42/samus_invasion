@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:17:13 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/17 03:38:25 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/18 01:47:58 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,16 @@ int	is_touching_ceiling(t_game *game)
 	walls = game->walls;
 	while (walls)
 	{
-		if (PLAYER_POS_Y >= walls->pos.y + TILE_SIZE_Y * 0.7
+		if (PLAYER_POS_Y >= walls->pos.y + TILE_SIZE_Y * 0.5
 			&& PLAYER_POS_Y <= walls->pos.y + TILE_SIZE_Y
 			&& ((PLAYER_POS_X + PLAYER_WIDTH <= walls->pos.x + TILE_SIZE_X
 			&& PLAYER_POS_X + PLAYER_WIDTH >= walls->pos.x)
 			|| (PLAYER_POS_X >= walls->pos.x
 			&& PLAYER_POS_X <= walls->pos.x + TILE_SIZE_X)))
+		{
+			game->ceiling_pos = walls->pos.y + TILE_SIZE_Y + 5;
 			return (1);
+		}
 		walls = walls->next;
 	}
 	return (0);
@@ -95,8 +98,10 @@ int	is_touching_ceiling(t_game *game)
 
 int	is_touching_exit(t_game *game)
 {
-	if ((PLAYER_POS_X >= game->portal.pos.x && PLAYER_POS_X <= game->portal.pos.x + 48)
-		&& (PLAYER_POS_Y >= game->portal.pos.y && PLAYER_POS_Y <= game->portal.pos.y + 48))
+	if ((PLAYER_POS_X >= game->portal.pos.x
+		&& PLAYER_POS_X <= game->portal.pos.x + 48)
+		&& (PLAYER_POS_Y >= game->portal.pos.y
+		&& PLAYER_POS_Y <= game->portal.pos.y + 48))
 		return (1);
 	return (0);
 }

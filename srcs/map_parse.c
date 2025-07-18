@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_moves.c                                    :+:      :+:    :+:   */
+/*   map_parse.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/17 17:13:29 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/18 01:35:20 by a-soeiro         ###   ########.fr       */
+/*   Created: 2025/07/18 01:57:47 by a-soeiro          #+#    #+#             */
+/*   Updated: 2025/07/18 02:15:24 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../includes/so_long.h"
 
-void display_moves(t_game *game)
+void	map_parse(t_game *game)
 {
-    int moved = 0;
-
-    if (abs((int)(PLAYER_POS_X - PLAYER_TMP_POS_X)) >= PLAYER_WIDTH)
-    {
-        PLAYER_TMP_POS_X = PLAYER_POS_X;
-        moved = 1;
-    }
-    if (abs((int)(PLAYER_POS_Y - PLAYER_TMP_POS_Y)) >= PLAYER_HEIGHT)
-    {
-        PLAYER_TMP_POS_Y = PLAYER_POS_Y;
-        moved = 1;
-    }
-    if (moved)
-    {
-		MOVEMENTS++;
-        printf("Movements: %d\n", game->player.movements);
-    }
+	// Only contain: 0 1 C E P X
+	
+	// Only one of: P E
+	
+	// At least one of: C, P, E, X
+	
+	// Sourrounded by: 1
+	
+	// Has to be rectangular
+	
+	// Path to collectibles then exit has to be possible
 }

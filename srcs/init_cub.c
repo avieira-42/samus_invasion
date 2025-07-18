@@ -3,8 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   init_cub.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */ /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:03:20 by rafaelfe          #+#    #+#             */
 /*   Updated: 2025/07/17 17:48:20 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
@@ -45,12 +44,10 @@ void	game_init(t_game *game)
 	game->player.jump.t_started = 0;
 	game->player.jump.velocity = 0;
 
-	// INITIALIZE BACKGROUND (bckgrnd_init())
+	// INITIALIZE SPRITES
 	game->bckgrnd.scale = 0.7;
 	game->bckgrnd.sprite.image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/quasar.xpm", &game->bckgrnd.sprite.x, &game->bckgrnd.sprite.y);
 	game->bckgrnd.sprite.addr = mlx_get_data_addr(game->bckgrnd.sprite.image, &game->bckgrnd.sprite.bits_per_pixel, &game->bckgrnd.sprite.line_length, &game->bckgrnd.sprite.endian);
-
-	// INITIALIZE SPRITES
 	game->player.sprite.image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/breno.xpm", &game->player.sprite.x, &game->player.sprite.y);
 	game->player.sprite.addr = mlx_get_data_addr(game->player.sprite.image, &game->player.sprite.bits_per_pixel, &game->player.sprite.line_length, &game->player.sprite.endian);
 	game->tile.sprite.image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/tile.xpm", &game->tile.sprite.x, &game->tile.sprite.y);

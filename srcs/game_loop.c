@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:06:28 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/17 17:55:55 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/18 01:56:21 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,17 @@ int	update(t_game *game)
 			PLAYER_POS_X = game->left_wall_pos;
 	}
 	if (TOUCHING_CEILING)
+	{
+		PLAYER_POS_Y = game->ceiling_pos;
 		JUMP_VEL = 0;
+	}
 
 	//INIT VELOCITY (vel_init())
 	PLAYER_VEL_Y = JUMP_VEL + GRAVITY * game->player.jump.t_elapsed;
+	if (PLAYER_VEL_Y > 1000)
+		PLAYER_VEL_Y = 1000;
+	if (PLAYER_VEL_Y < -1000)
+		PLAYER_VEL_Y = -1000;
 
 	// MOVEMENT (get_movement())
 	PLAYER_POS_Y += PLAYER_VEL_Y * DELTA_T;

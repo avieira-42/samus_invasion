@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/17 17:55:03 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/18 01:48:58 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define LINE_COLOR 0xFFFFFF
 # define TILE_SIZE_X 48
 # define TILE_SIZE_Y 48
-# define GRAVITY_ACC 900
+# define GRAVITY_ACC 850
 # define GRAVITY game->gravity
 # define VELOCITY_Y -1000
 # define WALL_VELOCITY -100
@@ -155,6 +155,7 @@ typedef struct s_game
 	int			gravity;
 	float		delta;
 	float		ground_pos;
+	float		ceiling_pos;
 	float		right_wall_pos;
 	float		left_wall_pos;
 	long long	last_frame_time;
