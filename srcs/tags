@@ -1,55 +1,68 @@
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
-!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
-!_TAG_PROGRAM_NAME	Exuberant Ctags	//
-!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
-!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-add_item	item_render_utils.c	/^void	add_item(t_item **items, t_item *new_item)$/;"	f
-add_wall	wall_render.c	/^void	add_wall(t_tile **walls, t_tile *new_wall)$/;"	f
-calculate_Delta	delta.c	/^void	calculate_Delta(t_game *game)$/;"	f
-clamp	math.c	/^float clamp(float value, float min, float max)$/;"	f
-clear_item	item_render_utils.c	/^void	clear_item(t_game *game)$/;"	f
-contiguous_ceiling	collisions_utils.c	/^int	contiguous_ceiling(t_game *game, t_point floor_pos)$/;"	f
-display_moves	display_moves.c	/^void display_moves(t_game *game)$/;"	f
-draw_enemy	enemy_render.c	/^void	draw_enemy(t_game *game)$/;"	f
-draw_items	item_render.c	/^void	draw_items(t_game *game)$/;"	f
-draw_map	render_utils.c	/^void draw_map(t_game *game)$/;"	f
-draw_portal	portal_render.c	/^void	draw_portal(t_game *game)$/;"	f
-draw_walls	wall_render.c	/^void	draw_walls(t_game *game)$/;"	f
-drawobj	render_utils.c	/^void	drawobj(t_image *image, t_point pos, t_point size, int color)$/;"	f
-drawtexture	render_utils.c	/^void	drawtexture(t_image *image, t_image *texture, t_point pos, long double scale)$/;"	f
-free_displays	free_displays.c	/^int	free_displays(t_game *game)$/;"	f
-free_items	item_render_utils.c	/^void	free_items(t_item *items)$/;"	f
-free_walls	wall_render.c	/^void	free_walls(t_tile *walls)$/;"	f
-ft_abs	math.c	/^int	ft_abs(int num)$/;"	f
-ft_free_arr	ft_free.c	/^void	ft_free_arr(char **arr)$/;"	f
-ft_free	ft_free.c	/^void	ft_free(t_game *game, char *line)$/;"	f
-ft_freesplit	free_displays.c	/^void	ft_freesplit(char **str)$/;"	f
-ft_get_color	render_utils.c	/^int ft_get_color(t_image *data, int x, int y)$/;"	f
-ft_pixelput	ft_pixelput.c	/^void	ft_pixelput(t_image *data, int x, int y, int color)$/;"	f
-game_init	init_cub.c	/^void	game_init(t_game *game)$/;"	f
-game_loop	game_loop.c	/^int	game_loop(t_game *game)$/;"	f
-game_start	game_loop.c	/^void	game_start(t_game *game)$/;"	f
-get_mouse_position	get_mouse_pos.c	/^t_point get_mouse_position(t_game *game)$/;"	f
-get_time	get_time.c	/^long long	get_time(void)$/;"	f
-init_window	init_window.c	/^void	init_window(t_game *game)$/;"	f
-is_touching_ceiling	collisions.c	/^int	is_touching_ceiling(t_game *game)$/;"	f
-is_touching_exit	collisions.c	/^int	is_touching_exit(t_game *game)$/;"	f
-is_touching_floor	collisions.c	/^int	is_touching_floor(t_game *game)$/;"	f
-is_touching_wall_left	collisions.c	/^int	is_touching_wall_left(t_game *game)$/;"	f
-is_touching_wall_right	collisions.c	/^int	is_touching_wall_right(t_game *game)$/;"	f
-items_count	item_render_utils.c	/^int	items_count(t_item *items)$/;"	f
-key_pressed	input_handler.c	/^int	key_pressed(int keysym, t_game *game)$/;"	f
-key_released	input_handler.c	/^int	key_released(int keysym, t_game *game)$/;"	f
-main	main.c	/^int	main(void)$/;"	f
-map_parse	map_parse.c	/^void	map_parse(t_game *game)$/;"	f
-new_item	item_render_utils.c	/^t_item  *new_item(t_game* game)$/;"	f
-new_wall	wall_render.c	/^t_tile  *new_wall(t_game *game)$/;"	f
-normalize	math.c	/^t_point	normalize(t_point point)$/;"	f
-position_enemy	enemy_render.c	/^void	position_enemy(t_game *game)$/;"	f
-position_item	item_render.c	/^void	position_item(t_game *game)$/;"	f
-position_portal	portal_render.c	/^void	position_portal(t_game *game)$/;"	f
-position_wall	wall_render.c	/^void	position_wall(t_game *game)$/;"	f
-read_map	render_utils.c	/^char	**read_map(void)$/;"	f
-renderer	game_loop.c	/^int	renderer(t_game *game)$/;"	f
-update	game_loop.c	/^int	update(t_game *game)$/;"	f
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/avieira-/repos/common_core/milestone_2/so_long/srcs/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+add_item	item_render_utils.c	/^void	add_item(t_item **items, t_item *new_item)$/;"	f	typeref:typename:void
+add_wall	wall_render.c	/^void	add_wall(t_tile **walls, t_tile *new_wall)$/;"	f	typeref:typename:void
+calculate_Delta	delta.c	/^void	calculate_Delta(t_game *game)$/;"	f	typeref:typename:void
+clamp	math.c	/^float clamp(float value, float min, float max)$/;"	f	typeref:typename:float
+clear_item	item_render_utils.c	/^void	clear_item(t_game *game)$/;"	f	typeref:typename:void
+contiguous_ceiling	collisions_utils.c	/^int	contiguous_ceiling(t_game *game, t_point floor_pos)$/;"	f	typeref:typename:int
+contiguous_floor	collisions_utils.c	/^int	contiguous_floor(t_game *game, t_point ceiling_pos)$/;"	f	typeref:typename:int
+display_moves	display_moves.c	/^void display_moves(t_game *game)$/;"	f	typeref:typename:void
+draw_enemy	enemy_render.c	/^void	draw_enemy(t_game *game)$/;"	f	typeref:typename:void
+draw_items	item_render.c	/^void	draw_items(t_game *game)$/;"	f	typeref:typename:void
+draw_map	render_utils.c	/^void draw_map(t_game *game)$/;"	f	typeref:typename:void
+draw_portal	portal_render.c	/^void	draw_portal(t_game *game)$/;"	f	typeref:typename:void
+draw_walls	wall_render.c	/^void	draw_walls(t_game *game)$/;"	f	typeref:typename:void
+drawobj	render_utils.c	/^void	drawobj(t_image *image, t_point pos, t_point size, int color)$/;"	f	typeref:typename:void
+drawtexture	render_utils.c	/^void	drawtexture(t_image *image, t_image *texture, t_point pos, long double scale)$/;"	f	typeref:typename:void
+free_displays	free_displays.c	/^int	free_displays(t_game *game)$/;"	f	typeref:typename:int
+free_items	item_render_utils.c	/^void	free_items(t_item *items)$/;"	f	typeref:typename:void
+free_walls	wall_render.c	/^void	free_walls(t_tile *walls)$/;"	f	typeref:typename:void
+ft_abs	math.c	/^int	ft_abs(int num)$/;"	f	typeref:typename:int
+ft_free_arr	ft_free.c	/^void	ft_free_arr(char **arr)$/;"	f	typeref:typename:void
+ft_free	ft_free.c	/^void	ft_free(t_game *game, char *line)$/;"	f	typeref:typename:void
+ft_freesplit	free_displays.c	/^void	ft_freesplit(char **str)$/;"	f	typeref:typename:void
+ft_get_color	render_utils.c	/^int ft_get_color(t_image *data, int x, int y)$/;"	f	typeref:typename:int
+ft_pixelput	ft_pixelput.c	/^void	ft_pixelput(t_image *data, int x, int y, int color)$/;"	f	typeref:typename:void
+game_loop	game_loop.c	/^int	game_loop(t_game *game)$/;"	f	typeref:typename:int
+game_start	game_loop.c	/^void	game_start(t_game *game)$/;"	f	typeref:typename:void
+get_map_height	map_parse_utils.c	/^int	get_map_height(char **map)$/;"	f	typeref:typename:int
+get_mouse_position	get_mouse_pos.c	/^t_point get_mouse_position(t_game *game)$/;"	f	typeref:typename:t_point
+get_time	get_time.c	/^long long	get_time(void)$/;"	f	typeref:typename:long long
+init_game	init_game.c	/^void	init_game(t_game *game)$/;"	f	typeref:typename:void
+init_window	init_window.c	/^void	init_window(t_game *game)$/;"	f	typeref:typename:void
+is_allowed_char	map_parse.c	/^int	is_allowed_char(char **map)$/;"	f	typeref:typename:int
+is_at_least_one_CPEX	map_parse.c	/^int	is_at_least_one_CPEX(char **map)$/;"	f	typeref:typename:int
+is_one_PE	map_parse.c	/^int	is_one_PE(char **map)$/;"	f	typeref:typename:int
+is_only_1	map_parse_utils.c	/^int	is_only_1(char *map_line)$/;"	f	typeref:typename:int
+is_rectangular	map_parse.c	/^int	is_rectangular(char **map)$/;"	f	typeref:typename:int
+is_surrounded_by_1	map_parse_utils.c	/^int	is_surrounded_by_1(char **map)$/;"	f	typeref:typename:int
+is_touching_ceiling	collisions.c	/^int	is_touching_ceiling(t_game *game)$/;"	f	typeref:typename:int
+is_touching_exit	collisions.c	/^int	is_touching_exit(t_game *game)$/;"	f	typeref:typename:int
+is_touching_floor	collisions.c	/^int	is_touching_floor(t_game *game)$/;"	f	typeref:typename:int
+is_touching_wall_left	collisions.c	/^int	is_touching_wall_left(t_game *game)$/;"	f	typeref:typename:int
+is_touching_wall_right	collisions.c	/^int	is_touching_wall_right(t_game *game)$/;"	f	typeref:typename:int
+items_count	item_render_utils.c	/^int	items_count(t_item *items)$/;"	f	typeref:typename:int
+key_pressed	input_handler.c	/^int	key_pressed(int keysym, t_game *game)$/;"	f	typeref:typename:int
+key_released	input_handler.c	/^int	key_released(int keysym, t_game *game)$/;"	f	typeref:typename:int
+main	main.c	/^int	main(void)$/;"	f	typeref:typename:int
+map_parse	map_parse.c	/^int	map_parse(char **map)$/;"	f	typeref:typename:int
+new_item	item_render_utils.c	/^t_item  *new_item(t_game* game)$/;"	f	typeref:typename:t_item *
+new_wall	wall_render.c	/^t_tile  *new_wall(t_game *game)$/;"	f	typeref:typename:t_tile *
+normalize	math.c	/^t_point	normalize(t_point point)$/;"	f	typeref:typename:t_point
+position_enemy	enemy_render.c	/^void	position_enemy(t_game *game)$/;"	f	typeref:typename:void
+position_item	item_render.c	/^void	position_item(t_game *game)$/;"	f	typeref:typename:void
+position_portal	portal_render.c	/^void	position_portal(t_game *game)$/;"	f	typeref:typename:void
+position_wall	wall_render.c	/^void	position_wall(t_game *game)$/;"	f	typeref:typename:void
+read_map	render_utils.c	/^char	**read_map(void)$/;"	f	typeref:typename:char **
+renderer	game_loop.c	/^int	renderer(t_game *game)$/;"	f	typeref:typename:int
+update	game_loop.c	/^int	update(t_game *game)$/;"	f	typeref:typename:int

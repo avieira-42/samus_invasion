@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/18 19:12:53 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/21 16:11:50 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,9 @@
 
 typedef struct s_map
 {
+	char **text;
+	int	height;
+	int	width;
 	int	C_count;
 	int	P_count;
 	int	E_count;
@@ -89,11 +92,11 @@ typedef struct s_image
 {
 	int		x;
 	int		y;
-	void	*image;
-	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	void	*image;
+	char	*addr;
 }	t_image;
 
 typedef struct s_item
@@ -156,10 +159,7 @@ typedef struct s_game
 	bool		game_start;
 	void		*mlx_ptr;
 	void		*win_ptr;
-	char		**map;
 	int			fd;
-	int			map_height;
-	int			map_width;
 	int			gravity;
 	float		delta;
 	float		ground_pos;
@@ -167,16 +167,17 @@ typedef struct s_game
 	float		right_wall_pos;
 	float		left_wall_pos;
 	long long	last_frame_time;
+	t_map		map;
 	t_image		image;
 	t_bckgrnd	bckgrnd;
 	t_tile		tile;
 	t_tile		*walls;
 	t_item		towel;
 	t_item		*items;
-	t_point		camera;
-	t_enemy		enemy;
-	t_player	player;
 	t_portal	portal;
+	t_player	player;
+	t_enemy		enemy;
+	t_point		camera;
 }	t_game;
 
 int			free_displays(t_game *game);
@@ -199,7 +200,7 @@ int		game_loop(t_game *game);
 void	calculate_Delta(t_game *game);
 
 //init
-void	game_init(t_game *game);
+void	init_game(t_game *game);
 
 //input
 int	key_pressed(int keysym, t_game *game);

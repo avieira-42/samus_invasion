@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 14:32:35 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/15 11:37:30 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/21 15:44:14 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ int	main(void)
 {
 	t_game	game;
 
-	init_window(&game);
-	game_init(&game);
+	init_game(&game);
 	mlx_hook(game.win_ptr, 02, (1L<<0), key_pressed, &game);
 	mlx_hook(game.win_ptr, 03, (1L<<1), key_released, &game);
 	mlx_hook(game.win_ptr, 17, 0, free_displays, &game);
