@@ -10,9 +10,9 @@
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	5.9.0	//
 CAMERA_END_X	so_long.h	/^# define CAMERA_END_X /;"	d
-C_count	so_long.h	/^	int	C_count;$/;"	m	struct:s_map	typeref:typename:int
+C_count	so_long.h	/^	int		C_count;$/;"	m	struct:s_map	typeref:typename:int
 DELTA_T	so_long.h	/^# define DELTA_T /;"	d
-E_count	so_long.h	/^	int	E_count;$/;"	m	struct:s_map	typeref:typename:int
+E_count	so_long.h	/^	int		E_count;$/;"	m	struct:s_map	typeref:typename:int
 GRAVITY_ACC	so_long.h	/^# define GRAVITY_ACC /;"	d
 GRAVITY	so_long.h	/^# define GRAVITY /;"	d
 GROUND_LEVEL	so_long.h	/^# define GROUND_LEVEL /;"	d
@@ -32,7 +32,7 @@ PLAYER_VECT	so_long.h	/^# define PLAYER_VECT /;"	d
 PLAYER_VEL_X	so_long.h	/^# define PLAYER_VEL_X /;"	d
 PLAYER_VEL_Y	so_long.h	/^# define PLAYER_VEL_Y /;"	d
 PLAYER_WIDTH	so_long.h	/^# define PLAYER_WIDTH /;"	d
-P_count	so_long.h	/^	int	P_count;$/;"	m	struct:s_map	typeref:typename:int
+P_count	so_long.h	/^	int		P_count;$/;"	m	struct:s_map	typeref:typename:int
 SCREEN_END_X	so_long.h	/^# define SCREEN_END_X /;"	d
 SCREEN_SIZE_X	so_long.h	/^# define SCREEN_SIZE_X /;"	d
 SCREEN_SIZE_Y	so_long.h	/^# define SCREEN_SIZE_Y /;"	d
@@ -46,7 +46,7 @@ TOUCHING_RIGHTWALL	so_long.h	/^# define TOUCHING_RIGHTWALL /;"	d
 VELOCITY_X	so_long.h	/^# define VELOCITY_X	/;"	d
 VELOCITY_Y	so_long.h	/^# define VELOCITY_Y /;"	d
 WALL_VELOCITY	so_long.h	/^# define WALL_VELOCITY /;"	d
-X_count	so_long.h	/^	int	X_count;$/;"	m	struct:s_map	typeref:typename:int
+X_count	so_long.h	/^	int		X_count;$/;"	m	struct:s_map	typeref:typename:int
 active	so_long.h	/^	bool	active;$/;"	m	struct:s_jump	typeref:typename:bool
 addr	so_long.h	/^	char	*addr;$/;"	m	struct:s_image	typeref:typename:char *
 bckgrnd	so_long.h	/^	t_bckgrnd	bckgrnd;$/;"	m	struct:s_game	typeref:typename:t_bckgrnd
@@ -64,7 +64,7 @@ game_start	so_long.h	/^	bool		game_start;$/;"	m	struct:s_game	typeref:typename:b
 gravity	so_long.h	/^	int			gravity;$/;"	m	struct:s_game	typeref:typename:int
 ground_pos	so_long.h	/^	float		ground_pos;$/;"	m	struct:s_game	typeref:typename:float
 height	so_long.h	/^	float	height;$/;"	m	struct:s_vect	typeref:typename:float
-height	so_long.h	/^	int	height;$/;"	m	struct:s_map	typeref:typename:int
+height	so_long.h	/^	int		height;$/;"	m	struct:s_map	typeref:typename:int
 image	so_long.h	/^	t_image		image;$/;"	m	struct:s_game	typeref:typename:t_image
 image	so_long.h	/^	void	*image;$/;"	m	struct:s_image	typeref:typename:void *
 items	so_long.h	/^	t_item		*items;$/;"	m	struct:s_game	typeref:typename:t_item *
@@ -120,7 +120,7 @@ t_portal	so_long.h	/^}	t_portal;$/;"	t	typeref:struct:s_portal
 t_started	so_long.h	/^	float	t_started;$/;"	m	struct:s_jump	typeref:typename:float
 t_tile	so_long.h	/^}	t_tile;$/;"	t	typeref:struct:s_tile
 t_vect	so_long.h	/^}	t_vect;$/;"	t	typeref:struct:s_vect
-text	so_long.h	/^	char **text;$/;"	m	struct:s_map	typeref:typename:char **
+text	so_long.h	/^	char 	**text;$/;"	m	struct:s_map	typeref:typename:char **
 tile	so_long.h	/^	t_tile		tile;$/;"	m	struct:s_game	typeref:typename:t_tile
 tmp_pos	so_long.h	/^	t_point			tmp_pos;$/;"	m	struct:s_player	typeref:typename:t_point
 tmp_pos	so_long.h	/^	t_point	tmp_pos;$/;"	m	struct:s_enemy	typeref:typename:t_point
@@ -137,7 +137,7 @@ velocity	so_long.h	/^	float	velocity;$/;"	m	struct:s_jump	typeref:typename:float
 velocity	so_long.h	/^	t_point 		velocity;$/;"	m	struct:s_player	typeref:typename:t_point
 walls	so_long.h	/^	t_tile		*walls;$/;"	m	struct:s_game	typeref:typename:t_tile *
 width	so_long.h	/^	float	width;$/;"	m	struct:s_vect	typeref:typename:float
-width	so_long.h	/^	int	width;$/;"	m	struct:s_map	typeref:typename:int
+width	so_long.h	/^	int		width;$/;"	m	struct:s_map	typeref:typename:int
 win_ptr	so_long.h	/^	void		*win_ptr;$/;"	m	struct:s_game	typeref:typename:void *
 x	so_long.h	/^	float	x;$/;"	m	struct:s_point	typeref:typename:float
 x	so_long.h	/^	int		x;$/;"	m	struct:s_image	typeref:typename:int

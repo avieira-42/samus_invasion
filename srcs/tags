@@ -35,17 +35,19 @@ ft_get_color	render_utils.c	/^int ft_get_color(t_image *data, int x, int y)$/;"	
 ft_pixelput	ft_pixelput.c	/^void	ft_pixelput(t_image *data, int x, int y, int color)$/;"	f	typeref:typename:void
 game_loop	game_loop.c	/^int	game_loop(t_game *game)$/;"	f	typeref:typename:int
 game_start	game_loop.c	/^void	game_start(t_game *game)$/;"	f	typeref:typename:void
-get_map_height	map_parse_utils.c	/^int	get_map_height(char **map)$/;"	f	typeref:typename:int
+get_map_height	map_parse_utils.c	/^void	get_map_height(t_game *game)$/;"	f	typeref:typename:void
+get_map_width	map_parse_utils.c	/^void	get_map_width(t_game *game)$/;"	f	typeref:typename:void
 get_mouse_position	get_mouse_pos.c	/^t_point get_mouse_position(t_game *game)$/;"	f	typeref:typename:t_point
 get_time	get_time.c	/^long long	get_time(void)$/;"	f	typeref:typename:long long
 init_game	init_game.c	/^void	init_game(t_game *game)$/;"	f	typeref:typename:void
+init_map	init_map.c	/^void	init_map(t_game *game, char *argv1)$/;"	f	typeref:typename:void
 init_window	init_window.c	/^void	init_window(t_game *game)$/;"	f	typeref:typename:void
-is_allowed_char	map_parse.c	/^int	is_allowed_char(char **map)$/;"	f	typeref:typename:int
-is_at_least_one_CPEX	map_parse.c	/^int	is_at_least_one_CPEX(char **map)$/;"	f	typeref:typename:int
-is_one_PE	map_parse.c	/^int	is_one_PE(char **map)$/;"	f	typeref:typename:int
-is_only_1	map_parse_utils.c	/^int	is_only_1(char *map_line)$/;"	f	typeref:typename:int
-is_rectangular	map_parse.c	/^int	is_rectangular(char **map)$/;"	f	typeref:typename:int
-is_surrounded_by_1	map_parse_utils.c	/^int	is_surrounded_by_1(char **map)$/;"	f	typeref:typename:int
+is_allowed_char	map_parse.c	/^int	is_allowed_char(t_game *game)$/;"	f	typeref:typename:int
+is_at_least_one_CPEX	map_parse.c	/^int	is_at_least_one_CPEX(t_game *game)$/;"	f	typeref:typename:int
+is_one_PE	map_parse.c	/^int	is_one_PE(t_game *game)$/;"	f	typeref:typename:int
+is_only_1	map_parse_utils.c	/^void	is_only_1(char *map_line)$/;"	f	typeref:typename:void
+is_rectangular	map_parse.c	/^int	is_rectangular(t_game *game)$/;"	f	typeref:typename:int
+is_surrounded_by_1	map_parse_utils.c	/^int	is_surrounded_by_1(t_game *game)$/;"	f	typeref:typename:int
 is_touching_ceiling	collisions.c	/^int	is_touching_ceiling(t_game *game)$/;"	f	typeref:typename:int
 is_touching_exit	collisions.c	/^int	is_touching_exit(t_game *game)$/;"	f	typeref:typename:int
 is_touching_floor	collisions.c	/^int	is_touching_floor(t_game *game)$/;"	f	typeref:typename:int
@@ -54,15 +56,16 @@ is_touching_wall_right	collisions.c	/^int	is_touching_wall_right(t_game *game)$/
 items_count	item_render_utils.c	/^int	items_count(t_item *items)$/;"	f	typeref:typename:int
 key_pressed	input_handler.c	/^int	key_pressed(int keysym, t_game *game)$/;"	f	typeref:typename:int
 key_released	input_handler.c	/^int	key_released(int keysym, t_game *game)$/;"	f	typeref:typename:int
-main	main.c	/^int	main(void)$/;"	f	typeref:typename:int
-map_parse	map_parse.c	/^int	map_parse(char **map)$/;"	f	typeref:typename:int
+main	main.c	/^int	main(int argc, char **argv)$/;"	f	typeref:typename:int
+map_parse	map_parse.c	/^int	map_parse(t_game *game, char *argv1)$/;"	f	typeref:typename:int
 new_item	item_render_utils.c	/^t_item  *new_item(t_game* game)$/;"	f	typeref:typename:t_item *
 new_wall	wall_render.c	/^t_tile  *new_wall(t_game *game)$/;"	f	typeref:typename:t_tile *
 normalize	math.c	/^t_point	normalize(t_point point)$/;"	f	typeref:typename:t_point
+parse	parse.c	/^int	parse(t_game *game, int argc, char **argv)$/;"	f	typeref:typename:int
 position_enemy	enemy_render.c	/^void	position_enemy(t_game *game)$/;"	f	typeref:typename:void
 position_item	item_render.c	/^void	position_item(t_game *game)$/;"	f	typeref:typename:void
 position_portal	portal_render.c	/^void	position_portal(t_game *game)$/;"	f	typeref:typename:void
 position_wall	wall_render.c	/^void	position_wall(t_game *game)$/;"	f	typeref:typename:void
-read_map	render_utils.c	/^char	**read_map(void)$/;"	f	typeref:typename:char **
+read_map	map_parse_utils.c	/^char **read_map(char *file_name)$/;"	f	typeref:typename:char **
 renderer	game_loop.c	/^int	renderer(t_game *game)$/;"	f	typeref:typename:int
 update	game_loop.c	/^int	update(t_game *game)$/;"	f	typeref:typename:int

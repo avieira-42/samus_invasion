@@ -6,16 +6,19 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 14:32:35 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/21 15:44:14 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/07/21 19:58:49 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_game	game;
-
+   
+	// PARSE ARGV
+	if (!parse(&game, argc, argv))
+		return (1);
 	init_game(&game);
 	mlx_hook(game.win_ptr, 02, (1L<<0), key_pressed, &game);
 	mlx_hook(game.win_ptr, 03, (1L<<1), key_released, &game);
@@ -24,6 +27,3 @@ int	main(void)
 	mlx_loop(game.mlx_ptr);
 	drawtexture(&game.image, &game.player.sprite, game.player.camera, 1);
 }
-
-
-

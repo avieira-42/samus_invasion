@@ -6,13 +6,13 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 17:50:30 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/21 22:37:23 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/07/21 19:43:40 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"       
 
-char **read_map(char *file_name)
+char    **read_map(t_game *game)
 {
 	int		fd;
 	char	**map;
@@ -20,7 +20,7 @@ char **read_map(char *file_name)
 	char	*map_buffer;
 	char	*map_holder;
 
-	fd = open(file_name, O_RDONLY);
+	fd = open(game->map.file_name, O_RDONLY);
 	if (fd == -1)
 		return (NULL);
 	map_holder = ft_strdup("");
@@ -37,27 +37,21 @@ char **read_map(char *file_name)
 	map = ft_split(map_holder, '\n');
 	free(map_holder);
 	close(fd);
-	return (map);
+	game->map.text = map;
 }
 
 void	get_map_height(t_game *game)
 {
-	char **map;
-
-	map = game->map.text;
 	while (*map++)
-		game->map.height++;
+		t_game->map.height++;
 }
 
 void	get_map_width(t_game *game)
 {
-	char **map;
-
-	map = game->map.text;
 	game->map.width = strlen(*map);
 }
 
-int	is_only_1(char *map_line)
+void	is_only_1(t_game *game)
 {
 	while (*map_line)
 		if (*map_line++ != '1')
@@ -65,20 +59,20 @@ int	is_only_1(char *map_line)
 	return (1);
 }
 
-int	is_surrounded_by_1(t_game *game)
+int	is_surrounded_by_1(char **map)
 {
 	int	i;
-	char **map;
 
-	map = game->map.text;
 	i = 0;
-	while (map[i])
+	while (*map)
 	{
-		if (map[i][0] != '1' || map[i][game->map.width - 1] != '1')
+		if (*map[0] != '1' || *map[map_width - 1] != '1')
 			return (0);
-		if (!is_only_1(map[i]))
+		if (i == 0 || i == map_height)
+			if (!is_only_1(*map))
 				return (0);
 		i++;
+		map++;
 	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/21 16:11:50 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/07/21 22:14:30 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,20 @@
 
 typedef struct s_map
 {
-	char **text;
-	int	height;
-	int	width;
-	int	C_count;
-	int	P_count;
-	int	E_count;
-	int	X_count;
+	char 	**text;
+	int		height;
+	int		width;
+	int		C_count;
+	int		P_count;
+	int		E_count;
+	int		X_count;
 }	t_map;
+
+typedef struct s_iterator
+{
+	int	y;
+	int	x;
+}	t_iterator;
 
 typedef struct s_point
 {
@@ -124,8 +130,8 @@ typedef struct s_tile
 {
 	t_image			sprite;
 	t_point			pos;
-	struct s_tile	*next;
 	t_vect			vect;
+	struct s_tile	*next;
 }	t_tile;
 
 typedef struct s_portal
@@ -149,9 +155,9 @@ typedef struct s_player
 	t_point 		direction;
 	t_point 		velocity;
 	t_jump 			jump;
+	t_vect			vect;
 	t_image			sprite;
 	t_point			camera;
-	t_vect			vect;
 }	t_player;
 
 typedef struct s_game
@@ -180,20 +186,27 @@ typedef struct s_game
 	t_point		camera;
 }	t_game;
 
+// parse
+int	parse(t_game *game, int argc, char **argv);
+
+
+// displays
 int			free_displays(t_game *game);
 void		init_window(t_game *game);
 
 //map parse
-int		is_allowed_char(char **map);
-int		is_one_PE(char **map);
-int		is_at_least_one_CPEX(char **map);
-int		is_rectangular(char **map);
-int		map_parse(char **map);
+void	init_map(t_game *game, char *argv1);
+int		is_allowed_char(t_game *game);
+int		is_one_PE(t_game *game);
+int		is_at_least_one_CPEX(t_game *game);
+int		is_rectangular(t_game *game);
+int		map_parse(t_game *game, char *argv1);
 
 //map parse utils
-int		get_map_height(char **map);
+void		get_map_height(t_game *game);
+void		get_map_width(t_game *game);
 int		is_only_1(char *map_line);
-int		is_surrounded_by_1(char **map);
+int		is_surrounded_by_1(t_game *game);
 
 //gameloop
 int		game_loop(t_game *game);
@@ -208,7 +221,7 @@ int	key_released(int keysym, t_game *game);
 
 //map
 int		ft_load_map(char *map, t_game *game);
-char	**read_map(void);
+char	**read_map(char *file_name);
 void	draw_map(t_game *game);
 
 //render utils

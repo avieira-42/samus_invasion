@@ -6,103 +6,100 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 01:57:47 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/18 19:09:42 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/21 22:32:38 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	is_allowed_char(char **map)
+int	is_allowed_char(t_game *game)
 {
-	while (*map)
+	int		i;
+	int		j;
+	char	**map;
+
+	i = 0;
+	map = game->map.text;
+	while (map[i])
 	{
-		while (**map)
+		j = 0;
+		while (map[i][j])
 		{
-			if (**map != '1' && **map != '0'
-				&& **map != 'E' && **map != 'P'
-				&& **map != 'C' && **map != 'X')
+			if (map[i][j] != '1' && map[i][j] != '0'
+				&& map[i][j] != 'E' && map[i][j] != 'P'
+				&& map[i][j] != 'C' && map[i][j] != 'X')
 				return (0);
-			(*map)++;
+			j++;
 		}
-		map++;
+		i++;
 	}
 	return (1);
 }
 
-int	is_one_PE(char **map)
+int	is_one_PE(t_game *game)
 {
-	t_map	grid;
+	if (game->map.E_count > 1 || game->map.P_count > 1)
+		return (0);
+	return (1);
+}
 
-	grid.P_count = 0;
-	grid.E_count = 0;
-	while (*map)
+int	is_at_least_one_CPEX(t_game *game)
+{
+	t_iterator	i;
+	char		**map;
+
+	i.y = 0;
+	map = game->map.text;
+	while (map[i.y])
 	{
-		while (**map)
+		i.x = 0;
+		while (map[i.y][i.x])
 		{
-			if (**map == 'P')
-				grid.P_count++;
-			else if (**map == 'E')
-				grid.E_count++;
-			if (grid.E_count > 1 || grid.P_count > 1)
-				return (0);
-			(*map)++;
+			if (map[i.y][i.x] == 'C')
+				game->map.C_count++;
+			else if (map[i.y][i.x] == 'P')
+				game->map.P_count++;
+			else if (map[i.y][i.x] == 'E')
+				game->map.E_count++;
+			else if (map[i.y][i.x] == 'X')
+				game->map.X_count++;
+			i.x++;
 		}
-		map++;
+		i.y++;
 	}
+	if (game->map.C_count == 0 || game->map.P_count == 0
+		|| game->map.E_count == 0 || game->map.X_count == 0)
+		return (0);
 	return (1);
 }
 
-int	is_at_least_one_CPEX(char **map)
+int	is_rectangular(t_game *game)
 {
-	t_map	grid;
+	char **map;
 
-	grid.C_count = 0;
-	grid.P_count = 0;
-	grid.E_count = 0;
-	grid.X_count = 0;
+	map = game->map.text;
 	while (*map)
 	{
-		while (**map)
-		{
-			if (**map == 'C')
-				grid.C_count++;
-			else if (**map == 'P')
-				grid.P_count++;
-			else if (**map == 'E')
-				grid.E_count++;
-			else if (*(*map)++ == 'X')
-				grid.X_count++;
-		}
-		map++;
-	}
-	if (grid.C_count == 0 || grid.P_count == 0
-		|| grid.E_count == 0 || grid.X_count == 0)
-			return (0);
-	return (1);
-}
-
-int	is_rectangular(char **map)
-{
-	int	map_width;
-
-	map_width = strlen(*map);
-	while (*map)
-	{
-		if ((int)strlen(*map) != map_width)
+		if ((int)strlen(*map) != game->map.width)
 			return (0);
 		map++;
 	}
 	return (1);
 }
 
-int	map_parse(char **map)
+int	map_parse(t_game *game, char *argv1)
 {
-	if (is_allowed_char(map)
-		&& is_at_least_one_CPEX(map)
-		&& is_one_PE(map)
-		&& is_rectangular(map)
-		&& is_surrounded_by_1(map))
+	init_map(game, argv1);
+	if (game->map.text == NULL)
+		return (0);
+	get_map_height(game);
+	get_map_width(game);
+	if (is_allowed_char(game)
+			&& is_at_least_one_CPEX(game)
+			&& is_one_PE(game)
+			&& is_rectangular(game)
+			&& is_surrounded_by_1(game))
 		return (1);
-		// Path to collectibles then exit has to be possible
+	// Path to collectibles then exit has to be possible
 	return (0);
 }

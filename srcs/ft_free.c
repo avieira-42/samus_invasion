@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 18:39:30 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/05/21 17:03:34 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/07/21 20:03:37 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	ft_free(t_game *game, char *line)
 	if (line)
 		free(line);
 	i = 0;
-	if (game && game->map)
+	if (game && game->map.text)
 	{
-		while (game->map[i])
-			free(game->map[i++]);
-		free(game->map);
+		while (game->map.text[i])
+			free(game->map.text[i++]);
+		free(game->map.text);
 	}
 }
 
