@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 17:50:30 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/21 22:37:23 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/07/22 01:49:42 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,13 @@ int	is_surrounded_by_1(t_game *game)
 	i = 0;
 	while (map[i])
 	{
-		if (map[i][0] != '1' || map[i][game->map.width - 1] != '1')
-			return (0);
-		if (!is_only_1(map[i]))
+		if (i == game->map.height || i == 0)
+		{
+			if (!is_only_1(map[i]))
 				return (0);
+		}
+		else if (map[i][0] != '1' || map[i][game->map.width - 1] != '1')
+			return (0);
 		i++;
 	}
 	return (1);
