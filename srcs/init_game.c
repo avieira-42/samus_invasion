@@ -20,7 +20,6 @@ void	init_game(t_game *game)
 	//init_main_struct(game);
 	init_window(game);
 	game->game_start = false;
-	game->mlx_ptr = NULL;
 	game->fd = 0;
 	game->gravity = GRAVITY_ACC;
 	game->delta = 0;

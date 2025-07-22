@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:06:28 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/18 01:56:21 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/22 02:11:46 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,8 @@ int	update(t_game *game)
 int	renderer(t_game *game)
 {
 	long double	multiplier;
-
+	
+	// BLACK HOLE GETS CLOSER AND PLAYER DIES
 	multiplier = 1.000;
 	game->camera.x = game->player.pos.x - SCREEN_SIZE_X / 2;
 
@@ -144,6 +145,7 @@ int	renderer(t_game *game)
 	(*game).image.image = mlx_new_image((*game).mlx_ptr, SCREEN_SIZE_X, SCREEN_SIZE_Y);
 	(*game).image.addr = mlx_get_data_addr((*game).image.image, &(*game).image.bits_per_pixel, &(*game).image.line_length, &(*game).image.endian);
 
+	// draw_sprites
 	drawtexture(&game->image, &game->bckgrnd.sprite, game->bckgrnd.pos, game->bckgrnd.scale *= multiplier);
 	draw_map(game);
 	draw_items(game);
@@ -165,8 +167,8 @@ void	game_start(t_game *game)
 
 int	game_loop(t_game *game)
 {
-	update(game);
 	renderer(game);
+	update(game);
 	game_start(game);
 	return (1);
 }
