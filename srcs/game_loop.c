@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:06:28 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/22 02:11:46 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:25:10 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,7 @@ int	renderer(t_game *game)
 	draw_walls(game);
 	draw_portal(game);
 	draw_enemy(game);
-	drawtexture(&game->image, &game->player.sprite, game->player.camera, 1);
+	animate(game);
 
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->image.image, 0, 0);
 	mlx_destroy_image(game->mlx_ptr, game->image.image);

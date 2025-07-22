@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/21 22:14:30 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/07/22 19:24:37 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,13 @@ typedef struct s_portal
 	t_point	tmp_pos;
 }	t_portal;
 
+typedef struct s_animation
+{
+	int				i;
+	int				timer;
+	t_image			sprite[14];
+}	t_animation;
+
 typedef struct s_player
 {
 	int				movements;
@@ -156,7 +163,8 @@ typedef struct s_player
 	t_point 		velocity;
 	t_jump 			jump;
 	t_vect			vect;
-	t_image			sprite;
+	t_animation		idle;
+	t_animation		running;
 	t_point			camera;
 }	t_player;
 
@@ -238,13 +246,14 @@ void    draw_items(t_game *game);
 int		items_count(t_item *items);
 void	clear_item(t_game *game);
 void	add_item(t_item **items, t_item *new_item);
-void	free_item(t_item *items);
+void	free_items(t_item *items);
 t_item	*new_item(t_game* game);
 
 //wall render
 void	position_wall(t_game *game);
 void	draw_walls(t_game *game);
 void	add_wall(t_tile **walls, t_tile *new_wall);
+void	free_walls(t_tile *walls);
 t_tile *new_wall(t_game *game);
 
 //portal render
@@ -278,9 +287,22 @@ int		is_touching_exit(t_game *game);
 int	contiguous_ceiling(t_game *game, t_point floor_pos);
 int	contiguous_floor(t_game *game, t_point ceiling_pos);
 
-//free utils
+//animate player
+void	animate_player_running(t_game *game);
+void	animate_player_idle(t_game *game);
+void	animate_player(t_game *game);
+void	animate(t_game *game);
 
+//free utils
 void	ft_free_arr(char **arr);
 
+// free split
+void	ft_freesplit(char **str);
+
+// free sprites
+void	free_sprites(t_game *game);
+void	free_player_sprites(t_game *game);
+void	free_player_idle(t_game *game);
+void	free_player_running(t_game *game);
 
 #endif

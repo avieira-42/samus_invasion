@@ -6,6 +6,10 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 add_item	item_render_utils.c	/^void	add_item(t_item **items, t_item *new_item)$/;"	f
 add_wall	wall_render.c	/^void	add_wall(t_tile **walls, t_tile *new_wall)$/;"	f
+animate_player_idle	animate.c	/^void	animate_player_idle(t_game *game)$/;"	f
+animate_player_running	animate.c	/^void	animate_player_running(t_game *game)$/;"	f
+animate_player	animate.c	/^void	animate_player(t_game *game)$/;"	f
+animate	animate.c	/^void	animate(t_game *game)$/;"	f
 calculate_Delta	delta.c	/^void	calculate_Delta(t_game *game)$/;"	f
 clamp	math.c	/^float clamp(float value, float min, float max)$/;"	f
 clear_item	item_render_utils.c	/^void	clear_item(t_game *game)$/;"	f
@@ -21,6 +25,7 @@ drawobj	render_utils.c	/^void	drawobj(t_image *image, t_point pos, t_point size,
 drawtexture	render_utils.c	/^void	drawtexture(t_image *image, t_image *texture, t_point pos, long double scale)$/;"	f
 free_displays	free_displays.c	/^int	free_displays(t_game *game)$/;"	f
 free_items	item_render_utils.c	/^void	free_items(t_item *items)$/;"	f
+free_sprites	free_sprites.c	/^void	free_sprites(t_game *game)$/;"	f
 free_walls	wall_render.c	/^void	free_walls(t_tile *walls)$/;"	f
 ft_abs	math.c	/^int	ft_abs(int num)$/;"	f
 ft_free_arr	ft_free.c	/^void	ft_free_arr(char **arr)$/;"	f

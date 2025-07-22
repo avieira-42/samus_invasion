@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 14:32:35 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/22 02:02:45 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:33:29 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,4 @@ int	main(int argc, char **argv)
 	game_loop(&game);
 	mlx_loop_hook(game.mlx_ptr, game_loop, &game);
 	mlx_loop(game.mlx_ptr);
-	drawtexture(&game.image, &game.player.sprite, game.player.camera, 1);
 }

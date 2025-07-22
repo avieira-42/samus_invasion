@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 17:50:30 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/22 01:49:42 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/22 13:44:42 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ char **read_map(char *file_name)
 	if (fd == -1)
 		return (NULL);
 	map_holder = ft_strdup("");
+	if (map_holder == NULL)
+		return (NULL);
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -33,6 +35,8 @@ char **read_map(char *file_name)
 		map_holder = ft_strjoin(map_buffer, line);
 		free(line);
 		free(map_buffer);
+		if(map_holder == NULL)
+			return (NULL);
 	}
 	map = ft_split(map_holder, '\n');
 	free(map_holder);
