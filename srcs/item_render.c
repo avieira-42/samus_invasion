@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 20:00:15 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/22 19:24:54 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/22 19:50:23 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	draw_items(t_game *game)
 	{
 		pos.y = items->pos.y;
 		pos.x = items->pos.x - game->camera.x;
-		drawtexture(&game->image, &game->towel.sprite, pos, 1);
+		drawtexture(&game->image, &game->towel.sprite, pos, 1.6);
 		items = items->next;
 	}
 }

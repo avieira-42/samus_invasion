@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 20:00:15 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/22 19:25:11 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/22 19:50:35 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	draw_portal(t_game *game)
 	pos.x = game->portal.pos.x - game->camera.x;
 	pos.y = game->portal.pos.y;
 	if (game->items)
-		drawtexture(&game->image, &game->portal.sprite, pos, 1);
+		drawtexture(&game->image, &game->portal.sprite, pos, 1.6);
 	else
-		drawtexture(&game->image, &game->portal.sprite2, pos, 1);
+		drawtexture(&game->image, &game->portal.sprite2, pos, 1.6);
 }

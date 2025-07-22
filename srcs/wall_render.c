@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 20:00:15 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/22 19:25:01 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/22 19:50:42 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	draw_walls(t_game *game)
 	{
 		pos.y = walls->pos.y;
 		pos.x = walls->pos.x - game->camera.x;
-		drawtexture(&game->image, &game->tile.sprite, pos, 1);
+		drawtexture(&game->image, &game->tile.sprite, pos, 1.6);
 		walls = walls->next;
 	}
 }

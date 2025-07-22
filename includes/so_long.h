@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/22 19:24:37 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/22 19:53:03 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,16 @@
 # define CAMERA_END_X 1104
 # define GROUND_LEVEL 624
 # define LINE_COLOR 0xFFFFFF
-# define TILE_SIZE_X 48
-# define TILE_SIZE_Y 48
+# define TILE_SIZE_X 80
+# define TILE_SIZE_Y 80
 # define GRAVITY_ACC 950
 # define GRAVITY game->gravity
 # define VELOCITY_Y -1000
 # define WALL_VELOCITY -100
 # define VELOCITY_X	400
 # define MAX_FALL_SPEED 500
-# define PLAYER_WIDTH 48
-# define PLAYER_HEIGHT 48
+# define PLAYER_WIDTH 80
+# define PLAYER_HEIGHT 80
 # define MOVEMENTS game->player.movements
 # define PLAYER_POS game->player.pos
 # define PLAYER_VECT game->player.vect
