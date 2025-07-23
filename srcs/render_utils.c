@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:00:38 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/21 20:02:42 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/07/23 03:24:15 by a-soeiro         ###   ########.fr       */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
@@ -53,9 +53,7 @@ void	drawtexture(t_image *image, t_image *texture, t_point pos, long double scal
 			if (color != 16711901 && color != 16650716)
 				ft_pixelput(image, pos.x + x, pos.y + y, color);
 			y++;
-		}
-		x++;
-	}
+		} x++; }
 }
 
 void draw_map(t_game *game)
@@ -86,8 +84,6 @@ void draw_map(t_game *game)
 					// position_player(cu);
 					PLAYER_POS_X = x * TILE_SIZE_X;
 					PLAYER_POS_Y = y * TILE_SIZE_Y;
-					PLAYER_TMP_POS_X = x * TILE_SIZE_X;
-					PLAYER_TMP_POS_Y = y * TILE_SIZE_Y;
 				}
 				else if (game->map.text[y][x] == 'C') //position_items(game);
 					position_item(game);
@@ -102,5 +98,5 @@ void draw_map(t_game *game)
 			x++;
 		}
 		y++;
-	}
+		}
 }

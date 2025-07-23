@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:09:07 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/16 23:34:13 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/23 03:47:48 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@ int	key_pressed(int keysym, t_game *game)
 		free_displays(game);
 	if (keysym == XK_a)
 	{
+		game->player.orientation = -1;
 		game->player.direction.x += -1;
 	}
 
 	if (keysym == XK_d)
 	{
+		game->player.orientation = 1;
 		game->player.direction.x += 1;
 	}
 	if ((keysym == XK_space || keysym == XK_w)

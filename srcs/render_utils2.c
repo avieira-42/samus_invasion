@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   enemy_render.c                                     :+:      :+:    :+:   */
+/*   render_utils2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/17 15:43:10 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/23 04:11:25 by a-soeiro         ###   ########.fr       */
+/*   Created: 2025/07/23 03:22:14 by a-soeiro          #+#    #+#             */
+/*   Updated: 2025/07/23 03:39:39 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	position_enemy(t_game *game)
+void    draw_mirroredtexture(t_image *image, t_image *texture, t_point pos, long double scale)
 {
-	game->enemy.pos.x = game->enemy.tmp_pos.x;
-	game->enemy.pos.y = game->enemy.tmp_pos.y;
+	int x;
+	int y;
+	int color;
+
+	x = 0;
+	while (x < texture->x * scale)
+	{
+		y = 0;
+		while (y < texture->y * scale)
+		{
+			color = ft_get_color(texture, (texture->x - 1 - (x / scale)), y / scale);
+			if (color != 16711901 && color != 16650716)
+			{
+				ft_pixelput(image, pos.x + x, pos.y + y, color);
+			}
+			y++;
+		}
+		x++;
+	}
 }
-
-void	draw_enemy(t_game *game)
-{
-	t_point	pos;
-
-	pos.x = game->enemy.pos.x - game->camera.x;
-	pos.y = game->enemy.pos.y;
-	drawtexture(&game->image, &game->enemy.sprite, pos, 1.6);
-}  

@@ -83,6 +83,7 @@ pos	so_long.h	/^	t_point		pos;$/;"	m	struct:s_bckgrnd
 pos	so_long.h	/^	t_point	pos;$/;"	m	struct:s_enemy
 pos	so_long.h	/^	t_point	pos;$/;"	m	struct:s_portal
 pos	so_long.h	/^	t_point 		pos;$/;"	m	struct:s_player
+reverse_running	so_long.h	/^	t_animation		reverse_running;$/;"	m	struct:s_player
 right_wall_pos	so_long.h	/^	float		right_wall_pos;$/;"	m	struct:s_game
 running	so_long.h	/^	t_animation		running;$/;"	m	struct:s_player
 s_animation	so_long.h	/^typedef struct s_animation$/;"	s

@@ -19,12 +19,16 @@ display_moves	display_moves.c	/^void display_moves(t_game *game)$/;"	f
 draw_enemy	enemy_render.c	/^void	draw_enemy(t_game *game)$/;"	f
 draw_items	item_render.c	/^void	draw_items(t_game *game)$/;"	f
 draw_map	render_utils.c	/^void draw_map(t_game *game)$/;"	f
+draw_mirroredtexture	render_utils2.c	/^void    draw_mirroredtexture(t_image *image, t_image *texture, t_point pos, long double scale)$/;"	f
 draw_portal	portal_render.c	/^void	draw_portal(t_game *game)$/;"	f
 draw_walls	wall_render.c	/^void	draw_walls(t_game *game)$/;"	f
 drawobj	render_utils.c	/^void	drawobj(t_image *image, t_point pos, t_point size, int color)$/;"	f
 drawtexture	render_utils.c	/^void	drawtexture(t_image *image, t_image *texture, t_point pos, long double scale)$/;"	f
 free_displays	free_displays.c	/^int	free_displays(t_game *game)$/;"	f
 free_items	item_render_utils.c	/^void	free_items(t_item *items)$/;"	f
+free_player_idle	free_sprites.c	/^void	free_player_idle(t_game *game)$/;"	f
+free_player_running	free_sprites.c	/^void	free_player_running(t_game *game)$/;"	f
+free_player_sprites	free_sprites.c	/^void	free_player_sprites(t_game *game)$/;"	f
 free_sprites	free_sprites.c	/^void	free_sprites(t_game *game)$/;"	f
 free_walls	wall_render.c	/^void	free_walls(t_tile *walls)$/;"	f
 ft_abs	math.c	/^int	ft_abs(int num)$/;"	f

@@ -18,6 +18,7 @@ $(SRCS_DIR)/math.c \
 $(SRCS_DIR)/free_displays.c \
 $(SRCS_DIR)/init_game.c \
 $(SRCS_DIR)/render_utils.c \
+$(SRCS_DIR)/render_utils2.c \
 $(SRCS_DIR)/ft_free.c \
 $(SRCS_DIR)/ft_pixelput.c \
 $(SRCS_DIR)/input_handler.c \

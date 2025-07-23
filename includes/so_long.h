@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/22 19:53:03 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/23 03:46:47 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@
 # define LINE_COLOR 0xFFFFFF
 # define TILE_SIZE_X 80
 # define TILE_SIZE_Y 80
-# define GRAVITY_ACC 950
+# define GRAVITY_ACC 800
 # define GRAVITY game->gravity
-# define VELOCITY_Y -1000
+# define VELOCITY_Y -600
 # define WALL_VELOCITY -100
 # define VELOCITY_X	400
 # define MAX_FALL_SPEED 500
 # define PLAYER_WIDTH 80
 # define PLAYER_HEIGHT 80
-# define MOVEMENTS game->player.movements
+# define PLAYER_ORIENTATION game->player.orientation
 # define PLAYER_POS game->player.pos
 # define PLAYER_VECT game->player.vect
 # define PLAYER_VEL_X game->player.velocity.x
@@ -56,6 +56,7 @@
 # define TOUCHING_CEILING game->player.touching_ceiling
 # define TOUCHING_EXIT game->player.touching_exit
 # define DELTA_T game->delta
+# define MOVEMENTS game->player.movements
 
 typedef struct s_map
 {
@@ -152,6 +153,7 @@ typedef struct s_animation
 typedef struct s_player
 {
 	int				movements;
+	int				orientation;
 	bool			touching_ground;
 	bool			touching_leftwall;
 	bool			touching_rightwall;
@@ -234,9 +236,12 @@ void	draw_map(t_game *game);
 
 //render utils
 void		drawobj(t_image *image, t_point pos, t_point size, int color);
+int			ft_get_color(t_image *data, int x, int y);
 void		ft_pixelput(t_image *data, int x, int y, int color);
 void		drawline(t_game *game, t_point start, t_point dest);
 void		drawtexture(t_image *image, t_image *texture, t_point pos, long double scale);
+void		draw_mirroredtexture(t_image *image, t_image *texture, t_point pos, long double scale);
+
 
 //item render
 void    position_item(t_game *game);
