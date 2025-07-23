@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/23 03:46:47 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/23 04:36:01 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,8 @@ typedef struct s_image
 
 typedef struct s_item
 {
+	int				orientation;
+	t_point			tmp_pos;
 	t_point			pos;
 	t_image			sprite;
 	struct s_item	*next;
@@ -246,6 +248,7 @@ void		draw_mirroredtexture(t_image *image, t_image *texture, t_point pos, long d
 //item render
 void    position_item(t_game *game);
 void    draw_items(t_game *game);
+void	update_item_orientation(t_game *game);
 
 //item render utils
 int		items_count(t_item *items);

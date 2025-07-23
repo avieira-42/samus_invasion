@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 12:04:29 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/22 17:49:42 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/23 04:59:06 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ void	free_player_running(t_game *game)
 {
 	int	i;
 
-	i = 1;
+	i = 14;
 	while (i--)
-		mlx_destroy_image(game->mlx_ptr, game->player.idle.sprite[i].image);
+		mlx_destroy_image(game->mlx_ptr, game->player.running.sprite[i].image);
 }
 
 void	free_player_idle(t_game *game)
 {
 	int i;
 
-	i = 14;
+	i = 1;
 	while(i--)
 		mlx_destroy_image(game->mlx_ptr, game->player.idle.sprite[i].image);
 }

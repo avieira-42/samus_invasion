@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:00:38 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/23 03:24:15 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/23 04:46:53 by a-soeiro         ###   ########.fr       */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
@@ -67,18 +67,17 @@ void draw_map(t_game *game)
 		x = 0;
 		while (game->map.text[y][x])
 		{
-			// update_stationary_pos(game, x, y)
-			game->tile.pos.x = x * TILE_SIZE_X;
-			game->tile.pos.y = y * TILE_SIZE_Y;
-			game->towel.pos.x = x * TILE_SIZE_X;
-			game->towel.pos.y = y * TILE_SIZE_Y;
-			game->portal.tmp_pos.x = x * TILE_SIZE_X;
-			game->portal.tmp_pos.y = y * TILE_SIZE_Y;
-			game->enemy.tmp_pos.x = x * TILE_SIZE_X;
-			game->enemy.tmp_pos.y = y * TILE_SIZE_Y;
-
 			if (game->game_start == false)
 			{
+				// update_stationary_pos(game, x, y)
+				game->tile.pos.x = x * TILE_SIZE_X;
+				game->tile.pos.y = y * TILE_SIZE_Y;
+				game->towel.pos.x = x * TILE_SIZE_X;
+				game->towel.pos.y = y * TILE_SIZE_Y;
+				game->portal.tmp_pos.x = x * TILE_SIZE_X;
+				game->portal.tmp_pos.y = y * TILE_SIZE_Y;
+				game->enemy.tmp_pos.x = x * TILE_SIZE_X;
+				game->enemy.tmp_pos.y = y * TILE_SIZE_Y;
 				if (game->map.text[y][x] == 'P')
 				{
 					// position_player(cu);
@@ -86,7 +85,7 @@ void draw_map(t_game *game)
 					PLAYER_POS_Y = y * TILE_SIZE_Y;
 				}
 				else if (game->map.text[y][x] == 'C') //position_items(game);
-					position_item(game);
+				position_item(game);
 				else if (game->map.text[y][x] == '1')
 					position_wall(game);
 				// draw_element(game, x, y)
@@ -98,5 +97,5 @@ void draw_map(t_game *game)
 			x++;
 		}
 		y++;
-		}
+	}
 }

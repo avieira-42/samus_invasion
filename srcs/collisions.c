@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:17:13 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/23 02:58:15 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/23 05:04:52 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	is_touching_wall_left(t_game *game)
 			&& PLAYER_POS_Y >= walls->pos.y - TILE_SIZE_Y + 2
 			&& PLAYER_POS_Y <= walls->pos.y)
 		{
-			game->left_wall_pos = walls->pos.x - PLAYER_WIDTH - 7;
+			game->left_wall_pos = walls->pos.x - PLAYER_WIDTH - 2;
 			return (1);
 		}
 		walls = walls->next;
@@ -44,7 +44,7 @@ int	is_touching_wall_right(t_game *game)
 			&& PLAYER_POS_Y >= walls->pos.y - TILE_SIZE_Y + 2
 			&& PLAYER_POS_Y <= walls->pos.y)
 		{
-			game->right_wall_pos = walls->pos.x + TILE_SIZE_X + 7;
+			game->right_wall_pos = walls->pos.x + TILE_SIZE_X + 2;
 			return (1);
 		}
 		walls = walls->next;

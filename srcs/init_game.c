@@ -60,8 +60,11 @@ void	init_game(t_game *game)
 	game->tile.next = NULL;
 
 	//init_towel(game);
+	game->towel.orientation = 1;
 	game->towel.sprite.image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/towel.xpm", &game->towel.sprite.x, &game->towel.sprite.y);
 	game->towel.sprite.addr = mlx_get_data_addr(game->towel.sprite.image, &game->towel.sprite.bits_per_pixel, &game->towel.sprite.line_length, &game->towel.sprite.endian);
+	game->towel.tmp_pos.x = 0;
+	game->towel.tmp_pos.y = 0;
 	game->towel.pos.x = 0;
 	game->towel.pos.y = 0;
 	game->tile.vect.height = 0;

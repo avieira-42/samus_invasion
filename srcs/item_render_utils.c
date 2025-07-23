@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 18:01:59 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/17 03:01:52 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/23 04:25:46 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_item  *new_item(t_game* game)
 	new_item->sprite.addr = game->towel.sprite.addr;
 	new_item->sprite.image = game->towel.sprite.image;
 	new_item->pos = game->towel.pos;
+	new_item->tmp_pos = game->towel.pos;
     return (new_item);
 }
 

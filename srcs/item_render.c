@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 20:00:15 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/23 02:33:02 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/23 04:53:13 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,26 @@ void	position_item(t_game *game)
 	add_item(&game->items, item);
 }
 
+void	update_item_orentation(t_game *game)
+{
+	if (ft_abs(game->towel.tmp_pos.y - game->towel.pos.y) > 18)
+	{
+		game->towel.tmp_pos.y = game->towel.pos.y;
+		game->towel.orientation *= -1;
+	}
+	game->towel.pos.y += game->towel.orientation;
+}
+
 void	draw_items(t_game *game)
 {
 	t_item	*items;
 	t_point	pos;
 
 	items = game->items;
+	update_item_orentation(game);
 	while (items)
 	{
+		items->pos.y += game->towel.orientation;
 		pos.y = items->pos.y;
 		pos.x = items->pos.x - game->camera.x;
 		drawtexture(&game->image, &game->towel.sprite, pos, 1.6);

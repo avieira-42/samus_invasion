@@ -72,4 +72,5 @@ position_portal	portal_render.c	/^void	position_portal(t_game *game)$/;"	f
 position_wall	wall_render.c	/^void	position_wall(t_game *game)$/;"	f
 read_map	map_parse_utils.c	/^char **read_map(char *file_name)$/;"	f
 renderer	game_loop.c	/^int	renderer(t_game *game)$/;"	f
+update_item_orentation	item_render.c	/^void	update_item_orentation(t_game *game)$/;"	f
 update	game_loop.c	/^int	update(t_game *game)$/;"	f
