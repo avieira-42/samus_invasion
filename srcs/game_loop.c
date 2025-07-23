@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:06:28 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/23 21:26:50 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/23 22:21:23 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ int	update(t_game *game)
 		PLAYER_POS_Y = game->ground_pos;
 		game->player.jump.t_elapsed = 0;
 		ATTACKING = false;
+		ATTACK_COUNTER = 0;
 	}
 	if (TOUCHING_CEILING)
 	{

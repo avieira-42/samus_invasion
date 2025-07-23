@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/23 04:36:01 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/23 22:21:15 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 # define MAX_FALL_SPEED 500
 # define PLAYER_WIDTH 80
 # define PLAYER_HEIGHT 80
-# define PLAYER_ORIENTATION game->player.orientation
+# define DELTA_T game->delta
 # define PLAYER_POS game->player.pos
 # define PLAYER_VECT game->player.vect
 # define PLAYER_VEL_X game->player.velocity.x
@@ -50,12 +50,15 @@
 # define PLAYER_TMP_POS_Y game->player.tmp_pos.y
 # define PLAYER_DIR_X game->player.direction.x
 # define PLAYER_DIR_Y game->player.direction.y
+# define PLAYER_ORIENTATION game->player.orientation
 # define TOUCHING_FLOOR game->player.touching_ground
 # define TOUCHING_LEFTWALL game->player.touching_leftwall
 # define TOUCHING_RIGHTWALL game->player.touching_rightwall
 # define TOUCHING_CEILING game->player.touching_ceiling
 # define TOUCHING_EXIT game->player.touching_exit
-# define DELTA_T game->delta
+# define ATTACK_COUNTER game->player.attack_counter
+# define ATTACK_TIMER game->player.attack_timer
+# define ATTACKING game->player.attacking
 # define MOVEMENTS game->player.movements
 
 typedef struct s_map
@@ -152,10 +155,21 @@ typedef struct s_animation
 	t_image			sprite[14];
 }	t_animation;
 
+typedef struct s_attack
+{
+	int			timer;
+	int			counter;
+	bool		is_attacking;
+	t_animation attack;
+}	t_attack;
+
 typedef struct s_player
 {
 	int				movements;
 	int				orientation;
+	int				attack_timer;
+	int				attack_counter;
+	bool			attacking;
 	bool			touching_ground;
 	bool			touching_leftwall;
 	bool			touching_rightwall;
@@ -169,6 +183,9 @@ typedef struct s_player
 	t_vect			vect;
 	t_animation		idle;
 	t_animation		running;
+	t_animation		jumping;
+	t_animation		falling;
+	t_animation		attack;
 	t_point			camera;
 }	t_player;
 
@@ -300,6 +317,14 @@ void	animate_player_running(t_game *game);
 void	animate_player_idle(t_game *game);
 void	animate_player(t_game *game);
 void	animate(t_game *game);
+
+//animate player utils
+void	animate_player_jumping(t_game *game);
+void	animate_player_falling(t_game *game);
+void	animate_player_attacking(t_game *game);
+
+// timers
+void update_attack_timer(t_game *game);
 
 //free utils
 void	ft_free_arr(char **arr);

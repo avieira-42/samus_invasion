@@ -36,6 +36,8 @@ $(SRCS_DIR)/map_parse.c \
 $(SRCS_DIR)/map_parse_utils.c \
 $(SRCS_DIR)/parse.c \
 $(SRCS_DIR)/animate.c \
+$(SRCS_DIR)/animate_utils.c \
+$(SRCS_DIR)/timers.c \
 $(SRCS_DIR)/free_sprites.c
 
 OBJS=$(SRCS:.c=.o)

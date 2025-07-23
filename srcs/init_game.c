@@ -82,6 +82,7 @@ void	init_game(t_game *game)
 	game->portal.tmp_pos.y = 0;
 
 	// init_player(game);
+	game->player.attack_counter = 0;
 	game->player.attack_timer = 11;
 	game->player.attacking = false;
 	game->player.orientation = 1;
