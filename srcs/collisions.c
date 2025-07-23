@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:17:13 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/23 05:04:52 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/23 05:10:48 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_touching_wall_left(t_game *game)
 	walls = game->walls;
 	while (walls)
 	{
-		if (PLAYER_POS_X + PLAYER_WIDTH <= walls->pos.x + TILE_SIZE_X / 2
+		if (PLAYER_POS_X + PLAYER_WIDTH <= walls->pos.x + TILE_SIZE_X * 0.6
 			&& PLAYER_POS_X + PLAYER_WIDTH >= walls->pos.x - 10
 			&& PLAYER_POS_Y >= walls->pos.y - TILE_SIZE_Y + 2
 			&& PLAYER_POS_Y <= walls->pos.y)
@@ -39,7 +39,7 @@ int	is_touching_wall_right(t_game *game)
 	walls = game->walls;
 	while (walls)
 	{
-		if (PLAYER_POS_X >= walls->pos.x + TILE_SIZE_X / 2
+		if (PLAYER_POS_X >= walls->pos.x + TILE_SIZE_X * 0.6
 			&& PLAYER_POS_X <= walls->pos.x + TILE_SIZE_X + 10
 			&& PLAYER_POS_Y >= walls->pos.y - TILE_SIZE_Y + 2
 			&& PLAYER_POS_Y <= walls->pos.y)
