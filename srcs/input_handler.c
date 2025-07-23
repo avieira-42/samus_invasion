@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:09:07 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/23 03:47:48 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/23 21:28:57 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,11 @@ int	key_pressed(int keysym, t_game *game)
 	{
 		game->player.jump.active = true;
 	}
-	if (keysym == XK_s && !is_touching_floor(game))
+	if (keysym == XK_s && ATTACK_TIMER == 11 && !is_touching_floor(game))
 	{
-		JUMP_VEL = 0;;
+		JUMP_VEL = 0;
+		ATTACK_TIMER = 0;
+		ATTACKING = true;
 	}
 	return (1);
 }

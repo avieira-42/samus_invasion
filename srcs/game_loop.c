@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:06:28 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/23 04:37:20 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/23 21:26:50 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	update(t_game *game)
 	//printf("direction: %f \n", game->player.direction.x);
 	//printf("velocity.x: %f \n", game->player.velocity.x);
 	//printf("delta: %f \n", game->delta); printf("pos.y: %f \n", game->player.pos.y);
-	printf("pos.x: %f \n", game->player.pos.x);
-	printf("pos.y: %f \n", game->player.pos.y);
+	//printf("pos.x: %f \n", game->player.pos.x);
+	//printf("pos.y: %f \n", game->player.pos.y);
 	//printf("jump_started: %f \n", game->player.jump.t_started);
 	//printf("jump_elapsed: %f \n", game->player.jump.t_elapsed);
 	//printf("camera.x: %f \n", game->camera.x);
@@ -33,8 +33,8 @@ int	update(t_game *game)
 	//printf("item_no: %i \n", items_count(game->items));
 	//printf("tile_pos.x: %f \n", game->towel.pos.x);
 	//printf("tile_pos.y: %f \n", game->towel.pos.y);
-	printf("exit_pos.x: %f \n", game->portal.pos.x);
-	printf("exit_pos.y: %f \n", game->portal.pos.y);
+	//printf("exit_pos.x: %f \n", game->portal.pos.x);
+	//printf("exit_pos.y: %f \n", game->portal.pos.y);
 	//printf("enemy.x: %f \n", game->enemy.pos.x);
 	//printf("enemy.y: %f \n", game->enemy.pos.y);
 	//if (TOUCHING_FLOOR)
@@ -44,6 +44,8 @@ int	update(t_game *game)
 		//printf("item.x: %f \n", game->items->pos.x);
 		//printf("item.y: %f \n", game->items->pos.y);
 	//}
+	printf("vel.y: %f\n", PLAYER_VEL_Y);
+	printf("jump_vel: %f\n", JUMP_VEL);
 
 	//INIT VELOCITY_X
 	PLAYER_VEL_X = VELOCITY_X;
@@ -60,7 +62,6 @@ int	update(t_game *game)
 		PLAYER_VEL_X = 0;
 		PLAYER_POS_X = game->left_wall_pos;
 	}
-
 
 	// JUMPING (check_jump())
 	if (game->player.jump.active == true)
@@ -97,6 +98,7 @@ int	update(t_game *game)
 		JUMP_VEL = 0;
 		PLAYER_POS_Y = game->ground_pos;
 		game->player.jump.t_elapsed = 0;
+		ATTACKING = false;
 	}
 	if (TOUCHING_CEILING)
 	{
@@ -112,13 +114,15 @@ int	update(t_game *game)
 		PLAYER_VEL_Y = -1000;
 
 	// MOVEMENT (get_movement())
-	PLAYER_POS_Y += PLAYER_VEL_Y * DELTA_T;
+	if (ATTACK_TIMER > 10)
+		PLAYER_POS_Y += PLAYER_VEL_Y * DELTA_T;
 	PLAYER_POS_X += PLAYER_DIR_X * PLAYER_VEL_X * DELTA_T;
 
 	// ITEM COLLECTING
 	clear_item(game);
 	if (TOUCHING_EXIT && game->items == NULL)
 		free_displays(game);
+	update_attack_timer(game);
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 02:07:35 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/23 03:45:43 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/23 20:42:31 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,25 @@ void	animate_player_idle(t_game *game)
 
 void	animate_player(t_game *game)
 {
-	/*if (TOUCHING_FLOOR)
-	  {*/
-	if (!PLAYER_DIR_X)
-		animate_player_idle(game);
-	else	
-		animate_player_running(game);
-	//}
+	if (TOUCHING_FLOOR)
+	{
+		if (!PLAYER_DIR_X)
+			animate_player_idle(game);
+		else	
+			animate_player_running(game);
+	}
+	else
+	{
+		if (PLAYER_VEL_Y > 0)
+		{
+			if (ATTACKING == true)
+				animate_player_attacking(game);
+			else
+				animate_player_falling(game);
+		}
+		else
+			animate_player_jumping(game);
+	}
 }
 
 void	animate(t_game *game)

@@ -6,7 +6,10 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 add_item	item_render_utils.c	/^void	add_item(t_item **items, t_item *new_item)$/;"	f
 add_wall	wall_render.c	/^void	add_wall(t_tile **walls, t_tile *new_wall)$/;"	f
+animate_player_attacking	animate_utils.c	/^void	animate_player_attacking(t_game *game)$/;"	f
+animate_player_falling	animate_utils.c	/^void	animate_player_falling(t_game *game)$/;"	f
 animate_player_idle	animate.c	/^void	animate_player_idle(t_game *game)$/;"	f
+animate_player_jumping	animate_utils.c	/^void	animate_player_jumping(t_game *game)$/;"	f
 animate_player_running	animate.c	/^void	animate_player_running(t_game *game)$/;"	f
 animate_player	animate.c	/^void	animate_player(t_game *game)$/;"	f
 animate	animate.c	/^void	animate(t_game *game)$/;"	f
