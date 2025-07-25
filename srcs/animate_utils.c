@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 15:51:54 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/23 20:43:14 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/25 01:52:20 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	animate_player_jumping(t_game *game)
 	game->player.falling.timer = 0;
 	game->player.attack.i = 0;
 	game->player.attack.timer = 0;
-	if (++(game->player.jumping.timer) == 3)
+	if (++(game->player.jumping.timer) == 2)
 	{
 		game->player.jumping.timer = 0;
-		if ((game->player.jumping.i) < 2)
+		if ((game->player.jumping.i) < 3)
 			(game->player.jumping.i)++;
 	}
 	i = game->player.jumping.i;
@@ -44,7 +44,7 @@ void	animate_player_falling(t_game *game)
 	if (++(game->player.falling.timer) == 2)
 	{
 		game->player.falling.timer = 0;
-		if ((game->player.falling.i) < 2)
+		if ((game->player.falling.i) < 3)
 			(game->player.falling.i)++;
 	}
 	i = game->player.falling.i;
@@ -62,10 +62,10 @@ void	animate_player_attacking(t_game *game)
 	game->player.jumping.timer = 0;
 	game->player.falling.i = 0;
 	game->player.falling.timer = 0;
-	if (++(game->player.attack.timer) == 1)
+	if (++(game->player.attack.timer) == 3)
 	{
 		game->player.attack.timer = 0;
-		if ((game->player.attack.i) < 11)
+		if ((game->player.attack.i) < 12)
 			(game->player.attack.i)++;
 	}
 	i = game->player.attack.i;

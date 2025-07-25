@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/23 22:21:15 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/25 02:58:59 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@
 # define PLAYER_DIR_X game->player.direction.x
 # define PLAYER_DIR_Y game->player.direction.y
 # define PLAYER_ORIENTATION game->player.orientation
-# define TOUCHING_FLOOR game->player.touching_ground
-# define TOUCHING_LEFTWALL game->player.touching_leftwall
-# define TOUCHING_RIGHTWALL game->player.touching_rightwall
-# define TOUCHING_CEILING game->player.touching_ceiling
-# define TOUCHING_EXIT game->player.touching_exit
+# define PLAYER_TOUCHING_FLOOR game->player.touching_ground
+# define PLAYER_TOUCHING_LEFTWALL game->player.touching_leftwall
+# define PLAYER_TOUCHING_RIGHTWALL game->player.touching_rightwall
+# define PLAYER_TOUCHING_CEILING game->player.touching_ceiling
+# define PLAYER_TOUCHING_EXIT game->player.touching_exit
 # define ATTACK_COUNTER game->player.attack_counter
 # define ATTACK_TIMER game->player.attack_timer
 # define ATTACKING game->player.attacking
@@ -120,9 +120,11 @@ typedef struct s_item
 
 typedef struct s_enemy
 {
-	t_point	pos;
-	t_point	tmp_pos;
-	t_image	sprite;
+	int				orientation;
+	t_point			tmp_pos;
+	t_point			pos;
+	t_image			sprite;
+	struct s_enemy	*next;
 }	t_enemy;
 
 typedef struct s_bckgrnd
@@ -211,7 +213,7 @@ typedef struct s_game
 	t_item		*items;
 	t_portal	portal;
 	t_player	player;
-	t_enemy		enemy;
+	t_enemy		*enemies;
 	t_point		camera;
 }	t_game;
 
@@ -274,6 +276,18 @@ void	add_item(t_item **items, t_item *new_item);
 void	free_items(t_item *items);
 t_item	*new_item(t_game* game);
 
+//enemy render
+void    position_enemy(t_game *game);
+void    draw_enemies(t_game *game);
+void	update_enemy_orientation(t_game *game);
+
+//enemy render utils
+int		enemies(t_item *items);
+void	clear_enemy(t_game *game);
+void	add_enemy(t_item **items, t_item *new_item);
+void	free_enemies(t_item *items);
+t_item	*new_enemy(t_game* game);
+
 //wall render
 void	position_wall(t_game *game);
 void	draw_walls(t_game *game);
@@ -302,11 +316,11 @@ t_point		normalize(t_point point);
 void	display_moves(t_game *game);
 
 //collisions
-int		is_touching_floor(t_game *game);
-int		is_touching_ceiling(t_game *game);
-int		is_touching_wall_left(t_game *game);
-int		is_touching_wall_right(t_game *game);
-int		is_touching_exit(t_game *game);
+int		player_touching_floor(t_game *game);
+int		player_touching_ceiling(t_game *game);
+int		player_touching_wall_left(t_game *game);
+int		player_touching_wall_right(t_game *game);
+int		player_touching_exit(t_game *game);
 
 //collisions utils
 int	contiguous_ceiling(t_game *game, t_point floor_pos);

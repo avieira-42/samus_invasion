@@ -26,7 +26,6 @@ $(SRCS_DIR)/item_render.c \
 $(SRCS_DIR)/item_render_utils.c \
 $(SRCS_DIR)/wall_render.c \
 $(SRCS_DIR)/portal_render.c \
-$(SRCS_DIR)/enemy_render.c \
 $(SRCS_DIR)/display_moves.c \
 $(SRCS_DIR)/collisions.c \
 $(SRCS_DIR)/collisions_utils.c\
@@ -39,6 +38,7 @@ $(SRCS_DIR)/animate.c \
 $(SRCS_DIR)/animate_utils.c \
 $(SRCS_DIR)/timers.c \
 $(SRCS_DIR)/free_sprites.c
+#$(SRCS_DIR)/enemy_render.c \#
 
 OBJS=$(SRCS:.c=.o)
 

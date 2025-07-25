@@ -6,13 +6,13 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:17:13 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/23 05:10:48 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/25 03:06:54 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	is_touching_wall_left(t_game *game)
+int	player_touching_wall_left(t_game *game)
 {
 	t_tile *walls;
 
@@ -32,7 +32,7 @@ int	is_touching_wall_left(t_game *game)
 	return (0);
 }
 
-int	is_touching_wall_right(t_game *game)
+int	player_touching_wall_right(t_game *game)
 {
 	t_tile *walls;
 
@@ -52,7 +52,7 @@ int	is_touching_wall_right(t_game *game)
 	return (0);
 }
 
-int	is_touching_floor(t_game *game)
+int	player_touching_floor(t_game *game)
 {
 	t_tile *walls;
 
@@ -75,7 +75,7 @@ int	is_touching_floor(t_game *game)
 	return (0);
 }
 
-int	is_touching_ceiling(t_game *game)
+int	player_touching_ceiling(t_game *game)
 {
 	t_tile *walls;
 
@@ -98,7 +98,7 @@ int	is_touching_ceiling(t_game *game)
 	return (0);
 }
 
-int	is_touching_exit(t_game *game)
+int	player_touching_exit(t_game *game)
 {
 	if ((PLAYER_POS_X >= game->portal.pos.x
 		&& PLAYER_POS_X <= game->portal.pos.x + TILE_SIZE_X)

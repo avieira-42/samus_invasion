@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:00:38 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/23 04:46:53 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/25 03:10:19 by a-soeiro         ###   ########.fr       */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
@@ -76,21 +76,20 @@ void draw_map(t_game *game)
 				game->towel.pos.y = y * TILE_SIZE_Y;
 				game->portal.tmp_pos.x = x * TILE_SIZE_X;
 				game->portal.tmp_pos.y = y * TILE_SIZE_Y;
-				game->enemy.tmp_pos.x = x * TILE_SIZE_X;
-				game->enemy.tmp_pos.y = y * TILE_SIZE_Y;
+				/*game->enemies->tmp_pos.x = x * TILE_SIZE_X;
+				game->enemies->tmp_pos.y = y * TILE_SIZE_Y;*/
 				if (game->map.text[y][x] == 'P')
 				{
 					// position_player(cu);
 					PLAYER_POS_X = x * TILE_SIZE_X;
 					PLAYER_POS_Y = y * TILE_SIZE_Y;
 				}
-				else if (game->map.text[y][x] == 'C') //position_items(game);
-				position_item(game);
+				else if (game->map.text[y][x] == 'C')
+					position_item(game);
 				else if (game->map.text[y][x] == '1')
 					position_wall(game);
-				// draw_element(game, x, y)
-				else if (game->map.text[y][x] == 'X')
-					position_enemy(game); 
+				/*else if (game->map.text[y][x] == 'X')
+					position_enemy(game);*/
 				else if (game->map.text[y][x] == 'E')
 					position_portal(game);
 			}

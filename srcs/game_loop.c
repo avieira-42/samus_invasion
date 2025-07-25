@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:06:28 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/23 22:21:23 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/25 03:07:51 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int	update(t_game *game)
 {
 	calculate_Delta(game);
 	display_moves(game);
-	TOUCHING_FLOOR = is_touching_floor(game);
-	TOUCHING_LEFTWALL = is_touching_wall_left(game);
-	TOUCHING_RIGHTWALL = is_touching_wall_right(game);
-	TOUCHING_CEILING = is_touching_ceiling(game);
-	TOUCHING_EXIT = is_touching_exit(game);
+	PLAYER_TOUCHING_FLOOR = player_touching_floor(game);
+	PLAYER_TOUCHING_LEFTWALL = player_touching_wall_left(game);
+	PLAYER_TOUCHING_RIGHTWALL = player_touching_wall_right(game);
+	PLAYER_TOUCHING_CEILING = player_touching_ceiling(game);
+	PLAYER_TOUCHING_EXIT = player_touching_exit(game);
 	//printf("direction: %f \n", game->player.direction.x);
 	//printf("velocity.x: %f \n", game->player.velocity.x);
 	//printf("delta: %f \n", game->delta); printf("pos.y: %f \n", game->player.pos.y);
@@ -37,27 +37,27 @@ int	update(t_game *game)
 	//printf("exit_pos.y: %f \n", game->portal.pos.y);
 	//printf("enemy.x: %f \n", game->enemy.pos.x);
 	//printf("enemy.y: %f \n", game->enemy.pos.y);
-	//if (TOUCHING_FLOOR)
+	//if (PLAYER_TOUCHING_FLOOR)
 	//printf("floor true\n");
 	//if (game->items)
 	//{
 		//printf("item.x: %f \n", game->items->pos.x);
 		//printf("item.y: %f \n", game->items->pos.y);
 	//}
-	printf("vel.y: %f\n", PLAYER_VEL_Y);
-	printf("jump_vel: %f\n", JUMP_VEL);
+	//printf("vel.y: %f\n", PLAYER_VEL_Y);
+	//printf("jump_vel: %f\n", JUMP_VEL);
 
 	//INIT VELOCITY_X
 	PLAYER_VEL_X = VELOCITY_X;
 
 
 	// SCREEN LIMITS is_play_area()
-	if (TOUCHING_RIGHTWALL && PLAYER_DIR_X == -1)
+	if (PLAYER_TOUCHING_RIGHTWALL && PLAYER_DIR_X == -1)
 	{
 		PLAYER_VEL_X = 0;
 		PLAYER_POS_X = game->right_wall_pos;
 	}
-	if (TOUCHING_LEFTWALL && PLAYER_DIR_X == 1)
+	if (PLAYER_TOUCHING_LEFTWALL && PLAYER_DIR_X == 1)
 	{
 		PLAYER_VEL_X = 0;
 		PLAYER_POS_X = game->left_wall_pos;
@@ -67,7 +67,7 @@ int	update(t_game *game)
 	if (game->player.jump.active == true)
 	{
 
-		if (TOUCHING_FLOOR
+		if (PLAYER_TOUCHING_FLOOR
 				&& game->player.jump.t_started > 0)
 		{
 			game->player.jump.active = false;
@@ -87,12 +87,12 @@ int	update(t_game *game)
 	}
 
 	// FALLING UNTIL FLOOR (check falling())
-	if (!TOUCHING_FLOOR
+	if (!PLAYER_TOUCHING_FLOOR
 		&& game->player.jump.active == false)
 	{
 		JUMP_VEL = -VELOCITY_Y;
 	}
-	if (TOUCHING_FLOOR
+	if (PLAYER_TOUCHING_FLOOR
 		&& game->player.jump.active == false )
 	{
 		JUMP_VEL = 0;
@@ -101,7 +101,7 @@ int	update(t_game *game)
 		ATTACKING = false;
 		ATTACK_COUNTER = 0;
 	}
-	if (TOUCHING_CEILING)
+	if (PLAYER_TOUCHING_CEILING)
 	{
 		PLAYER_POS_Y = game->ceiling_pos;
 		JUMP_VEL = 0;
@@ -115,13 +115,13 @@ int	update(t_game *game)
 		PLAYER_VEL_Y = -1000;
 
 	// MOVEMENT (get_movement())
-	if (ATTACK_TIMER > 10)
+	if (ATTACK_TIMER > 24)
 		PLAYER_POS_Y += PLAYER_VEL_Y * DELTA_T;
 	PLAYER_POS_X += PLAYER_DIR_X * PLAYER_VEL_X * DELTA_T;
 
 	// ITEM COLLECTING
 	clear_item(game);
-	if (TOUCHING_EXIT && game->items == NULL)
+	if (PLAYER_TOUCHING_EXIT && game->items == NULL)
 		free_displays(game);
 	update_attack_timer(game);
 	return (1);
@@ -152,7 +152,7 @@ int	renderer(t_game *game)
 	draw_items(game);
 	draw_walls(game);
 	draw_portal(game);
-	draw_enemy(game);
+	//draw_enemies(game);
 	animate(game);
 
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->image.image, 0, 0);

@@ -51,7 +51,7 @@ void	animate_player_idle(t_game *game)
 
 void	animate_player(t_game *game)
 {
-	if (TOUCHING_FLOOR)
+	if (PLAYER_TOUCHING_FLOOR)
 	{
 		if (!PLAYER_DIR_X)
 			animate_player_idle(game);

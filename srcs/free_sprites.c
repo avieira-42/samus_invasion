@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 12:04:29 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/23 04:59:06 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/25 03:04:33 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,5 @@ void	free_sprites(t_game *game)
 	mlx_destroy_image(game->mlx_ptr, game->towel.sprite.image);
 	mlx_destroy_image(game->mlx_ptr, game->portal.sprite.image);
 	mlx_destroy_image(game->mlx_ptr, game->portal.sprite2.image);
-	mlx_destroy_image(game->mlx_ptr, game->enemy.sprite.image);
+	//mlx_destroy_image(game->mlx_ptr, game->enemies.sprite.image);
 }

@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:09:07 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/23 22:23:00 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/25 03:03:23 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ int	key_pressed(int keysym, t_game *game)
 	}
 	if ((keysym == XK_space || keysym == XK_w)
 		&& game->player.jump.active == false
-		&& is_touching_floor(game))
+		&& player_touching_floor(game))
 	{
 		game->player.jump.active = true;
 	}
-	if (keysym == XK_s && ATTACK_COUNTER == 0 && !is_touching_floor(game))
+	if (keysym == XK_s && ATTACK_COUNTER == 0 && !player_touching_floor(game))
 	{
 		JUMP_VEL = 0;
 		ATTACKING = true;

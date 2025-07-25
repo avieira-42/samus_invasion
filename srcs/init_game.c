@@ -30,6 +30,7 @@ void	init_game(t_game *game)
 	game->last_frame_time = get_time();
 	game->walls = NULL;
 	game->items = NULL;
+	game->enemies = NULL;
 	game->map.height = game->map.height * TILE_SIZE_Y;
 	game->map.width = game->map.width * TILE_SIZE_X;
 
@@ -83,7 +84,7 @@ void	init_game(t_game *game)
 
 	// init_player(game);
 	game->player.attack_counter = 0;
-	game->player.attack_timer = 11;
+	game->player.attack_timer = 25;
 	game->player.attacking = false;
 	game->player.orientation = 1;
 	game->player.movements = 0;
@@ -172,6 +173,10 @@ void	init_game(t_game *game)
 	game->player.attack.sprite[10].addr = mlx_get_data_addr(game->player.attack.sprite[10].image, &game->player.attack.sprite[10].bits_per_pixel, &game->player.attack.sprite[10].line_length, &game->player.attack.sprite[10].endian);
 	game->player.attack.sprite[11].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/brenoattack12.xpm", &game->player.attack.sprite[11].x, &game->player.attack.sprite[11].y);
 	game->player.attack.sprite[11].addr = mlx_get_data_addr(game->player.attack.sprite[11].image, &game->player.attack.sprite[11].bits_per_pixel, &game->player.attack.sprite[11].line_length, &game->player.attack.sprite[11].endian);
+	game->player.attack.sprite[12].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/brenoattack13.xpm", &game->player.attack.sprite[12].x, &game->player.attack.sprite[12].y);
+	game->player.attack.sprite[12].addr = mlx_get_data_addr(game->player.attack.sprite[12].image, &game->player.attack.sprite[12].bits_per_pixel, &game->player.attack.sprite[12].line_length, &game->player.attack.sprite[12].endian);
+	game->player.attack.sprite[13].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/brenoattack14.xpm", &game->player.attack.sprite[13].x, &game->player.attack.sprite[13].y);
+	game->player.attack.sprite[13].addr = mlx_get_data_addr(game->player.attack.sprite[13].image, &game->player.attack.sprite[13].bits_per_pixel, &game->player.attack.sprite[13].line_length, &game->player.attack.sprite[13].endian);
 			//init_player_jumping(game);
 	game->player.jumping.i = 0;
 	game->player.jumping.timer = 0;
@@ -181,6 +186,8 @@ void	init_game(t_game *game)
 	game->player.jumping.sprite[1].addr = mlx_get_data_addr(game->player.jumping.sprite[1].image, &game->player.jumping.sprite[1].bits_per_pixel, &game->player.jumping.sprite[1].line_length, &game->player.jumping.sprite[1].endian);
 	game->player.jumping.sprite[2].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/brenojumping3.xpm", &game->player.jumping.sprite[2].x, &game->player.jumping.sprite[2].y);
 	game->player.jumping.sprite[2].addr = mlx_get_data_addr(game->player.jumping.sprite[2].image, &game->player.jumping.sprite[2].bits_per_pixel, &game->player.jumping.sprite[2].line_length, &game->player.jumping.sprite[2].endian);
+	game->player.jumping.sprite[3].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/brenojumping4.xpm", &game->player.jumping.sprite[3].x, &game->player.jumping.sprite[3].y);
+	game->player.jumping.sprite[3].addr = mlx_get_data_addr(game->player.jumping.sprite[3].image, &game->player.jumping.sprite[3].bits_per_pixel, &game->player.jumping.sprite[3].line_length, &game->player.jumping.sprite[3].endian);
 			//init_player_falling(game);
 	game->player.falling.i = 0;
 	game->player.falling.timer = 0;
@@ -190,14 +197,8 @@ void	init_game(t_game *game)
 	game->player.falling.sprite[1].addr = mlx_get_data_addr(game->player.falling.sprite[1].image, &game->player.falling.sprite[1].bits_per_pixel, &game->player.falling.sprite[1].line_length, &game->player.falling.sprite[1].endian);
 	game->player.falling.sprite[2].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/brenofalling3.xpm", &game->player.falling.sprite[2].x, &game->player.falling.sprite[2].y);
 	game->player.falling.sprite[2].addr = mlx_get_data_addr(game->player.falling.sprite[2].image, &game->player.falling.sprite[2].bits_per_pixel, &game->player.falling.sprite[2].line_length, &game->player.falling.sprite[2].endian);
-
-	//init_enemy(game);
-	game->enemy.pos.x = game->player.pos.x + 30;
-	game->enemy.pos.y = game->player.pos.y;
-	game->enemy.tmp_pos.x = 0;
-	game->enemy.tmp_pos.y = 0;
-	game->enemy.sprite.image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/samus.xpm", &game->enemy.sprite.x, &game->enemy.sprite.y);
-	game->enemy.sprite.addr = mlx_get_data_addr(game->enemy.sprite.image, &game->enemy.sprite.bits_per_pixel, &game->enemy.sprite.line_length, &game->enemy.sprite.endian);
+	game->player.falling.sprite[3].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/brenofalling4.xpm", &game->player.falling.sprite[3].x, &game->player.falling.sprite[3].y);
+	game->player.falling.sprite[3].addr = mlx_get_data_addr(game->player.falling.sprite[3].image, &game->player.falling.sprite[3].bits_per_pixel, &game->player.falling.sprite[3].line_length, &game->player.falling.sprite[3].endian);
 
 	// init_camera(game);
 	game->camera.x = game->player.pos.x - SCREEN_SIZE_X / 2;

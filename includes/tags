@@ -4,7 +4,9 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-ATTACKING	so_long.h	59;"	d
+ATTACKING	so_long.h	61;"	d
+ATTACK_COUNTER	so_long.h	59;"	d
+ATTACK_TIMER	so_long.h	60;"	d
 CAMERA_END_X	so_long.h	27;"	d
 C_count	so_long.h	/^	int		C_count;$/;"	m	struct:s_map
 DELTA_T	so_long.h	40;"	d
@@ -15,7 +17,7 @@ GROUND_LEVEL	so_long.h	28;"	d
 JUMP_VEL	so_long.h	45;"	d
 LINE_COLOR	so_long.h	29;"	d
 MAX_FALL_SPEED	so_long.h	37;"	d
-MOVEMENTS	so_long.h	60;"	d
+MOVEMENTS	so_long.h	62;"	d
 PLAYER_DIR_X	so_long.h	51;"	d
 PLAYER_DIR_Y	so_long.h	52;"	d
 PLAYER_HEIGHT	so_long.h	39;"	d
@@ -47,6 +49,7 @@ WALL_VELOCITY	so_long.h	35;"	d
 X_count	so_long.h	/^	int		X_count;$/;"	m	struct:s_map
 active	so_long.h	/^	bool	active;$/;"	m	struct:s_jump
 addr	so_long.h	/^	char	*addr;$/;"	m	struct:s_image
+attack_counter	so_long.h	/^	int				attack_counter;$/;"	m	struct:s_player
 attack_timer	so_long.h	/^	int				attack_timer;$/;"	m	struct:s_player
 attacking	so_long.h	/^	bool			attacking;$/;"	m	struct:s_player
 attack	so_long.h	/^	t_animation		attack;$/;"	m	struct:s_player
@@ -56,6 +59,7 @@ bits_per_pixel	so_long.h	/^	int		bits_per_pixel;$/;"	m	struct:s_image
 camera	so_long.h	/^	t_point			camera;$/;"	m	struct:s_player
 camera	so_long.h	/^	t_point		camera;$/;"	m	struct:s_game
 ceiling_pos	so_long.h	/^	float		ceiling_pos;$/;"	m	struct:s_game
+counter	so_long.h	/^	int			counter;$/;"	m	struct:s_attack
 delta	so_long.h	/^	float		delta;$/;"	m	struct:s_game
 direction	so_long.h	/^	t_point 		direction;$/;"	m	struct:s_player
 endian	so_long.h	/^	int		endian;$/;"	m	struct:s_image
