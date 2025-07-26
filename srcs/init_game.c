@@ -68,11 +68,13 @@ void	init_game(t_game *game)
 	game->towel.tmp_pos.y = 0;
 	game->towel.pos.x = 0;
 	game->towel.pos.y = 0;
-	game->tile.vect.height = 0;
-	game->tile.vect.width = 0;
-	game->tile.next = NULL;
+	game->towel.next = NULL;
 
 	//init_portal(game);
+	game->portal.tmp_pos.x = 0;
+	game->portal.tmp_pos.y = 0;
+	game->portal.pos.x = 0;
+	game->portal.pos.y = 0;
 	game->portal.sprite.image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/offportal.xpm", &game->portal.sprite.x, &game->portal.sprite.y);
 	game->portal.sprite.addr = mlx_get_data_addr(game->portal.sprite.image, &game->portal.sprite.bits_per_pixel, &game->portal.sprite.line_length, &game->portal.sprite.endian);
 	game->portal.sprite2.image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/portal.xpm", &game->portal.sprite2.x, &game->portal.sprite2.y);
@@ -82,12 +84,36 @@ void	init_game(t_game *game)
 	game->portal.tmp_pos.x = 0;
 	game->portal.tmp_pos.y = 0;
 
+	// init_enemy(game);
+	game->samus.touching_exit = false;
+	game->samus.touching_floor = false;
+	game->samus.touching_wallright = false;
+	game->samus.touching_wallleft = false;
+	game->samus.touching_ceiling = false;
+	game->samus.orientation = -1;
+	game->samus.tmp_pos.x = 0;
+	game->samus.tmp_pos.y = 0;
+	game->samus.pos.x = 0;
+	game->samus.pos.y = 0;
+	game->samus.next = NULL;
+	game->samus.walking.sprite[0].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/samus1.xpm", &game->samus.walking.sprite[0].x, &game->samus.walking.sprite[0].y);
+	game->samus.walking.sprite[0].addr = mlx_get_data_addr(game->samus.walking.sprite[0].image, &game->samus.walking.sprite[0].bits_per_pixel, &game->samus.walking.sprite[0].line_length, &game->samus.walking.sprite[0].endian);
+	game->samus.walking.sprite[1].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/samus2.xpm", &game->samus.walking.sprite[1].x, &game->samus.walking.sprite[1].y);
+	game->samus.walking.sprite[1].addr = mlx_get_data_addr(game->samus.walking.sprite[1].image, &game->samus.walking.sprite[1].bits_per_pixel, &game->samus.walking.sprite[1].line_length, &game->samus.walking.sprite[1].endian);
+	game->samus.walking.sprite[2].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/samus3.xpm", &game->samus.walking.sprite[2].x, &game->samus.walking.sprite[2].y);
+	game->samus.walking.sprite[2].addr = mlx_get_data_addr(game->samus.walking.sprite[2].image, &game->samus.walking.sprite[2].bits_per_pixel, &game->samus.walking.sprite[2].line_length, &game->samus.walking.sprite[2].endian);
+	game->samus.walking.sprite[3].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/samus4.xpm", &game->samus.walking.sprite[3].x, &game->samus.walking.sprite[3].y);
+	game->samus.walking.sprite[3].addr = mlx_get_data_addr(game->samus.walking.sprite[3].image, &game->samus.walking.sprite[3].bits_per_pixel, &game->samus.walking.sprite[3].line_length, &game->samus.walking.sprite[3].endian);
+	game->samus.walking.sprite[4].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/samus5.xpm", &game->samus.walking.sprite[4].x, &game->samus.walking.sprite[4].y);
+	game->samus.walking.sprite[4].addr = mlx_get_data_addr(game->samus.walking.sprite[4].image, &game->samus.walking.sprite[4].bits_per_pixel, &game->samus.walking.sprite[4].line_length, &game->samus.walking.sprite[4].endian);
+	
+
+
 	// init_player(game);
 	game->player.attack_counter = 0;
 	game->player.attack_timer = 25;
 	game->player.attacking = false;
 	game->player.orientation = 1;
-	game->player.movements = 0;
 	game->player.touching_ground = false;
 	game->player.touching_leftwall = false;
 	game->player.touching_rightwall = false;
@@ -109,6 +135,7 @@ void	init_game(t_game *game)
 	game->player.vect.width = 0;
 	game->player.camera.x = 0;
 	game->player.camera.y = 0;
+	game->player.move.count = 0;
 		//init_player_sprites(game);
 				//init_player_idle(game);
 	game->player.idle.i = 0;
@@ -199,6 +226,28 @@ void	init_game(t_game *game)
 	game->player.falling.sprite[2].addr = mlx_get_data_addr(game->player.falling.sprite[2].image, &game->player.falling.sprite[2].bits_per_pixel, &game->player.falling.sprite[2].line_length, &game->player.falling.sprite[2].endian);
 	game->player.falling.sprite[3].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/brenofalling4.xpm", &game->player.falling.sprite[3].x, &game->player.falling.sprite[3].y);
 	game->player.falling.sprite[3].addr = mlx_get_data_addr(game->player.falling.sprite[3].image, &game->player.falling.sprite[3].bits_per_pixel, &game->player.falling.sprite[3].line_length, &game->player.falling.sprite[3].endian);
+			//init_player_moves(game);
+	
+	game->player.move.sprite[0].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/0.xpm", &game->player.move.sprite[0].x, &game->player.move.sprite[0].y);
+	game->player.move.sprite[0].addr = mlx_get_data_addr(game->player.move.sprite[0].image, &game->player.move.sprite[0].bits_per_pixel, &game->player.move.sprite[0].line_length, &game->player.move.sprite[0].endian);
+	game->player.move.sprite[1].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/1.xpm", &game->player.move.sprite[1].x, &game->player.move.sprite[1].y);
+	game->player.move.sprite[1].addr = mlx_get_data_addr(game->player.move.sprite[1].image, &game->player.move.sprite[1].bits_per_pixel, &game->player.move.sprite[1].line_length, &game->player.move.sprite[1].endian);
+	game->player.move.sprite[2].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/2.xpm", &game->player.move.sprite[2].x, &game->player.move.sprite[2].y);
+	game->player.move.sprite[2].addr = mlx_get_data_addr(game->player.move.sprite[2].image, &game->player.move.sprite[2].bits_per_pixel, &game->player.move.sprite[2].line_length, &game->player.move.sprite[2].endian);
+	game->player.move.sprite[3].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/3.xpm", &game->player.move.sprite[3].x, &game->player.move.sprite[3].y);
+	game->player.move.sprite[3].addr = mlx_get_data_addr(game->player.move.sprite[3].image, &game->player.move.sprite[3].bits_per_pixel, &game->player.move.sprite[3].line_length, &game->player.move.sprite[3].endian);
+	game->player.move.sprite[4].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/4.xpm", &game->player.move.sprite[4].x, &game->player.move.sprite[4].y);
+	game->player.move.sprite[4].addr = mlx_get_data_addr(game->player.move.sprite[4].image, &game->player.move.sprite[4].bits_per_pixel, &game->player.move.sprite[4].line_length, &game->player.move.sprite[4].endian);
+	game->player.move.sprite[5].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/5.xpm", &game->player.move.sprite[5].x, &game->player.move.sprite[5].y);
+	game->player.move.sprite[5].addr = mlx_get_data_addr(game->player.move.sprite[5].image, &game->player.move.sprite[5].bits_per_pixel, &game->player.move.sprite[5].line_length, &game->player.move.sprite[5].endian);
+	game->player.move.sprite[6].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/6.xpm", &game->player.move.sprite[6].x, &game->player.move.sprite[6].y);
+	game->player.move.sprite[6].addr = mlx_get_data_addr(game->player.move.sprite[6].image, &game->player.move.sprite[6].bits_per_pixel, &game->player.move.sprite[6].line_length, &game->player.move.sprite[6].endian);
+	game->player.move.sprite[7].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/7.xpm", &game->player.move.sprite[7].x, &game->player.move.sprite[7].y);
+	game->player.move.sprite[7].addr = mlx_get_data_addr(game->player.move.sprite[7].image, &game->player.move.sprite[7].bits_per_pixel, &game->player.move.sprite[7].line_length, &game->player.move.sprite[7].endian);
+	game->player.move.sprite[8].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/8.xpm", &game->player.move.sprite[8].x, &game->player.move.sprite[8].y);
+	game->player.move.sprite[8].addr = mlx_get_data_addr(game->player.move.sprite[8].image, &game->player.move.sprite[8].bits_per_pixel, &game->player.move.sprite[8].line_length, &game->player.move.sprite[8].endian);
+	game->player.move.sprite[9].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/9.xpm", &game->player.move.sprite[9].x, &game->player.move.sprite[9].y);
+	game->player.move.sprite[9].addr = mlx_get_data_addr(game->player.move.sprite[9].image, &game->player.move.sprite[9].bits_per_pixel, &game->player.move.sprite[9].line_length, &game->player.move.sprite[9].endian);
 
 	// init_camera(game);
 	game->camera.x = game->player.pos.x - SCREEN_SIZE_X / 2;

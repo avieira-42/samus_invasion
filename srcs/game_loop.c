@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:06:28 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/25 03:07:51 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/26 09:58:37 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	update(t_game *game)
 {
 	calculate_Delta(game);
-	display_moves(game);
 	PLAYER_TOUCHING_FLOOR = player_touching_floor(game);
 	PLAYER_TOUCHING_LEFTWALL = player_touching_wall_left(game);
 	PLAYER_TOUCHING_RIGHTWALL = player_touching_wall_right(game);
@@ -154,6 +153,7 @@ int	renderer(t_game *game)
 	draw_portal(game);
 	//draw_enemies(game);
 	animate(game);
+	display_moves(game);
 
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->image.image, 0, 0);
 	mlx_destroy_image(game->mlx_ptr, game->image.image);

@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 01:57:47 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/22 13:47:42 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/26 09:37:43 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,11 @@ int	map_parse(t_game *game, char *argv1)
 			&& is_one_PE(game)
 			&& is_rectangular(game)
 			&& is_surrounded_by_1(game))
+	{
+		game->map.width *= TILE_SIZE_X;
+		game->map.height *= TILE_SIZE_Y;
 		return (1);
+	}
 	// Path to collectibles then exit has to be possible
 	ft_freesplit(game->map.text);
 	return (0);

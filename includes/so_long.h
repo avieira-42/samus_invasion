@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/25 02:58:59 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/26 09:50:02 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 
 # define SCREEN_SIZE_X 1296
 # define SCREEN_SIZE_Y 720
+# define SCREEN_WIDTH game->map.width
+# define SCREE_HEIGHT game->map.height
 # define SCREEN_END_X 2304
 # define CAMERA_END_X 1104
 # define GROUND_LEVEL 624
@@ -31,18 +33,35 @@
 # define TILE_SIZE_Y 80
 # define GRAVITY_ACC 800
 # define GRAVITY game->gravity
-# define VELOCITY_Y -600
 # define WALL_VELOCITY -100
-# define VELOCITY_X	400
 # define MAX_FALL_SPEED 500
+# define DELTA_T game->delta
+# define JUMP_VEL game->player.jump.velocity
+# define ATTACK_COUNTER game->player.attack_counter
+# define ATTACK_TIMER game->player.attack_timer
+# define ATTACKING game->player.attacking
+# define MOVEMENTS game->player.move.count
+// enemy
+# define ENEMY_WIDTH 80
+# define ENEMY_HEIGHT 80
+# define ENEMY_VELOCITY_X 200
+# define ENEMY_VELOCITY_Y 600
+# define ENEMY_POS_X enemy->pos.x
+# define ENEMY_POS_Y enemy->pos.y
+# define ENEMY_TOUCHING_FLOOR enemies->touching_floor
+# define ENEMY_TOUCHING_LEFTWALL enemies->touching_leftwall
+# define ENEMY_TOUCHING_RIGHTWALL enemies->touching_rightwall
+# define ENEMY_TOUCHING_CEILING enemies->touching_ceiling
+# define ENEMY_TOUCHING_EXIT enemies->touching_exit
+//player
+# define VELOCITY_X	400
+# define VELOCITY_Y -600
 # define PLAYER_WIDTH 80
 # define PLAYER_HEIGHT 80
-# define DELTA_T game->delta
 # define PLAYER_POS game->player.pos
 # define PLAYER_VECT game->player.vect
 # define PLAYER_VEL_X game->player.velocity.x
 # define PLAYER_VEL_Y game->player.velocity.y
-# define JUMP_VEL game->player.jump.velocity
 # define PLAYER_POS game->player.pos
 # define PLAYER_POS_X game->player.pos.x
 # define PLAYER_POS_Y game->player.pos.y
@@ -56,10 +75,6 @@
 # define PLAYER_TOUCHING_RIGHTWALL game->player.touching_rightwall
 # define PLAYER_TOUCHING_CEILING game->player.touching_ceiling
 # define PLAYER_TOUCHING_EXIT game->player.touching_exit
-# define ATTACK_COUNTER game->player.attack_counter
-# define ATTACK_TIMER game->player.attack_timer
-# define ATTACKING game->player.attacking
-# define MOVEMENTS game->player.movements
 
 typedef struct s_map
 {
@@ -118,15 +133,6 @@ typedef struct s_item
 	struct s_item	*next;
 }	t_item;
 
-typedef struct s_enemy
-{
-	int				orientation;
-	t_point			tmp_pos;
-	t_point			pos;
-	t_image			sprite;
-	struct s_enemy	*next;
-}	t_enemy;
-
 typedef struct s_bckgrnd
 {
 	t_point		pos;
@@ -157,6 +163,12 @@ typedef struct s_animation
 	t_image			sprite[14];
 }	t_animation;
 
+typedef struct s_move
+{
+	int		count;
+	t_image sprite[10];
+}	t_move;
+
 typedef struct s_attack
 {
 	int			timer;
@@ -165,9 +177,22 @@ typedef struct s_attack
 	t_animation attack;
 }	t_attack;
 
+typedef struct s_enemy
+{
+	bool			touching_exit;
+	bool			touching_floor;
+	bool			touching_wallright;
+	bool			touching_wallleft;
+	bool			touching_ceiling;
+	int				orientation;
+	t_point			tmp_pos;
+	t_point			pos;
+	t_animation		walking;
+	struct s_enemy	*next;
+}	t_enemy;
+
 typedef struct s_player
 {
-	int				movements;
 	int				orientation;
 	int				attack_timer;
 	int				attack_counter;
@@ -189,15 +214,16 @@ typedef struct s_player
 	t_animation		falling;
 	t_animation		attack;
 	t_point			camera;
+	t_move			move;
 }	t_player;
 
 typedef struct s_game
 {
+	int			fd;
+	int			gravity;
 	bool		game_start;
 	void		*mlx_ptr;
 	void		*win_ptr;
-	int			fd;
-	int			gravity;
 	float		delta;
 	float		ground_pos;
 	float		ceiling_pos;
@@ -211,9 +237,10 @@ typedef struct s_game
 	t_tile		*walls;
 	t_item		towel;
 	t_item		*items;
-	t_portal	portal;
-	t_player	player;
+	t_enemy		samus;
 	t_enemy		*enemies;
+	t_player	player;
+	t_portal	portal;
 	t_point		camera;
 }	t_game;
 
@@ -278,15 +305,22 @@ t_item	*new_item(t_game* game);
 
 //enemy render
 void    position_enemy(t_game *game);
-void    draw_enemies(t_game *game);
+void    draw_enemy(t_game *game, t_enemy *enemy);
 void	update_enemy_orientation(t_game *game);
 
 //enemy render utils
-int		enemies(t_item *items);
+int		enemies(t_enemy *enemies);
 void	clear_enemy(t_game *game);
-void	add_enemy(t_item **items, t_item *new_item);
-void	free_enemies(t_item *items);
-t_item	*new_enemy(t_game* game);
+void	add_enemy(t_enemy **enemies, t_enemy *new_enemy);
+void	free_enemies(t_enemy *enemies);
+t_enemy	*new_enemy(t_game* game);
+
+//enemy collisions
+int		enemy_touching_floor(t_game *game, t_enemy *enemy);
+int		enemy_touching_ceiling(t_game *game, t_enemy *enemy);
+int		enemy_touching_wall_left(t_game *game, t_enemy *enemy);
+int		enemy_touching_wall_right(t_game *game, t_enemy *enemy);
+int		enemy_touching_exit(t_game *game, t_enemy *enemy);
 
 //wall render
 void	position_wall(t_game *game);
@@ -299,10 +333,6 @@ t_tile *new_wall(t_game *game);
 void	position_portal(t_game *game);
 void	draw_portal(t_game *game);
 
-//enemy render
-void	position_enemy(t_game *game);
-void	draw_enemy(t_game *game);
-
 //struct utils
 int			check_args(char *str);
 
@@ -314,6 +344,8 @@ t_point		normalize(t_point point);
 
 //display moves
 void	display_moves(t_game *game);
+void	put_moves(t_game *game);
+void	draw_moves(t_game *game, int moves, t_point move_pos);
 
 //collisions
 int		player_touching_floor(t_game *game);

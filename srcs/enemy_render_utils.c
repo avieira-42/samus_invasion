@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 18:01:59 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/25 03:16:41 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/25 17:05:06 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ t_enemy  *new_enemy(t_game* game)
     if (!new_enemy)
         return (NULL);
     new_enemy->next = NULL;
-	new_enemy->sprite.addr = game->towel.sprite.addr;
-	new_enemy->sprite.image = game->towel.sprite.image;
-	new_enemy->pos = game->towel.pos;
-	new_enemy->tmp_pos = game->towel.pos;
+	new_enemy->walking.sprite.addr = game->samus.sprite.addr;
+	new_enemy->walking.sprite.image = game->samus.sprite.image;
+	new_enemy->pos = game->samus.pos;
+	new_enemy->tmp_pos = game->samus.pos;
     return (new_enemy);
 }
 

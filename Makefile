@@ -38,7 +38,11 @@ $(SRCS_DIR)/animate.c \
 $(SRCS_DIR)/animate_utils.c \
 $(SRCS_DIR)/timers.c \
 $(SRCS_DIR)/free_sprites.c
-#$(SRCS_DIR)/enemy_render.c \#
+
+#$(SRCS_DIR)/physics_utils.c \
+$(SRCS_DIR)/enemy_render.c \
+$(SRCS_DIR)/enemy_render_utils.c \
+$(SRCS_DIR)/enemy_collisions.c \
 
 OBJS=$(SRCS:.c=.o)
 
