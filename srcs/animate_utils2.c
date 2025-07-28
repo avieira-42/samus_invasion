@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 00:14:20 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/28 02:52:55 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/28 12:53:46 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,7 @@ void	update_enemy_pos(t_game *game, t_enemy *enemy)
 	ENEMY_TOUCHING_RIGHTWALL = enemy_touching_wall_right(game, enemy);
 	ENEMY_TOUCHING_FLOOR = enemy_touching_floor(game, enemy);
 	ENEMY_TOUCHING_EXIT = enemy_touching_exit(game, enemy);
-
-	printf("enemyu right wall:%i\n", ENEMY_TOUCHING_RIGHTWALL);
-	printf("enemyu left wall:%i\n", ENEMY_TOUCHING_LEFTWALL);
 	update_enemy_orientation(enemy);
-
 	if (!ENEMY_TOUCHING_FLOOR)
 		ENEMY_POS_Y += enemy->velocity.y * game->delta;
 	else

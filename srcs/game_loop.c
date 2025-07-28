@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 21:50:14 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/28 02:54:16 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/28 15:57:19 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ int	update(t_game *game)
 	PLAYER_TOUCHING_RIGHTWALL = player_touching_wall_right(game);
 	PLAYER_TOUCHING_CEILING = player_touching_ceiling(game);
 	PLAYER_TOUCHING_EXIT = player_touching_exit(game);
+	printf("GAME_LOOP\n");
 	//printf("direction: %f \n", game->player.direction.x);
 	//printf("velocity.x: %f \n", game->player.velocity.x);
 	//printf("delta: %f \n", game->delta); printf("pos.y: %f \n", game->player.pos.y);
-	//printf("pos.x: %f \n", game->player.pos.x);
-	//printf("pos.y: %f \n", game->player.pos.y);
+	printf("player pos.x: %f \n", game->player.pos.x);
+	printf("player pos.y: %f \n", game->player.pos.y);
 	//printf("jump_started: %f \n", game->player.jump.t_started);
 	//printf("jump_elapsed: %f \n", game->player.jump.t_elapsed);
 	//printf("camera.x: %f \n", game->camera.x);
@@ -45,6 +46,10 @@ int	update(t_game *game)
 	//}
 	//printf("vel.y: %f\n", PLAYER_VEL_Y);
 	//printf("jump_vel: %f\n", JUMP_VEL);
+	//printf("enemy right wall:%i\n", ENEMY_TOUCHING_RIGHTWALL);
+	//printf("enemy left wall:%i\n", ENEMY_TOUCHING_LEFTWALL);
+	printf("enemy_pos.x: %f\n", game->enemies->pos.x);
+	printf("enemy_pos.y: %f\n", game->enemies->pos.y);
 
 	//INIT VELOCITY_X
 	PLAYER_VEL_X = VELOCITY_X;
@@ -158,6 +163,7 @@ int	renderer(t_game *game)
 
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->image.image, 0, 0);
 	mlx_destroy_image(game->mlx_ptr, game->image.image);
+
 	return (1);
 }
 
