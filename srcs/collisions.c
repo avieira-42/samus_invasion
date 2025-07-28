@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:17:13 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/28 02:40:14 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/28 16:28:17 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,10 @@ int	player_touching_floor(t_game *game)
 	{
 		if (PLAYER_POS_Y + PLAYER_HEIGHT >= walls->pos.y - 5
 			&& PLAYER_POS_Y + PLAYER_HEIGHT <= walls->pos.y + TILE_SIZE_Y * 0.5
-			&& ((PLAYER_POS_X + PLAYER_WIDTH <= walls->pos.x + TILE_SIZE_X
-			&& PLAYER_POS_X + PLAYER_WIDTH >= walls->pos.x)
-			|| (PLAYER_POS_X >= walls->pos.x
-			&& PLAYER_POS_X <= walls->pos.x + TILE_SIZE_X))
+			&& ((PLAYER_POS_X + PLAYER_WIDTH * 0.8 <= walls->pos.x + TILE_SIZE_X
+			&& PLAYER_POS_X + PLAYER_WIDTH * 0.8 >= walls->pos.x)
+			|| (PLAYER_POS_X + 20 >= walls->pos.x
+			&& PLAYER_POS_X + 20 <= walls->pos.x + TILE_SIZE_X))
 			&& !contiguous_ceiling(game, walls->pos))
 		{
 			game->ground_pos = walls->pos.y - TILE_SIZE_Y;
@@ -88,10 +88,10 @@ int	player_touching_ceiling(t_game *game)
 	{
 		if (PLAYER_POS_Y >= walls->pos.y + TILE_SIZE_Y * 0.7
 			&& PLAYER_POS_Y <= walls->pos.y + TILE_SIZE_Y - 2
-			&& ((PLAYER_POS_X + PLAYER_WIDTH <= walls->pos.x + TILE_SIZE_X
-			&& PLAYER_POS_X + PLAYER_WIDTH >= walls->pos.x)
-			|| (PLAYER_POS_X >= walls->pos.x
-			&& PLAYER_POS_X <= walls->pos.x + TILE_SIZE_X))
+			&& ((PLAYER_POS_X + PLAYER_WIDTH * 0.8 <= walls->pos.x + TILE_SIZE_X
+			&& PLAYER_POS_X + PLAYER_WIDTH * 0.8 >= walls->pos.x)
+			|| (PLAYER_POS_X + 20 >= walls->pos.x
+			&& PLAYER_POS_X + 20 <= walls->pos.x + TILE_SIZE_X))
 			&& !contiguous_floor(game, walls->pos))
 		{
 			game->ceiling_pos = walls->pos.y + TILE_SIZE_Y;
