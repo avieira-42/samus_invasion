@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:41:42 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/22 13:29:23 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/28 17:41:49 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	free_displays(t_game *game)
 	mlx_loop_end((*game).mlx_ptr);
 	free_sprites(game);
 	free_items(game->items);
+	free_enemies(game->enemies);
 	free_walls(game->walls);
 	mlx_destroy_window((*game).mlx_ptr, (*game).win_ptr);
 	mlx_destroy_display((*game).mlx_ptr);
