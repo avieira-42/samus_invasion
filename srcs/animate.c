@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 02:07:35 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/23 20:42:31 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/28 01:12:43 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	animate_player_running(t_game *game)
 {
-	int	i;
+	int i;
 
 	game->player.idle.i = 0;
 	game->player.idle.timer = 0;
@@ -74,5 +74,6 @@ void	animate_player(t_game *game)
 
 void	animate(t_game *game)
 {
+	animate_enemies(game);
 	animate_player(game);
 }

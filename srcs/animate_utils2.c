@@ -1,0 +1,80 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   animate_utils2.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 00:14:20 by a-soeiro          #+#    #+#             */
+/*   Updated: 2025/07/28 01:22:49 by a-soeiro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/so_long.h"
+
+void	animate_enemy(t_game *game, t_enemy *enemy)
+{
+	int		i;
+	t_point	pos;
+
+	pos.y = enemy->pos.y;
+	pos.x = enemy->pos.x - game->camera.x;
+	if (++(enemy->timer) == 4)
+	{
+		enemy->timer = 0;
+		if ((enemy->i)++ == 3)
+			enemy->i = 0;
+	}
+	i = enemy->i;
+	if (enemy->orientation == 1)
+		drawtexture(&game->image, &game->samus.sprite[i], pos, 1.6);
+	else
+
+		draw_mirroredtexture(&game->image, &game->samus.sprite[i], pos, 1.6);
+}
+
+void    update_enemy_orientation(t_enemy *enemy)
+{
+	if (ft_abs(enemy->tmp_pos.x - enemy->pos.x) >= 400
+			|| ENEMY_TOUCHING_RIGHTWALL
+			|| ENEMY_TOUCHING_LEFTWALL)
+	{
+		enemy->tmp_pos.x = enemy->pos.x;
+		enemy->orientation *= -1;
+	}
+}
+
+void	update_enemy_pos(t_game *game, t_enemy *enemy)
+{
+	ENEMY_TOUCHING_LEFTWALL = enemy_touching_wall_left(game, enemy);
+	ENEMY_TOUCHING_RIGHTWALL = enemy_touching_wall_right(game, enemy);
+	ENEMY_TOUCHING_FLOOR = enemy_touching_wall_left(game, enemy);
+	ENEMY_TOUCHING_EXIT = enemy_touching_exit(game, enemy);
+
+	printf("enemyu right wall:%i\n", ENEMY_TOUCHING_RIGHTWALL);
+	printf("enemyu left wall:%i\n", ENEMY_TOUCHING_LEFTWALL);
+	update_enemy_orientation(enemy);
+
+	if (!ENEMY_TOUCHING_FLOOR)
+		ENEMY_POS_Y += enemy->velocity.y * game->delta;
+	ENEMY_POS_X += enemy->velocity.x * enemy->orientation * game->delta;
+
+	/* if player_touching_enemy and player attacking
+	   delete enemy || player toucing exit)
+	   continue
+	   else
+	   free_displays(game);*/
+}
+
+void	animate_enemies(t_game *game)
+{
+	t_enemy *enemies;
+
+	enemies = game->enemies;
+	while (enemies)
+	{
+		update_enemy_pos(game, enemies);
+		animate_enemy(game, enemies);
+		enemies = enemies->next;
+	}
+}

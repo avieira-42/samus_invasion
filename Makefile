@@ -1,4 +1,16 @@
-NAME= cub3d
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: a-soeiro <marvavieira-@student.42porto.com +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/07/27 21:49:52 by a-soeiro          #+#    #+#              #
+#    Updated: 2025/07/28 00:19:12 by a-soeiro         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+	NAME= cub3d
 CC= cc
 CFLAGS = -g -Wall -Wextra -Werror -std=c99 -I $(INCLUDES)
 LDFLAGS =  -L $(LIBFT_DIR) -lft -L $(MLX_DIR) -Lmlx -lmlx -lXext -lX11 -lbsd -lXext -lX11 -lm 
@@ -36,13 +48,14 @@ $(SRCS_DIR)/map_parse_utils.c \
 $(SRCS_DIR)/parse.c \
 $(SRCS_DIR)/animate.c \
 $(SRCS_DIR)/animate_utils.c \
+$(SRCS_DIR)/animate_utils2.c \
 $(SRCS_DIR)/timers.c \
-$(SRCS_DIR)/free_sprites.c
-
-#$(SRCS_DIR)/physics_utils.c \
+$(SRCS_DIR)/free_sprites.c \
 $(SRCS_DIR)/enemy_render.c \
 $(SRCS_DIR)/enemy_render_utils.c \
-$(SRCS_DIR)/enemy_collisions.c \
+$(SRCS_DIR)/enemy_collisions.c
+
+#$(SRCS_DIR)/physics_utils.c \
 
 OBJS=$(SRCS:.c=.o)
 

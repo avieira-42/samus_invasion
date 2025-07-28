@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 18:01:59 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/25 17:05:06 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/28 01:17:16 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,23 @@
 t_enemy  *new_enemy(t_game* game)
 {
     t_enemy  *new_enemy;
-
-    new_enemy = (t_enemy *) malloc(sizeof(t_enemy));
-    if (!new_enemy)
-        return (NULL);
-    new_enemy->next = NULL;
-	new_enemy->walking.sprite.addr = game->samus.sprite.addr;
-	new_enemy->walking.sprite.image = game->samus.sprite.image;
-	new_enemy->pos = game->samus.pos;
-	new_enemy->tmp_pos = game->samus.pos;
-    return (new_enemy);
+new_enemy = (t_enemy *) malloc(sizeof(t_enemy));
+	if (!new_enemy)
+		return (NULL);
+	new_enemy->i = 0;
+	new_enemy->timer = 0;
+	new_enemy->orientation = -1;
+	new_enemy->touching_exit = false;
+	new_enemy->touching_floor = false;
+	new_enemy->touching_wallright = false;
+	new_enemy->touching_wallleft = false;
+	new_enemy->touching_ceiling = false;
+	new_enemy->pos = game->samus.tmp_pos;
+	new_enemy->tmp_pos = game->samus.tmp_pos;
+	new_enemy->velocity.x = ENEMY_VELOCITY_X;
+	new_enemy->velocity.y = ENEMY_VELOCITY_Y;
+	new_enemy->next = NULL;
+	return (new_enemy);
 }
 
 void	add_enemy(t_enemy **enemies, t_enemy *new_enemy)
@@ -66,7 +73,7 @@ void	clear_enemy(t_game *game)
 	while (curr)
 	{
 		if ((PLAYER_POS_X <= curr->pos.x + 20 && PLAYER_POS_X >= curr->pos.x - 15)
-			&& (PLAYER_POS_Y <= curr->pos.y + 20 && PLAYER_POS_Y >= curr->pos.y - 15))
+				&& (PLAYER_POS_Y <= curr->pos.y + 20 && PLAYER_POS_Y >= curr->pos.y - 15))
 		{
 			to_free = curr;
 			if (prev == NULL)

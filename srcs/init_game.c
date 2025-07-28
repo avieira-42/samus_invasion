@@ -85,27 +85,20 @@ void	init_game(t_game *game)
 	game->portal.tmp_pos.y = 0;
 
 	// init_enemy(game);
-	game->samus.touching_exit = false;
-	game->samus.touching_floor = false;
-	game->samus.touching_wallright = false;
-	game->samus.touching_wallleft = false;
-	game->samus.touching_ceiling = false;
-	game->samus.orientation = -1;
+	game->samus.i = 0;
+	game->samus.timer = 0;
 	game->samus.tmp_pos.x = 0;
 	game->samus.tmp_pos.y = 0;
-	game->samus.pos.x = 0;
-	game->samus.pos.y = 0;
-	game->samus.next = NULL;
-	game->samus.walking.sprite[0].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/samus1.xpm", &game->samus.walking.sprite[0].x, &game->samus.walking.sprite[0].y);
-	game->samus.walking.sprite[0].addr = mlx_get_data_addr(game->samus.walking.sprite[0].image, &game->samus.walking.sprite[0].bits_per_pixel, &game->samus.walking.sprite[0].line_length, &game->samus.walking.sprite[0].endian);
-	game->samus.walking.sprite[1].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/samus2.xpm", &game->samus.walking.sprite[1].x, &game->samus.walking.sprite[1].y);
-	game->samus.walking.sprite[1].addr = mlx_get_data_addr(game->samus.walking.sprite[1].image, &game->samus.walking.sprite[1].bits_per_pixel, &game->samus.walking.sprite[1].line_length, &game->samus.walking.sprite[1].endian);
-	game->samus.walking.sprite[2].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/samus3.xpm", &game->samus.walking.sprite[2].x, &game->samus.walking.sprite[2].y);
-	game->samus.walking.sprite[2].addr = mlx_get_data_addr(game->samus.walking.sprite[2].image, &game->samus.walking.sprite[2].bits_per_pixel, &game->samus.walking.sprite[2].line_length, &game->samus.walking.sprite[2].endian);
-	game->samus.walking.sprite[3].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/samus4.xpm", &game->samus.walking.sprite[3].x, &game->samus.walking.sprite[3].y);
-	game->samus.walking.sprite[3].addr = mlx_get_data_addr(game->samus.walking.sprite[3].image, &game->samus.walking.sprite[3].bits_per_pixel, &game->samus.walking.sprite[3].line_length, &game->samus.walking.sprite[3].endian);
-	game->samus.walking.sprite[4].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/samus5.xpm", &game->samus.walking.sprite[4].x, &game->samus.walking.sprite[4].y);
-	game->samus.walking.sprite[4].addr = mlx_get_data_addr(game->samus.walking.sprite[4].image, &game->samus.walking.sprite[4].bits_per_pixel, &game->samus.walking.sprite[4].line_length, &game->samus.walking.sprite[4].endian);
+	game->samus.sprite[0].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/samus1.xpm", &game->samus.sprite[0].x, &game->samus.sprite[0].y);
+	game->samus.sprite[0].addr = mlx_get_data_addr(game->samus.sprite[0].image, &game->samus.sprite[0].bits_per_pixel, &game->samus.sprite[0].line_length, &game->samus.sprite[0].endian);
+	game->samus.sprite[1].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/samus2.xpm", &game->samus.sprite[1].x, &game->samus.sprite[1].y);
+	game->samus.sprite[1].addr = mlx_get_data_addr(game->samus.sprite[1].image, &game->samus.sprite[1].bits_per_pixel, &game->samus.sprite[1].line_length, &game->samus.sprite[1].endian);
+	game->samus.sprite[2].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/samus3.xpm", &game->samus.sprite[2].x, &game->samus.sprite[2].y);
+	game->samus.sprite[2].addr = mlx_get_data_addr(game->samus.sprite[2].image, &game->samus.sprite[2].bits_per_pixel, &game->samus.sprite[2].line_length, &game->samus.sprite[2].endian);
+	game->samus.sprite[3].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/samus4.xpm", &game->samus.sprite[3].x, &game->samus.sprite[3].y);
+	game->samus.sprite[3].addr = mlx_get_data_addr(game->samus.sprite[3].image, &game->samus.sprite[3].bits_per_pixel, &game->samus.sprite[3].line_length, &game->samus.sprite[3].endian);
+	game->samus.sprite[4].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/samus5.xpm", &game->samus.sprite[4].x, &game->samus.sprite[4].y);
+	game->samus.sprite[4].addr = mlx_get_data_addr(game->samus.sprite[4].image, &game->samus.sprite[4].bits_per_pixel, &game->samus.sprite[4].line_length, &game->samus.sprite[4].endian);
 	
 
 

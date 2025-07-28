@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 17:06:28 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/26 09:58:37 by a-soeiro         ###   ########.fr       */
+/*   Created: 2025/07/27 21:50:14 by a-soeiro          #+#    #+#             */
+/*   Updated: 2025/07/28 00:50:30 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,6 @@ int	renderer(t_game *game)
 	draw_items(game);
 	draw_walls(game);
 	draw_portal(game);
-	//draw_enemies(game);
 	animate(game);
 	display_moves(game);
 

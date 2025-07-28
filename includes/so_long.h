@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/26 09:50:02 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/28 01:16:01 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,15 @@
 // enemy
 # define ENEMY_WIDTH 80
 # define ENEMY_HEIGHT 80
-# define ENEMY_VELOCITY_X 200
-# define ENEMY_VELOCITY_Y 600
+# define ENEMY_VELOCITY_X 50
+# define ENEMY_VELOCITY_Y 100
 # define ENEMY_POS_X enemy->pos.x
 # define ENEMY_POS_Y enemy->pos.y
-# define ENEMY_TOUCHING_FLOOR enemies->touching_floor
-# define ENEMY_TOUCHING_LEFTWALL enemies->touching_leftwall
-# define ENEMY_TOUCHING_RIGHTWALL enemies->touching_rightwall
-# define ENEMY_TOUCHING_CEILING enemies->touching_ceiling
-# define ENEMY_TOUCHING_EXIT enemies->touching_exit
+# define ENEMY_TOUCHING_FLOOR enemy->touching_floor
+# define ENEMY_TOUCHING_LEFTWALL enemy->touching_wallleft
+# define ENEMY_TOUCHING_RIGHTWALL enemy->touching_wallright
+# define ENEMY_TOUCHING_CEILING enemy->touching_ceiling
+# define ENEMY_TOUCHING_EXIT enemy->touching_exit
 //player
 # define VELOCITY_X	400
 # define VELOCITY_Y -600
@@ -160,6 +160,7 @@ typedef struct s_animation
 {
 	int				i;
 	int				timer;
+	t_point			tmp_pos;
 	t_image			sprite[14];
 }	t_animation;
 
@@ -179,15 +180,17 @@ typedef struct s_attack
 
 typedef struct s_enemy
 {
+	int				i;
+	int				timer;
+	int				orientation;
 	bool			touching_exit;
 	bool			touching_floor;
 	bool			touching_wallright;
 	bool			touching_wallleft;
 	bool			touching_ceiling;
-	int				orientation;
-	t_point			tmp_pos;
 	t_point			pos;
-	t_animation		walking;
+	t_point			tmp_pos;
+	t_point			velocity;
 	struct s_enemy	*next;
 }	t_enemy;
 
@@ -237,7 +240,7 @@ typedef struct s_game
 	t_tile		*walls;
 	t_item		towel;
 	t_item		*items;
-	t_enemy		samus;
+	t_animation	samus;
 	t_enemy		*enemies;
 	t_player	player;
 	t_portal	portal;
@@ -303,10 +306,12 @@ void	add_item(t_item **items, t_item *new_item);
 void	free_items(t_item *items);
 t_item	*new_item(t_game* game);
 
-//enemy render
+//animate utils 2
 void    position_enemy(t_game *game);
-void    draw_enemy(t_game *game, t_enemy *enemy);
-void	update_enemy_orientation(t_game *game);
+void	update_enemy_orientation(t_enemy *enemy);
+void	update_enemy_pos(t_game *game, t_enemy *enemy);
+void	animate_enemy(t_game *game, t_enemy *enemy);
+void	animate_enemies(t_game *game);
 
 //enemy render utils
 int		enemies(t_enemy *enemies);
