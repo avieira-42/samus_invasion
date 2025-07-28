@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/28 01:16:01 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/28 03:06:58 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@
 # define ENEMY_WIDTH 80
 # define ENEMY_HEIGHT 80
 # define ENEMY_VELOCITY_X 50
-# define ENEMY_VELOCITY_Y 100
+# define ENEMY_VELOCITY_Y 150
 # define ENEMY_POS_X enemy->pos.x
 # define ENEMY_POS_Y enemy->pos.y
 # define ENEMY_TOUCHING_FLOOR enemy->touching_floor
@@ -311,6 +311,8 @@ void    position_enemy(t_game *game);
 void	update_enemy_orientation(t_enemy *enemy);
 void	update_enemy_pos(t_game *game, t_enemy *enemy);
 void	animate_enemy(t_game *game, t_enemy *enemy);
+void	animate_enemy_falling(t_game *game, t_enemy *enemy);
+void	animate_enemy_walking(t_game *game, t_enemy *enemy);
 void	animate_enemies(t_game *game);
 
 //enemy render utils
@@ -358,6 +360,7 @@ int		player_touching_ceiling(t_game *game);
 int		player_touching_wall_left(t_game *game);
 int		player_touching_wall_right(t_game *game);
 int		player_touching_exit(t_game *game);
+void	clear_player(t_game *game);
 
 //collisions utils
 int	contiguous_ceiling(t_game *game, t_point floor_pos);

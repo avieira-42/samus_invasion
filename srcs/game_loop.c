@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 21:50:14 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/28 00:50:30 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/28 02:54:16 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,8 @@ int	update(t_game *game)
 
 	// ITEM COLLECTING
 	clear_item(game);
+	clear_enemy(game);
+	clear_player(game);
 	if (PLAYER_TOUCHING_EXIT && game->items == NULL)
 		free_displays(game);
 	update_attack_timer(game);

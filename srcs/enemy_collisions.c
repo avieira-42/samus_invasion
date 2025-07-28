@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:17:13 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/28 01:31:00 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/28 01:56:57 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ int	enemy_touching_wall_left(t_game *game, t_enemy *enemy)
 	{
 		if (ENEMY_POS_X + ENEMY_WIDTH <= walls->pos.x + TILE_SIZE_X * 0.4
 			&& ENEMY_POS_X + ENEMY_WIDTH >= walls->pos.x - 10
-			&& ENEMY_POS_Y >= walls->pos.y - TILE_SIZE_Y + 2
-			&& ENEMY_POS_Y <= walls->pos.y)
+			&& ((ENEMY_POS_Y >= walls->pos.y + 2
+			&& ENEMY_POS_Y <= walls->pos.y + TILE_SIZE_Y - 2)
+			|| (ENEMY_POS_Y + ENEMY_HEIGHT <= walls->pos.y + TILE_SIZE_Y + 2
+			&& ENEMY_POS_Y + ENEMY_HEIGHT >= walls->pos.y + 2)))
 			return (1);
 		walls = walls->next;
 	}
@@ -38,8 +40,10 @@ int	enemy_touching_wall_right(t_game *game, t_enemy *enemy)
 	{
 		if (ENEMY_POS_X >= walls->pos.x + TILE_SIZE_X * 0.4
 			&& ENEMY_POS_X <= walls->pos.x + TILE_SIZE_X + 10
-			&& ENEMY_POS_Y >= walls->pos.y - TILE_SIZE_Y + 2
-			&& ENEMY_POS_Y <= walls->pos.y)
+			&& ((ENEMY_POS_Y >= walls->pos.y + 2
+			&& ENEMY_POS_Y <= walls->pos.y + TILE_SIZE_Y - 2)
+			|| (ENEMY_POS_Y + ENEMY_HEIGHT <= walls->pos.y + TILE_SIZE_Y + 2
+			&& ENEMY_POS_Y + ENEMY_HEIGHT >= walls->pos.y + 2)))
 			return (1);
 		walls = walls->next;
 	}
@@ -60,7 +64,10 @@ int	enemy_touching_floor(t_game *game, t_enemy *enemy)
 			|| (ENEMY_POS_X >= walls->pos.x
 			&& ENEMY_POS_X <= walls->pos.x + TILE_SIZE_X))
 			&& !contiguous_ceiling(game, walls->pos))
+		{
+			ENEMY_POS_Y = walls->pos.y - TILE_SIZE_Y;
 			return (1);
+		}
 		walls = walls->next;
 	}
 	return (0);

@@ -99,6 +99,8 @@ void	init_game(t_game *game)
 	game->samus.sprite[3].addr = mlx_get_data_addr(game->samus.sprite[3].image, &game->samus.sprite[3].bits_per_pixel, &game->samus.sprite[3].line_length, &game->samus.sprite[3].endian);
 	game->samus.sprite[4].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/samus5.xpm", &game->samus.sprite[4].x, &game->samus.sprite[4].y);
 	game->samus.sprite[4].addr = mlx_get_data_addr(game->samus.sprite[4].image, &game->samus.sprite[4].bits_per_pixel, &game->samus.sprite[4].line_length, &game->samus.sprite[4].endian);
+	game->samus.sprite[5].image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/samusfalling.xpm", &game->samus.sprite[5].x, &game->samus.sprite[5].y);
+	game->samus.sprite[5].addr = mlx_get_data_addr(game->samus.sprite[5].image, &game->samus.sprite[5].bits_per_pixel, &game->samus.sprite[5].line_length, &game->samus.sprite[5].endian);
 	
 
 

@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 18:01:59 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/28 01:17:16 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/28 03:14:58 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,11 @@ void	clear_enemy(t_game *game)
 	prev = NULL;
 	while (curr)
 	{
-		if ((PLAYER_POS_X <= curr->pos.x + 20 && PLAYER_POS_X >= curr->pos.x - 15)
-				&& (PLAYER_POS_Y <= curr->pos.y + 20 && PLAYER_POS_Y >= curr->pos.y - 15))
+		if (PLAYER_POS_X <= curr->pos.x + ENEMY_WIDTH
+			&& PLAYER_POS_X >= curr->pos.x
+			&& PLAYER_POS_Y + PLAYER_HEIGHT <= curr->pos.y + ENEMY_HEIGHT
+			&& PLAYER_POS_Y >= curr->pos.y
+			&& ATTACKING)
 		{
 			to_free = curr;
 			if (prev == NULL)

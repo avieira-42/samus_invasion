@@ -6,7 +6,7 @@
 #    By: a-soeiro <marvavieira-@student.42porto.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 21:49:52 by a-soeiro          #+#    #+#              #
-#    Updated: 2025/07/28 00:19:12 by a-soeiro         ###   ########.fr        #
+#    Updated: 2025/07/28 03:07:30 by a-soeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ $(SRCS_DIR)/portal_render.c \
 $(SRCS_DIR)/display_moves.c \
 $(SRCS_DIR)/collisions.c \
 $(SRCS_DIR)/collisions_utils.c\
+$(SRCS_DIR)/clear_player.c\
 $(SRCS_DIR)/init_map.c \
 $(SRCS_DIR)/init_window.c \
 $(SRCS_DIR)/map_parse.c \
@@ -49,6 +50,7 @@ $(SRCS_DIR)/parse.c \
 $(SRCS_DIR)/animate.c \
 $(SRCS_DIR)/animate_utils.c \
 $(SRCS_DIR)/animate_utils2.c \
+$(SRCS_DIR)/animate_utils3.c \
 $(SRCS_DIR)/timers.c \
 $(SRCS_DIR)/free_sprites.c \
 $(SRCS_DIR)/enemy_render.c \
