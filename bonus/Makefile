@@ -6,7 +6,7 @@
 #    By: a-soeiro <marvavieira-@student.42porto.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 21:49:52 by a-soeiro          #+#    #+#              #
-#    Updated: 2025/07/28 03:07:30 by a-soeiro         ###   ########.fr        #
+#    Updated: 2025/07/29 01:47:14 by a-soeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,6 @@ SRCS_DIR= ./srcs
 
 SRCS= $(SRCS_DIR)/delta.c \
 $(SRCS_DIR)/game_loop.c \
-$(SRCS_DIR)/get_mouse_pos.c \
 $(SRCS_DIR)/main.c \
 $(SRCS_DIR)/get_time.c \
 $(SRCS_DIR)/math.c \
