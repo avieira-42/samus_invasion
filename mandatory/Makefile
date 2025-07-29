@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: a-soeiro <marvavieira-@student.42porto.com +#+  +:+       +#+         #
+#    By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 21:49:52 by a-soeiro          #+#    #+#              #
-#    Updated: 2025/07/29 14:16:20 by a-soeiro         ###   ########.fr        #
+#    Updated: 2025/07/29 17:09:31 by a-soeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-	NAME= cub3d
+NAME= so_long
 CC= cc
 CFLAGS = -g -Wall -Wextra -Werror -std=c99 -I $(INCLUDES)
 LDFLAGS =  -L $(LIBFT_DIR) -lft -L $(MLX_DIR) -Lmlx -lmlx -lXext -lX11 -lbsd -lXext -lX11 -lm 
