@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 13:41:09 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/29 15:16:24 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:13:43 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 void	set_path(char **map, int x, int y, t_point size)
 {
 	if (x < 0 || y < 0 || x >= size.x || y >= size.y)
-        return;
-    if (map[y][x] == '1' || map[y][x] == 'V')
-        return;
-    map[y][x] = 'V';
-    set_path(map, x + 1, y, size);
-    set_path(map, x - 1, y, size);
-    set_path(map, x, y + 1, size);
-    set_path(map, x, y - 1, size);
+		return ;
+	if (map[y][x] == '1' || map[y][x] == 'V')
+		return ;
+	map[y][x] = 'V';
+	set_path(map, x + 1, y, size);
+	set_path(map, x - 1, y, size);
+	set_path(map, x, y + 1, size);
+	set_path(map, x, y - 1, size);
 }
 
 char	**copy_map(char **map, int height)
@@ -55,8 +55,8 @@ char	**copy_map(char **map, int height)
 
 t_point	set_player_pos(char **map, int width, int height)
 {
-	int	y;
-	int	x;
+	int		y;
+	int		x;
 	t_point	p;
 
 	y = 0;
@@ -84,7 +84,7 @@ int	is_valid_path(char **map, int width, int height)
 {
 	int		y;
 	int		x;
-    char 	**path_map;
+	char	**path_map;
 	t_point	p;
 	t_point	size;
 
@@ -93,18 +93,18 @@ int	is_valid_path(char **map, int width, int height)
 	size.x = width;
 	p = set_player_pos(map, width, height);
 	path_map = copy_map(map, height);
-    set_path(path_map, p.x, p.y, size);
+	set_path(path_map, p.x, p.y, size);
 	while (y < height)
-    {
+	{
 		x = 0;
-		while (x  < width)
+		while (x < width)
 		{
 			if (path_map[y][x] == 'C' || path_map[y][x] == 'E')
 				return (0);
 			x++;
 		}
-        y++;
-    }
+		y++;
+	}
 	ft_free_matrix(path_map);
 	return (1);
 }

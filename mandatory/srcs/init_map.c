@@ -16,9 +16,9 @@ void	init_map(t_game *game, char *argv1)
 {
 	game->map.height = 0;
 	game->map.width = 0;
-	game->map.C_count = 0;
-	game->map.P_count = 0;
-	game->map.E_count = 0;
+	game->map.c_count = 0;
+	game->map.p_count = 0;
+	game->map.e_count = 0;
 	game->map.text = read_map(argv1);
 	if (game->map.text == NULL)
 		return ;

@@ -3,13 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   map_render.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 17:00:38 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/29 00:58:43 by a-soeiro         ###   ########.fr       */
-/* ************************************************************************** */ #include "../includes/so_long.h"
+/*   Created: 2025/07/29 16:15:09 by a-soeiro          #+#    #+#             */
+/*   Updated: 2025/07/29 16:15:12 by a-soeiro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void draw_map(t_game *game)
+#include "../includes/so_long.h"
+
+void	draw_map(t_game *game)
 {
 	int		y;
 	int		x;

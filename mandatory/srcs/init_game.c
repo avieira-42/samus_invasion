@@ -13,12 +13,12 @@
 
 void	init_game(t_game *game)
 {
-	// init_map(game);
+	// init_window(game);
 	game->map.width *= SPRITE_SIZE;
 	game->map.height *= SPRITE_SIZE;
+	init_window(game);
 	
 	//init_main_struct(game);
-	init_window(game);
 	game->finish = 0;
 	game->fd = 0;
 	game->moves = 0;

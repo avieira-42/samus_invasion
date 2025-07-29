@@ -1,7 +1,5 @@
-syn keyword CTagsStructure s_iterator s_animation s_tile s_item s_game s_player s_point s_vect s_attack s_image s_portal s_move s_enemy s_jump s_bckgrnd s_map
-syn keyword CTagsMember touching_wallleft width move left_wall_pos scale camera counter idle orientation gravity tmp_pos walking bckgrnd y next win_ptr x right_wall_pos touching_ceiling line_length t_elapsed last_frame_time vect jumping P_count tile touching_exit t_started C_count attacking timer attack_timer height sprite jump touching_rightwall running touching_leftwall towel count ground_pos X_count active bits_per_pixel fd is_attacking portal sprite2 pos touching_ground walls direction i samus items
-syn keyword CTagsMember mlx_ptr game_start ceiling_pos player text touching_wallright delta E_count map touching_floor enemies attack_counter image endian falling attack velocity addr
-syn keyword CTagsType t_vect t_attack t_portal t_iterator t_player t_item t_tile t_animation t_bckgrnd t_map t_point t_enemy t_jump t_move t_image t_game
-syn keyword CTagsDefinedName ENEMY_WIDTH ENEMY_TOUCHING_FLOOR MOVEMENTS ATTACKING WALL_VELOCITY ENEMY_VELOCITY_X ENEMY_TOUCHING_EXIT JUMP_VEL PLAYER_TOUCHING_FLOOR PLAYER_WIDTH VELOCITY_Y PLAYER_ORIENTATION SCREEN_END_X TILE_SIZE_Y ENEMY_TOUCHING_RIGHTWALL PLAYER_TMP_POS_X PLAYER_DIR_Y GRAVITY_ACC PLAYER_TOUCHING_LEFTWALL SCREE_HEIGHT PLAYER_POS_X PLAYER_VEL_Y PLAYER_VECT ENEMY_POS_X SCREEN_SIZE_Y DELTA_T ENEMY_POS_Y game_H TILE_SIZE_X LINE_COLOR SCREEN_WIDTH PLAYER_POS_Y MAX_FALL_SPEED VELOCITY_X
-syn keyword CTagsDefinedName PLAYER_POS PLAYER_VEL_X ENEMY_VELOCITY_Y PLAYER_TMP_POS_Y ATTACK_TIMER ENEMY_TOUCHING_CEILING PLAYER_TOUCHING_CEILING CAMERA_END_X GRAVITY PLAYER_TOUCHING_EXIT ATTACK_COUNTER PLAYER_TOUCHING_RIGHTWALL SCREEN_SIZE_X GROUND_LEVEL ENEMY_TOUCHING_LEFTWALL PLAYER_HEIGHT ENEMY_HEIGHT PLAYER_DIR_X
+syn keyword CTagsStructure s_iterator s_image s_game s_map s_point
+syn keyword CTagsMember moves finish bckgrnd height map portal fd p image e_count win_ptr width towel line_length endian y mlx_ptr addr p_count bits_per_pixel c_count player text tile x
+syn keyword CTagsType t_iterator t_point t_image t_game t_map
+syn keyword CTagsDefinedName SPRITE_SIZE ESC S D A W SO_LONG_H
 

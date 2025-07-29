@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 01:57:47 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/29 14:34:57 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:04:40 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ int	is_allowed_char(t_game *game)
 	return (1);
 }
 
-int	is_one_PE(t_game *game)
+int	is_one_pe(t_game *game)
 {
-	if (game->map.E_count > 1 || game->map.P_count > 1)
+	if (game->map.e_count > 1 || game->map.p_count > 1)
 		return (0);
 	return (1);
 }
 
-int	is_at_least_one_CPE(t_game *game)
+int	is_at_least_one_cpe(t_game *game)
 {
 	t_iterator	i;
 	char		**map;
@@ -56,24 +56,24 @@ int	is_at_least_one_CPE(t_game *game)
 		while (map[i.y][i.x])
 		{
 			if (map[i.y][i.x] == 'C')
-				game->map.C_count++;
+				game->map.c_count++;
 			else if (map[i.y][i.x] == 'P')
-				game->map.P_count++;
+				game->map.p_count++;
 			else if (map[i.y][i.x] == 'E')
-				game->map.E_count++;
+				game->map.e_count++;
 			i.x++;
 		}
 		i.y++;
 	}
-	if (game->map.C_count == 0 || game->map.P_count == 0
-		|| game->map.E_count == 0)
+	if (game->map.c_count == 0 || game->map.p_count == 0
+		|| game->map.e_count == 0)
 		return (0);
 	return (1);
 }
 
 int	is_rectangular(t_game *game)
 {
-	char **map;
+	char	**map;
 
 	map = game->map.text;
 	while (*map)
@@ -96,11 +96,11 @@ int	map_parse(t_game *game, char *argv1)
 	get_map_height(game);
 	get_map_width(game);
 	if (is_allowed_char(game)
-		&& is_at_least_one_CPE(game)
-		&& is_one_PE(game)
+		&& is_at_least_one_cpe(game)
+		&& is_one_pe(game)
 		&& is_rectangular(game)
 		&& is_surrounded_by_1(game)
-		&& is_valid_path(game->map.text, SCREEN_WIDTH, SCREEN_HEIGHT))
+		&& is_valid_path(game->map.text, game->map.width, game->map.height))
 		return (1);
 	ft_freesplit(game->map.text);
 	return (0);
