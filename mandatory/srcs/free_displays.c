@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:41:42 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/28 23:04:16 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/29 14:15:55 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_freesplit(char **str)
 
 int	free_displays(t_game *game)
 {
-	ft_freesplit(game->map.text);
+	ft_free_matrix(game->map.text);
 	mlx_loop_end((*game).mlx_ptr);
 	mlx_destroy_window((*game).mlx_ptr, (*game).win_ptr);
 	mlx_destroy_display((*game).mlx_ptr);

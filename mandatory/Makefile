@@ -6,7 +6,7 @@
 #    By: a-soeiro <marvavieira-@student.42porto.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 21:49:52 by a-soeiro          #+#    #+#              #
-#    Updated: 2025/07/29 00:08:03 by a-soeiro         ###   ########.fr        #
+#    Updated: 2025/07/29 14:16:20 by a-soeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,11 +26,11 @@ $(SRCS_DIR)/free_displays.c \
 $(SRCS_DIR)/init_game.c \
 $(SRCS_DIR)/map_render.c \
 $(SRCS_DIR)/map_render_utils.c \
-$(SRCS_DIR)/ft_free.c \
 $(SRCS_DIR)/init_map.c \
 $(SRCS_DIR)/init_window.c \
 $(SRCS_DIR)/map_parse.c \
 $(SRCS_DIR)/map_parse_utils.c \
+$(SRCS_DIR)/map_parse_utils2.c \
 $(SRCS_DIR)/input_handler.c \
 $(SRCS_DIR)/game_loop.c \
 $(SRCS_DIR)/parse.c

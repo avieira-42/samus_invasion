@@ -1,7 +1,6 @@
-syn keyword CTagsStructure s_graph s_init_map
-syn keyword CTagsMember step win wall y count player map mlx lenght fn graph hight x exit escape collect
-syn keyword CTagsFunction main get_time free_player_running ft_pixelput ft_frame free_player_idle position_portal get_map_height put_wall_img put_empty_img is_surrounded_by_1 read_map parse free_sprites is_at_least_one_CPE free_player_sprites ft_create_map ft_check free_displays move_down init_game game_start ft_map_data is_only_1 move_right ft_exit draw_player draw_towel draw_tile draw_map is_allowed_char is_one_PE move_left move_up map_parse init_map draw_portal ft_free ft_get_color get_map_width
-syn keyword CTagsFunction init_window renderer drawtexture ft_freesplit is_rectangular drawobj ft_free_arr game_loop press_key update put_player_img
+syn keyword CTagsStructure s_init_map s_graph
+syn keyword CTagsMember lenght player mlx fn win x count graph step map y exit escape wall hight collect
+syn keyword CTagsFunction is_surrounded_by_1 key_pressed is_at_least_one_CPE init_window copy_map move_down free_displays init_game move_up set_path is_rectangular is_allowed_char game_loop get_map_width init_map get_map_height draw_player draw_portal is_one_PE parse is_valid_path move_left draw_tile read_map map_parse ft_freesplit move_right draw_towel main is_only_1 draw_map
 syn keyword CTagsType t_graph t_init_map
-syn keyword CTagsDefinedName SO_LONG_H PLAYER WALL EXIT COLLECT
+syn keyword CTagsDefinedName EXIT COLLECT SO_LONG_H PLAYER WALL
 

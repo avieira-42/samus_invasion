@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 01:57:47 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/28 23:45:10 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/29 14:34:57 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,16 +96,12 @@ int	map_parse(t_game *game, char *argv1)
 	get_map_height(game);
 	get_map_width(game);
 	if (is_allowed_char(game)
-			&& is_at_least_one_CPE(game)
-			&& is_one_PE(game)
-			&& is_rectangular(game)
-			&& is_surrounded_by_1(game))
-	{
-		game->map.width *= SPRITE_SIZE;
-		game->map.height *= SPRITE_SIZE;
+		&& is_at_least_one_CPE(game)
+		&& is_one_PE(game)
+		&& is_rectangular(game)
+		&& is_surrounded_by_1(game)
+		&& is_valid_path(game->map.text, SCREEN_WIDTH, SCREEN_HEIGHT))
 		return (1);
-	}
-	// Path to collectibles then exit has to be possible
 	ft_freesplit(game->map.text);
 	return (0);
 }

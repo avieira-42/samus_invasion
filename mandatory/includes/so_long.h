@@ -6,13 +6,13 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/29 01:20:19 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/29 15:12:40 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef game_H
 # define game_H
-# include "../libs/libft/includes/libft.h"
+# include "../libs/libft/include/libft.h"
 # include "../libs/mlx/mlx.h"
 # include "../libs/mlx/mlx_int.h"
 # include <strings.h>
@@ -100,6 +100,12 @@ void		get_map_height(t_game *game);
 void		get_map_width(t_game *game);
 int		is_only_1(char *map_line);
 int		is_surrounded_by_1(t_game *game);
+
+//map parse utils 2
+int	is_valid_path(char **map, int width, int height);
+char    **copy_map(char **map, int height);
+void    set_path(char **map, int x, int y, t_point size);
+t_point set_player_pos(char **map, int width, int height);
 
 //gameloop
 int	game_loop(t_game *game);

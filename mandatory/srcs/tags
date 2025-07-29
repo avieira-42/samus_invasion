@@ -10,38 +10,21 @@ PLAYER	so_long.h	26;"	d
 SO_LONG_H	so_long.h	14;"	d
 WALL	so_long.h	25;"	d
 collect	so_long.h	/^	void	*collect;$/;"	m	struct:s_graph
+copy_map	map_parse_utils2.c	/^char	**copy_map(char **map, int height)$/;"	f
 count	so_long.h	/^	int		count;$/;"	m	struct:s_init_map
 draw_map	map_render.c	/^void draw_map(t_game *game)$/;"	f
-draw_player	map_render_utils.c	/^void	draw_player(t_game *game, int x, int y)$/;"	f
-draw_portal	map_render_utils.c	/^void	draw_portal(t_game *game, int x, int y)$/;"	f
-draw_portal	portal_render.c	/^void	draw_portal(t_game *game)$/;"	f
-draw_tile	map_render_utils.c	/^void	draw_tile(t_game *game, int x, int y)$/;"	f
-draw_towel	map_render_utils.c	/^void	draw_towel(t_game *game, int x, int y)$/;"	f
-drawobj	map_render.c	/^void	drawobj(t_image *image, t_point pos, t_point size, int color)$/;"	f
-drawtexture	map_render.c	/^void	drawtexture(t_image *image, t_image *texture, t_point pos, long double scale)$/;"	f
+draw_player	map_render_utils.c	/^void	draw_player(t_game *game, int *y, int *x)$/;"	f
+draw_portal	map_render_utils.c	/^void	draw_portal(t_game *game, int *y, int *x)$/;"	f
+draw_tile	map_render_utils.c	/^void	draw_tile(t_game *game, int *y, int *x)$/;"	f
+draw_towel	map_render_utils.c	/^void	draw_towel(t_game *game, int *y, int *x)$/;"	f
 escape	so_long.h	/^	int		escape;$/;"	m	struct:s_init_map
 exit	so_long.h	/^	void	*exit;$/;"	m	struct:s_graph
 fn	so_long.h	/^	char	*fn;$/;"	m	struct:s_init_map
 free_displays	free_displays.c	/^int	free_displays(t_game *game)$/;"	f
-free_player_idle	free_sprites.c	/^void	free_player_idle(t_game *game)$/;"	f
-free_player_running	free_sprites.c	/^void	free_player_running(t_game *game)$/;"	f
-free_player_sprites	free_sprites.c	/^void	free_player_sprites(t_game *game)$/;"	f
-free_sprites	free_sprites.c	/^void	free_sprites(t_game *game)$/;"	f
-ft_check	so_long.c	/^void	ft_check(t_init_map *data)$/;"	f
-ft_create_map	ft_create_map.c	/^void	ft_create_map(t_init_map *data)$/;"	f
-ft_exit	ft_create_map.c	/^int	ft_exit(t_init_map *data)$/;"	f
-ft_frame	so_long.c	/^int	ft_frame(t_init_map *data)$/;"	f
-ft_free_arr	ft_free.c	/^void	ft_free_arr(char **arr)$/;"	f
-ft_free	ft_free.c	/^void	ft_free(t_game *game, char *line)$/;"	f
 ft_freesplit	free_displays.c	/^void	ft_freesplit(char **str)$/;"	f
-ft_get_color	map_render.c	/^int ft_get_color(t_image *data, int x, int y)$/;"	f
-ft_map_data	so_long.c	/^void	ft_map_data(t_init_map *game, char *name)$/;"	f
-ft_pixelput	ft_pixelput.c	/^void	ft_pixelput(t_image *data, int x, int y, int color)$/;"	f
 game_loop	game_loop.c	/^int	game_loop(t_game *game)$/;"	f
-game_start	game_loop.c	/^void	game_start(t_game *game)$/;"	f
 get_map_height	map_parse_utils.c	/^void	get_map_height(t_game *game)$/;"	f
 get_map_width	map_parse_utils.c	/^void	get_map_width(t_game *game)$/;"	f
-get_time	get_time.c	/^long long	get_time(void)$/;"	f
 graph	so_long.h	/^	t_graph	*graph;$/;"	m	struct:s_init_map
 hight	so_long.h	/^	int		hight;$/;"	m	struct:s_init_map
 init_game	init_game.c	/^void	init_game(t_game *game)$/;"	f
@@ -53,32 +36,27 @@ is_one_PE	map_parse.c	/^int	is_one_PE(t_game *game)$/;"	f
 is_only_1	map_parse_utils.c	/^int	is_only_1(char *map_line)$/;"	f
 is_rectangular	map_parse.c	/^int	is_rectangular(t_game *game)$/;"	f
 is_surrounded_by_1	map_parse_utils.c	/^int	is_surrounded_by_1(t_game *game)$/;"	f
+is_valid_path	map_parse_utils2.c	/^int	is_valid_path(char **map, int width, int height)$/;"	f
+key_pressed	input_handler.c	/^int	key_pressed(int keycode, t_game *game)$/;"	f
 lenght	so_long.h	/^	int		lenght;$/;"	m	struct:s_init_map
 main	main.c	/^int	main(int argc, char **argv)$/;"	f
-main	so_long.c	/^int	main(int argc, char **argv)$/;"	f
 map_parse	map_parse.c	/^int	map_parse(t_game *game, char *argv1)$/;"	f
 map	so_long.h	/^	char	**map;$/;"	m	struct:s_init_map
 mlx	so_long.h	/^	void	*mlx;$/;"	m	struct:s_init_map
-move_down	ft_moving.c	/^void	move_down(t_init_map *data)$/;"	f
-move_left	ft_moving.c	/^void	move_left(t_init_map *data)$/;"	f
-move_right	ft_moving.c	/^void	move_right(t_init_map *data)$/;"	f
-move_up	ft_moving.c	/^void	move_up(t_init_map *data)$/;"	f
+move_down	input_handler.c	/^void	move_down(t_game *game)$/;"	f
+move_left	input_handler.c	/^void	move_left(t_game *game)$/;"	f
+move_right	input_handler.c	/^void	move_right(t_game *game)$/;"	f
+move_up	input_handler.c	/^void	move_up(t_game *game)$/;"	f
 parse	parse.c	/^int	parse(t_game *game, int argc, char **argv)$/;"	f
 player	so_long.h	/^	int		player;$/;"	m	struct:s_init_map
 player	so_long.h	/^	void	*player;$/;"	m	struct:s_graph
-position_portal	portal_render.c	/^void	position_portal(t_game *game)$/;"	f
-press_key	ft_moving.c	/^int	press_key(int keycode, t_init_map *data)$/;"	f
-put_empty_img	ft_create_map.c	/^void	put_empty_img(t_init_map *data, int *j, int *i)$/;"	f
-put_player_img	ft_create_map.c	/^void	put_player_img(t_init_map *data, int *j, int *i)$/;"	f
-put_wall_img	ft_create_map.c	/^void	put_wall_img(t_init_map *data, int *j, int *i)$/;"	f
 read_map	map_parse_utils.c	/^char **read_map(char *file_name)$/;"	f
-renderer	game_loop.c	/^int	renderer(t_game *game)$/;"	f
 s_graph	so_long.h	/^typedef struct s_graph$/;"	s
 s_init_map	so_long.h	/^typedef struct s_init_map$/;"	s
+set_path	map_parse_utils2.c	/^void	set_path(char **map, int x, int y)$/;"	f
 step	so_long.h	/^	int		step;$/;"	m	struct:s_init_map
 t_graph	so_long.h	/^}	t_graph;$/;"	t	typeref:struct:s_graph
 t_init_map	so_long.h	/^}	t_init_map;$/;"	t	typeref:struct:s_init_map
-update	game_loop.c	/^int	update(t_game *game)$/;"	f
 wall	so_long.h	/^	void	*wall;$/;"	m	struct:s_graph
 wall	so_long.h	/^	void	*wall;$/;"	m	struct:s_init_map
 win	so_long.h	/^	void	*win;$/;"	m	struct:s_init_map
