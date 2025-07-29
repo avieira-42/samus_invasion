@@ -6,7 +6,7 @@
 #    By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 21:49:52 by a-soeiro          #+#    #+#              #
-#    Updated: 2025/07/29 17:09:31 by a-soeiro         ###   ########.fr        #
+#    Updated: 2025/07/29 20:29:00 by a-soeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,18 +22,18 @@ LIBFT= $(LIBFT_DIR)/libft.a
 SRCS_DIR= ./srcs
 
 SRCS= $(SRCS_DIR)/main.c \
-$(SRCS_DIR)/free_displays.c \
-$(SRCS_DIR)/init_game.c \
-$(SRCS_DIR)/map_render.c \
-$(SRCS_DIR)/map_render_utils.c \
 $(SRCS_DIR)/init_map.c \
-$(SRCS_DIR)/init_window.c \
+$(SRCS_DIR)/parse.c \
 $(SRCS_DIR)/map_parse.c \
 $(SRCS_DIR)/map_parse_utils.c \
 $(SRCS_DIR)/map_parse_utils2.c \
+$(SRCS_DIR)/init_game.c \
+$(SRCS_DIR)/init_game_utils.c \
+$(SRCS_DIR)/map_render.c \
+$(SRCS_DIR)/map_render_utils.c \
 $(SRCS_DIR)/input_handler.c \
 $(SRCS_DIR)/game_loop.c \
-$(SRCS_DIR)/parse.c
+$(SRCS_DIR)/free_displays.c
 
 #$(SRCS_DIR)/physics_utils.c \
 

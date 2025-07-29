@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/29 16:34:50 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/29 20:26:51 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,17 @@ int		parse(t_game *game, int argc, char **argv);
 
 // displays
 int		free_displays(t_game *game);
+
+// init game
+void	init_game(t_game *game);
 void	init_window(t_game *game);
+void	init_player(t_game *game);
+void	init_tile(t_game *game);
+void	init_towel(t_game *game);
+void	init_portal(t_game *game);
+void	init_main_struct(t_game *game);
+void	init_image(t_game *game);
+void	init_background(t_game *game);
 
 //map parse
 void	init_map(t_game *game, char *argv1);
@@ -107,9 +117,6 @@ t_point	set_player_pos(char **map, int width, int height);
 //gameloop
 int		game_loop(t_game *game);
 void	calculate_Delta(t_game *game);
-
-//init
-void	init_game(t_game *game);
 
 //map
 char	**read_map(char *file_name);

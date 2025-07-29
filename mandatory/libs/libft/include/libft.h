@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 19:40:52 by avieira-          #+#    #+#             */
-/*   Updated: 2025/06/30 16:08:33 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/29 20:38:36 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,10 @@ void		ft_removeline(char *buf);
 /* SORTING */
 
 void		i_merge_sort(t_array middle);
-void		i_merge(t_array left, t_array middle, t_array right); /* MEMORY */ void		ft_free_matrix(char **matrix);
+void		i_merge(t_array left, t_array middle, t_array right);
+
+/* MEMORY */
+void		ft_free_matrix(char **matrix);
 void		*ft_memset(void *s, int c, size_t n);
 void		*ft_memcpy(void *dest, const void *src, size_t n);
 void		*ft_memmove(void *dest, const void *src, size_t n);

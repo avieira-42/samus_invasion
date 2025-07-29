@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_cub.c                                         :+:      :+:    :+:   */
+/*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */ /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 17:03:20 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/17 17:48:20 by a-soeiro         ###   ########.fr       */
+/*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/29 20:27:37 by a-soeiro          #+#    #+#             */
+/*   Updated: 2025/07/29 20:41:38 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	init_game(t_game *game)
+void	init_window(t_game *game)
 {
-	// init_window(game);
 	game->map.width *= SPRITE_SIZE;
 	game->map.height *= SPRITE_SIZE;
-	init_window(game);
-	
-	//init_main_struct(game);
+	(*game).mlx_ptr = mlx_init();
+	(*game).win_ptr = mlx_new_window((*game).mlx_ptr,
+			game->map.width, game->map.height, "game3d");
+}
+
+void	init_main_struct(t_game *game)
+{
 	game->finish = 0;
 	game->fd = 0;
 	game->moves = 0;
 	game->p.x = 0;
 	game->p.y = 0;
+}
 
-
-	// init_image(game);
+void	init_image(t_game *game)
+{
 	game->image.x = 0;
 	game->image.y = 0;
 	game->image.bits_per_pixel = 0;
@@ -34,24 +39,25 @@ void	init_game(t_game *game)
 	game->image.endian = 0;
 	game->image.image = NULL;
 	game->image.addr = NULL;
+}
 
-	// init_background(game);
-	game->bckgrnd.image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/quasar.xpm", &game->bckgrnd.x, &game->bckgrnd.y);
-	game->bckgrnd.addr = mlx_get_data_addr(game->bckgrnd.image, &game->bckgrnd.bits_per_pixel, &game->bckgrnd.line_length, &game->bckgrnd.endian);
+void	init_background(t_game *game)
+{
+	game->bckgrnd.image = mlx_xpm_file_to_image(game->mlx_ptr,
+			"sprites/quasar.xpm", &game->bckgrnd.x, &game->bckgrnd.y);
+	game->bckgrnd.addr = mlx_get_data_addr(game->bckgrnd.image,
+			&game->bckgrnd.bits_per_pixel, &game->bckgrnd.line_length,
+			&game->bckgrnd.endian);
+}
 
-	// init_tile(game);
-	game->tile.image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/tile.xpm", &game->tile.x, &game->tile.y);
-	game->tile.addr = mlx_get_data_addr(game->tile.image, &game->tile.bits_per_pixel, &game->tile.line_length, &game->tile.endian);
-
-	//init_towel(game);
-	game->towel.image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/towel.xpm", &game->towel.x, &game->towel.y);
-	game->towel.addr = mlx_get_data_addr(game->towel.image, &game->towel.bits_per_pixel, &game->towel.line_length, &game->towel.endian);
-
-	//init_portal(game);
-	game->portal.image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/portal.xpm", &game->portal.x, &game->portal.y);
-	game->portal.addr = mlx_get_data_addr(game->portal.image, &game->portal.bits_per_pixel, &game->portal.line_length, &game->portal.endian);
-
-	// init_player(game);
-	game->player.image = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/breno.xpm", &game->player.x, &game->player.y);
-	game->player.addr = mlx_get_data_addr(game->player.image, &game->player.bits_per_pixel, &game->player.line_length, &game->player.endian);
+void	init_game(t_game *game)
+{
+	init_window(game);
+	init_main_struct(game);
+	init_image(game);
+	init_background(game);
+	init_tile(game);
+	init_towel(game);
+	init_portal(game);
+	init_player(game);
 }
