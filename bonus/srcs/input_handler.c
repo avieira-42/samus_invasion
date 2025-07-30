@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:09:07 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/25 03:03:23 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/30 01:13:11 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	key_pressed(int keysym, t_game *game)
 		game->player.orientation = -1;
 		game->player.direction.x += -1;
 	}
-
 	if (keysym == XK_d)
 	{
 		game->player.orientation = 1;
@@ -30,21 +29,20 @@ int	key_pressed(int keysym, t_game *game)
 	if ((keysym == XK_space || keysym == XK_w)
 		&& game->player.jump.active == false
 		&& player_touching_floor(game))
-	{
 		game->player.jump.active = true;
-	}
-	if (keysym == XK_s && ATTACK_COUNTER == 0 && !player_touching_floor(game))
+	if (keysym == XK_s && game->player.attack_counter == 0
+		&& !player_touching_floor(game))
 	{
-		JUMP_VEL = 0;
-		ATTACKING = true;
-		ATTACK_TIMER = 0;
-		ATTACK_COUNTER = 1;
+		game->player.jump.velocity = 0;
+		game->player.attacking = true;
+		game->player.attack_timer = 0;
+		game->player.attack_counter = 1;
 	}
 	return (1);
 }
 
 int	key_released(int keysym, t_game *game)
-{	
+{
 	if (keysym == XK_a)
 	{
 		game->player.direction.x += 1;
@@ -55,9 +53,7 @@ int	key_released(int keysym, t_game *game)
 	}
 	if (keysym == XK_s)
 	{
-		GRAVITY = GRAVITY_ACC;
+		game->gravity = GRAVITY_ACC;
 	}
 	return (1);
 }
-
-

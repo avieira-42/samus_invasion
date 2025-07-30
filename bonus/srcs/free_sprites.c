@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 12:04:29 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/28 20:26:43 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/30 01:06:02 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	free_player_running(t_game *game)
 
 void	free_player_idle(t_game *game)
 {
-	int i;
+	int	i;
 
 	i = 1;
-	while(i--)
+	while (i--)
 		mlx_destroy_image(game->mlx_ptr, game->player.idle.sprite[i].image);
 }
 
@@ -39,10 +39,10 @@ void	free_player_sprites(t_game *game)
 void	free_sprites(t_game *game)
 {
 	free_player_sprites(game);
+	free_enemies(game->enemies);
 	mlx_destroy_image(game->mlx_ptr, game->bckgrnd.sprite.image);
 	mlx_destroy_image(game->mlx_ptr, game->tile.sprite.image);
 	mlx_destroy_image(game->mlx_ptr, game->towel.sprite.image);
 	mlx_destroy_image(game->mlx_ptr, game->portal.sprite.image);
 	mlx_destroy_image(game->mlx_ptr, game->portal.sprite2.image);
-	//mlx_destroy_image(game->mlx_ptr, game->enemies.sprite.image);
 }

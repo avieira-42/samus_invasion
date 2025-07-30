@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 15:51:54 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/25 01:52:20 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/30 00:03:10 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,16 @@ void	animate_player_jumping(t_game *game)
 			(game->player.jumping.i)++;
 	}
 	i = game->player.jumping.i;
-	if (PLAYER_ORIENTATION == 1)
-		drawtexture(&game->image, &game->player.jumping.sprite[i], game->player.camera, 1);
+	if (game->player.orientation == 1)
+	{
+		drawtexture(&game->image, &game->player.jumping.sprite[i],
+			game->player.camera, 1);
+	}
 	else
-		draw_mirroredtexture(&game->image, &game->player.jumping.sprite[i], game->player.camera, 1);
+	{
+		draw_mirroredtexture(&game->image, &game->player.jumping.sprite[i],
+			game->player.camera, 1);
+	}
 }
 
 void	animate_player_falling(t_game *game)
@@ -48,10 +54,16 @@ void	animate_player_falling(t_game *game)
 			(game->player.falling.i)++;
 	}
 	i = game->player.falling.i;
-	if (PLAYER_ORIENTATION == 1)
-		drawtexture(&game->image, &game->player.falling.sprite[i], game->player.camera, 1);
+	if (game->player.orientation == 1)
+	{
+		drawtexture(&game->image, &game->player.falling.sprite[i],
+			game->player.camera, 1);
+	}
 	else
-		draw_mirroredtexture(&game->image, &game->player.falling.sprite[i], game->player.camera, 1);
+	{
+		draw_mirroredtexture(&game->image, &game->player.falling.sprite[i],
+			game->player.camera, 1);
+	}
 }
 
 void	animate_player_attacking(t_game *game)
@@ -69,8 +81,14 @@ void	animate_player_attacking(t_game *game)
 			(game->player.attack.i)++;
 	}
 	i = game->player.attack.i;
-	if (PLAYER_ORIENTATION == 1)
-		drawtexture(&game->image, &game->player.attack.sprite[i], game->player.camera, 1);
+	if (game->player.orientation == 1)
+	{
+		drawtexture(&game->image, &game->player.attack.sprite[i],
+			game->player.camera, 1);
+	}
 	else
-		draw_mirroredtexture(&game->image, &game->player.attack.sprite[i], game->player.camera, 1);
+	{
+		draw_mirroredtexture(&game->image, &game->player.attack.sprite[i],
+			game->player.camera, 1);
+	}
 }

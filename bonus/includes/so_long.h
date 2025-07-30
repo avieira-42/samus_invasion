@@ -6,13 +6,13 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/28 16:52:29 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/30 02:48:59 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef game_H
 # define game_H
-# include "../libs/libft/includes/libft.h"
+# include "../libs/libft/include/libft.h"
 # include "../libs/mlx/mlx.h"
 # include "../libs/mlx/mlx_int.h"
 # include <strings.h>
@@ -23,8 +23,6 @@
 
 # define SCREEN_SIZE_X 1296
 # define SCREEN_SIZE_Y 720
-# define SCREEN_WIDTH game->map.width
-# define SCREE_HEIGHT game->map.height
 # define SCREEN_END_X 2304
 # define CAMERA_END_X 1104
 # define GROUND_LEVEL 624
@@ -32,49 +30,21 @@
 # define TILE_SIZE_X 80
 # define TILE_SIZE_Y 80
 # define GRAVITY_ACC 800
-# define GRAVITY game->gravity
 # define WALL_VELOCITY -100
 # define MAX_FALL_SPEED 500
-# define DELTA_T game->delta
-# define JUMP_VEL game->player.jump.velocity
-# define ATTACK_COUNTER game->player.attack_counter
-# define ATTACK_TIMER game->player.attack_timer
-# define ATTACKING game->player.attacking
-# define MOVEMENTS game->player.move.count
 // enemy
 # define ENEMY_WIDTH 80
 # define ENEMY_HEIGHT 80
 # define ENEMY_VELOCITY_X 50
 # define ENEMY_VELOCITY_Y 150
-# define ENEMY_POS_X enemy->pos.x
-# define ENEMY_POS_Y enemy->pos.y
-# define ENEMY_TOUCHING_FLOOR enemy->touching_floor
-# define ENEMY_TOUCHING_LEFTWALL enemy->touching_wallleft
-# define ENEMY_TOUCHING_RIGHTWALL enemy->touching_wallright
-# define ENEMY_TOUCHING_CEILING enemy->touching_ceiling
-# define ENEMY_TOUCHING_EXIT enemy->touching_exit
 //player
 # define VELOCITY_X	400
 # define VELOCITY_Y -600
 # define PLAYER_WIDTH 80
 # define PLAYER_HEIGHT 80
-# define PLAYER_POS game->player.pos
-# define PLAYER_VECT game->player.vect
-# define PLAYER_VEL_X game->player.velocity.x
-# define PLAYER_VEL_Y game->player.velocity.y
-# define PLAYER_POS game->player.pos
-# define PLAYER_POS_X game->player.pos.x
-# define PLAYER_POS_Y game->player.pos.y
-# define PLAYER_TMP_POS_X game->player.tmp_pos.x
-# define PLAYER_TMP_POS_Y game->player.tmp_pos.y
-# define PLAYER_DIR_X game->player.direction.x
-# define PLAYER_DIR_Y game->player.direction.y
-# define PLAYER_ORIENTATION game->player.orientation
-# define PLAYER_TOUCHING_FLOOR game->player.touching_ground
-# define PLAYER_TOUCHING_LEFTWALL game->player.touching_leftwall
-# define PLAYER_TOUCHING_RIGHTWALL game->player.touching_rightwall
-# define PLAYER_TOUCHING_CEILING game->player.touching_ceiling
-# define PLAYER_TOUCHING_EXIT game->player.touching_exit
+//sprites
+# define TILE "sprites/tile.xpm"
+# define TOWEL "sprites/towel.xpm"
 
 typedef struct s_map
 {
@@ -269,9 +239,15 @@ void		get_map_width(t_game *game);
 int		is_only_1(char *map_line);
 int		is_surrounded_by_1(t_game *game);
 
+//map parse utils 2
+void	set_path(char **map, int x, int y, t_point size);
+char	**copy_map(char **map, int height);
+t_point	set_player_pos(char **map, int width, int height);
+int		is_valid_path(char **map, int width, int height);
+
 //gameloop
 int		game_loop(t_game *game);
-void	calculate_Delta(t_game *game);
+void	calculate_delta(t_game *game);
 
 //init
 void	init_game(t_game *game);
@@ -285,6 +261,9 @@ int		ft_load_map(char *map, t_game *game);
 char	**read_map(char *file_name);
 void	draw_map(t_game *game);
 
+// render
+void	position_sprites(t_game *game, int x, int y);
+
 //render utils
 void		drawobj(t_image *image, t_point pos, t_point size, int color);
 int			ft_get_color(t_image *data, int x, int y);
@@ -292,7 +271,6 @@ void		ft_pixelput(t_image *data, int x, int y, int color);
 void		drawline(t_game *game, t_point start, t_point dest);
 void		drawtexture(t_image *image, t_image *texture, t_point pos, long double scale);
 void		draw_mirroredtexture(t_image *image, t_image *texture, t_point pos, long double scale);
-
 
 //item render
 void    position_item(t_game *game);
@@ -321,6 +299,9 @@ void	clear_enemy(t_game *game);
 void	add_enemy(t_enemy **enemies, t_enemy *new_enemy);
 void	free_enemies(t_enemy *enemies);
 t_enemy	*new_enemy(t_game* game);
+
+//enemy render utils 2
+bool    is_enemy_hit(t_game *game, t_enemy *enemy);
 
 //enemy collisions
 int		enemy_touching_floor(t_game *game, t_enemy *enemy);

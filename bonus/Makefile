@@ -6,11 +6,11 @@
 #    By: a-soeiro <marvavieira-@student.42porto.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 21:49:52 by a-soeiro          #+#    #+#              #
-#    Updated: 2025/07/29 01:47:14 by a-soeiro         ###   ########.fr        #
+#    Updated: 2025/07/30 01:56:46 by a-soeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-	NAME= cub3d
+NAME= so_long
 CC= cc
 CFLAGS = -g -Wall -Wextra -Werror -std=c99 -I $(INCLUDES)
 LDFLAGS =  -L $(LIBFT_DIR) -lft -L $(MLX_DIR) -Lmlx -lmlx -lXext -lX11 -lbsd -lXext -lX11 -lm 
@@ -28,9 +28,9 @@ $(SRCS_DIR)/get_time.c \
 $(SRCS_DIR)/math.c \
 $(SRCS_DIR)/free_displays.c \
 $(SRCS_DIR)/init_game.c \
+$(SRCS_DIR)/render.c \
 $(SRCS_DIR)/render_utils.c \
 $(SRCS_DIR)/render_utils2.c \
-$(SRCS_DIR)/ft_free.c \
 $(SRCS_DIR)/ft_pixelput.c \
 $(SRCS_DIR)/input_handler.c \
 $(SRCS_DIR)/item_render.c \
@@ -45,6 +45,7 @@ $(SRCS_DIR)/init_map.c \
 $(SRCS_DIR)/init_window.c \
 $(SRCS_DIR)/map_parse.c \
 $(SRCS_DIR)/map_parse_utils.c \
+$(SRCS_DIR)/map_parse_utils2.c \
 $(SRCS_DIR)/parse.c \
 $(SRCS_DIR)/animate.c \
 $(SRCS_DIR)/animate_utils.c \
@@ -54,6 +55,7 @@ $(SRCS_DIR)/timers.c \
 $(SRCS_DIR)/free_sprites.c \
 $(SRCS_DIR)/enemy_render.c \
 $(SRCS_DIR)/enemy_render_utils.c \
+$(SRCS_DIR)/enemy_render_utils2.c \
 $(SRCS_DIR)/enemy_collisions.c
 
 #$(SRCS_DIR)/physics_utils.c \

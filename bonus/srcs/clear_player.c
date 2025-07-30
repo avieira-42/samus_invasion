@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 03:00:49 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/29 01:48:55 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/30 00:06:11 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,18 @@ void	clear_player(t_game *game)
 	enemy = game->enemies;
 	while (enemy)
 	{
-		if (((PLAYER_POS_X <= enemy->pos.x + ENEMY_WIDTH * 0.2
-			&& PLAYER_POS_X >= enemy->pos.x)
-			|| (PLAYER_POS_X + PLAYER_WIDTH * 0.3 <= enemy->pos.x + ENEMY_WIDTH * 0.3
-			&& PLAYER_POS_X + PLAYER_WIDTH * 0.3 >= enemy->pos.x))
-			&& ((PLAYER_POS_Y + PLAYER_HEIGHT * 0.3 <= enemy->pos.y + ENEMY_HEIGHT
-			&& PLAYER_POS_Y + PLAYER_HEIGHT * 0.3 >= enemy->pos.y)
-			|| (PLAYER_POS_Y <= enemy->pos.y + ENEMY_HEIGHT
-			&& PLAYER_POS_Y >= enemy->pos.y + 20))
-			&& !ATTACKING)
-		{
+		if (((game->player.pos.x <= enemy->pos.x + ENEMY_WIDTH * 0.2
+					&& game->player.pos.x >= enemy->pos.x)
+				|| (game->player.pos.x + PLAYER_WIDTH * 0.3 <= enemy->pos.x
+					+ ENEMY_WIDTH * 0.3
+					&& game->player.pos.x + PLAYER_WIDTH * 0.3 >= enemy->pos.x))
+			&& ((game->player.pos.y + PLAYER_HEIGHT * 0.3 <= enemy->pos.y
+					+ ENEMY_HEIGHT
+					&& game->player.pos.y + PLAYER_HEIGHT * 0.3 >= enemy->pos.y)
+				|| (game->player.pos.y <= enemy->pos.y + ENEMY_HEIGHT
+					&& game->player.pos.y >= enemy->pos.y + 20))
+			&& !game->player.attacking)
 			free_displays(game);
-		}
 		enemy = enemy->next;
 	}
 }

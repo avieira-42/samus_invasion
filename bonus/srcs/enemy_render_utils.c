@@ -6,16 +6,17 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 18:01:59 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/28 15:54:18 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/30 01:06:18 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-t_enemy  *new_enemy(t_game* game)
+t_enemy	*new_enemy(t_game *game)
 {
-    t_enemy  *new_enemy;
-new_enemy = (t_enemy *) malloc(sizeof(t_enemy));
+	t_enemy	*new_enemy;
+
+	new_enemy = (t_enemy *) malloc(sizeof(t_enemy));
 	if (!new_enemy)
 		return (NULL);
 	new_enemy->i = 0;
@@ -62,7 +63,7 @@ int	enemies_count(t_enemy *enemies)
 	return (count);
 }
 
-void	clear_enemy(t_game *game)
+void	clear_enemy(t_game	*game)
 {
 	t_enemy	*enemy;
 	t_enemy	*prev;
@@ -72,15 +73,7 @@ void	clear_enemy(t_game *game)
 	prev = NULL;
 	while (enemy)
 	{
-		if (((PLAYER_POS_X <= enemy->pos.x + ENEMY_WIDTH * 0.2
-			&& PLAYER_POS_X >= enemy->pos.x)
-			|| (PLAYER_POS_X + PLAYER_WIDTH * 0.4 <= enemy->pos.x + ENEMY_WIDTH * 0.4
-			&& PLAYER_POS_X + PLAYER_WIDTH * 0.4 >= enemy->pos.x))
-			&& ((PLAYER_POS_Y + PLAYER_HEIGHT * 0.4 <= enemy->pos.y + ENEMY_HEIGHT
-			&& PLAYER_POS_Y + PLAYER_HEIGHT * 0.4 >= enemy->pos.y)
-			|| (PLAYER_POS_Y <= enemy->pos.y + ENEMY_HEIGHT
-			&& PLAYER_POS_Y >= enemy->pos.y + 10))
-			&& ATTACKING)
+		if (is_enemy_hit(game, enemy))
 		{
 			to_free = enemy;
 			if (prev == NULL)

@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 13:00:57 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/23 11:26:21 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/30 00:16:20 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	contiguous_ceiling(t_game *game, t_point floor_pos)
 {
-	t_tile *walls;
+	t_tile	*walls;
 
 	walls = game->walls;
 	while (walls)
@@ -30,7 +30,7 @@ int	contiguous_ceiling(t_game *game, t_point floor_pos)
 
 int	contiguous_floor(t_game *game, t_point ceiling_pos)
 {
-	t_tile *walls;
+	t_tile	*walls;
 
 	walls = game->walls;
 	while (walls)

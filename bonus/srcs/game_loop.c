@@ -14,12 +14,12 @@
 #include <stdio.h>
 int	update(t_game *game)
 {
-	calculate_Delta(game);
-	PLAYER_TOUCHING_FLOOR = player_touching_floor(game);
-	PLAYER_TOUCHING_LEFTWALL = player_touching_wall_left(game);
-	PLAYER_TOUCHING_RIGHTWALL = player_touching_wall_right(game);
-	PLAYER_TOUCHING_CEILING = player_touching_ceiling(game);
-	PLAYER_TOUCHING_EXIT = player_touching_exit(game);
+	calculate_delta(game);
+	game->player.touching_ground = player_touching_floor(game);
+	game->player.touching_leftwall = player_touching_wall_left(game);
+	game->player.touching_rightwall = player_touching_wall_right(game);
+	game->player.touching_ceiling = player_touching_ceiling(game);
+	game->player.touching_exit = player_touching_exit(game);
 	printf("GAME_LOOP\n");
 	//printf("direction: %f \n", game->player.direction.x);
 	//printf("velocity.x: %f \n", game->player.velocity.x);
@@ -37,49 +37,49 @@ int	update(t_game *game)
 	//printf("exit_pos.y: %f \n", game->portal.pos.y);
 	//printf("enemy.x: %f \n", game->enemy.pos.x);
 	//printf("enemy.y: %f \n", game->enemy.pos.y);
-	//if (PLAYER_TOUCHING_FLOOR)
+	//if (game->player.touching_ground)
 	//printf("floor true\n");
 	//if (game->items)
 	//{
 		//printf("item.x: %f \n", game->items->pos.x);
 		//printf("item.y: %f \n", game->items->pos.y);
 	//}
-	//printf("vel.y: %f\n", PLAYER_VEL_Y);
-	//printf("jump_vel: %f\n", JUMP_VEL);
-	//printf("enemy right wall:%i\n", ENEMY_TOUCHING_RIGHTWALL);
-	//printf("enemy left wall:%i\n", ENEMY_TOUCHING_LEFTWALL);
+	//printf("vel.y: %f\n", game->player.velocity.y);
+	//printf("jump_vel: %f\n", game->player.jump.velocity);
+	//printf("enemy right wall:%i\n", enemy->touching_wallright);
+	//printf("enemy left wall:%i\n", enemy->touching_wallleft);
 	//printf("enemy_pos.x: %f\n", game->enemies->pos.x);
 	//printf("enemy_pos.y: %f\n", game->enemies->pos.y);
 
 	//INIT VELOCITY_X
-	PLAYER_VEL_X = VELOCITY_X;
+	game->player.velocity.x = VELOCITY_X;
 
 
 	// SCREEN LIMITS is_play_area()
-	if (PLAYER_TOUCHING_RIGHTWALL && PLAYER_DIR_X == -1)
+	if (game->player.touching_rightwall && game->player.direction.x == -1)
 	{
-		PLAYER_VEL_X = 0;
-		PLAYER_POS_X = game->right_wall_pos;
+		game->player.velocity.x = 0;
+		game->player.pos.x = game->right_wall_pos;
 	}
-	if (PLAYER_TOUCHING_LEFTWALL && PLAYER_DIR_X == 1)
+	if (game->player.touching_leftwall && game->player.direction.x == 1)
 	{
-		PLAYER_VEL_X = 0;
-		PLAYER_POS_X = game->left_wall_pos;
+		game->player.velocity.x = 0;
+		game->player.pos.x = game->left_wall_pos;
 	}
 
 	// JUMPING (check_jump())
 	if (game->player.jump.active == true)
 	{
 
-		if (PLAYER_TOUCHING_FLOOR
+		if (game->player.touching_ground
 				&& game->player.jump.t_started > 0)
 		{
 			game->player.jump.active = false;
 			game->player.jump.t_elapsed = 0;
 			game->player.jump.t_started = 0;
 		}
-		if (PLAYER_VEL_Y == 0 && game->player.jump.t_elapsed == 0)
-			JUMP_VEL = VELOCITY_Y;
+		if (game->player.velocity.y == 0 && game->player.jump.t_elapsed == 0)
+			game->player.jump.velocity = VELOCITY_Y;
 
 		if(game->player.jump.active == true)
 		{
@@ -91,43 +91,43 @@ int	update(t_game *game)
 	}
 
 	// FALLING UNTIL FLOOR (check falling())
-	if (!PLAYER_TOUCHING_FLOOR
+	if (!game->player.touching_ground
 		&& game->player.jump.active == false)
 	{
-		JUMP_VEL = -VELOCITY_Y;
+		game->player.jump.velocity = -VELOCITY_Y;
 	}
-	if (PLAYER_TOUCHING_FLOOR
+	if (game->player.touching_ground
 		&& game->player.jump.active == false )
 	{
-		JUMP_VEL = 0;
-		PLAYER_POS_Y = game->ground_pos;
+		game->player.jump.velocity = 0;
+		game->player.pos.y = game->ground_pos;
 		game->player.jump.t_elapsed = 0;
-		ATTACKING = false;
-		ATTACK_COUNTER = 0;
+		game->player.attacking = false;
+		game->player.attack_counter = 0;
 	}
-	if (PLAYER_TOUCHING_CEILING)
+	if (game->player.touching_ceiling)
 	{
-		PLAYER_POS_Y = game->ceiling_pos;
-		JUMP_VEL = 0;
+		game->player.pos.y = game->ceiling_pos;
+		game->player.jump.velocity = 0;
 	}
 
 	//INIT VELOCITY (vel_init())
-	PLAYER_VEL_Y = JUMP_VEL + GRAVITY * game->player.jump.t_elapsed;
-	if (PLAYER_VEL_Y > 1000)
-		PLAYER_VEL_Y = 1000;
-	if (PLAYER_VEL_Y < -1000)
-		PLAYER_VEL_Y = -1000;
+	game->player.velocity.y = game->player.jump.velocity + game->gravity * game->player.jump.t_elapsed;
+	if (game->player.velocity.y > 1000)
+		game->player.velocity.y = 1000;
+	if (game->player.velocity.y < -1000)
+		game->player.velocity.y = -1000;
 
 	// MOVEMENT (get_movement())
-	if (ATTACK_TIMER > 24)
-		PLAYER_POS_Y += PLAYER_VEL_Y * DELTA_T;
-	PLAYER_POS_X += PLAYER_DIR_X * PLAYER_VEL_X * DELTA_T;
+	if (game->player.attack_timer > 24)
+		game->player.pos.y += game->player.velocity.y * game->delta;
+	game->player.pos.x += game->player.direction.x * game->player.velocity.x * game->delta;
 
 	// ITEM COLLECTING
 	clear_item(game);
 	clear_enemy(game);
 	clear_player(game);
-	if (PLAYER_TOUCHING_EXIT && game->items == NULL)
+	if (game->player.touching_exit && game->items == NULL)
 		free_displays(game);
 	update_attack_timer(game);
 	return (1);
@@ -146,8 +146,8 @@ int	renderer(t_game *game)
 		game->camera.x = 0;
 	if (game->camera.x > CAMERA_END_X)
 		game->camera.x = CAMERA_END_X;
-	game->player.camera.x = PLAYER_POS_X - game->camera.x;
-	game->player.camera.y = PLAYER_POS_Y;
+	game->player.camera.x = game->player.pos.x - game->camera.x;
+	game->player.camera.y = game->player.pos.y;
 
 	(*game).image.image = mlx_new_image((*game).mlx_ptr, SCREEN_SIZE_X, SCREEN_SIZE_Y);
 	(*game).image.addr = mlx_get_data_addr((*game).image.image, &(*game).image.bits_per_pixel, &(*game).image.line_length, &(*game).image.endian);

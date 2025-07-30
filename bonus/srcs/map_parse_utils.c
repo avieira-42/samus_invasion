@@ -6,13 +6,13 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 17:50:30 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/22 13:44:42 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/30 01:45:20 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"       
 
-char **read_map(char *file_name)
+char	**read_map(char *file_name)
 {
 	int		fd;
 	char	**map;
@@ -33,20 +33,17 @@ char **read_map(char *file_name)
 			break ;
 		map_buffer = map_holder;
 		map_holder = ft_strjoin(map_buffer, line);
-		free(line);
-		free(map_buffer);
-		if(map_holder == NULL)
+		(free(line), free(map_buffer));
+		if (map_holder == NULL)
 			return (NULL);
 	}
 	map = ft_split(map_holder, '\n');
-	free(map_holder);
-	close(fd);
-	return (map);
+	return (free(map_holder), close(fd), map);
 }
 
 void	get_map_height(t_game *game)
 {
-	char **map;
+	char	**map;
 
 	map = game->map.text;
 	while (*map++)
@@ -55,7 +52,7 @@ void	get_map_height(t_game *game)
 
 void	get_map_width(t_game *game)
 {
-	char **map;
+	char	**map;
 
 	map = game->map.text;
 	game->map.width = strlen(*map);
@@ -71,8 +68,8 @@ int	is_only_1(char *map_line)
 
 int	is_surrounded_by_1(t_game *game)
 {
-	int	i;
-	char **map;
+	int		i;
+	char	**map;
 
 	map = game->map.text;
 	i = 0;

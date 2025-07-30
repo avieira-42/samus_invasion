@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 20:00:15 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/23 04:53:13 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/30 01:13:28 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	position_item(t_game *game)
 {
 	t_item	*item;
-	
+
 	item = new_item(game);
 	add_item(&game->items, item);
 }

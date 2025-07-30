@@ -3,53 +3,49 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+         #
+#    By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/11/01 16:45:58 by rafaelfe          #+#    #+#              #
-#    Updated: 2025/07/07 02:19:59 by a-soeiro         ###   ########.fr        #
+#    Created: 2025/04/21 12:18:39 by avieira-          #+#    #+#              #
+#    Updated: 2025/06/28 11:56:45 by avieira-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-LIBFT_DIR = ./libft
-PRINTF_DIR = ./ft_printf
-GET_DIR = ./get_next_line
-
-SRCS = $(LIBFT_DIR)/ft_atoi.c $(LIBFT_DIR)/ft_bzero.c $(LIBFT_DIR)/ft_calloc.c $(LIBFT_DIR)/ft_isalnum.c $(LIBFT_DIR)/ft_isalpha.c \
-$(LIBFT_DIR)/ft_isascii.c $(LIBFT_DIR)/ft_isdigit.c $(LIBFT_DIR)/ft_isprint.c $(LIBFT_DIR)/ft_itoa.c $(LIBFT_DIR)/ft_memchr.c $(LIBFT_DIR)/ft_memcmp.c \
-$(LIBFT_DIR)/ft_memcpy.c $(LIBFT_DIR)/ft_memmove.c $(LIBFT_DIR)/ft_memset.c $(LIBFT_DIR)/ft_putchar_fd.c $(LIBFT_DIR)/ft_putendl_fd.c \
-$(LIBFT_DIR)/ft_putnbr_fd.c $(LIBFT_DIR)/ft_putstr_fd.c $(LIBFT_DIR)/ft_split.c $(LIBFT_DIR)/ft_strchr.c $(LIBFT_DIR)/ft_strdup.c $(LIBFT_DIR)/ft_striteri.c \
-$(LIBFT_DIR)/ft_strjoin.c $(LIBFT_DIR)/ft_strlcat.c $(LIBFT_DIR)/ft_strlcpy.c $(LIBFT_DIR)/ft_strlen.c $(LIBFT_DIR)/ft_strmapi.c $(LIBFT_DIR)/ft_strncmp.c \
-$(LIBFT_DIR)/ft_strnstr.c $(LIBFT_DIR)/ft_strrchr.c $(LIBFT_DIR)/ft_strtrim.c $(LIBFT_DIR)/ft_substr.c $(LIBFT_DIR)/ft_tolower.c $(LIBFT_DIR)/ft_toupper.c \
-$(LIBFT_DIR)/ft_lstnew.c $(LIBFT_DIR)/ft_lstsize.c $(LIBFT_DIR)/ft_lstadd_front.c $(LIBFT_DIR)/ft_lstlast.c $(LIBFT_DIR)/ft_lstadd_back.c \
-$(LIBFT_DIR)/ft_lstdelone.c $(LIBFT_DIR)/ft_lstclear.c $(LIBFT_DIR)/ft_lstiter.c $(LIBFT_DIR)/ft_lstmap.c $(PRINTF_DIR)/ft_printf.c $(PRINTF_DIR)/ft_putchars.c \
-$(PRINTF_DIR)/ft_putnbrs.c $(GET_DIR)/get_next_line.c $(GET_DIR)/get_next_line_utils.c
-
-
-CC = cc
-
-CFLAGS = -Wall -Wextra -Werror -std=c99 -fPIC
-
-INCLUDES = includes/
-
+CFLAGS = -Wall -Wextra -Werror
+NAME = libft.a
+SRCS = srcs/ft_atoi.c srcs/ft_bzero.c srcs/ft_isalnum.c srcs/ft_isalpha.c
+SRCS += srcs/ft_isascii.c srcs/ft_isdigit.c srcs/ft_isspace.c
+SRCS += srcs/ft_isprint.c srcs/ft_memcpy.c srcs/ft_memset.c srcs/ft_strlen.c
+SRCS += srcs/ft_tolower.c srcs/ft_memmove.c srcs/ft_strnstr.c srcs/ft_strchr.c
+SRCS += srcs/ft_strrchr.c srcs/ft_strtrim.c srcs/ft_split.c srcs/ft_putendl_fd.c
+SRCS += srcs/ft_strlcat.c srcs/ft_itoa.c srcs/ft_strdup.c srcs/ft_strncmp.c
+SRCS += srcs/ft_memcmp.c srcs/ft_calloc.c srcs/ft_substr.c srcs/ft_strjoin.c
+SRCS += srcs/ft_strmapi.c srcs/ft_striteri.c srcs/ft_putchar_fd.c 
+SRCS += srcs/ft_putstr_fd.c srcs/ft_toupper.c srcs/ft_strlcpy.c srcs/ft_memchr.c
+SRCS += srcs/ft_putnbr_fd.c srcs/ft_printf.c srcs/ft_printadd.c
+SRCS += srcs/ft_printchar.c srcs/ft_printhex.c srcs/ft_printnbr.c
+SRCS += srcs/ft_printunsign_nbr.c srcs/ft_printstr.c srcs/ft_issign.c
+SRCS += srcs/ft_free_matrix.c srcs/i_merge_sort.c srcs/ft_atol.c
+SRCS += srcs/ft_lstnew_bonus.c srcs/ft_lstdelone_bonus.c srcs/ft_strcmp.c
+SRCS += srcs/ft_lstsize_bonus.c srcs/ft_lstlast_bonus.c srcs/ft_dblylst_clear.c
+SRCS += srcs/ft_lstadd_back_bonus.c srcs/ft_lstadd_front_bonus.c
+SRCS += srcs/ft_lstclear_bonus.c srcs/ft_lstiter_bonus.c srcs/ft_lstmap_bonus.c
+SRCS += srcs/ft_dblylst_new.c srcs/ft_dblylst_addback.c srcs/ft_dblylst_last.c 
+SRCS += srcs/ft_dblylst_size.c srcs/ft_is_int.c
+SRCS += srcs/get_next_line.c srcs/get_next_line_utils.c
 OBJS = $(SRCS:.c=.o)
 
-NAME = libft.a
+all: $(NAME)
 
-all : $(NAME)
-	@echo "libft compiled!!!"
+$(NAME): $(OBJS)
+		ar rcs $(NAME) $(OBJS)
 
-$(NAME) : $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+%.o: %.c 
+		cc $(CFLAGS) -c $^ -o $@
 
-%.o : %.c
-	$(CC) $(CFLAGS) -I $(INCLUDES) -c $^ -o $@
-
-clean:
-	rm -rf $(OBJS)
+clean: 
+		rm -f $(OBJS)
 
 fclean: clean
-	rm -rf $(NAME)
+		rm -f $(NAME)
 
-re:	fclean all
-
-.PHONY = all clean fclean re bonus
+re: fclean all

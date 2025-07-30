@@ -6,25 +6,25 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 18:01:59 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/23 04:25:46 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/30 01:15:33 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-t_item  *new_item(t_game* game)
+t_item	*new_item(t_game *game)
 {
-    t_item  *new_item;
+	t_item	*new_item;
 
-    new_item = (t_item *) malloc(sizeof(t_item));
-    if (!new_item)
-        return (NULL);
-    new_item->next = NULL;
+	new_item = (t_item *) malloc(sizeof(t_item));
+	if (!new_item)
+		return (NULL);
+	new_item->next = NULL;
 	new_item->sprite.addr = game->towel.sprite.addr;
 	new_item->sprite.image = game->towel.sprite.image;
 	new_item->pos = game->towel.pos;
 	new_item->tmp_pos = game->towel.pos;
-    return (new_item);
+	return (new_item);
 }
 
 void	add_item(t_item **items, t_item *new_item)
@@ -65,8 +65,10 @@ void	clear_item(t_game *game)
 	prev = NULL;
 	while (curr)
 	{
-		if ((PLAYER_POS_X <= curr->pos.x + 20 && PLAYER_POS_X >= curr->pos.x - 15)
-			&& (PLAYER_POS_Y <= curr->pos.y + 20 && PLAYER_POS_Y >= curr->pos.y - 15))
+		if ((game->player.pos.x <= curr->pos.x + 20
+				&& game->player.pos.x >= curr->pos.x - 15)
+			&& (game->player.pos.y <= curr->pos.y + 20
+				&& game->player.pos.y >= curr->pos.y - 15))
 		{
 			to_free = curr;
 			if (prev == NULL)

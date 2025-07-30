@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 01:57:47 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/26 09:37:43 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/30 01:41:29 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ int	is_allowed_char(t_game *game)
 	return (1);
 }
 
-int	is_one_PE(t_game *game)
+int	is_one_pe(t_game *game)
 {
 	if (game->map.E_count > 1 || game->map.P_count > 1)
 		return (0);
 	return (1);
 }
 
-int	is_at_least_one_CPEX(t_game *game)
+int	is_at_least_one_cpex(t_game *game)
 {
 	t_iterator	i;
 	char		**map;
@@ -57,13 +57,12 @@ int	is_at_least_one_CPEX(t_game *game)
 		{
 			if (map[i.y][i.x] == 'C')
 				game->map.C_count++;
-			else if (map[i.y][i.x] == 'P')
+			if (map[i.y][i.x] == 'P')
 				game->map.P_count++;
-			else if (map[i.y][i.x] == 'E')
+			if (map[i.y][i.x] == 'E')
 				game->map.E_count++;
-			else if (map[i.y][i.x] == 'X')
+			if (map[i.y][i.x++] == 'X')
 				game->map.X_count++;
-			i.x++;
 		}
 		i.y++;
 	}
@@ -75,7 +74,7 @@ int	is_at_least_one_CPEX(t_game *game)
 
 int	is_rectangular(t_game *game)
 {
-	char **map;
+	char	**map;
 
 	map = game->map.text;
 	while (*map)
@@ -92,22 +91,22 @@ int	map_parse(t_game *game, char *argv1)
 	init_map(game, argv1);
 	if (game->map.text == NULL)
 	{
-		ft_freesplit(game->map.text);
+		ft_free_matrix(game->map.text);
 		return (0);
 	}
 	get_map_height(game);
 	get_map_width(game);
 	if (is_allowed_char(game)
-			&& is_at_least_one_CPEX(game)
-			&& is_one_PE(game)
-			&& is_rectangular(game)
-			&& is_surrounded_by_1(game))
+		&& is_at_least_one_cpex(game)
+		&& is_one_pe(game)
+		&& is_rectangular(game)
+		&& is_surrounded_by_1(game)
+		&& is_valid_path(game->map.text, game->map.width, game->map.height))
 	{
 		game->map.width *= TILE_SIZE_X;
 		game->map.height *= TILE_SIZE_Y;
 		return (1);
 	}
-	// Path to collectibles then exit has to be possible
-	ft_freesplit(game->map.text);
+	ft_free_matrix(game->map.text);
 	return (0);
 }

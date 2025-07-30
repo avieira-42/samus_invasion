@@ -14,6 +14,6 @@
 
 void	update_attack_timer(t_game *game)
 {
-	if (ATTACK_TIMER >= 0 && ATTACK_TIMER <= 24)
-		ATTACK_TIMER++;
+	if (game->player.attack_timer >= 0 && game->player.attack_timer <= 24)
+		game->player.attack_timer++;
 }

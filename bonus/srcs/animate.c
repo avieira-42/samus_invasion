@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 02:07:35 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/28 12:36:40 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/29 23:59:25 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	animate_player_running(t_game *game)
 {
-	int i;
+	int	i;
 
 	game->player.idle.i = 0;
 	game->player.idle.timer = 0;
@@ -25,11 +25,12 @@ void	animate_player_running(t_game *game)
 			game->player.running.i = 0;
 	}
 	i = game->player.running.i;
-	if (PLAYER_DIR_X == 1)
-		drawtexture(&game->image, &game->player.running.sprite[i], game->player.camera, 1);
+	if (game->player.direction.x == 1)
+		drawtexture(&game->image, &game->player.running.sprite[i],
+			game->player.camera, 1);
 	else
-
-		draw_mirroredtexture(&game->image, &game->player.running.sprite[i], game->player.camera, 1);
+		draw_mirroredtexture(&game->image, &game->player.running.sprite[i],
+			game->player.camera, 1);
 }
 
 void	animate_player_idle(t_game *game)
@@ -43,26 +44,28 @@ void	animate_player_idle(t_game *game)
 		if ((game->player.idle.i)++ == 1)
 			game->player.idle.i = 0;
 	i = game->player.idle.i;*/
-	if (PLAYER_ORIENTATION == 1)
-		drawtexture(&game->image, &game->player.idle.sprite[i], game->player.camera, 1);
-	else if (PLAYER_ORIENTATION == -1)
-		draw_mirroredtexture(&game->image, &game->player.idle.sprite[i], game->player.camera, 1);
+	if (game->player.orientation == 1)
+		drawtexture(&game->image, &game->player.idle.sprite[i],
+			game->player.camera, 1);
+	else if (game->player.orientation == -1)
+		draw_mirroredtexture(&game->image, &game->player.idle.sprite[i],
+			game->player.camera, 1);
 }
 
 void	animate_player(t_game *game)
 {
-	if (PLAYER_TOUCHING_FLOOR)
+	if (game->player.touching_ground)
 	{
-		if (!PLAYER_DIR_X)
+		if (!game->player.direction.x)
 			animate_player_idle(game);
-		else	
+		else
 			animate_player_running(game);
 	}
 	else
 	{
-		if (PLAYER_VEL_Y > 0)
+		if (game->player.velocity.y > 0)
 		{
-			if (ATTACKING == true)
+			if (game->player.attacking == true)
 				animate_player_attacking(game);
 			else
 				animate_player_falling(game);

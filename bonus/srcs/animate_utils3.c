@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 02:26:28 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/28 02:32:05 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/30 00:01:11 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	animate_enemy_walking(t_game *game, t_enemy *enemy)
 	if (enemy->orientation == 1)
 		drawtexture(&game->image, &game->samus.sprite[i], pos, 1.6);
 	else
-
 		draw_mirroredtexture(&game->image, &game->samus.sprite[i], pos, 1.6);
 }
 
