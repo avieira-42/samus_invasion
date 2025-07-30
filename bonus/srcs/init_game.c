@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 02:02:37 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/30 02:27:54 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/30 17:18:44 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	init_main_struct(t_game *game)
 	game->walls = NULL;
 	game->items = NULL;
 	game->enemies = NULL;
+	game->camera.x = game->player.pos.x - SCREEN_SIZE_X / 2;
+	game->camera.y = game->player.pos.y - SCREEN_SIZE_Y / 2;
 }
 
 void	init_image(t_game *game)
@@ -53,11 +55,7 @@ void	init_background(t_game *game)
 	game->bckgrnd.pos.x = 0;
 	game->bckgrnd.pos.y = 0;
 	game->bckgrnd.scale = 0.7;
-	game->bckgrnd.sprite.image = mlx_xpm_file_to_image(game->mlx_ptr,
-		"sprites/quasar.xpm", &game->bckgrnd.sprite.x, &game->bckgrnd.sprite.y);
-	game->bckgrnd.sprite.addr = mlx_get_data_addr(game->bckgrnd.sprite.image,
-		&game->bckgrnd.sprite.bits_per_pixel, &game->bckgrnd.sprite.line_length,
-		&game->bckgrnd.sprite.endian);
+	init_bckgrnd_sprite(game);
 }
 
 void	init_game(t_game *game)
@@ -66,5 +64,9 @@ void	init_game(t_game *game)
 	init_main_struct(game);
 	init_image(game);
 	init_background(game);
-	
+	init_item(game);
+	init_tile(game);
+	init_exit(game);
+	init_enemy(game);
+	init_player(game);
 }

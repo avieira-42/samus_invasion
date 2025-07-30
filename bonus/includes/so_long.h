@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:34:13 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/30 02:48:59 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/30 17:24:57 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,14 @@
 //sprites
 # define TILE "sprites/tile.xpm"
 # define TOWEL "sprites/towel.xpm"
+# define QUASAR "sprites/quasar.xpm"
+# define PORTAL "sprites/portal.xpm"
+# define OFFPORTAL "sprites/offportal.xpm"
+# define SAMUS1 "sprites/samus1.xpm"
+# define SAMUS2 "sprites/samus2.xpm"
+# define SAMUS3 "sprites/samus3.xpm"
+# define SAMUS4 "sprites/samus4.xpm"
+# define SAMUS5 "sprites/samus5.xpm"
 
 typedef struct s_map
 {
@@ -249,8 +257,40 @@ int		is_valid_path(char **map, int width, int height);
 int		game_loop(t_game *game);
 void	calculate_delta(t_game *game);
 
-//init
+//init game
 void	init_game(t_game *game);
+void	init_window(t_game *game);
+void	init_main_struct(t_game *game);
+void	init_image(t_game *game);
+void	init_background(t_game *game);
+
+//init game utils
+void	init_tile(t_game *game);
+void	init_item(t_game *game);
+void	init_exit(t_game *game);
+void	init_enemy(t_game *game);
+void	init_player(t_game *game);
+
+// init sprites
+void    load_sprite(void *mlx_ptr, t_image *sprite, char *filepath);
+void	init_tile_sprite(t_game *game);
+void	init_towel_sprite(t_game *game);
+void	init_portal_sprite(t_game *game);
+void	init_samus_sprites(t_game *game);
+
+// init sprites utils
+void	init_breno_sprites(t_game *game);
+void	init_breno_idle_sprites(t_game *game);
+void	init_breno_jumping_sprites(t_game *game);
+void	init_breno_attack_sprites(t_game *game);
+void	init_breno_running_sprites(t_game *game);
+
+// init sprites utils 2
+void	init_breno_falling_sprites(t_game *game);
+void	init_player_moves_sprites(t_game *game);
+void	init_bckgrnd_sprite(t_game *game);
+
+// init sprites utils
 
 //input
 int	key_pressed(int keysym, t_game *game);
@@ -359,7 +399,7 @@ void	animate_player_falling(t_game *game);
 void	animate_player_attacking(t_game *game);
 
 // timers
-void update_attack_timer(t_game *game);
+void	update_attack_timer(t_game *game);
 
 //free utils
 void	ft_free_arr(char **arr);

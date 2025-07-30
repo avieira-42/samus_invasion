@@ -6,7 +6,7 @@
 #    By: a-soeiro <marvavieira-@student.42porto.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 21:49:52 by a-soeiro          #+#    #+#              #
-#    Updated: 2025/07/30 01:56:46 by a-soeiro         ###   ########.fr        #
+#    Updated: 2025/07/30 17:16:43 by a-soeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ $(SRCS_DIR)/get_time.c \
 $(SRCS_DIR)/math.c \
 $(SRCS_DIR)/free_displays.c \
 $(SRCS_DIR)/init_game.c \
+$(SRCS_DIR)/init_game_utils.c \
 $(SRCS_DIR)/render.c \
 $(SRCS_DIR)/render_utils.c \
 $(SRCS_DIR)/render_utils2.c \
@@ -41,6 +42,9 @@ $(SRCS_DIR)/display_moves.c \
 $(SRCS_DIR)/collisions.c \
 $(SRCS_DIR)/collisions_utils.c\
 $(SRCS_DIR)/clear_player.c\
+$(SRCS_DIR)/init_sprites.c\
+$(SRCS_DIR)/init_sprites_utils.c\
+$(SRCS_DIR)/init_sprites_utils2.c\
 $(SRCS_DIR)/init_map.c \
 $(SRCS_DIR)/init_window.c \
 $(SRCS_DIR)/map_parse.c \
