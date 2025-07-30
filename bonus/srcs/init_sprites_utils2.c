@@ -6,7 +6,7 @@
 /*   By: a-soeiro <marvavieira-@student.42porto.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 16:13:27 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/30 17:44:44 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/31 00:36:38 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	init_breno_falling_sprites(t_game *game)
 	char *player_falling_sprite_paths[4];
 
 	i = 0;
+	game->player.falling.i = 0;
+	game->player.falling.timer = 0;
 	player_falling_sprite_paths[0] = "sprites/brenofalling1.xpm";
 	player_falling_sprite_paths[1] = "sprites/brenofalling2.xpm";
 	player_falling_sprite_paths[2] = "sprites/brenofalling3.xpm";

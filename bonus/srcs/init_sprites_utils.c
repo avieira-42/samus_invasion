@@ -6,7 +6,7 @@
 /*   By: a-soeiro <marvavieira-@student.42porto.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 15:59:03 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/30 17:41:26 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/31 00:35:38 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	init_breno_idle_sprites(t_game *game)
 {
+	game->player.idle.i = 0;
+	game->player.idle.timer = 0;
 	load_sprite(game->mlx_ptr, &game->player.idle.sprite[0], "sprites/breno.xpm");
 }
 
@@ -23,6 +25,8 @@ void	init_breno_running_sprites(t_game *game)
 	char *player_running_sprite_paths[14];
 
 	i = 0;
+	game->player.running.i = 0;
+	game->player.running.timer = 0;
 	player_running_sprite_paths[0] = "sprites/brenoruning1.xpm";
 	player_running_sprite_paths[1] = "sprites/brenoruning2.xpm";
 	player_running_sprite_paths[2] = "sprites/brenoruning3.xpm";
@@ -51,6 +55,8 @@ void	init_breno_attack_sprites(t_game *game)
 	char *player_attack_sprite_paths[14];
 
 	i = 0;
+	game->player.attack.i = 0;
+	game->player.attack.timer = 0;
 	player_attack_sprite_paths[0] = "sprites/brenoattack1.xpm";
 	player_attack_sprite_paths[1] = "sprites/brenoattack2.xpm";
 	player_attack_sprite_paths[2] = "sprites/brenoattack3.xpm";
@@ -79,6 +85,8 @@ void	init_breno_jumping_sprites(t_game *game)
 	char *player_jumping_sprite_paths[4];
 
 	i = 0;
+	game->player.jumping.i = 0;
+	game->player.jumping.timer = 0;
 	player_jumping_sprite_paths[0] = "sprites/brenojumping1.xpm";
 	player_jumping_sprite_paths[1] = "sprites/brenojumping2.xpm";
 	player_jumping_sprite_paths[2] = "sprites/brenojumping3.xpm";
