@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 18:39:19 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/26 09:17:54 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/31 17:29:28 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	init_map(t_game *game, char *argv1)
 {
 	game->map.height = 0;
 	game->map.width = 0;
-	game->map.C_count = 0;
-	game->map.P_count = 0;
-	game->map.E_count = 0;
-	game->map.X_count = 0;
+	game->map.c_count = 0;
+	game->map.p_count = 0;
+	game->map.e_count = 0;
+	game->map.x_count = 0;
 	game->map.text = read_map(argv1);
 	if (game->map.text == NULL)
 		return ;

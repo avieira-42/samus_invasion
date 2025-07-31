@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 01:57:47 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/30 01:41:29 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/31 17:24:40 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	is_allowed_char(t_game *game)
 
 int	is_one_pe(t_game *game)
 {
-	if (game->map.E_count > 1 || game->map.P_count > 1)
+	if (game->map.e_count > 1 || game->map.p_count > 1)
 		return (0);
 	return (1);
 }
@@ -56,18 +56,18 @@ int	is_at_least_one_cpex(t_game *game)
 		while (map[i.y][i.x])
 		{
 			if (map[i.y][i.x] == 'C')
-				game->map.C_count++;
+				game->map.c_count++;
 			if (map[i.y][i.x] == 'P')
-				game->map.P_count++;
+				game->map.p_count++;
 			if (map[i.y][i.x] == 'E')
-				game->map.E_count++;
+				game->map.e_count++;
 			if (map[i.y][i.x++] == 'X')
-				game->map.X_count++;
+				game->map.x_count++;
 		}
 		i.y++;
 	}
-	if (game->map.C_count == 0 || game->map.P_count == 0
-		|| game->map.E_count == 0 || game->map.X_count == 0)
+	if (game->map.c_count == 0 || game->map.p_count == 0
+		|| game->map.e_count == 0 || game->map.x_count == 0)
 		return (0);
 	return (1);
 }

@@ -88,7 +88,7 @@ void	draw_map(t_game *game)
 		x = 0;
 		while (game->map.text[y][x])
 		{
-			if (game->game_start == false)
+			if (game->game_start == FALSE)
 			{
 				update_stationary_pos(game, x, y);
 				position_sprites(game, x, y);

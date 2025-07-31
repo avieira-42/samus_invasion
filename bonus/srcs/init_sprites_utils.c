@@ -6,7 +6,7 @@
 /*   By: a-soeiro <marvavieira-@student.42porto.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 15:59:03 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/31 00:35:38 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/31 17:11:07 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,16 @@ void	init_breno_idle_sprites(t_game *game)
 {
 	game->player.idle.i = 0;
 	game->player.idle.timer = 0;
-	load_sprite(game->mlx_ptr, &game->player.idle.sprite[0], "sprites/breno.xpm");
+	load_sprite(game->mlx_ptr, &game->player.idle.sprite[0],
+		"sprites/breno.xpm");
 }
 
 void	init_breno_running_sprites(t_game *game)
 {
 	int		i;
-	char *player_running_sprite_paths[14];
+	char	*player_running_sprite_paths[14];
 
-	i = 0;
+	i = -1;
 	game->player.running.i = 0;
 	game->player.running.timer = 0;
 	player_running_sprite_paths[0] = "sprites/brenoruning1.xpm";
@@ -41,20 +42,19 @@ void	init_breno_running_sprites(t_game *game)
 	player_running_sprite_paths[11] = "sprites/brenoruning12.xpm";
 	player_running_sprite_paths[12] = "sprites/brenoruning13.xpm";
 	player_running_sprite_paths[13] = "sprites/brenoruning14.xpm";
-	while (i < 14)
+	while (++i < 14)
 	{
 		load_sprite(game->mlx_ptr, &game->player.running.sprite[i],
 			player_running_sprite_paths[i]);
-		i++;
 	}
 }
 
 void	init_breno_attack_sprites(t_game *game)
 {
 	int		i;
-	char *player_attack_sprite_paths[14];
+	char	*player_attack_sprite_paths[14];
 
-	i = 0;
+	i = -1;
 	game->player.attack.i = 0;
 	game->player.attack.timer = 0;
 	player_attack_sprite_paths[0] = "sprites/brenoattack1.xpm";
@@ -71,18 +71,17 @@ void	init_breno_attack_sprites(t_game *game)
 	player_attack_sprite_paths[11] = "sprites/brenoattack12.xpm";
 	player_attack_sprite_paths[12] = "sprites/brenoattack13.xpm";
 	player_attack_sprite_paths[13] = "sprites/brenoattack14.xpm";
-	while (i < 14)
+	while (++i < 14)
 	{
 		load_sprite(game->mlx_ptr, &game->player.attack.sprite[i],
 			player_attack_sprite_paths[i]);
-		i++;
 	}
 }
 
 void	init_breno_jumping_sprites(t_game *game)
 {
 	int		i;
-	char *player_jumping_sprite_paths[4];
+	char	*player_jumping_sprite_paths[4];
 
 	i = 0;
 	game->player.jumping.i = 0;

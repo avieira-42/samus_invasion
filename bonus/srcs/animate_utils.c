@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 15:51:54 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/30 18:24:01 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/31 15:45:49 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	animate_player_jumping(t_game *game)
 {
 	int	i;
 
-	game->player.jumping.timer = 0;
 	game->player.falling.i = 0;
 	game->player.falling.timer = 0;
 	game->player.attack.i = 0;

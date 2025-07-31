@@ -6,7 +6,7 @@
 #    By: a-soeiro <marvavieira-@student.42porto.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 21:49:52 by a-soeiro          #+#    #+#              #
-#    Updated: 2025/07/30 17:16:43 by a-soeiro         ###   ########.fr        #
+#    Updated: 2025/07/31 17:18:25 by a-soeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ SRCS_DIR= ./srcs
 
 SRCS= $(SRCS_DIR)/delta.c \
 $(SRCS_DIR)/game_loop.c \
+$(SRCS_DIR)/game_loop_utils.c \
+$(SRCS_DIR)/game_loop_utils2.c \
 $(SRCS_DIR)/main.c \
 $(SRCS_DIR)/get_time.c \
 $(SRCS_DIR)/math.c \
@@ -46,7 +48,6 @@ $(SRCS_DIR)/init_sprites.c\
 $(SRCS_DIR)/init_sprites_utils.c\
 $(SRCS_DIR)/init_sprites_utils2.c\
 $(SRCS_DIR)/init_map.c \
-$(SRCS_DIR)/init_window.c \
 $(SRCS_DIR)/map_parse.c \
 $(SRCS_DIR)/map_parse_utils.c \
 $(SRCS_DIR)/map_parse_utils2.c \

@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 19:40:52 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/29 20:38:36 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/31 18:00:17 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,13 @@
 # include <stdint.h>
 # include <stdarg.h>
 
+# define TRUE 1
+# define FALSE 0
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 3
 # endif
+
+typedef int	t_bool;
 
 typedef struct s_array
 {

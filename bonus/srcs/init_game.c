@@ -23,7 +23,7 @@ void	init_window(t_game *game)
 
 void	init_main_struct(t_game *game)
 {
-	game->game_start = false;
+	game->game_start = FALSE;
 	game->fd = 0;
 	game->gravity = GRAVITY_ACC;
 	game->delta = 0;

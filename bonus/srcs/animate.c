@@ -65,7 +65,7 @@ void	animate_player(t_game *game)
 	{
 		if (game->player.velocity.y > 0)
 		{
-			if (game->player.attacking == true)
+			if (game->player.attacking == TRUE)
 				animate_player_attacking(game);
 			else
 				animate_player_falling(game);

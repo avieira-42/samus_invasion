@@ -6,7 +6,7 @@
 /*   By: a-soeiro <marvavieira-@student.42porto.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 16:13:27 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/31 00:36:38 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/31 17:17:43 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	init_breno_falling_sprites(t_game *game)
 {
 	int		i;
-	char *player_falling_sprite_paths[4];
+	char	*player_falling_sprite_paths[4];
 
 	i = 0;
 	game->player.falling.i = 0;
@@ -35,13 +35,12 @@ void	init_breno_falling_sprites(t_game *game)
 void	init_bckgrnd_sprite(t_game *game)
 {
 	load_sprite(game->mlx_ptr, &game->bckgrnd.sprite,
-			"sprites/quasar.xpm");
+		"sprites/quasar.xpm");
 }
-
 
 void	init_player_moves_sprites(t_game *game)
 {
-	int i;
+	int		i;
 	char	*player_moves_sprite_paths[10];
 
 	i = 0;
@@ -62,4 +61,3 @@ void	init_player_moves_sprites(t_game *game)
 		i++;
 	}
 }
-

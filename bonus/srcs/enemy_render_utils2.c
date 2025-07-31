@@ -12,10 +12,10 @@
 
 #include "../includes/so_long.h"
 
-bool	is_enemy_hit(t_game *game, t_enemy *enemy)
+t_bool	is_enemy_hit(t_game *game, t_enemy *enemy)
 {
-	bool	x_overlap;
-	bool	y_overlap;
+	t_bool	x_overlap;
+	t_bool	y_overlap;
 
 	x_overlap = (game->player.pos.x <= enemy->pos.x + ENEMY_WIDTH * 0.2
 			&& game->player.pos.x >= enemy->pos.x)

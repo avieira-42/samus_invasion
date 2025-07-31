@@ -22,11 +22,11 @@ t_enemy	*new_enemy(t_game *game)
 	new_enemy->i = 0;
 	new_enemy->timer = 0;
 	new_enemy->orientation = -1;
-	new_enemy->touching_exit = false;
-	new_enemy->touching_floor = false;
-	new_enemy->touching_wallright = false;
-	new_enemy->touching_wallleft = false;
-	new_enemy->touching_ceiling = false;
+	new_enemy->touching_exit = FALSE;
+	new_enemy->touching_floor = FALSE;
+	new_enemy->touching_wallright = FALSE;
+	new_enemy->touching_wallleft = FALSE;
+	new_enemy->touching_ceiling = FALSE;
 	new_enemy->pos = game->samus.tmp_pos;
 	new_enemy->tmp_pos = game->samus.tmp_pos;
 	new_enemy->velocity.x = ENEMY_VELOCITY_X;

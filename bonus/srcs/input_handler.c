@@ -27,14 +27,14 @@ int	key_pressed(int keysym, t_game *game)
 		game->player.direction.x += 1;
 	}
 	if ((keysym == XK_space || keysym == XK_w)
-		&& game->player.jump.active == false
+		&& game->player.jump.active == FALSE
 		&& player_touching_floor(game))
-		game->player.jump.active = true;
+		game->player.jump.active = TRUE;
 	if (keysym == XK_s && game->player.attack_counter == 0
 		&& !player_touching_floor(game))
 	{
 		game->player.jump.velocity = 0;
-		game->player.attacking = true;
+		game->player.attacking = TRUE;
 		game->player.attack_timer = 0;
 		game->player.attack_counter = 1;
 	}

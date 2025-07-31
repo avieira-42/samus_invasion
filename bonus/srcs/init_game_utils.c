@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 02:32:50 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/31 00:25:41 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/07/31 15:59:08 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,19 +59,19 @@ void	init_player(t_game *game)
 {
 	game->player.attack_counter = 0;
 	game->player.attack_timer = 25;
-	game->player.attacking = false;
+	game->player.attacking = FALSE;
 	game->player.orientation = 1;
-	game->player.touching_ground = false;
-	game->player.touching_leftwall = false;
-	game->player.touching_rightwall = false;
-	game->player.touching_ceiling = false;
-	game->player.touching_exit = false;
+	game->player.touching_ground = FALSE;
+	game->player.touching_leftwall = FALSE;
+	game->player.touching_rightwall = FALSE;
+	game->player.touching_ceiling = FALSE;
+	game->player.touching_exit = FALSE;
 	game->player.pos.x = 0;
 	game->player.pos.y = 0;
 	game->player.tmp_pos = game->player.pos;
 	game->player.direction = game->player.pos;
 	game->player.velocity = game->player.pos;
-	game->player.jump.active = false;
+	game->player.jump.active = FALSE;
 	game->player.jump.t_started = 0;
 	game->player.jump.t_elapsed = 0;
 	game->player.jump.velocity = 0;
