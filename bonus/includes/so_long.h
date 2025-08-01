@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 17:19:00 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/31 18:01:35 by a-soeiro         ###   ########.fr       */
+/*   Created: 2025/07/31 17:19:00 by avieira-          #+#    #+#             */
+/*   Updated: 2025/08/01 03:09:32 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -246,10 +246,10 @@ int			is_only_1(char *map_line);
 int			is_surrounded_by_1(t_game *game);
 
 //map parse utils 2
-void		set_path(char **map, int x, int y, t_point size);
-char		**copy_map(char **map, int height);
-t_point		set_player_pos(char **map, int width, int height);
 int			is_valid_path(char **map, int width, int height);
+char		**copy_map(char **map, int height);
+void		set_path(char **map, int x, int y, t_point size);
+t_point		set_player_pos(char **map, int width, int height);
 
 //game loop
 int			game_loop(t_game *game);

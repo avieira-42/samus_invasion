@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   enemy_render_utils2.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: a-soeiro <marvavieira-@student.42porto.com +#+  +:+       +#+        */
+/*   By: avieira- <marvavieira-@student.42porto.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/30 00:29:43 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/30 00:36:35 by a-soeiro         ###   ########.fr       */
+/*   Created: 2025/07/30 00:29:43 by avieira-          #+#    #+#             */
+/*   Updated: 2025/07/30 00:36:35 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

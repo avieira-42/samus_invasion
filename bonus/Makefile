@@ -6,7 +6,7 @@
 #    By: a-soeiro <marvavieira-@student.42porto.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 21:49:52 by a-soeiro          #+#    #+#              #
-#    Updated: 2025/07/31 17:18:25 by a-soeiro         ###   ########.fr        #
+#    Updated: 2025/07/31 20:44:09 by a-soeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,6 @@ $(SRCS_DIR)/animate_utils.c \
 $(SRCS_DIR)/animate_utils2.c \
 $(SRCS_DIR)/animate_utils3.c \
 $(SRCS_DIR)/timers.c \
-$(SRCS_DIR)/free_sprites.c \
 $(SRCS_DIR)/enemy_render.c \
 $(SRCS_DIR)/enemy_render_utils.c \
 $(SRCS_DIR)/enemy_render_utils2.c \

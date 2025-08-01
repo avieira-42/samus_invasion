@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pixelput.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/14 17:29:20 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/05/14 17:29:53 by rafaelfe         ###   ########.fr       */
+/*   Created: 2025/05/14 17:29:20 by avieira-          #+#    #+#             */
+/*   Updated: 2025/05/14 17:29:53 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

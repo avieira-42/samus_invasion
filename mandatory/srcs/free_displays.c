@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_displays.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 17:41:42 by rafaelfe          #+#    #+#             */
-/*   Updated: 2025/07/29 14:15:55 by a-soeiro         ###   ########.fr       */
+/*   Created: 2025/01/25 17:41:42 by avieira-          #+#    #+#             */
+/*   Updated: 2025/07/29 14:15:55 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

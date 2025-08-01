@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_sprites.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: a-soeiro <marvavieira-@student.42porto.com +#+  +:+       +#+        */
+/*   By: avieira- <marvavieira-@student.42porto.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/30 15:15:03 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/31 17:08:57 by a-soeiro         ###   ########.fr       */
+/*   Created: 2025/07/30 15:15:03 by avieira-          #+#    #+#             */
+/*   Updated: 2025/07/31 17:08:57 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

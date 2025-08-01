@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_moves.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/17 17:13:29 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/07/30 00:21:14 by a-soeiro         ###   ########.fr       */
+/*   Created: 2025/07/17 17:13:29 by avieira-          #+#    #+#             */
+/*   Updated: 2025/07/30 00:21:14 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/so_long.h"
