@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_sprites_utils.c                               :+:      :+:    :+:   */
+/*   init_sprites_utils_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira- <marvavieira-@student.42porto.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 15:59:03 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/31 17:11:07 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/04 13:48:55 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,16 @@ void	init_breno_jumping_sprites(t_game *game)
 			player_jumping_sprite_paths[i]);
 		i++;
 	}
+}
+
+void	zero_breno_sprites(t_game *game)
+{
+	zero_sprites(game->player.idle.sprite, 14);
+	zero_sprites(game->player.running.sprite, 14);
+	zero_sprites(game->player.attack.sprite, 14);
+	zero_sprites(game->player.jumping.sprite, 14);
+	zero_sprites(game->player.falling.sprite, 14);
+	zero_sprites(game->player.move.sprite, 14);
 }
 
 void	init_breno_sprites(t_game *game)

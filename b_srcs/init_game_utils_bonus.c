@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_game_utils.c                                  :+:      :+:    :+:   */
+/*   init_game_utils_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 02:32:50 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/31 15:59:08 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/04 13:43:55 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	init_tile(t_game *game)
 	game->tile.vect.height = 0;
 	game->tile.vect.width = 0;
 	game->tile.next = NULL;
+	zero_sprites(&game->tile.sprite, 1);
 	init_tile_sprite(game);
 }
 
@@ -30,6 +31,7 @@ void	init_item(t_game *game)
 	game->towel.pos.x = 0;
 	game->towel.pos.y = 0;
 	game->towel.next = NULL;
+	zero_sprites(&game->towel.sprite, 1);
 	init_towel_sprite(game);
 }
 
@@ -43,6 +45,8 @@ void	init_exit(t_game *game)
 	game->portal.pos.y = 0;
 	game->portal.tmp_pos.x = 0;
 	game->portal.tmp_pos.y = 0;
+	zero_sprites(&game->portal.sprite, 1);
+	zero_sprites(&game->portal.sprite2, 1);
 	init_portal_sprite(game);
 }
 
@@ -52,6 +56,7 @@ void	init_enemy(t_game *game)
 	game->samus.timer = 0;
 	game->samus.tmp_pos.x = 0;
 	game->samus.tmp_pos.y = 0;
+	zero_sprites(game->samus.sprite, 14);
 	init_samus_sprites(game);
 }
 

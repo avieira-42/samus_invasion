@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 17:19:00 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/01 03:09:32 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/04 13:23:37 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -292,6 +292,8 @@ void		init_tile_sprite(t_game *game);
 void		init_towel_sprite(t_game *game);
 void		init_portal_sprite(t_game *game);
 void		init_samus_sprites(t_game *game);
+
+void		zero_sprites(t_image *sprites, int count);
 
 // init sprites utils
 void		init_breno_sprites(t_game *game);

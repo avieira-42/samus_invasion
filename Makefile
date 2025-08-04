@@ -6,7 +6,7 @@
 #    By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 21:49:52 by avieira-          #+#    #+#              #
-#    Updated: 2025/08/03 20:05:35 by a-soeiro         ###   ########.fr        #
+#    Updated: 2025/08/04 12:48:25 by a-soeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,6 +76,7 @@ $(B_SRCS_DIR)/timers_bonus.c \
 $(B_SRCS_DIR)/enemy_render_bonus.c \
 $(B_SRCS_DIR)/enemy_render_utils_bonus.c \
 $(B_SRCS_DIR)/enemy_render_utils2_bonus.c \
+$(B_SRCS_DIR)/free_sprites.c \
 $(B_SRCS_DIR)/enemy_collisions_bonus.c
 
 OBJS=$(SRCS:.c=.o)

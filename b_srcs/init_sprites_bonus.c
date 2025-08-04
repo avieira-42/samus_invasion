@@ -6,7 +6,7 @@
 /*   By: avieira- <marvavieira-@student.42porto.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 15:15:03 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/03 19:53:44 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/04 13:22:44 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ void	load_sprite(void *mlx_ptr, t_image *sprite, char *filepath)
 {
 	sprite->image = mlx_xpm_file_to_image(mlx_ptr, filepath, &sprite->x,
 			&sprite->y);
+	if (!sprite->image)
+	{
+		sprite->addr = NULL;
+		return;
+	}
 	sprite->addr = mlx_get_data_addr(sprite->image,
 			&sprite->bits_per_pixel, &sprite->line_length, &sprite->endian);
 }
@@ -36,6 +41,18 @@ void	init_portal_sprite(t_game *game)
 		"b_textures/offportal.xpm");
 	load_sprite(game->mlx_ptr, &game->portal.sprite2,
 		"b_textures/portal.xpm");
+}
+
+void zero_sprites(t_image *sprites, int count)
+{
+    int i;
+
+    i = 0;
+    while (i < count)
+    {
+        ft_bzero(&sprites[i], sizeof(t_image));
+        i++;
+    }
 }
 
 void	init_samus_sprites(t_game *game)
