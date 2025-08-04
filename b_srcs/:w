@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 20:00:15 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/04 16:08:44 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/04 16:03:48 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ t_tile	*new_wall(t_game *game)
 	if (!new_wall)
 		return (NULL);
 	new_wall->next = NULL;
-	new_wall->sprite.x = 0;
-	new_wall->sprite.y = 0l;
-	new_wall->sprite.bits_per_pixel = 0;
-	new_wall->sprite.line_length = 0;
-	new_wall->sprite.endian = 0;
+	new_wall->x = 0;
+	new_wall->y = 0;
+	new_wall->bits_per_pixe = 0;
+	new_wall->line_length = 0;
+	new_wall->endian = 0;
+	new_wall->pos = game->tile.pos;
 	new_wall->sprite.addr = NULL;
 	new_wall->sprite.image = NULL;
-	new_wall->pos = game->tile.pos;
 	return (new_wall);
 }
 

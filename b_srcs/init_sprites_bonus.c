@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../b_includes/so_long.h"
+#include "../b_includes/so_long_bonus.h"
 
 void	load_sprite(void *mlx_ptr, t_image *sprite, char *filepath)
 {

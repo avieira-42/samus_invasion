@@ -6,18 +6,16 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 02:32:50 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/04 13:43:55 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/04 16:23:19 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../b_includes/so_long.h"
+#include "../b_includes/so_long_bonus.h"
 
 void	init_tile(t_game *game)
 {
 	game->tile.pos.x = 0;
 	game->tile.pos.y = 0;
-	game->tile.vect.height = 0;
-	game->tile.vect.width = 0;
 	game->tile.next = NULL;
 	zero_sprites(&game->tile.sprite, 1);
 	init_tile_sprite(game);
@@ -80,8 +78,6 @@ void	init_player(t_game *game)
 	game->player.jump.t_started = 0;
 	game->player.jump.t_elapsed = 0;
 	game->player.jump.velocity = 0;
-	game->player.vect.height = 0;
-	game->player.vect.width = 0;
 	game->player.camera.x = 0;
 	game->player.camera.y = 0;
 	game->player.move.count = 0;

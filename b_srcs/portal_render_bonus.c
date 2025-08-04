@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../b_includes/so_long.h"
+#include "../b_includes/so_long_bonus.h"
 
 void	position_portal(t_game *game)
 {

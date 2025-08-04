@@ -9,7 +9,7 @@
 /*   Updated: 2025/07/30 00:21:14 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../b_includes/so_long.h"
+#include "../b_includes/so_long_bonus.h"
 
 void	draw_moves(t_game *game, int moves, t_point move_pos)
 {

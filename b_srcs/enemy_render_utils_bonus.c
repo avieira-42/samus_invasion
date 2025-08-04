@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   enemy_render_utils.c                               :+:      :+:    :+:   */
+/*   enemy_render_utils_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 18:01:59 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/30 01:06:18 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/04 15:54:35 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../b_includes/so_long.h"
+#include "../b_includes/so_long_bonus.h"
 
 t_enemy	*new_enemy(t_game *game)
 {

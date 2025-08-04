@@ -6,11 +6,11 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 02:02:37 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/04 13:25:00 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/04 14:19:57 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../b_includes/so_long.h"
+#include "../b_includes/so_long_bonus.h"
 
 void	init_window(t_game *game)
 {
@@ -62,7 +62,6 @@ void	init_background(t_game *game)
 void	init_game(t_game *game)
 {
 	init_window(game);
-	init_main_struct(game);
 	init_image(game);
 	init_background(game);
 	init_item(game);
@@ -70,4 +69,5 @@ void	init_game(t_game *game)
 	init_exit(game);
 	init_enemy(game);
 	init_player(game);
+	init_main_struct(game);
 }

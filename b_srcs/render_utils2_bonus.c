@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../b_includes/so_long.h"
+#include "../b_includes/so_long_bonus.h"
 
 void	draw_mirroredtexture(t_image *image, t_image *texture, t_point pos,
 		long double scale)

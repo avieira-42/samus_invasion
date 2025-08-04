@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 17:19:00 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/04 13:23:37 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/04 16:22:48 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,6 @@ typedef struct s_point
 	float	y;
 }	t_point;
 
-typedef struct s_vect
-{
-	float	height;
-	float	width;
-}	t_vect;
-
 typedef struct s_jump
 {
 	t_bool	active;
@@ -121,7 +115,6 @@ typedef struct s_tile
 {
 	t_image			sprite;
 	t_point			pos;
-	t_vect			vect;
 	struct s_tile	*next;
 }	t_tile;
 
@@ -187,7 +180,6 @@ typedef struct s_player
 	t_point			direction;
 	t_point			velocity;
 	t_jump			jump;
-	t_vect			vect;
 	t_animation		idle;
 	t_animation		running;
 	t_animation		jumping;

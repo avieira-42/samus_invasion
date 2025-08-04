@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   item_render_utils.c                                :+:      :+:    :+:   */
+/*   item_render_utils_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 18:01:59 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/30 01:15:33 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/04 16:06:36 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../b_includes/so_long.h"
+#include "../b_includes/so_long_bonus.h"
 
 t_item	*new_item(t_game *game)
 {
@@ -20,10 +20,15 @@ t_item	*new_item(t_game *game)
 	if (!new_item)
 		return (NULL);
 	new_item->next = NULL;
-	new_item->sprite.addr = game->towel.sprite.addr;
-	new_item->sprite.image = game->towel.sprite.image;
 	new_item->pos = game->towel.pos;
 	new_item->tmp_pos = game->towel.pos;
+	new_item->sprite.x = 0;
+	new_item->sprite.y = 0;
+	new_item->sprite.bits_per_pixel = 0;
+	new_item->sprite.line_length = 0;
+	new_item->sprite.endian = 0;
+	new_item->sprite.addr = NULL;
+	new_item->sprite.image = NULL;
 	return (new_item);
 }
 
@@ -76,8 +81,7 @@ void	clear_item(t_game *game)
 			else
 				prev->next = curr->next;
 			curr = curr->next;
-			free(to_free);
-			return ;
+			return(free(to_free));
 		}
 		prev = curr;
 		curr = curr->next;
