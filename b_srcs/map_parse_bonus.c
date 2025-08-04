@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_parse.c                                        :+:      :+:    :+:   */
+/*   map_parse_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 01:57:47 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/31 17:24:40 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/04 17:52:54 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,7 @@ int	map_parse(t_game *game, char *argv1)
 {
 	init_map(game, argv1);
 	if (game->map.text == NULL)
-	{
-		ft_free_matrix(game->map.text);
 		return (0);
-	}
 	get_map_height(game);
 	get_map_width(game);
 	if (is_allowed_char(game)

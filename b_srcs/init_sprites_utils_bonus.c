@@ -6,19 +6,11 @@
 /*   By: avieira- <marvavieira-@student.42porto.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 15:59:03 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/04 13:48:55 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/04 21:42:07 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../b_includes/so_long_bonus.h"
-
-void	init_breno_idle_sprites(t_game *game)
-{
-	game->player.idle.i = 0;
-	game->player.idle.timer = 0;
-	load_sprite(game->mlx_ptr, &game->player.idle.sprite[0],
-		"b_textures/breno.xpm");
-}
 
 void	init_breno_running_sprites(t_game *game)
 {

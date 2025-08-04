@@ -6,12 +6,12 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 17:19:00 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/04 16:22:48 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/04 21:54:45 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 # include "../libs/libft/include/libft.h"
 # include "../libs/mlx/mlx.h"
 # include "../libs/mlx/mlx_int.h"
@@ -421,6 +421,13 @@ void		ft_freesplit(char **str);
 // free sprites
 void		free_sprites(t_game *game);
 void		free_player_sprites(t_game *game);
+void		free_player_moves(t_game *game);
+void		free_samus_sprites(t_game *game);
+
+// free sprites utils
 void		free_player_idle(t_game *game);
 void		free_player_running(t_game *game);
+void		free_player_jumping(t_game *game);
+void		free_player_attack(t_game *game);
+void		free_player_falling(t_game *game);
 #endif

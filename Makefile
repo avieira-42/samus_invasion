@@ -6,14 +6,14 @@
 #    By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 21:49:52 by avieira-          #+#    #+#              #
-#    Updated: 2025/08/04 12:48:25 by a-soeiro         ###   ########.fr        #
+#    Updated: 2025/08/04 18:02:38 by avieira-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= so_long
 B_NAME= so_long_bonus
 CC= cc
-CFLAGS = -g -Wall -Wextra -Werror -std=c99 -I $(INCLUDES)
+CFLAGS = -g -Wall -Wextra -Werror -I $(INCLUDES)
 LDFLAGS =  -L $(LIBFT_DIR) -lft -L $(MLX_DIR) -Lmlx -lmlx -lXext -lX11 -lbsd -lXext -lX11 -lm 
 INCLUDES= ./includes
 LIBFT_DIR= ./libs/libft
@@ -76,7 +76,8 @@ $(B_SRCS_DIR)/timers_bonus.c \
 $(B_SRCS_DIR)/enemy_render_bonus.c \
 $(B_SRCS_DIR)/enemy_render_utils_bonus.c \
 $(B_SRCS_DIR)/enemy_render_utils2_bonus.c \
-$(B_SRCS_DIR)/free_sprites.c \
+$(B_SRCS_DIR)/free_sprites_bonus.c \
+$(B_SRCS_DIR)/free_sprites_utils_bonus.c \
 $(B_SRCS_DIR)/enemy_collisions_bonus.c
 
 OBJS=$(SRCS:.c=.o)

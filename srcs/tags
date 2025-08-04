@@ -1,64 +1,50 @@
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
-!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
-!_TAG_PROGRAM_NAME	Exuberant Ctags	//
-!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
-!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-COLLECT	so_long.h	28;"	d
-EXIT	so_long.h	27;"	d
-PLAYER	so_long.h	26;"	d
-SO_LONG_H	so_long.h	14;"	d
-WALL	so_long.h	25;"	d
-collect	so_long.h	/^	void	*collect;$/;"	m	struct:s_graph
-copy_map	map_parse_utils2.c	/^char	**copy_map(char **map, int height)$/;"	f
-count	so_long.h	/^	int		count;$/;"	m	struct:s_init_map
-draw_map	map_render.c	/^void draw_map(t_game *game)$/;"	f
-draw_player	map_render_utils.c	/^void	draw_player(t_game *game, int *y, int *x)$/;"	f
-draw_portal	map_render_utils.c	/^void	draw_portal(t_game *game, int *y, int *x)$/;"	f
-draw_tile	map_render_utils.c	/^void	draw_tile(t_game *game, int *y, int *x)$/;"	f
-draw_towel	map_render_utils.c	/^void	draw_towel(t_game *game, int *y, int *x)$/;"	f
-escape	so_long.h	/^	int		escape;$/;"	m	struct:s_init_map
-exit	so_long.h	/^	void	*exit;$/;"	m	struct:s_graph
-fn	so_long.h	/^	char	*fn;$/;"	m	struct:s_init_map
-free_displays	free_displays.c	/^int	free_displays(t_game *game)$/;"	f
-ft_freesplit	free_displays.c	/^void	ft_freesplit(char **str)$/;"	f
-game_loop	game_loop.c	/^int	game_loop(t_game *game)$/;"	f
-get_map_height	map_parse_utils.c	/^void	get_map_height(t_game *game)$/;"	f
-get_map_width	map_parse_utils.c	/^void	get_map_width(t_game *game)$/;"	f
-graph	so_long.h	/^	t_graph	*graph;$/;"	m	struct:s_init_map
-hight	so_long.h	/^	int		hight;$/;"	m	struct:s_init_map
-init_game	init_game.c	/^void	init_game(t_game *game)$/;"	f
-init_map	init_map.c	/^void	init_map(t_game *game, char *argv1)$/;"	f
-init_window	init_window.c	/^void	init_window(t_game *game)$/;"	f
-is_allowed_char	map_parse.c	/^int	is_allowed_char(t_game *game)$/;"	f
-is_at_least_one_CPE	map_parse.c	/^int	is_at_least_one_CPE(t_game *game)$/;"	f
-is_one_PE	map_parse.c	/^int	is_one_PE(t_game *game)$/;"	f
-is_only_1	map_parse_utils.c	/^int	is_only_1(char *map_line)$/;"	f
-is_rectangular	map_parse.c	/^int	is_rectangular(t_game *game)$/;"	f
-is_surrounded_by_1	map_parse_utils.c	/^int	is_surrounded_by_1(t_game *game)$/;"	f
-is_valid_path	map_parse_utils2.c	/^int	is_valid_path(char **map, int width, int height)$/;"	f
-key_pressed	input_handler.c	/^int	key_pressed(int keycode, t_game *game)$/;"	f
-lenght	so_long.h	/^	int		lenght;$/;"	m	struct:s_init_map
-main	main.c	/^int	main(int argc, char **argv)$/;"	f
-map_parse	map_parse.c	/^int	map_parse(t_game *game, char *argv1)$/;"	f
-map	so_long.h	/^	char	**map;$/;"	m	struct:s_init_map
-mlx	so_long.h	/^	void	*mlx;$/;"	m	struct:s_init_map
-move_down	input_handler.c	/^void	move_down(t_game *game)$/;"	f
-move_left	input_handler.c	/^void	move_left(t_game *game)$/;"	f
-move_right	input_handler.c	/^void	move_right(t_game *game)$/;"	f
-move_up	input_handler.c	/^void	move_up(t_game *game)$/;"	f
-parse	parse.c	/^int	parse(t_game *game, int argc, char **argv)$/;"	f
-player	so_long.h	/^	int		player;$/;"	m	struct:s_init_map
-player	so_long.h	/^	void	*player;$/;"	m	struct:s_graph
-read_map	map_parse_utils.c	/^char **read_map(char *file_name)$/;"	f
-s_graph	so_long.h	/^typedef struct s_graph$/;"	s
-s_init_map	so_long.h	/^typedef struct s_init_map$/;"	s
-set_path	map_parse_utils2.c	/^void	set_path(char **map, int x, int y)$/;"	f
-step	so_long.h	/^	int		step;$/;"	m	struct:s_init_map
-t_graph	so_long.h	/^}	t_graph;$/;"	t	typeref:struct:s_graph
-t_init_map	so_long.h	/^}	t_init_map;$/;"	t	typeref:struct:s_init_map
-wall	so_long.h	/^	void	*wall;$/;"	m	struct:s_graph
-wall	so_long.h	/^	void	*wall;$/;"	m	struct:s_init_map
-win	so_long.h	/^	void	*win;$/;"	m	struct:s_init_map
-x	so_long.h	/^	int		x;$/;"	m	struct:s_init_map
-y	so_long.h	/^	int		y;$/;"	m	struct:s_init_map
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/avieira-/repos/common_core/milestone_2/so_long/srcs/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+copy_map	map_parse_utils2.c	/^char	**copy_map(char **map, int height)$/;"	f	typeref:typename:char **
+draw_map	map_render.c	/^void	draw_map(t_game *game)$/;"	f	typeref:typename:void
+draw_player	map_render_utils.c	/^void	draw_player(t_game *game, int *y, int *x)$/;"	f	typeref:typename:void
+draw_portal	map_render_utils.c	/^void	draw_portal(t_game *game, int *y, int *x)$/;"	f	typeref:typename:void
+draw_tile	map_render_utils.c	/^void	draw_tile(t_game *game, int *y, int *x)$/;"	f	typeref:typename:void
+draw_towel	map_render_utils.c	/^void	draw_towel(t_game *game, int *y, int *x)$/;"	f	typeref:typename:void
+free_displays	free_displays.c	/^int	free_displays(t_game *game)$/;"	f	typeref:typename:int
+ft_freesplit	free_displays.c	/^void	ft_freesplit(char **str)$/;"	f	typeref:typename:void
+game_loop	game_loop.c	/^int	game_loop(t_game *game)$/;"	f	typeref:typename:int
+get_map_height	map_parse_utils.c	/^void	get_map_height(t_game *game)$/;"	f	typeref:typename:void
+get_map_width	map_parse_utils.c	/^void	get_map_width(t_game *game)$/;"	f	typeref:typename:void
+init_background	init_game.c	/^void	init_background(t_game *game)$/;"	f	typeref:typename:void
+init_game	init_game.c	/^void	init_game(t_game *game)$/;"	f	typeref:typename:void
+init_image	init_game.c	/^void	init_image(t_game *game)$/;"	f	typeref:typename:void
+init_main_struct	init_game.c	/^void	init_main_struct(t_game *game)$/;"	f	typeref:typename:void
+init_map	init_map.c	/^void	init_map(t_game *game, char *argv1)$/;"	f	typeref:typename:void
+init_player	init_game_utils.c	/^void	init_player(t_game *game)$/;"	f	typeref:typename:void
+init_portal	init_game_utils.c	/^void	init_portal(t_game *game)$/;"	f	typeref:typename:void
+init_tile	init_game_utils.c	/^void	init_tile(t_game *game)$/;"	f	typeref:typename:void
+init_towel	init_game_utils.c	/^void	init_towel(t_game *game)$/;"	f	typeref:typename:void
+init_window	init_game.c	/^void	init_window(t_game *game)$/;"	f	typeref:typename:void
+is_allowed_char	map_parse.c	/^int	is_allowed_char(t_game *game)$/;"	f	typeref:typename:int
+is_at_least_one_cpe	map_parse.c	/^int	is_at_least_one_cpe(t_game *game)$/;"	f	typeref:typename:int
+is_one_pe	map_parse.c	/^int	is_one_pe(t_game *game)$/;"	f	typeref:typename:int
+is_only_1	map_parse_utils.c	/^int	is_only_1(char *map_line)$/;"	f	typeref:typename:int
+is_rectangular	map_parse.c	/^int	is_rectangular(t_game *game)$/;"	f	typeref:typename:int
+is_surrounded_by_1	map_parse_utils.c	/^int	is_surrounded_by_1(t_game *game)$/;"	f	typeref:typename:int
+is_valid_path	map_parse_utils2.c	/^int	is_valid_path(char **map, int width, int height)$/;"	f	typeref:typename:int
+key_pressed	input_handler.c	/^int	key_pressed(int keycode, t_game *game)$/;"	f	typeref:typename:int
+main	main.c	/^int	main(int argc, char **argv)$/;"	f	typeref:typename:int
+map_parse	map_parse.c	/^int	map_parse(t_game *game, char *argv1)$/;"	f	typeref:typename:int
+move_down	input_handler.c	/^void	move_down(t_game *game)$/;"	f	typeref:typename:void
+move_left	input_handler.c	/^void	move_left(t_game *game)$/;"	f	typeref:typename:void
+move_right	input_handler.c	/^void	move_right(t_game *game)$/;"	f	typeref:typename:void
+move_up	input_handler.c	/^void	move_up(t_game *game)$/;"	f	typeref:typename:void
+parse	parse.c	/^int	parse(t_game *game, int argc, char **argv)$/;"	f	typeref:typename:int
+read_map	map_parse_utils.c	/^char	**read_map(char *file_name)$/;"	f	typeref:typename:char **
+set_path	map_parse_utils2.c	/^void	set_path(char **map, int x, int y, t_point size)$/;"	f	typeref:typename:void
+set_player_pos	map_parse_utils2.c	/^t_point	set_player_pos(char **map, int width, int height)$/;"	f	typeref:typename:t_point

@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 18:01:59 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/04 16:06:36 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/04 21:43:13 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	clear_item(t_game *game)
 			else
 				prev->next = curr->next;
 			curr = curr->next;
-			return(free(to_free));
+			return (free(to_free));
 		}
 		prev = curr;
 		curr = curr->next;
