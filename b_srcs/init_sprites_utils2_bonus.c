@@ -6,7 +6,7 @@
 /*   By: avieira- <marvavieira-@student.42porto.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 16:13:27 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/04 21:43:51 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/04 23:33:57 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,22 @@
 
 void	init_breno_idle_sprites(t_game *game)
 {
+	int		i;
+	char	*player_idle_sprite_paths[4];
+
+	i = 0;
 	game->player.idle.i = 0;
 	game->player.idle.timer = 0;
-	load_sprite(game->mlx_ptr, &game->player.idle.sprite[0],
-		"b_textures/breno.xpm");
+	player_idle_sprite_paths[0] = "b_textures/brenoidle1.xpm";
+	player_idle_sprite_paths[1] = "b_textures/brenoidle2.xpm";
+	player_idle_sprite_paths[2] = "b_textures/brenoidle3.xpm";
+	player_idle_sprite_paths[3] = "b_textures/brenoidle4.xpm";
+	while (i < 4)
+	{
+		load_sprite(game->mlx_ptr, &game->player.idle.sprite[i],
+			player_idle_sprite_paths[i]);
+		i++;
+	}
 }
 
 void	load_sprite(void *mlx_ptr, t_image *sprite, char *filepath)

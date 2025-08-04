@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 02:07:35 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/04 23:35:33 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/04 23:26:12 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	animate_player_running(t_game *game)
 
 	game->player.idle.i = 0;
 	game->player.idle.timer = 0;
-	if (++(game->player.running.timer) == 1)
+	if (++(game->player.running.timer) == 2)
 	{
 		game->player.running.timer = 0;
 		if ((game->player.running.i)++ == 13)
@@ -40,12 +40,9 @@ void	animate_player_idle(t_game *game)
 	i = 0;
 	game->player.running.i = 0;
 	game->player.running.timer = 0;
-	if (++(game->player.idle.timer) == 5)
-	{
-		game->player.idle.timer = 0;
-		if ((game->player.idle.i)++ == 3)
+	if (++(game->player.idle.timer) == 2)
+		if ((game->player.idle.i)++ == 1)
 			game->player.idle.i = 0;
-	}
 	i = game->player.idle.i;
 	if (game->player.orientation == 1)
 		drawtexture(&game->image, &game->player.idle.sprite[i],

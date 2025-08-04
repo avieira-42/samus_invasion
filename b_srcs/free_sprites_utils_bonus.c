@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 12:04:29 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/08/04 18:04:47 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/04 23:32:12 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	free_player_idle(t_game *game)
 {
 	int	i;
 
-	i = 1;
+	i = 4;
 	while (i--)
 	{
 		if (game->player.idle.sprite[i].image)
