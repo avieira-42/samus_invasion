@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:09:07 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/06 04:27:44 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/06 13:44:34 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,18 @@ int	key_pressed(int keysym, t_game *game)
 		game->player.attack_timer = 0;
 		game->player.attack_counter = 1;
 	}
-	if (keysym == XK_Return && game->end = ture)
+	if (keysym == XK_Return && game->end == TRUE)
+	{
 		game->end = FALSE;
+		game->game_start = FALSE;
+		free_death_screen(game);
+		free_victory_screen(game);
+		free_sprites(game);
+		free_items(game->items);
+		free_enemies(game->enemies);
+		free_walls(game->walls);
+		init_game(game);
+	}
 	return (1);
 }
 

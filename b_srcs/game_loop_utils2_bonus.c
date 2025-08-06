@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_loop_utils2.c                                 :+:      :+:    :+:   */
+/*   game_loop_utils2_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 21:50:14 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/31 17:17:07 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/06 13:52:17 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	move_player(t_game *game)
 void	end_game(t_game *game)
 {
 	if (game->player.touching_exit && game->items == NULL)
-		free_displays(game);
+		open_victory_screen(game);
 }
 
 void	update_camera(t_game *game)

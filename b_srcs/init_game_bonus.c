@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 02:02:37 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/06 04:27:29 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/06 13:26:12 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,20 @@
 
 void	init_window(t_game *game)
 {
-	game->map.height = game->map.height * TILE_SIZE_Y;
-	game->map.width = game->map.width * TILE_SIZE_X;
-	(*game).mlx_ptr = mlx_init();
-	(*game).win_ptr = mlx_new_window((*game).mlx_ptr,
-			SCREEN_SIZE_X, SCREEN_SIZE_Y, "game3d");
+	if (game->reset == FALSE)
+	{
+		game->map.height = game->map.height * TILE_SIZE_Y;
+		game->map.width = game->map.width * TILE_SIZE_X;
+		(*game).mlx_ptr = mlx_init();
+		(*game).win_ptr = mlx_new_window((*game).mlx_ptr,
+				SCREEN_SIZE_X, SCREEN_SIZE_Y, "game3d");
+	}
 }
 
 void	init_main_struct(t_game *game)
 {
 	game->game_start = FALSE;
+	game->reset = TRUE;
 	game->end = FALSE;
 	game->fd = 0;
 	game->gravity = GRAVITY_ACC;
@@ -71,4 +75,5 @@ void	init_game(t_game *game)
 	init_enemy(game);
 	init_player(game);
 	init_main_struct(game);
+	init_finish_screens(game);
 }

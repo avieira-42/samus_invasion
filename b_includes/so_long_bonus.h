@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 17:19:00 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/06 04:31:38 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/06 13:44:23 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,6 +194,7 @@ typedef struct s_game
 	int			fd;
 	int			gravity;
 	t_bool		game_start;
+	t_bool		reset;
 	t_bool		end;
 	void		*mlx_ptr;
 	void		*win_ptr;
@@ -204,6 +205,8 @@ typedef struct s_game
 	float		left_wall_pos;
 	long long	last_frame_time;
 	t_map		map;
+	t_image		death_screen;
+	t_image		victory_screen;
 	t_image		image;
 	t_bckgrnd	bckgrnd;
 	t_tile		tile;
@@ -224,6 +227,9 @@ int			parse(t_game *game, int argc, char **argv);
 int			free_displays(t_game *game);
 void		init_window(t_game *game);
 void		open_death_screen(t_game *game);
+void		open_victory_screen(t_game *game);
+void		free_death_screen(t_game *game);
+void		free_victory_screen(t_game *game);
 
 //map parse
 void		init_map(t_game *game, char *argv1);
@@ -279,6 +285,11 @@ void		init_item(t_game *game);
 void		init_exit(t_game *game);
 void		init_enemy(t_game *game);
 void		init_player(t_game *game);
+
+// init game utils
+void	init_finish_screens(t_game *game);
+void	init_death_screen(t_game *game);
+void	init_victory_screen(t_game *game);
 
 // init sprites
 void		load_sprite(void *mlx_ptr, t_image *sprite, char *filepath);

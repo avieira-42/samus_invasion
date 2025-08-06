@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 01:08:56 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/06 04:30:59 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/06 13:48:57 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,13 @@
 void	free_death_screen(t_game *game)
 {
 	if (game->death_screen.image)
-		mlx_destroy_image(game->death_screen.image);
+		mlx_destroy_image(game->mlx_ptr, game->death_screen.image);
+}
+
+void	free_victory_screen(t_game *game)
+{
+	if (game->victory_screen.image)
+		mlx_destroy_image(game->mlx_ptr, game->victory_screen.image);
 }
 
 int	free_displays(t_game *game)
@@ -35,16 +41,16 @@ int	free_displays(t_game *game)
 	return (0);
 }
 
-/*(void	open_victory_screen(game)
+void	open_victory_screen(t_game *game)
 {
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-		game->death_screen.image);
+		game->victory_screen.image, 0, 0);
 	game->end = TRUE;
-}*/
+}
 
-void	open_death_screen(game)
+void	open_death_screen(t_game *game)
 {
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-		game->death_screen.image);
+		game->death_screen.image, 0, 0);
 	game->end = TRUE;
 }

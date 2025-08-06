@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 14:32:35 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/03 18:17:17 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/06 13:25:26 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 
 	if (!parse(&game, argc, argv))
 		return (1);
+	game.reset = FALSE;
 	init_game(&game);
 	mlx_hook(game.win_ptr, 02, (1L << 0), key_pressed, &game);
 	mlx_hook(game.win_ptr, 03, (1L << 1), key_released, &game);

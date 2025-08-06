@@ -6,7 +6,7 @@
 #    By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 21:49:52 by avieira-          #+#    #+#              #
-#    Updated: 2025/08/06 03:32:20 by a-soeiro         ###   ########.fr        #
+#    Updated: 2025/08/06 12:40:14 by a-soeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ $(B_SRCS_DIR)/math_bonus.c \
 $(B_SRCS_DIR)/free_displays_bonus.c \
 $(B_SRCS_DIR)/init_game_bonus.c \
 $(B_SRCS_DIR)/init_game_utils_bonus.c \
+$(B_SRCS_DIR)/init_game_utils2_bonus.c \
 $(B_SRCS_DIR)/render_bonus.c \
 $(B_SRCS_DIR)/render_utils_bonus.c \
 $(B_SRCS_DIR)/render_utils2_bonus.c \
