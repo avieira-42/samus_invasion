@@ -6,14 +6,14 @@
 #    By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 21:49:52 by avieira-          #+#    #+#              #
-#    Updated: 2025/08/04 18:02:38 by avieira-         ###   ########.fr        #
+#    Updated: 2025/08/06 03:32:20 by a-soeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= so_long
 B_NAME= so_long_bonus
 CC= cc
-CFLAGS = -g -Wall -Wextra -Werror -I $(INCLUDES)
+CFLAGS = -g -Wall -Wextra -Werror -std=c99 -I$(INCLUDES)
 LDFLAGS =  -L $(LIBFT_DIR) -lft -L $(MLX_DIR) -Lmlx -lmlx -lXext -lX11 -lbsd -lXext -lX11 -lm 
 INCLUDES= ./includes
 LIBFT_DIR= ./libs/libft
@@ -110,11 +110,12 @@ clean:
 	@rm -rf $(B_OBJS)
 	@rm -rf .bonus
 	@make clean -C $(LIBFT_DIR) --no-print-directory
-	if [ -d "$(MLX_DIR)" ]; then \
+	if [ -f "$(MLX_DIR)" ]; then \
 		make clean -C $(MLX_DIR) --no-print-directory; \
 	fi
 
 	@echo "Cleaning Objects!"
+
 fclean: clean
 	@rm -rf $(NAME)
 	@rm -rf $(B_NAME)

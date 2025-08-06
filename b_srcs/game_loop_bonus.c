@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 21:50:14 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/04 14:04:34 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/06 04:28:00 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	game_start(t_game *game)
 
 int	game_loop(t_game *game)
 {
+	if (game->end == TRUE)
+		return (1);
 	renderer(game);
 	update(game);
 	game_start(game);

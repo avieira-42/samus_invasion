@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear_player.c                                     :+:      :+:    :+:   */
+/*   clear_player_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 03:00:49 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/30 00:06:11 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/06 04:29:42 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	clear_player(t_game *game)
 				|| (game->player.pos.y <= enemy->pos.y + ENEMY_HEIGHT
 					&& game->player.pos.y >= enemy->pos.y + 20))
 			&& !game->player.attacking)
-			free_displays(game);
+			open_death_screen(game);
 		enemy = enemy->next;
 	}
 }

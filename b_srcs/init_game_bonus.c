@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 02:02:37 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/04 14:19:57 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/06 04:27:29 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	init_window(t_game *game)
 void	init_main_struct(t_game *game)
 {
 	game->game_start = FALSE;
+	game->end = FALSE;
 	game->fd = 0;
 	game->gravity = GRAVITY_ACC;
 	game->delta = 0;

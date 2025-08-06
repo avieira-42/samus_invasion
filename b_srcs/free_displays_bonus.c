@@ -6,14 +6,21 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 01:08:56 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/04 16:10:09 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/06 04:30:59 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../b_includes/so_long_bonus.h"
 
+void	free_death_screen(t_game *game)
+{
+	if (game->death_screen.image)
+		mlx_destroy_image(game->death_screen.image);
+}
+
 int	free_displays(t_game *game)
 {
+	free_death_screen(game);
 	mlx_loop_end((*game).mlx_ptr);
 	ft_free_matrix(game->map.text);
 	free_sprites(game);
@@ -26,4 +33,18 @@ int	free_displays(t_game *game)
 	ft_printf("Closing Application!");
 	exit(1);
 	return (0);
+}
+
+/*(void	open_victory_screen(game)
+{
+	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+		game->death_screen.image);
+	game->end = TRUE;
+}*/
+
+void	open_death_screen(game)
+{
+	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+		game->death_screen.image);
+	game->end = TRUE;
 }

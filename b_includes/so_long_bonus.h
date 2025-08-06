@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 17:19:00 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/04 21:54:45 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/06 04:31:38 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,6 +194,7 @@ typedef struct s_game
 	int			fd;
 	int			gravity;
 	t_bool		game_start;
+	t_bool		end;
 	void		*mlx_ptr;
 	void		*win_ptr;
 	float		delta;
@@ -222,6 +223,7 @@ int			parse(t_game *game, int argc, char **argv);
 // displays
 int			free_displays(t_game *game);
 void		init_window(t_game *game);
+void		open_death_screen(t_game *game);
 
 //map parse
 void		init_map(t_game *game, char *argv1);
