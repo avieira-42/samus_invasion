@@ -4,94 +4,142 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-add_enemy	enemy_render_utils.c	/^void	add_enemy(t_enemy **enemies, t_enemy *new_enemy)$/;"	f
-add_item	item_render_utils.c	/^void	add_item(t_item **items, t_item *new_item)$/;"	f
-add_wall	wall_render.c	/^void	add_wall(t_tile **walls, t_tile *new_wall)$/;"	f
-animate_enemies	animate_utils2.c	/^void	animate_enemies(t_game *game)$/;"	f
-animate_enemy_falling	animate_utils3.c	/^void	animate_enemy_falling(t_game *game, t_enemy *enemy)$/;"	f
-animate_enemy_walking	animate_utils3.c	/^void	animate_enemy_walking(t_game *game, t_enemy *enemy)$/;"	f
-animate_enemy	animate_utils2.c	/^void	animate_enemy(t_game *game, t_enemy *enemy)$/;"	f
-animate_player_attacking	animate_utils.c	/^void	animate_player_attacking(t_game *game)$/;"	f
-animate_player_falling	animate_utils.c	/^void	animate_player_falling(t_game *game)$/;"	f
-animate_player_idle	animate.c	/^void	animate_player_idle(t_game *game)$/;"	f
-animate_player_jumping	animate_utils.c	/^void	animate_player_jumping(t_game *game)$/;"	f
-animate_player_running	animate.c	/^void	animate_player_running(t_game *game)$/;"	f
-animate_player	animate.c	/^void	animate_player(t_game *game)$/;"	f
-animate	animate.c	/^void	animate(t_game *game)$/;"	f
-calculate_delta	delta.c	/^void	calculate_delta(t_game *game)$/;"	f
-clamp	math.c	/^float clamp(float value, float min, float max)$/;"	f
-clear_enemy	enemy_render_utils.c	/^void    clear_enemy(t_game *game)$/;"	f
-clear_item	item_render_utils.c	/^void	clear_item(t_game *game)$/;"	f
-clear_player	clear_player.c	/^void	clear_player(t_game *game)$/;"	f
-contiguous_ceiling	collisions_utils.c	/^int	contiguous_ceiling(t_game *game, t_point floor_pos)$/;"	f
-contiguous_floor	collisions_utils.c	/^int	contiguous_floor(t_game *game, t_point ceiling_pos)$/;"	f
-display_moves	display_moves.c	/^void	display_moves(t_game *game)$/;"	f
-draw_items	item_render.c	/^void	draw_items(t_game *game)$/;"	f
-draw_map	render_utils.c	/^void draw_map(t_game *game)$/;"	f
-draw_mirroredtexture	render_utils2.c	/^void    draw_mirroredtexture(t_image *image, t_image *texture, t_point pos, long double scale)$/;"	f
-draw_moves	display_moves.c	/^void	draw_moves(t_game *game, int moves, t_point move_pos)$/;"	f
-draw_portal	portal_render.c	/^void	draw_portal(t_game *game)$/;"	f
-draw_walls	wall_render.c	/^void	draw_walls(t_game *game)$/;"	f
-drawobj	render_utils.c	/^void	drawobj(t_image *image, t_point pos, t_point size, int color)$/;"	f
-drawtexture	render_utils.c	/^void	drawtexture(t_image *image, t_image *texture, t_point pos, long double scale)$/;"	f
-enemies_count	enemy_render_utils.c	/^int	enemies_count(t_enemy *enemies)$/;"	f
-enemy_touching_ceiling	enemy_collisions.c	/^int	enemy_touching_ceiling(t_game *game, t_enemy *enemy)$/;"	f
-enemy_touching_exit	enemy_collisions.c	/^int	enemy_touching_exit(t_game *game, t_enemy *enemy)$/;"	f
-enemy_touching_floor	enemy_collisions.c	/^int	enemy_touching_floor(t_game *game, t_enemy *enemy)$/;"	f
-enemy_touching_wall_left	enemy_collisions.c	/^int	enemy_touching_wall_left(t_game *game, t_enemy *enemy)$/;"	f
-enemy_touching_wall_right	enemy_collisions.c	/^int	enemy_touching_wall_right(t_game *game, t_enemy *enemy)$/;"	f
-free_displays	free_displays.c	/^int	free_displays(t_game *game)$/;"	f
-free_enemies	enemy_render_utils.c	/^void	free_enemies(t_enemy *enemies)$/;"	f
-free_items	item_render_utils.c	/^void	free_items(t_item *items)$/;"	f
-free_player_idle	free_sprites.c	/^void	free_player_idle(t_game *game)$/;"	f
-free_player_running	free_sprites.c	/^void	free_player_running(t_game *game)$/;"	f
-free_player_sprites	free_sprites.c	/^void	free_player_sprites(t_game *game)$/;"	f
-free_sprites	free_sprites.c	/^void	free_sprites(t_game *game)$/;"	f
-free_walls	wall_render.c	/^void	free_walls(t_tile *walls)$/;"	f
-ft_abs	math.c	/^int	ft_abs(int num)$/;"	f
-ft_free_arr	ft_free.c	/^void	ft_free_arr(char **arr)$/;"	f
-ft_free	ft_free.c	/^void	ft_free(t_game *game, char *line)$/;"	f
-ft_freesplit	free_displays.c	/^void	ft_freesplit(char **str)$/;"	f
-ft_get_color	render_utils.c	/^int ft_get_color(t_image *data, int x, int y)$/;"	f
-ft_pixelput	ft_pixelput.c	/^void	ft_pixelput(t_image *data, int x, int y, int color)$/;"	f
-game_loop	game_loop.c	/^int	game_loop(t_game *game)$/;"	f
-game_start	game_loop.c	/^void	game_start(t_game *game)$/;"	f
-get_map_height	map_parse_utils.c	/^void	get_map_height(t_game *game)$/;"	f
-get_map_width	map_parse_utils.c	/^void	get_map_width(t_game *game)$/;"	f
-get_time	get_time.c	/^long long	get_time(void)$/;"	f
-init_game	init_game.c	/^void	init_game(t_game *game)$/;"	f
-init_map	init_map.c	/^void	init_map(t_game *game, char *argv1)$/;"	f
-init_window	init_window.c	/^void	init_window(t_game *game)$/;"	f
-is_allowed_char	map_parse.c	/^int	is_allowed_char(t_game *game)$/;"	f
-is_at_least_one_cpex	map_parse.c	/^int	is_at_least_one_cpex(t_game *game)$/;"	f
-is_enemy_hit	enemy_render_utils2.c	/^bool	is_enemy_hit(t_game *game, t_enemy *enemy)$/;"	f
-is_one_pe	map_parse.c	/^int	is_one_pe(t_game *game)$/;"	f
-is_only_1	map_parse_utils.c	/^int	is_only_1(char *map_line)$/;"	f
-is_rectangular	map_parse.c	/^int	is_rectangular(t_game *game)$/;"	f
-is_surrounded_by_1	map_parse_utils.c	/^int	is_surrounded_by_1(t_game *game)$/;"	f
-items_count	item_render_utils.c	/^int	items_count(t_item *items)$/;"	f
-key_pressed	input_handler.c	/^int	key_pressed(int keysym, t_game *game)$/;"	f
-key_released	input_handler.c	/^int	key_released(int keysym, t_game *game)$/;"	f
-main	main.c	/^int	main(int argc, char **argv)$/;"	f
-map_parse	map_parse.c	/^int	map_parse(t_game *game, char *argv1)$/;"	f
-new_enemy	enemy_render_utils.c	/^t_enemy	*new_enemy(t_game *game)$/;"	f
-new_item	item_render_utils.c	/^t_item  *new_item(t_game* game)$/;"	f
-new_wall	wall_render.c	/^t_tile  *new_wall(t_game *game)$/;"	f
-normalize	math.c	/^t_point	normalize(t_point point)$/;"	f
-parse	parse.c	/^int	parse(t_game *game, int argc, char **argv)$/;"	f
-player_touching_ceiling	collisions.c	/^int	player_touching_ceiling(t_game *game)$/;"	f
-player_touching_exit	collisions.c	/^int	player_touching_exit(t_game *game)$/;"	f
-player_touching_floor	collisions.c	/^int	player_touching_floor(t_game *game)$/;"	f
-player_touching_wall_left	collisions.c	/^int	player_touching_wall_left(t_game *game)$/;"	f
-player_touching_wall_right	collisions.c	/^int	player_touching_wall_right(t_game *game)$/;"	f
-position_enemy	enemy_render.c	/^void	position_enemy(t_game *game)$/;"	f
-position_item	item_render.c	/^void	position_item(t_game *game)$/;"	f
-position_portal	portal_render.c	/^void	position_portal(t_game *game)$/;"	f
-position_wall	wall_render.c	/^void	position_wall(t_game *game)$/;"	f
-read_map	map_parse_utils.c	/^char **read_map(char *file_name)$/;"	f
-renderer	game_loop.c	/^int	renderer(t_game *game)$/;"	f
-update_attack_timer	timers.c	/^void	update_attack_timer(t_game *game)$/;"	f
-update_enemy_orientation	animate_utils2.c	/^void	update_enemy_orientation(t_enemy *enemy)$/;"	f
-update_enemy_pos	animate_utils2.c	/^void	update_enemy_pos(t_game *game, t_enemy *enemy)$/;"	f
-update_item_orentation	item_render.c	/^void	update_item_orentation(t_game *game)$/;"	f
-update	game_loop.c	/^int	update(t_game *game)$/;"	f
+add_enemy	enemy_render_utils_bonus.c	/^void	add_enemy(t_enemy **enemies, t_enemy *new_enemy)$/;"	f
+add_item	item_render_utils_bonus.c	/^void	add_item(t_item **items, t_item *new_item)$/;"	f
+add_wall	wall_render_bonus.c	/^void	add_wall(t_tile **walls, t_tile *new_wall)$/;"	f
+animate_enemies	animate_utils2_bonus.c	/^void	animate_enemies(t_game *game)$/;"	f
+animate_enemy_falling	animate_utils3_bonus.c	/^void	animate_enemy_falling(t_game *game, t_enemy *enemy)$/;"	f
+animate_enemy_walking	animate_utils3_bonus.c	/^void	animate_enemy_walking(t_game *game, t_enemy *enemy)$/;"	f
+animate_enemy	animate_utils2_bonus.c	/^void	animate_enemy(t_game *game, t_enemy *enemy)$/;"	f
+animate_player_attacking	animate_utils_bonus.c	/^void	animate_player_attacking(t_game *game)$/;"	f
+animate_player_falling	animate_utils_bonus.c	/^void	animate_player_falling(t_game *game)$/;"	f
+animate_player_idle	animate_bonus.c	/^void	animate_player_idle(t_game *game)$/;"	f
+animate_player_jumping	animate_utils_bonus.c	/^void	animate_player_jumping(t_game *game)$/;"	f
+animate_player_running	animate_bonus.c	/^void	animate_player_running(t_game *game)$/;"	f
+animate_player	animate_bonus.c	/^void	animate_player(t_game *game)$/;"	f
+animate	animate_bonus.c	/^void	animate(t_game *game)$/;"	f
+calculate_delta	delta_bonus.c	/^void	calculate_delta(t_game *game)$/;"	f
+clamp_falling_velocity	game_loop_utils_bonus.c	/^void	clamp_falling_velocity(t_game *game)$/;"	f
+clear_enemy	enemy_render_utils_bonus.c	/^void	clear_enemy(t_game	*game)$/;"	f
+clear_item	item_render_utils_bonus.c	/^void	clear_item(t_game *game)$/;"	f
+clear_player	clear_player_bonus.c	/^void	clear_player(t_game *game)$/;"	f
+contiguous_ceiling	collisions_utils_bonus.c	/^int	contiguous_ceiling(t_game *game, t_point floor_pos)$/;"	f
+contiguous_floor	collisions_utils_bonus.c	/^int	contiguous_floor(t_game *game, t_point ceiling_pos)$/;"	f
+copy_map	map_parse_utils2_bonus.c	/^char	**copy_map(char **map, int height)$/;"	f
+display_moves	display_moves_bonus.c	/^void	display_moves(t_game *game)$/;"	f
+draw_background	game_loop_utils2_bonus.c	/^void	draw_background(t_game *game)$/;"	f
+draw_items	item_render_bonus.c	/^void	draw_items(t_game *game)$/;"	f
+draw_map	render_utils_bonus.c	/^void	draw_map(t_game *game)$/;"	f
+draw_mirroredtexture	render_utils2_bonus.c	/^void	draw_mirroredtexture(t_image *image, t_image *texture, t_point pos,$/;"	f
+draw_moves	display_moves_bonus.c	/^void	draw_moves(t_game *game, int moves, t_point move_pos)$/;"	f
+draw_portal	portal_render_bonus.c	/^void	draw_portal(t_game *game)$/;"	f
+draw_walls	wall_render_bonus.c	/^void	draw_walls(t_game *game)$/;"	f
+drawobj	render_utils_bonus.c	/^void	drawobj(t_image *image, t_point pos, t_point size, int color)$/;"	f
+drawtexture	render_utils_bonus.c	/^void	drawtexture(t_image *image, t_image *texture, t_point pos,$/;"	f
+end_game	game_loop_utils2_bonus.c	/^void	end_game(t_game *game)$/;"	f
+enemies_count	enemy_render_utils_bonus.c	/^int	enemies_count(t_enemy *enemies)$/;"	f
+enemy_touching_ceiling	enemy_collisions_bonus.c	/^int	enemy_touching_ceiling(t_game *game, t_enemy *enemy)$/;"	f
+enemy_touching_exit	enemy_collisions_bonus.c	/^int	enemy_touching_exit(t_game *game, t_enemy *enemy)$/;"	f
+enemy_touching_floor	enemy_collisions_bonus.c	/^int	enemy_touching_floor(t_game *game, t_enemy *enemy)$/;"	f
+enemy_touching_wall_left	enemy_collisions_bonus.c	/^int	enemy_touching_wall_left(t_game *game, t_enemy *enemy)$/;"	f
+enemy_touching_wall_right	enemy_collisions_bonus.c	/^int	enemy_touching_wall_right(t_game *game, t_enemy *enemy)$/;"	f
+error_message	parse_bonus.c	/^int	error_message(char *message, int error_code)$/;"	f
+free_death_screen	free_displays_bonus.c	/^void	free_death_screen(t_game *game)$/;"	f
+free_displays	free_displays_bonus.c	/^int	free_displays(t_game *game)$/;"	f
+free_enemies	enemy_render_utils_bonus.c	/^void	free_enemies(t_enemy *enemies)$/;"	f
+free_items	item_render_utils_bonus.c	/^void	free_items(t_item *items)$/;"	f
+free_player_attack	free_sprites_utils_bonus.c	/^void	free_player_attack(t_game *game)$/;"	f
+free_player_falling	free_sprites_utils_bonus.c	/^void	free_player_falling(t_game *game)$/;"	f
+free_player_idle	free_sprites_utils_bonus.c	/^void	free_player_idle(t_game *game)$/;"	f
+free_player_jumping	free_sprites_utils_bonus.c	/^void	free_player_jumping(t_game *game)$/;"	f
+free_player_moves	free_sprites_bonus.c	/^void	free_player_moves(t_game *game)$/;"	f
+free_player_running	free_sprites_utils_bonus.c	/^void	free_player_running(t_game *game)$/;"	f
+free_player_sprites	free_sprites_bonus.c	/^void	free_player_sprites(t_game *game)$/;"	f
+free_samus_sprites	free_sprites_bonus.c	/^void	free_samus_sprites(t_game *game)$/;"	f
+free_sprites	free_sprites_bonus.c	/^void	free_sprites(t_game *game)$/;"	f
+free_victory_screen	free_displays_bonus.c	/^void	free_victory_screen(t_game *game)$/;"	f
+free_walls	wall_render_bonus.c	/^void	free_walls(t_tile *walls)$/;"	f
+ft_abs	math_bonus.c	/^int	ft_abs(int num)$/;"	f
+ft_get_color	render_utils_bonus.c	/^int	ft_get_color(t_image *data, int x, int y)$/;"	f
+ft_pixelput	ft_pixelput_bonus.c	/^void	ft_pixelput(t_image *data, int x, int y, int color)$/;"	f
+game_loop	game_loop_bonus.c	/^int	game_loop(t_game *game)$/;"	f
+game_start	game_loop_bonus.c	/^void	game_start(t_game *game)$/;"	f
+get_map_height	map_parse_utils_bonus.c	/^void	get_map_height(t_game *game)$/;"	f
+get_map_width	map_parse_utils_bonus.c	/^void	get_map_width(t_game *game)$/;"	f
+get_time	get_time_bonus.c	/^long long	get_time(void)$/;"	f
+init_background	init_game_bonus.c	/^void	init_background(t_game *game)$/;"	f
+init_bckgrnd_sprite	init_sprites_utils2_bonus.c	/^void	init_bckgrnd_sprite(t_game *game)$/;"	f
+init_breno_attack_sprites	init_sprites_utils_bonus.c	/^void	init_breno_attack_sprites(t_game *game)$/;"	f
+init_breno_falling_sprites	init_sprites_utils2_bonus.c	/^void	init_breno_falling_sprites(t_game *game)$/;"	f
+init_breno_idle_sprites	init_sprites_utils2_bonus.c	/^void	init_breno_idle_sprites(t_game *game)$/;"	f
+init_breno_jumping_sprites	init_sprites_utils_bonus.c	/^void	init_breno_jumping_sprites(t_game *game)$/;"	f
+init_breno_running_sprites	init_sprites_utils_bonus.c	/^void	init_breno_running_sprites(t_game *game)$/;"	f
+init_breno_sprites	init_sprites_utils_bonus.c	/^void	init_breno_sprites(t_game *game)$/;"	f
+init_death_screen	init_game_utils2_bonus.c	/^void	init_death_screen(t_game *game)$/;"	f
+init_enemy	init_game_utils_bonus.c	/^void	init_enemy(t_game *game)$/;"	f
+init_exit	init_game_utils_bonus.c	/^void	init_exit(t_game *game)$/;"	f
+init_finish_screens	init_game_utils2_bonus.c	/^void	init_finish_screens(t_game *game)$/;"	f
+init_game	init_game_bonus.c	/^void	init_game(t_game *game)$/;"	f
+init_image	init_game_bonus.c	/^void	init_image(t_game *game)$/;"	f
+init_item	init_game_utils_bonus.c	/^void	init_item(t_game *game)$/;"	f
+init_main_struct	init_game_bonus.c	/^void	init_main_struct(t_game *game)$/;"	f
+init_map	init_map_bonus.c	/^void	init_map(t_game *game, char *argv1)$/;"	f
+init_player_moves_sprites	init_sprites_utils2_bonus.c	/^void	init_player_moves_sprites(t_game *game)$/;"	f
+init_player	init_game_utils_bonus.c	/^void	init_player(t_game *game)$/;"	f
+init_portal_sprite	init_sprites_bonus.c	/^void	init_portal_sprite(t_game *game)$/;"	f
+init_samus_sprites	init_sprites_bonus.c	/^void	init_samus_sprites(t_game *game)$/;"	f
+init_tile_sprite	init_sprites_bonus.c	/^void	init_tile_sprite(t_game *game)$/;"	f
+init_tile	init_game_utils_bonus.c	/^void	init_tile(t_game *game)$/;"	f
+init_towel_sprite	init_sprites_bonus.c	/^void	init_towel_sprite(t_game *game)$/;"	f
+init_victory_screen	init_game_utils2_bonus.c	/^void	init_victory_screen(t_game *game)$/;"	f
+init_window	init_game_bonus.c	/^void	init_window(t_game *game)$/;"	f
+is_allowed_char	map_parse_bonus.c	/^int	is_allowed_char(t_game *game)$/;"	f
+is_at_least_one_cpex	map_parse_bonus.c	/^int	is_at_least_one_cpex(t_game *game)$/;"	f
+is_enemy_hit	enemy_render_utils2_bonus.c	/^t_bool	is_enemy_hit(t_game *game, t_enemy *enemy)$/;"	f
+is_falling	game_loop_utils_bonus.c	/^void	is_falling(t_game *game)$/;"	f
+is_file_name_valid	parse_bonus.c	/^int	is_file_name_valid(char *file_name)$/;"	f
+is_jumping	game_loop_utils_bonus.c	/^void	is_jumping(t_game *game)$/;"	f
+is_one_pe	map_parse_bonus.c	/^int	is_one_pe(t_game *game)$/;"	f
+is_only_1	map_parse_utils_bonus.c	/^int	is_only_1(char *map_line)$/;"	f
+is_play_area	game_loop_utils_bonus.c	/^void	is_play_area(t_game *game)$/;"	f
+is_rectangular	map_parse_bonus.c	/^int	is_rectangular(t_game *game)$/;"	f
+is_surrounded_by_1	map_parse_utils_bonus.c	/^int	is_surrounded_by_1(t_game *game)$/;"	f
+is_valid_path	map_parse_utils2_bonus.c	/^int	is_valid_path(char **map, int width, int height)$/;"	f
+items_count	item_render_utils_bonus.c	/^int	items_count(t_item *items)$/;"	f
+key_pressed	input_handler_bonus.c	/^int	key_pressed(int keysym, t_game *game)$/;"	f
+key_released	input_handler_bonus.c	/^int	key_released(int keysym, t_game *game)$/;"	f
+load_image	game_loop_utils2_bonus.c	/^void	load_image(t_game *game)$/;"	f
+load_sprite	init_sprites_utils2_bonus.c	/^void	load_sprite(void *mlx_ptr, t_image *sprite, char *filepath)$/;"	f
+main	main_bonus.c	/^int	main(int argc, char **argv)$/;"	f
+map_parse	map_parse_bonus.c	/^int	map_parse(t_game *game, char *argv1)$/;"	f
+move_player	game_loop_utils2_bonus.c	/^void	move_player(t_game *game)$/;"	f
+new_enemy	enemy_render_utils_bonus.c	/^t_enemy	*new_enemy(t_game *game)$/;"	f
+new_item	item_render_utils_bonus.c	/^t_item	*new_item(t_game *game)$/;"	f
+new_wall	wall_render_bonus.c	/^t_tile	*new_wall(t_game *game)$/;"	f
+open_death_screen	free_displays_bonus.c	/^void	open_death_screen(t_game *game)$/;"	f
+open_victory_screen	free_displays_bonus.c	/^void	open_victory_screen(t_game *game)$/;"	f
+parse	parse_bonus.c	/^int	parse(t_game *game, int argc, char **argv)$/;"	f
+player_touching_ceiling	collisions_bonus.c	/^int	player_touching_ceiling(t_game *game)$/;"	f
+player_touching_exit	collisions_bonus.c	/^int	player_touching_exit(t_game *game)$/;"	f
+player_touching_floor	collisions_bonus.c	/^int	player_touching_floor(t_game *game)$/;"	f
+player_touching_wall_left	collisions_bonus.c	/^int	player_touching_wall_left(t_game *game)$/;"	f
+player_touching_wall_right	collisions_bonus.c	/^int	player_touching_wall_right(t_game *game)$/;"	f
+position_enemy	enemy_render_bonus.c	/^void	position_enemy(t_game *game)$/;"	f
+position_item	item_render_bonus.c	/^void	position_item(t_game *game)$/;"	f
+position_portal	portal_render_bonus.c	/^void	position_portal(t_game *game)$/;"	f
+position_sprites	render_bonus.c	/^void	position_sprites(t_game *game, int x, int y)$/;"	f
+position_wall	wall_render_bonus.c	/^void	position_wall(t_game *game)$/;"	f
+read_map	map_parse_utils_bonus.c	/^char	**read_map(char *file_name)$/;"	f
+renderer	game_loop_bonus.c	/^int	renderer(t_game *game)$/;"	f
+set_path	map_parse_utils2_bonus.c	/^void	set_path(char **map, int x, int y, t_point size)$/;"	f
+set_player_pos	map_parse_utils2_bonus.c	/^t_point	set_player_pos(char **map, int width, int height)$/;"	f
+update_attack_timer	timers_bonus.c	/^void	update_attack_timer(t_game *game)$/;"	f
+update_camera	game_loop_utils2_bonus.c	/^void	update_camera(t_game *game)$/;"	f
+update_enemy_orientation	animate_utils2_bonus.c	/^void	update_enemy_orientation(t_enemy *enemy)$/;"	f
+update_enemy_pos	animate_utils2_bonus.c	/^void	update_enemy_pos(t_game *game, t_enemy *enemy)$/;"	f
+update_item_orentation	item_render_bonus.c	/^void	update_item_orentation(t_game *game)$/;"	f
+update_loop_variables	game_loop_utils_bonus.c	/^void	update_loop_variables(t_game *game)$/;"	f
+update_stationary_pos	render_utils_bonus.c	/^void	update_stationary_pos(t_game *game, int x, int y)$/;"	f
+update	game_loop_bonus.c	/^int	update(t_game *game)$/;"	f
+zero_breno_sprites	init_sprites_utils_bonus.c	/^void	zero_breno_sprites(t_game *game)$/;"	f
+zero_sprites	init_sprites_bonus.c	/^void	zero_sprites(t_image *sprites, int count)$/;"	f

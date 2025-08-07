@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 01:57:47 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/04 17:52:54 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/07 02:34:08 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	is_allowed_char(t_game *game)
 			if (map[i][j] != '1' && map[i][j] != '0'
 				&& map[i][j] != 'E' && map[i][j] != 'P'
 				&& map[i][j] != 'C' && map[i][j] != 'X')
-				return (0);
+				return (error_message("Allowed map chars:: 1 E C 0 P X\n", 0));
 			j++;
 		}
 		i++;
@@ -39,7 +39,7 @@ int	is_allowed_char(t_game *game)
 int	is_one_pe(t_game *game)
 {
 	if (game->map.e_count > 1 || game->map.p_count > 1)
-		return (0);
+		return (error_message("map must have only one of: P E\n", 0));
 	return (1);
 }
 
@@ -68,7 +68,7 @@ int	is_at_least_one_cpex(t_game *game)
 	}
 	if (game->map.c_count == 0 || game->map.p_count == 0
 		|| game->map.e_count == 0 || game->map.x_count == 0)
-		return (0);
+		return (error_message("map needs at least one of: C P E X\n", 0));
 	return (1);
 }
 
@@ -80,7 +80,7 @@ int	is_rectangular(t_game *game)
 	while (*map)
 	{
 		if ((int)strlen(*map) != game->map.width)
-			return (0);
+			return (error_message("map must be rectangular\n", 0));
 		map++;
 	}
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 17:19:00 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/06 13:44:23 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/07 02:28:53 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,6 +222,7 @@ typedef struct s_game
 
 // parse
 int			parse(t_game *game, int argc, char **argv);
+int			error_message(char *message, int error_code);
 
 // displays
 int			free_displays(t_game *game);

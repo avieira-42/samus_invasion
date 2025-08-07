@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_parse_utils2.c                                 :+:      :+:    :+:   */
+/*   map_parse_utils2_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 13:41:09 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/29 16:13:43 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/07 02:10:23 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int	is_valid_path(char **map, int width, int height)
 		while (x < width)
 		{
 			if (path_map[y][x] == 'C' || path_map[y][x] == 'E')
-				return (0);
+				return (error_message("unvalid path\n", 0));
 			x++;
 		}
 		y++;
