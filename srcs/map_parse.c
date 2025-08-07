@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 01:57:47 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/07 15:37:33 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/07 21:58:11 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int	is_allowed_char(t_game *game)
 		{
 			if (map[i][j] != '1' && map[i][j] != '0'
 				&& map[i][j] != 'E' && map[i][j] != 'P'
-				&& map[i][j] != 'C' && map[i][j] != 'X')
-				return (error_message("Allowed map chars:: 1 E C 0 P X\n", 0));
+				&& map[i][j] != 'C')
+				return (error_message("Allowed map chars:: 1 E C 0 P\n", 0));
 			j++;
 		}
 		i++;
@@ -61,14 +61,13 @@ int	is_at_least_one_cpex(t_game *game)
 				game->map.p_count++;
 			if (map[i.y][i.x] == 'E')
 				game->map.e_count++;
-			if (map[i.y][i.x++] == 'X')
-				game->map.x_count++;
+			i.x++;
 		}
 		i.y++;
 	}
 	if (game->map.c_count == 0 || game->map.p_count == 0
-		|| game->map.e_count == 0 || game->map.x_count == 0)
-		return (error_message("map needs at least one of: C P E X\n", 0));
+		|| game->map.e_count == 0)
+		return (error_message("map needs at least one of: C P E\n", 0));
 	return (1);
 }
 

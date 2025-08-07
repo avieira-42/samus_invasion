@@ -6,11 +6,11 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 18:39:19 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/07 15:35:47 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/07 21:47:33 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../b_includes/so_long_bonus.h"
 
 int	init_map(t_game *game, char *argv1)
 {

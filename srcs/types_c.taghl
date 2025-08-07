@@ -1,3 +1,0 @@
-syn keyword CTagsFunction draw_towel init_main_struct is_only_1 is_allowed_char init_map move_left key_pressed draw_tile init_towel init_background free_sprites game_loop is_at_least_one_cpe main read_map draw_map init_portal map_parse is_rectangular draw_portal init_game init_window set_player_pos init_image set_path move_right get_map_height is_surrounded_by_1 is_one_pe copy_map init_player get_map_width free_displays parse is_valid_path init_empty_space init_tile move_up ft_freesplit draw_player
-syn keyword CTagsFunction draw_empty_space move_down
-
