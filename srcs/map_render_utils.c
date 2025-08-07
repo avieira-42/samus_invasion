@@ -6,11 +6,18 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 20:50:26 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/29 16:17:17 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/05 23:24:29 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+void	draw_empty_space(t_game *game, int *y, int *x)
+{
+	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+		game->empty_space.image,
+		*x * SPRITE_SIZE, *y * SPRITE_SIZE);
+}
 
 void	draw_player(t_game *game, int *y, int *x)
 {

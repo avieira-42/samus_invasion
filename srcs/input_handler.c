@@ -6,7 +6,7 @@
 /*   By: lshonta <lshonta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 21:11:02 by lshonta           #+#    #+#             */
-/*   Updated: 2025/07/29 16:25:44 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/05 21:57:36 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	move_up(t_game *game)
 		game->p.y--;
 		game->moves++;
 		ft_printf("Steps: %d\n", game->moves);
+		draw_map(game);
 	}
 }
 
@@ -57,6 +58,7 @@ void	move_down(t_game *game)
 		game->p.y++;
 		game->moves++;
 		ft_printf("Steps: %d\n", game->moves);
+		draw_map(game);
 	}
 }
 
@@ -81,6 +83,7 @@ void	move_left(t_game *game)
 		game->p.x--;
 		game->moves++;
 		ft_printf("Steps: %d\n", game->moves);
+		draw_map(game);
 	}
 }
 
@@ -105,6 +108,7 @@ void	move_right(t_game *game)
 		game->p.x++;
 		game->moves++;
 		ft_printf("Steps: %d\n", game->moves);
+		draw_map(game);
 	}
 }
 

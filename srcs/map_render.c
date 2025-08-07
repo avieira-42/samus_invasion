@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:15:09 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/29 16:15:12 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/05 21:34:02 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,12 @@ void	draw_map(t_game *game)
 				draw_tile(game, &y, &x);
 			else if (game->map.text[y][x] == 'E')
 				draw_portal(game, &y, &x);
+			else if (game->map.text[y][x] == '0')
+				draw_empty_space(game, &y, &x);
 			x++;
 		}
 		y++;
 	}
+	if (game->finish == 1)
+		free_displays(game);
 }

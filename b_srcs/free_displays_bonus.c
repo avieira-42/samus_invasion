@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 01:08:56 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/06 13:48:57 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/06 23:16:17 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ int	free_displays(t_game *game)
 
 void	open_victory_screen(t_game *game)
 {
+	t_point	pos;
+
+	pos.x = 0;
+	pos.y = 0;
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
 		game->victory_screen.image, 0, 0);
 	game->end = TRUE;
@@ -50,6 +54,10 @@ void	open_victory_screen(t_game *game)
 
 void	open_death_screen(t_game *game)
 {
+	t_point	pos;
+
+	pos.x = 0;
+	pos.y = 0;
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
 		game->death_screen.image, 0, 0);
 	game->end = TRUE;

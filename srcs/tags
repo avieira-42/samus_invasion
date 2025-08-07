@@ -4,23 +4,26 @@
 !_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
 !_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
 !_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
-!_TAG_PROC_CWD	/home/avieira-/repos/common_core/milestone_2/so_long/srcs/	//
+!_TAG_PROC_CWD	/home/avieira-/repos/common_core/milestone_2/to_deliver/so_long/srcs/	//
 !_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	5.9.0	//
 copy_map	map_parse_utils2.c	/^char	**copy_map(char **map, int height)$/;"	f	typeref:typename:char **
+draw_empty_space	map_render_utils.c	/^void	draw_empty_space(t_game *game, int *y, int *x)$/;"	f	typeref:typename:void
 draw_map	map_render.c	/^void	draw_map(t_game *game)$/;"	f	typeref:typename:void
 draw_player	map_render_utils.c	/^void	draw_player(t_game *game, int *y, int *x)$/;"	f	typeref:typename:void
 draw_portal	map_render_utils.c	/^void	draw_portal(t_game *game, int *y, int *x)$/;"	f	typeref:typename:void
 draw_tile	map_render_utils.c	/^void	draw_tile(t_game *game, int *y, int *x)$/;"	f	typeref:typename:void
 draw_towel	map_render_utils.c	/^void	draw_towel(t_game *game, int *y, int *x)$/;"	f	typeref:typename:void
 free_displays	free_displays.c	/^int	free_displays(t_game *game)$/;"	f	typeref:typename:int
+free_sprites	free_displays.c	/^void	free_sprites(t_game *game)$/;"	f	typeref:typename:void
 ft_freesplit	free_displays.c	/^void	ft_freesplit(char **str)$/;"	f	typeref:typename:void
 game_loop	game_loop.c	/^int	game_loop(t_game *game)$/;"	f	typeref:typename:int
 get_map_height	map_parse_utils.c	/^void	get_map_height(t_game *game)$/;"	f	typeref:typename:void
 get_map_width	map_parse_utils.c	/^void	get_map_width(t_game *game)$/;"	f	typeref:typename:void
 init_background	init_game.c	/^void	init_background(t_game *game)$/;"	f	typeref:typename:void
+init_empty_space	init_game_utils.c	/^void	init_empty_space(t_game *game)$/;"	f	typeref:typename:void
 init_game	init_game.c	/^void	init_game(t_game *game)$/;"	f	typeref:typename:void
 init_image	init_game.c	/^void	init_image(t_game *game)$/;"	f	typeref:typename:void
 init_main_struct	init_game.c	/^void	init_main_struct(t_game *game)$/;"	f	typeref:typename:void

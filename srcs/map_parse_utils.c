@@ -6,11 +6,11 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 17:50:30 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/29 16:10:09 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/07 18:37:12 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"       
+#include "../b_includes/so_long_bonus.h"       
 
 char	**read_map(char *file_name)
 {
@@ -78,10 +78,10 @@ int	is_surrounded_by_1(t_game *game)
 		if (i == game->map.height || i == 0)
 		{
 			if (!is_only_1(map[i]))
-				return (0);
+				return (error_message("map must be surrounded by walls", 0));
 		}
 		else if (map[i][0] != '1' || map[i][game->map.width - 1] != '1')
-			return (0);
+			return (error_message("map must be surrounded by walls", 0));
 		i++;
 	}
 	return (1);

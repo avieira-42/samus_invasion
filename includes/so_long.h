@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 03:07:10 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/07 02:12:45 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:34:42 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ typedef struct s_game
 	void		*win_ptr;
 	t_map		map;
 	t_point		p;
+	t_image		empty_space;
 	t_image		image;
 	t_image		bckgrnd;
 	t_image		tile;
@@ -88,6 +89,7 @@ int		free_displays(t_game *game);
 void	init_game(t_game *game);
 void	init_window(t_game *game);
 void	init_player(t_game *game);
+void	init_empty_space(t_game *game);
 void	init_tile(t_game *game);
 void	init_towel(t_game *game);
 void	init_portal(t_game *game);
@@ -96,7 +98,7 @@ void	init_image(t_game *game);
 void	init_background(t_game *game);
 
 //map parse
-void	init_map(t_game *game, char *argv1);
+int		init_map(t_game *game, char *argv1);
 int		is_allowed_char(t_game *game);
 int		is_one_pe(t_game *game);
 int		is_at_least_one_cpe(t_game *game);
@@ -124,6 +126,7 @@ char	**read_map(char *file_name);
 void	draw_map(t_game *game);
 
 //render utils
+void	draw_empty_space(t_game *game, int *y, int *x);
 void	draw_player(t_game *game, int *y, int *x);
 void	draw_portal(t_game *game, int *y, int *x);
 void	draw_towel(t_game *game, int *y, int *x);

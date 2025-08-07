@@ -6,22 +6,22 @@
 #    By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 21:49:52 by avieira-          #+#    #+#              #
-#    Updated: 2025/08/06 12:40:14 by a-soeiro         ###   ########.fr        #
+#    Updated: 2025/08/06 23:58:08 by avieira-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME= so_long
-B_NAME= so_long_bonus
+NAME=so_long
+B_NAME=so_long_bonus
 CC= cc
-CFLAGS = -g -Wall -Wextra -Werror -std=c99 -I$(INCLUDES)
+CFLAGS = -g -Wall -Wextra -Werror -I $(INCLUDES)
 LDFLAGS =  -L $(LIBFT_DIR) -lft -L $(MLX_DIR) -Lmlx -lmlx -lXext -lX11 -lbsd -lXext -lX11 -lm 
-INCLUDES= ./includes
-LIBFT_DIR= ./libs/libft
-MLX_DIR= ./libs/mlx
-MLX= $(MLX_DIR)/libmlx.a
-LIBFT= $(LIBFT_DIR)/libft.a
-SRCS_DIR= ./srcs
-B_SRCS_DIR= ./b_srcs
+INCLUDES= includes
+LIBFT_DIR= libs/libft
+MLX_DIR= libs/mlx
+MLX= libs/mlx/libmlx.a
+LIBFT= libs/libft/libft.a
+SRCS_DIR= srcs
+B_SRCS_DIR= b_srcs
 
 SRCS= $(SRCS_DIR)/main.c \
 $(SRCS_DIR)/init_map.c \
@@ -98,37 +98,26 @@ bonus: .bonus
 %.o : %.c $(CC) $(CFLAGS) -I $(INCLUDES) -c $^ -o $@
 
 $(LIBFT):
-	@make -C $(LIBFT_DIR) --no-print-directory
+	@make -C $(LIBFT_DIR)
 
 $(MLX):
-	if [ ! -d "$(MLX_DIR)" ]; then \
-		git clone https://github.com/42Paris/minilibx-linux.git $(MLX_DIR); \
-	fi
-	@$(MAKE) -C $(MLX_DIR)
+	@make -C $(MLX_DIR)
 
 clean:
 	@rm -rf $(OBJS)
 	@rm -rf $(B_OBJS)
 	@rm -rf .bonus
 	@make clean -C $(LIBFT_DIR) --no-print-directory
-	if [ -f "$(MLX_DIR)" ]; then \
-		make clean -C $(MLX_DIR) --no-print-directory; \
-	fi
-
+	@make clean -C $(MLX_DIR) --no-print-directory
 	@echo "Cleaning Objects!"
 
 fclean: clean
+	@rm -rf $(LIBFT)
 	@rm -rf $(NAME)
 	@rm -rf $(B_NAME)
-	if [ -d "$(MLX_DIR)" ]; then \
-		rm -rf $(MLX_DIR); \
-	fi
-
-	@make fclean -C $(LIBFT_DIR) --no-print-directory
+	@rm -rf $(MLX)
 	@echo "Cleaning Objects and executable"
 
 re: fclean all
 
 .PHONY: all clean fclean re
-
-

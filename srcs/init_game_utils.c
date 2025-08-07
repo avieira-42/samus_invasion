@@ -6,11 +6,21 @@
 /*   By: avieira- <marvin@4avieira-@student.42porto.com  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 20:21:22 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/29 20:42:21 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/05 23:19:49 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+void	init_empty_space(t_game *game)
+{
+	game->empty_space.image = mlx_xpm_file_to_image(game->mlx_ptr,
+			"textures/empty_space.xpm", &game->empty_space.x,
+			&game->empty_space.y);
+	game->empty_space.addr = mlx_get_data_addr(game->empty_space.image,
+			&game->empty_space.bits_per_pixel, &game->empty_space.line_length,
+			&game->empty_space.endian);
+}
 
 void	init_tile(t_game *game)
 {

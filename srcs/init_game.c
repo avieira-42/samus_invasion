@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 20:27:37 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/29 20:41:38 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/05 21:55:17 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	init_game(t_game *game)
 	init_main_struct(game);
 	init_image(game);
 	init_background(game);
+	init_empty_space(game);
 	init_tile(game);
 	init_towel(game);
 	init_portal(game);

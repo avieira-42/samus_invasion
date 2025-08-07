@@ -6,13 +6,13 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 18:39:19 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/28 23:42:40 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:35:47 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	init_map(t_game *game, char *argv1)
+int	init_map(t_game *game, char *argv1)
 {
 	game->map.height = 0;
 	game->map.width = 0;
@@ -21,5 +21,6 @@ void	init_map(t_game *game, char *argv1)
 	game->map.e_count = 0;
 	game->map.text = read_map(argv1);
 	if (game->map.text == NULL)
-		return ;
+		return (0);
+	return (1);
 }

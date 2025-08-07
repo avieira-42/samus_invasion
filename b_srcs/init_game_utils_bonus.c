@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 02:32:50 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/04 20:39:41 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/06 17:32:10 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ void	init_player(t_game *game)
 	game->player.tmp_pos = game->player.pos;
 	game->player.direction = game->player.pos;
 	game->player.velocity = game->player.pos;
+	game->player.jump.max_count = game->map.height / TILE_SIZE_Y;
+	game->player.jump.count = 0;
 	game->player.jump.active = FALSE;
 	game->player.jump.t_started = 0;
 	game->player.jump.t_elapsed = 0;

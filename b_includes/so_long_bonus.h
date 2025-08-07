@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 17:19:00 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/07 02:28:53 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:34:56 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ typedef struct s_point
 
 typedef struct s_jump
 {
+	int		max_count;
+	int		count;
 	t_bool	active;
 	float	t_started;
 	float	t_elapsed;
@@ -233,7 +235,7 @@ void		free_death_screen(t_game *game);
 void		free_victory_screen(t_game *game);
 
 //map parse
-void		init_map(t_game *game, char *argv1);
+int			init_map(t_game *game, char *argv1);
 int			is_allowed_char(t_game *game);
 int			is_one_PE(t_game *game);
 int			is_at_least_one_CPEX(t_game *game);
@@ -288,9 +290,9 @@ void		init_enemy(t_game *game);
 void		init_player(t_game *game);
 
 // init game utils
-void	init_finish_screens(t_game *game);
-void	init_death_screen(t_game *game);
-void	init_victory_screen(t_game *game);
+void		init_finish_screens(t_game *game);
+void		init_death_screen(t_game *game);
+void		init_victory_screen(t_game *game);
 
 // init sprites
 void		load_sprite(void *mlx_ptr, t_image *sprite, char *filepath);

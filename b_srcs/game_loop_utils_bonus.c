@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_loop_utils.c                                  :+:      :+:    :+:   */
+/*   game_loop_utils_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 21:50:14 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/31 17:16:13 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/06 17:10:31 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	is_jumping(t_game *game)
 		if (game->player.touching_ground
 			&& game->player.jump.t_started > 0)
 		{
+			game->player.jump.count = 0;
 			game->player.jump.active = FALSE;
 			game->player.jump.t_elapsed = 0;
 			game->player.jump.t_started = 0;
