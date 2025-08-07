@@ -6,11 +6,11 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 01:57:47 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/07 21:58:11 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/07 23:21:24 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../b_includes/so_long_bonus.h"
+#include "../includes/so_long.h"
 
 int	is_allowed_char(t_game *game)
 {
@@ -100,8 +100,8 @@ int	map_parse(t_game *game, char *argv1)
 		&& is_surrounded_by_1(game)
 		&& is_valid_path(game->map.text, game->map.width, game->map.height))
 	{
-		game->map.width *= TILE_SIZE_X;
-		game->map.height *= TILE_SIZE_Y;
+		game->map.width *= SPRITE_SIZE;
+		game->map.height *= SPRITE_SIZE;
 		return (1);
 	}
 	ft_free_matrix(game->map.text);

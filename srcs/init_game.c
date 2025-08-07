@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 20:27:37 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/05 21:55:17 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/07 23:27:18 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	init_window(t_game *game)
 {
-	game->map.width *= SPRITE_SIZE;
-	game->map.height *= SPRITE_SIZE;
 	(*game).mlx_ptr = mlx_init();
 	(*game).win_ptr = mlx_new_window((*game).mlx_ptr,
 			game->map.width, game->map.height, "game3d");

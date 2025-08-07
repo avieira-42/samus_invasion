@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../b_includes/so_long_bonus.h"
+#include "../includes/so_long.h"
 
 int	error_message(char *message, int error_code)
 {
