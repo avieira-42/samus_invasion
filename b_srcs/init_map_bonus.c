@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 18:39:19 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/08 02:48:07 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/08 04:01:31 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ int	init_map(t_game *game, char *argv1)
 	game->map.e_count = 0;
 	game->map.x_count = 0;
 	game->map.text = read_map(argv1);
-	if (game->map.text == NULL || game->map.text[0] == NULL)
+	if (game->map.text == NULL)
 		return (0);
+	if (game->map.text[0] == NULL)
+		return (ft_free_matrix(game->map.text),
+			error_message("map must be a file not a directory\n", 0));
 	return (1);
 }

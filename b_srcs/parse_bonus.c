@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 19:22:12 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/07 18:46:54 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/08 03:55:39 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int	parse(t_game *game, int argc, char **argv)
 {
 	if (argc != 2)
 		return (error_message("Usage: ./so_long *.ber\n", 0));
-	if (!map_parse(game, argv[1]))
-		return (0);
 	if (!is_file_name_valid(argv[1]))
+		return (0);
+	if (!map_parse(game, argv[1]))
 		return (0);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 13:41:09 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/07 02:10:23 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/08 03:49:55 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,11 +100,11 @@ int	is_valid_path(char **map, int width, int height)
 		while (x < width)
 		{
 			if (path_map[y][x] == 'C' || path_map[y][x] == 'E')
-				return (error_message("unvalid path\n", 0));
+				return (ft_free_matrix(path_map),
+					error_message("unvalid path\n", 0));
 			x++;
 		}
 		y++;
 	}
-	ft_free_matrix(path_map);
-	return (1);
+	return (ft_free_matrix(path_map), 1);
 }

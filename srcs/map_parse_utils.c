@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 21:49:26 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/08/08 02:27:54 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/08 03:23:51 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	**read_map(char *file_name)
 
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
-		return (NULL);
+		return (error_message("file doesn't exist\n", 0), NULL);
 	map_holder = ft_strdup("");
 	if (map_holder == NULL)
 		return (NULL);

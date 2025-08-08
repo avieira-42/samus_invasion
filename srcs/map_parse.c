@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 01:57:47 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/07 23:21:24 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/08 03:24:11 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,6 @@ int	is_rectangular(t_game *game)
 int	map_parse(t_game *game, char *argv1)
 {
 	if (!init_map(game, argv1))
-		return (error_message("file doesn't exist\n", 0));
-	if (game->map.text == NULL)
 		return (0);
 	get_map_height(game);
 	get_map_width(game);
