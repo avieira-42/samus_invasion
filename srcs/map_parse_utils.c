@@ -6,7 +6,7 @@
 /*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 21:49:26 by a-soeiro          #+#    #+#             */
-/*   Updated: 2025/08/07 21:49:42 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/08 02:27:54 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ int	is_surrounded_by_1(t_game *game)
 		if (i == game->map.height || i == 0)
 		{
 			if (!is_only_1(map[i]))
-				return (error_message("map must be surrounded by walls", 0));
+				return (error_message("map must be surrounded by walls\n", 0));
 		}
 		else if (map[i][0] != '1' || map[i][game->map.width - 1] != '1')
-			return (error_message("map must be surrounded by walls", 0));
+			return (error_message("map must be surrounded by walls\n", 0));
 		i++;
 	}
 	return (1);

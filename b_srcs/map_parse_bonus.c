@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 01:57:47 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/07 15:38:42 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/08 02:42:51 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	is_allowed_char(t_game *game)
 			if (map[i][j] != '1' && map[i][j] != '0'
 				&& map[i][j] != 'E' && map[i][j] != 'P'
 				&& map[i][j] != 'C' && map[i][j] != 'X')
-				return (error_message("Allowed map chars:: 1 E C 0 P X\n", 0));
+				return (error_message("Allowed map chars: 1 E C 0 P X\n", 0));
 			j++;
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 01:08:56 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/07 19:39:48 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/08/08 03:05:20 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	free_victory_screen(t_game *game)
 int	free_displays(t_game *game)
 {
 	free_death_screen(game);
+	free_victory_screen(game);
 	mlx_loop_end((*game).mlx_ptr);
 	ft_free_matrix(game->map.text);
 	free_sprites(game);

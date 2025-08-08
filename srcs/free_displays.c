@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_displays.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 17:41:42 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/04 20:53:27 by avieira-         ###   ########.fr       */
+/*   Created: 2025/08/08 03:06:51 by a-soeiro          #+#    #+#             */
+/*   Updated: 2025/08/08 03:09:29 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	free_sprites(t_game *game)
 	mlx_destroy_image(game->mlx_ptr, game->tile.image);
 	mlx_destroy_image(game->mlx_ptr, game->portal.image);
 	mlx_destroy_image(game->mlx_ptr, game->player.image);
+	mlx_destroy_image(game->mlx_ptr, game->empty_space.image);
 }
 
 void	ft_freesplit(char **str)

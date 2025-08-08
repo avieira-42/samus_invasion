@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 02:02:37 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/06 17:31:54 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/08 02:51:23 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_window(t_game *game)
 		game->map.width = game->map.width * TILE_SIZE_X;
 		(*game).mlx_ptr = mlx_init();
 		(*game).win_ptr = mlx_new_window((*game).mlx_ptr,
-				SCREEN_SIZE_X, SCREEN_SIZE_Y, "game3d");
+				SCREEN_SIZE_X, SCREEN_SIZE_Y, "so_long_bonus");
 	}
 }
 

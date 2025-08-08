@@ -6,11 +6,24 @@
 /*   By: avieira- <marvavieira-@student.42porto.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 16:13:27 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/04 23:33:57 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/08/08 02:34:17 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../b_includes/so_long_bonus.h"
+
+void	load_sprite(void *mlx_ptr, t_image *sprite, char *filepath)
+{
+	sprite->image = mlx_xpm_file_to_image(mlx_ptr, filepath, &sprite->x,
+			&sprite->y);
+	if (!sprite->image)
+	{
+		sprite->addr = NULL;
+		return ;
+	}
+	sprite->addr = mlx_get_data_addr(sprite->image,
+			&sprite->bits_per_pixel, &sprite->line_length, &sprite->endian);
+}
 
 void	init_breno_idle_sprites(t_game *game)
 {
@@ -30,19 +43,6 @@ void	init_breno_idle_sprites(t_game *game)
 			player_idle_sprite_paths[i]);
 		i++;
 	}
-}
-
-void	load_sprite(void *mlx_ptr, t_image *sprite, char *filepath)
-{
-	sprite->image = mlx_xpm_file_to_image(mlx_ptr, filepath, &sprite->x,
-			&sprite->y);
-	if (!sprite->image)
-	{
-		sprite->addr = NULL;
-		return ;
-	}
-	sprite->addr = mlx_get_data_addr(sprite->image,
-			&sprite->bits_per_pixel, &sprite->line_length, &sprite->endian);
 }
 
 void	init_breno_falling_sprites(t_game *game)
