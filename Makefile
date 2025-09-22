@@ -6,7 +6,7 @@
 #    By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 21:49:52 by avieira-          #+#    #+#              #
-#    Updated: 2025/09/22 18:44:51 by avieira-         ###   ########.fr        #
+#    Updated: 2025/09/22 22:48:48 by avieira-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,8 +70,7 @@ OBJS=$(SRCS:.c=.o)
 all: $(LIBFT) $(NAME)
 
 $(NAME): $(MLX) $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(B_OBJS) $(LDFLAGS) $(MLX) -o $(NAME)
-	touch .bonus
+	$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) $(MLX) -o $(NAME)
 
 %.o : %.c $(CC) $(CFLAGS) -I $(INCLUDES) -c $^ -o $@
 
