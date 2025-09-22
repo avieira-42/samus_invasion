@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: avieira- <marvin@4avieira-@student.42porto.com  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/22 18:02:30 by avieira-          #+#    #+#             */
-/*   Updated: 2025/09/22 18:02:34 by avieira-         ###   ########.fr       */
+/*   Created: 2025/07/29 20:21:22 by avieira-          #+#    #+#             */
+/*   Updated: 2025/09/09 15:55:50 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
