@@ -6,19 +6,19 @@
 #    By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 21:49:52 by avieira-          #+#    #+#              #
-#    Updated: 2025/09/22 00:55:07 by a-soeiro         ###   ########.fr        #
+#    Updated: 2025/09/22 17:53:22 by avieira-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=so_long
-B_NAME=so_long_bonus
+B_NAME=samus_invasion_bonus
 CC= cc
 CFLAGS = -g -Wall -Wextra -Werror -I $(INCLUDES)
 LDFLAGS =  -L $(LIBFT_DIR) -lft -L $(MLX_DIR) -Lmlx -lmlx -lXext -lX11 -lbsd -lXext -lX11 -lm 
 INCLUDES= includes
 LIBFT_DIR= libs/libft
-MLX_DIR= libs/mlx
-MLX= libs/mlx/libmlx.a
+MLX_DIR= libs/minilibx-linux/
+MLX= libs/minilibx-linux/libmlx.a
 LIBFT= libs/libft/libft.a
 SRCS_DIR= srcs
 B_SRCS_DIR= b_srcs

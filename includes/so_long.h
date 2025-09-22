@@ -6,15 +6,15 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 03:07:10 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/07 15:34:42 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/09/15 09:58:10 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 # include "../libs/libft/include/libft.h"
-# include "../libs/mlx/mlx.h"
-# include "../libs/mlx/mlx_int.h"
+# include "../libs/minilibx-linux/mlx.h"
+# include "../libs/minilibx-linux/mlx_int.h"
 # include <strings.h>
 # include <limits.h>
 # include <math.h>
@@ -131,6 +131,7 @@ void	draw_player(t_game *game, int *y, int *x);
 void	draw_portal(t_game *game, int *y, int *x);
 void	draw_towel(t_game *game, int *y, int *x);
 void	draw_tile(t_game *game, int *y, int *x);
+void	update_info(t_game *game);
 
 //struct utils
 int		check_args(char *str);

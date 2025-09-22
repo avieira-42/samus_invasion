@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:09:07 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/07 16:08:31 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/09/15 11:21:20 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	key_pressed(int keysym, t_game *game)
 		game->player.jump.t_started = 0;
 		game->player.jump.t_elapsed = 0;
 		game->player.jump.active = TRUE;
+		game->player.jump.velocity = VELOCITY_Y;
 	}
 	key_pressed2(keysym, game);
 	return (1);

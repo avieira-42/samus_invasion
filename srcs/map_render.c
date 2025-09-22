@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 16:15:09 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/05 21:34:02 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/09/15 09:56:21 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,12 @@ void	draw_map(t_game *game)
 	}
 	if (game->finish == 1)
 		free_displays(game);
+}
+
+void	update_info(t_game *game)
+{
+	game->p.x++;
+	game->moves++;
+	ft_printf("Steps: %d\n", game->moves);
+	draw_map(game);
 }

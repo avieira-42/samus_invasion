@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 19:22:12 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/08 03:44:53 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/09/15 10:21:56 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	is_file_name_valid(char *file_name)
 	if (ft_strcmp(file_name, ".ber"))
 		return (error_message("file type must be .ber\n", 0));
 	if (*(file_name - 1) == '/')
-		return (error_message("file cannot be hidden/unamed\n", 0));
+		return (error_message("file type must be .ber\n", 0));
 	return (1);
 }
 

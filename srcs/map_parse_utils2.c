@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 13:41:09 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/08 03:57:30 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/09/15 08:55:01 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	set_path(char **map, int x, int y, t_point size)
 {
 	if (x < 0 || y < 0 || x >= size.x || y >= size.y)
 		return ;
+	if (map[y][x] == 'E')
+		map[y][x] = '1';
 	if (map[y][x] == '1' || map[y][x] == 'V')
 		return ;
 	map[y][x] = 'V';

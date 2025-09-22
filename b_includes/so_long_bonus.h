@@ -6,15 +6,15 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 17:19:00 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/07 15:34:56 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/09/08 16:05:33 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_BONUS_H
 # define SO_LONG_BONUS_H
 # include "../libs/libft/include/libft.h"
-# include "../libs/mlx/mlx.h"
-# include "../libs/mlx/mlx_int.h"
+# include "../libs/minilibx-linux/mlx.h"
+# include "../libs/minilibx-linux/mlx_int.h"
 # include <strings.h>
 # include <limits.h>
 # include <math.h>

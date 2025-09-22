@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 20:27:37 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/08 02:51:33 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/09/09 15:57:36 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,18 @@
 
 void	init_window(t_game *game)
 {
-	(*game).mlx_ptr = mlx_init();
-	(*game).win_ptr = mlx_new_window((*game).mlx_ptr,
+	game->mlx_ptr = mlx_init();
+	game->win_ptr = mlx_new_window((*game).mlx_ptr,
 			game->map.width, game->map.height, "so_long");
 }
 
 void	init_main_struct(t_game *game)
 {
+	game->empty_space.image = NULL;
+	game->tile.image = NULL;
+	game->towel.image = NULL;
+	game->portal.image = NULL;
+	game->player.image = NULL;
 	game->finish = 0;
 	game->fd = 0;
 	game->moves = 0;
@@ -41,11 +46,15 @@ void	init_image(t_game *game)
 
 void	init_background(t_game *game)
 {
+	game->bckgrnd.image = NULL;
 	game->bckgrnd.image = mlx_xpm_file_to_image(game->mlx_ptr,
 			"textures/quasar.xpm", &game->bckgrnd.x, &game->bckgrnd.y);
-	game->bckgrnd.addr = mlx_get_data_addr(game->bckgrnd.image,
-			&game->bckgrnd.bits_per_pixel, &game->bckgrnd.line_length,
-			&game->bckgrnd.endian);
+	if (!game->bckgrnd.image)
+		free_displays(game);
+	else
+		game->bckgrnd.addr = mlx_get_data_addr(game->bckgrnd.image,
+				&game->bckgrnd.bits_per_pixel, &game->bckgrnd.line_length,
+				&game->bckgrnd.endian);
 }
 
 void	init_game(t_game *game)

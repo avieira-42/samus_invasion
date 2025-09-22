@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lshonta <lshonta@student.42.fr>            +#+  +:+       +#+        */
+/*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/07 21:11:02 by lshonta           #+#    #+#             */
-/*   Updated: 2025/08/05 21:57:36 by avieira-         ###   ########.fr       */
+/*   Created: 2025/09/22 18:03:10 by avieira-          #+#    #+#             */
+/*   Updated: 2025/09/22 18:03:12 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,20 @@ void	move_up(t_game *game)
 			game->map.text[game->p.y - 1][game->p.x] = 'P';
 		}
 		else if (game->map.text[game->p.y - 1][game->p.x] == 'E'
-			&& game->map.c_count == 0)
+				&& game->map.c_count == 0)
 			game->finish = 1;
-		game->p.y--;
-		game->moves++;
-		ft_printf("Steps: %d\n", game->moves);
-		draw_map(game);
+		if (game->map.text[game->p.y - 1][game->p.x] != 'E'
+				|| (game->map.text[game->p.y - 1][game->p.x] == 'E'
+					&& game->map.c_count == 0))
+			update_info(game);
 	}
 }
 
 void	move_down(t_game *game)
 {
-	if (game->map.text[game->p.y + 1][game->p.x] != '1')
+	if (game->map.text[game->p.y + 1][game->p.x] != '1'
+			|| (game->map.text[game->p.y + 1][game->p.x] == 'E'
+				&& game->map.c_count == 0))
 	{
 		if (game->map.text[game->p.y + 1][game->p.x] == 'C')
 		{
@@ -53,18 +55,20 @@ void	move_down(t_game *game)
 			game->map.text[game->p.y + 1][game->p.x] = 'P';
 		}
 		else if (game->map.text[game->p.y + 1][game->p.x] == 'E'
-			&& game->map.c_count == 0)
+				&& game->map.c_count == 0)
 			game->finish = 1;
-		game->p.y++;
-		game->moves++;
-		ft_printf("Steps: %d\n", game->moves);
-		draw_map(game);
+		if (game->map.text[game->p.y + 1][game->p.x] != 'E'
+				|| (game->map.text[game->p.y + 1][game->p.x] == 'E'
+					&& game->map.c_count == 0))
+			update_info(game);
 	}
 }
 
 void	move_left(t_game *game)
 {
-	if (game->map.text[game->p.y][game->p.x - 1] != '1')
+	if (game->map.text[game->p.y][game->p.x - 1] != '1'
+			|| (game->map.text[game->p.y][game->p.x - 1] == 'E'
+				&& game->map.c_count == 0))
 	{
 		if (game->map.text[game->p.y][game->p.x - 1] == 'C')
 		{
@@ -78,18 +82,20 @@ void	move_left(t_game *game)
 			game->map.text[game->p.y][game->p.x - 1] = 'P';
 		}
 		else if (game->map.text[game->p.y][game->p.x - 1] == 'E'
-			&& game->map.c_count == 0)
+				&& game->map.c_count == 0)
 			game->finish = 1;
-		game->p.x--;
-		game->moves++;
-		ft_printf("Steps: %d\n", game->moves);
-		draw_map(game);
+		if (game->map.text[game->p.y][game->p.x - 1] != 'E'
+				|| (game->map.text[game->p.y][game->p.x - 1] == 'E'
+					&& game->map.c_count == 0))
+			update_info(game);
 	}
 }
 
 void	move_right(t_game *game)
 {
-	if (game->map.text[game->p.y][game->p.x + 1] != '1')
+	if (game->map.text[game->p.y][game->p.x + 1] != '1'
+			|| (game->map.text[game->p.y][game->p.x + 1] == 'E'
+				&& game->map.c_count == 0))
 	{
 		if (game->map.text[game->p.y][game->p.x + 1] == 'C')
 		{
@@ -103,12 +109,12 @@ void	move_right(t_game *game)
 			game->map.text[game->p.y][game->p.x + 1] = 'P';
 		}
 		else if (game->map.text[game->p.y][game->p.x + 1] == 'E'
-			&& game->map.c_count == 0)
+				&& game->map.c_count == 0)
 			game->finish = 1;
-		game->p.x++;
-		game->moves++;
-		ft_printf("Steps: %d\n", game->moves);
-		draw_map(game);
+		if (game->map.text[game->p.y][game->p.x + 1] != 'E'
+				|| (game->map.text[game->p.y][game->p.x + 1] == 'E'
+					&& game->map.c_count == 0))
+			update_info(game);
 	}
 }
 
