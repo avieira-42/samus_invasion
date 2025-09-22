@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 17:22:17 by jesusoncrac       #+#    #+#             */
-/*   Updated: 2025/05/13 23:50:48 by avieira-         ###   ########.fr       */
+/*   Created: 2025/09/18 00:46:29 by a-soeiro          #+#    #+#             */
+/*   Updated: 2025/09/20 16:18:52 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ char	*ft_writeline(char *line, char *buf)
 	char	*l_ptr;
 	char	*nl_ptr;
 
+	if (!line && (!buf || !*buf))
+		return (NULL);
 	l_ptr = line;
 	len = ft_nlen(line) + ft_nlen(buf);
 	new_line = (char *) malloc(sizeof(char) * (len + 1));
@@ -52,18 +54,21 @@ char	*ft_writeline(char *line, char *buf)
 	return (free(line), new_line);
 }
 
-char	*ft_readline(int fd, char *buf, char *line)
+char	*get_next_line(int fd)
 {
-	ssize_t		bytes_read;
+	ssize_t			bytes_read;
+	char			*line;
+	static char		buf[BUFFER_SIZE + 1];
 
+	if (fd < 0 || BUFFER_SIZE < 1)
+		return (NULL);
+	line = NULL;
 	while (!ft_found_newline(line))
 	{
 		if (!*buf)
 		{
 			bytes_read = read(fd, buf, BUFFER_SIZE);
-			if (bytes_read == -1)
-				return (free(line), NULL);
-			if (bytes_read == 0)
+			if (bytes_read <= 0)
 				break ;
 		}
 		line = ft_writeline(line, buf);
@@ -71,29 +76,10 @@ char	*ft_readline(int fd, char *buf, char *line)
 			return (NULL);
 		ft_removeline(buf);
 	}
-	return (line);
-}
-
-char	*get_next_line(int fd)
-{
-	char			*line;
-	static char		*buf[1024];
-
-	line = NULL;
-	if (fd < 0 || BUFFER_SIZE < 1 || fd > 1024)
+	if (!line)
 		return (NULL);
-	if (!buf[fd])
-	{
-		buf[fd] = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-		if (!buf[fd])
-			return (NULL);
-	}
-	line = ft_readline(fd, buf[fd], line);
-	if (!line || !*line)
-	{
-		free(buf[fd]);
-		buf[fd] = NULL;
-	}
+	if (!line && *line == '\0')
+		return (free(line), NULL);
 	return (line);
 }
 /*

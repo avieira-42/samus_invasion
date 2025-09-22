@@ -6,7 +6,7 @@
 #    By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/21 12:18:39 by avieira-          #+#    #+#              #
-#    Updated: 2025/06/28 11:56:45 by avieira-         ###   ########.fr        #
+#    Updated: 2025/09/11 22:36:05 by a-soeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ SRCS += srcs/ft_lstsize_bonus.c srcs/ft_lstlast_bonus.c srcs/ft_dblylst_clear.c
 SRCS += srcs/ft_lstadd_back_bonus.c srcs/ft_lstadd_front_bonus.c
 SRCS += srcs/ft_lstclear_bonus.c srcs/ft_lstiter_bonus.c srcs/ft_lstmap_bonus.c
 SRCS += srcs/ft_dblylst_new.c srcs/ft_dblylst_addback.c srcs/ft_dblylst_last.c 
-SRCS += srcs/ft_dblylst_size.c srcs/ft_is_int.c
+SRCS += srcs/ft_dblylst_size.c srcs/ft_is_int.c srcs/ft_bool_strcmp.c
 SRCS += srcs/get_next_line.c srcs/get_next_line_utils.c
 OBJS = $(SRCS:.c=.o)
 

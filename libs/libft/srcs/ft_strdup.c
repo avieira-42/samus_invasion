@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:03:16 by avieira-          #+#    #+#             */
-/*   Updated: 2025/04/14 15:27:31 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/09/18 00:44:00 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ char	*ft_strdup(const char *src)
 	char	*dup;
 	char	*s;
 
+	if (!src || !*src)
+		return (NULL);
 	s = (char *) src;
 	len = ft_strlen(src);
 	dup = (char *) malloc(sizeof(char) * (len + 1));

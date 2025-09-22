@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 19:40:52 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/31 18:00:17 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/09/20 16:19:39 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ int			ft_printf(const char *format, ...);
 int			ft_found_newline(char *line);
 int			ft_nlen(char *str);
 char		*get_next_line(int fd);
-char		*ft_readline(int fd, char *buf, char *line);
 char		*ft_writeline(char *line, char *buf);
 void		ft_removeline(char *buf);
 
@@ -122,6 +121,7 @@ char		*ft_strchr(const char *s, int c);
 char		*ft_strrchr(const char *s, int c);
 char		*ft_strnstr(const char *big, const char *little, size_t len);
 size_t		ft_strlen(const char *s);
+t_bool		ft_bool_strcmp(char *string_1, char *string_2);
 
 /* FILE DESCRIPTING */
 

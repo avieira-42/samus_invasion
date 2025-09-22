@@ -1,36 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   ft_bool_strcmp.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: a-soeiro <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/01 22:11:13 by avieira-          #+#    #+#             */
-/*   Updated: 2025/09/18 00:52:35 by a-soeiro         ###   ########.fr       */
+/*   Created: 2025/09/11 18:31:53 by a-soeiro          #+#    #+#             */
+/*   Updated: 2025/09/11 19:13:20 by a-soeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-int	ft_found_newline(char *line)
+t_bool	ft_bool_strcmp(char *string_1, char *string_2)
 {
-	int	i;
-
-	i = 0;
-	while (line && line[i])
-		if (line[i++] == '\n')
-			return (1);
-	return (0);
-}
-
-int	ft_nlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str && str[i] && str[i] != '\n')
-		i++;
-	if (str && str[i] == '\n')
-		i++;
-	return (i);
+	if (ft_strcmp(string_1, string_2) == 0)
+		return (TRUE);
+	return (FALSE);
 }

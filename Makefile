@@ -6,12 +6,12 @@
 #    By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 21:49:52 by avieira-          #+#    #+#              #
-#    Updated: 2025/09/22 17:53:22 by avieira-         ###   ########.fr        #
+#    Updated: 2025/09/22 18:19:08 by avieira-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=so_long
-B_NAME=samus_invasion_bonus
+B_NAME=samus_invasion
 CC= cc
 CFLAGS = -g -Wall -Wextra -Werror -I $(INCLUDES)
 LDFLAGS =  -L $(LIBFT_DIR) -lft -L $(MLX_DIR) -Lmlx -lmlx -lXext -lX11 -lbsd -lXext -lX11 -lm 
