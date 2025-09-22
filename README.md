@@ -1,1 +1,1 @@
-![samus_invasion_recording_git](https://github.com/user-attachments/assets/e1a31bb0-095f-4937-8130-52a7ca09fbe7)
+![samus_invasion](https://github.com/user-attachments/assets/4d92d82f-8124-421f-a547-138b22a2f557)
