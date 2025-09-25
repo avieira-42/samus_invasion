@@ -13,10 +13,6 @@ I will try and keep updating the game. In case you have ideas or want to contrib
 # How to install (Only Linux)
 
 Compile the code:
-
-# How to install
-
-Compile the code:
 ```bash
 make game
 ```
