@@ -3,6 +3,8 @@
 Compile the code:
 ```bash
 make game
+---
+
 
 
 
