@@ -1,7 +1,6 @@
 # How to install
 
 Compile the code:
-
 ```bash
 make game
 
