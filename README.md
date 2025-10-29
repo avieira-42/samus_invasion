@@ -23,14 +23,6 @@ Compile the code:
 make game
 ```
 
-Add the necessary library:
-```bash
-sudo apt update
-sudo apt install libbsd-dev
-```
-
-
-
 Play the game:
 ```bash
 ./game maps/map.ber
