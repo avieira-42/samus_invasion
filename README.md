@@ -12,10 +12,25 @@ I will try and keep updating the game. In case you have ideas or want to contrib
 
 # How to install (Only Linux)
 
+Add the necessary library:
+```bash
+sudo apt update
+sudo apt install libbsd-dev
+```
+
 Compile the code:
 ```bash
 make game
 ```
+
+Add the necessary library:
+```bash
+sudo apt update
+sudo apt install libbsd-dev
+```
+
+
+
 Play the game:
 ```bash
 ./game maps/map.ber
