@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_bonus.h                                    :+:      :+:    :+:   */
+/*   samus_invasion.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 17:19:00 by avieira-          #+#    #+#             */
-/*   Updated: 2025/09/22 22:47:39 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/11/26 05:35:17 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # define SCREEN_SIZE_Y 720
 # define SCREEN_END_X 2304
 # define CAMERA_END_X 1104
+# define SCREEN_END_Y 1500
+# define CAMERA_END_Y 680
 # define GROUND_LEVEL 624
 # define LINE_COLOR 0xFFFFFF
 # define TILE_SIZE_X 80

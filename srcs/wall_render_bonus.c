@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 20:00:15 by avieira-          #+#    #+#             */
-/*   Updated: 2025/08/04 16:08:44 by a-soeiro         ###   ########.fr       */
+/*   Updated: 2025/11/26 05:30:15 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	draw_walls(t_game *game)
 	walls = game->walls;
 	while (walls)
 	{
-		pos.y = walls->pos.y;
+		pos.y = walls->pos.y - game->camera.y;
 		pos.x = walls->pos.x - game->camera.x;
 		drawtexture(&game->image, &game->tile.sprite, pos, 1.6);
 		walls = walls->next;

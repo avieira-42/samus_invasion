@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   item_render.c                                      :+:      :+:    :+:   */
+/*   item_render_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 20:00:15 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/30 01:13:28 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/11/26 05:29:54 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	draw_items(t_game *game)
 	while (items)
 	{
 		items->pos.y += game->towel.orientation;
-		pos.y = items->pos.y;
+		pos.y = items->pos.y - game->camera.y;
 		pos.x = items->pos.x - game->camera.x;
 		drawtexture(&game->image, &game->towel.sprite, pos, 1.6);
 		items = items->next;

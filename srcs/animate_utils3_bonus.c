@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animate_utils3.c                                   :+:      :+:    :+:   */
+/*   animate_utils3_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 02:26:28 by avieira-          #+#    #+#             */
-/*   Updated: 2025/07/30 00:01:11 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/11/26 05:30:43 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	animate_enemy_walking(t_game *game, t_enemy *enemy)
 	int		i;
 	t_point	pos;
 
-	pos.y = enemy->pos.y;
+	pos.y = enemy->pos.y - game->camera.y;
 	pos.x = enemy->pos.x - game->camera.x;
 	if (++(enemy->timer) == 4)
 	{
@@ -36,7 +36,7 @@ void	animate_enemy_falling(t_game *game, t_enemy *enemy)
 {
 	t_point	pos;
 
-	pos.y = enemy->pos.y;
+	pos.y = enemy->pos.y - game->camera.y;
 	pos.x = enemy->pos.x - game->camera.x;
 	if (enemy->orientation == -1)
 		drawtexture(&game->image, &game->samus.sprite[5], pos, 1.6);
