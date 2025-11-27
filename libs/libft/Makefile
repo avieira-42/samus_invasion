@@ -6,12 +6,13 @@
 #    By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/21 12:18:39 by avieira-          #+#    #+#              #
-#    Updated: 2025/06/28 11:56:45 by avieira-         ###   ########.fr        #
+#    Updated: 2025/11/27 05:49:27 by avieira-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
+
 SRCS = srcs/ft_atoi.c srcs/ft_bzero.c srcs/ft_isalnum.c srcs/ft_isalpha.c
 SRCS += srcs/ft_isascii.c srcs/ft_isdigit.c srcs/ft_isspace.c
 SRCS += srcs/ft_isprint.c srcs/ft_memcpy.c srcs/ft_memset.c srcs/ft_strlen.c
@@ -32,20 +33,42 @@ SRCS += srcs/ft_lstclear_bonus.c srcs/ft_lstiter_bonus.c srcs/ft_lstmap_bonus.c
 SRCS += srcs/ft_dblylst_new.c srcs/ft_dblylst_addback.c srcs/ft_dblylst_last.c 
 SRCS += srcs/ft_dblylst_size.c srcs/ft_is_int.c
 SRCS += srcs/get_next_line.c srcs/get_next_line_utils.c
+
 OBJS = $(SRCS:.c=.o)
 
+# ================== PROGRESS BAR ================== #
+
+TOTAL := $(words $(SRCS))
+BAR_LENGTH = 30
+COUNTER = 0
+
+define progress_bar
+	$(eval COUNTER=$(shell echo $$(($(COUNTER)+1))))
+	@percent=$$((100 * $(COUNTER) / $(TOTAL))); \
+	filled=$$(( $(BAR_LENGTH) * $(COUNTER) / $(TOTAL) )); \
+	empty=$$(( $(BAR_LENGTH) - $$filled )); \
+	bar="$$(printf '%0.s#' $$(seq 1 $$filled))$$(printf '%0.s-' $$(seq 1 $$empty))"; \
+	printf "\rBuilding libft binaries [%s] %3d%%" "$$bar" $$percent;
+endef
+
+# ================== RULES ================== #
+
 all: $(NAME)
+	@echo "\n\033[32mlibft build complete!\033[0m"
 
 $(NAME): $(OBJS)
-		ar rcs $(NAME) $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
 
-%.o: %.c 
-		cc $(CFLAGS) -c $^ -o $@
+%.o: %.c
+	@$(call progress_bar)
+	@cc $(CFLAGS) -c $< -o $@
 
-clean: 
-		rm -f $(OBJS)
+clean:
+	@rm -f $(OBJS)
 
 fclean: clean
-		rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re

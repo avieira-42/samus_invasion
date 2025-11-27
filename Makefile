@@ -6,26 +6,26 @@
 #    By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 21:49:52 by avieira-          #+#    #+#              #
-#    Updated: 2025/11/27 05:03:11 by avieira-         ###   ########.fr        #
+#    Updated: 2025/11/27 05:57:51 by avieira-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = samus_invasion
 
-LIBFT_DIR = libs/libft/
-
 CC = cc
-
 CFLAGS = -g -Wall -Wextra -Werror
 
-LDFLAGS =  -L $(LIBFT_DIR) -lft -L $(MLX_DIR) -Lmlx -lmlx -lX11 -lbsd -lXext -lX11 -lm 
+LIBFT_DIR = libs/libft/
+LIBFT = $(LIBFT_DIR)/libft.a
 
 MLX_DIR = libs/minilibx-linux/
+MLX = $(MLX_DIR)/libmlx.a
 
-MLX = libs/minilibx-linux/libmlx.a
+LDFLAGS = -L $(LIBFT_DIR) -lft \
+          -L $(MLX_DIR) -lmlx \
+          -lX11 -lbsd -lXext -lX11 -lm
 
-LIBFT = libs/libft/libft.a
-
+# ===================== SOURCE FILES ===================== #
 
 PARSING = engine/parsing/map_parse_bonus.c \
 		  engine/parsing/map_parse_utils2_bonus.c \
@@ -37,11 +37,10 @@ INPUT = engine/input/input_handler_bonus.c
 PHYSICS = engine/physics/collisions_bonus.c \
 		  engine/physics/collisions_utils_bonus.c \
 		  engine/physics/delta_bonus.c \
-		  engine/physics/enemy_collision.c\
+		  engine/physics/enemy_collision.c \
 		  engine/physics/enemy_collisions_bonus.c \
 		  engine/physics/get_time_bonus.c \
 		  engine/physics/math_bonus.c
-
 
 RENDERING = engine/rendering/animate_bonus.c \
 			engine/rendering/animate_utils2_bonus.c \
@@ -63,7 +62,6 @@ RENDERING = engine/rendering/animate_bonus.c \
 			engine/rendering/timers_bonus.c \
 			engine/rendering/wall_render_bonus.c
 
-
 CLEARING = engine/clearing/clear_player_bonus.c \
 		   engine/clearing/free_displays_bonus.c \
 		   engine/clearing/free_sprites_bonus.c \
@@ -78,42 +76,72 @@ MAIN = main/game_loop_bonus.c \
 	   main/init_map_bonus.c \
 	   main/main_bonus.c
 
-ENGINE = $(PARSING) \
-		 $(INPUT) \
-		 $(PHYSICS) \
-		 $(RENDERING) \
-		 $(CLEARING)
+ENGINE = $(PARSING) $(INPUT) $(PHYSICS) $(RENDERING) $(CLEARING)
+SRCS = $(ENGINE) $(MAIN)
+OBJS = $(SRCS:.c=.o)
 
-SRCS = $(ENGINE) \
-	   $(MAIN)
+# ===================== PROGRESS BAR ===================== #
 
-OBJS=$(SRCS:.c=.o)
+TOTAL := $(words $(SRCS))
+BAR_LENGTH = 30
+COUNTER = 0
 
-all: $(LIBFT) $(NAME)
+define progress_bar
+	$(eval COUNTER=$(shell echo $$(($(COUNTER)+1))))
+	@percent=$$((100 * $(COUNTER) / $(TOTAL))); \
+	filled=$$(( $(BAR_LENGTH) * $(COUNTER) / $(TOTAL) )); \
+	empty=$$(( $(BAR_LENGTH) - $$filled )); \
+	bar="$$(printf '%0.s#' $$(seq 1 $$filled))$$(printf '%0.s-' $$(seq 1 $$empty))"; \
+	printf "Compiling samus_invasion objects [%s] %3d%%\r" "$$bar" $$percent;
+endef
 
-$(NAME): $(MLX) $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) $(MLX) -o $(NAME)
+# ===================== TARGETS ===================== #
 
-%.o : %.c $(CC) $(CFLAGS) -c $^ -o $@
+all: $(LIBFT) $(MLX) $(NAME) logo
 
 $(LIBFT):
-	@make -C $(LIBFT_DIR)
+	@echo "Building libft..."
+	@make -C $(LIBFT_DIR) --no-print-directory > /dev/null 2>&1
 
 $(MLX):
-	@make -C $(MLX_DIR)
+	@echo "Building MinilibX..."
+	@make -C $(MLX_DIR) --no-print-directory > /dev/null 2>&1
+
+$(NAME): $(OBJS)
+	@echo "\n\033[32mLinking $(NAME)...\033[0m"
+	@$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
+	@echo "\033[32mBuild complete!\033[0m"
+
+%.o: %.c
+	@$(call progress_bar)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
+	@printf "Cleaning object files... "
 	@rm -rf $(OBJS)
-	@make clean -C $(LIBFT_DIR) --no-print-directory
-	@make clean -C $(MLX_DIR) --no-print-directory
-	@echo "Cleaning Objects!"
+	@make clean -C $(LIBFT_DIR) --no-print-directory > /dev/null 2>&1
+	@make clean -C $(MLX_DIR) --no-print-directory > /dev/null 2>&1
+	@echo "Done."
 
 fclean: clean
-	@rm -rf $(LIBFT)
+	@printf "Removing executable and libft... "
 	@rm -rf $(NAME)
-	@rm -rf $(MLX)
-	@echo "Cleaning Objects and executable"
+	@rm -f $(LIBFT)          # <-- remove the libft.a archive
+	@echo "Done."
 
-re: fclean all
+re: fclean all logo
 
-.PHONY: all clean fclean re
+# ===================== ASCII LOGO ===================== #
+
+logo:
+	@printf "\033[35m\n"
+	@printf "  ____    _    __  __ _   _ ____    ___ _   ___     ___    ____ ___ ___  _   _ \n"
+	@printf " / ___|  / \\  |  \\/  | | | / ___|  |_ _| \\ | \\ \\   / / \\  / ___|_ _/ _ \\| \\ | |\n"
+	@printf " \\___ \\ / _ \\ | |\\/| | | | \\___ \\   | ||  \\| |\\ \\ / / _ \\ \\___ \\| | | | |  \\| |\n"
+	@printf "  ___) / ___ \\| |  | | |_| |___) |  | || |\\  | \\ V / ___ \\ ___) | | |_| | |\\  |\n"
+	@printf " |____/_/   \\_\\_|  |_|\\___/|____/  |___|_| \\_|  \\_/_/   \\_\\____/___\\___/|_| \\_|\n"
+	@printf "\n\n"
+	@printf "                         Made by: Alexandre Soeiro\n\n"
+	@printf "\033[0m"
+
+.PHONY: all clean fclean re logo
