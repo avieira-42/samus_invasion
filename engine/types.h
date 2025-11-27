@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 03:16:44 by avieira-          #+#    #+#             */
-/*   Updated: 2025/11/27 04:11:16 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/11/27 20:42:34 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,6 +182,7 @@ typedef struct s_game
 	t_player	player;
 	t_portal	portal;
 	t_point		camera;
+	t_point		camera_end;
 }	t_game;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 21:50:14 by avieira-          #+#    #+#             */
-/*   Updated: 2025/11/27 04:48:09 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/11/27 20:51:16 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ void	end_game(t_game *game)
 void	update_camera(t_game *game)
 {
 	game->camera.x = game->player.pos.x - SCREEN_SIZE_X / 2.0;
-	game->camera.y = game->player.pos.y - SCREEN_SIZE_Y / 1.3;
+	game->camera.y = game->player.pos.y - SCREEN_SIZE_Y / 2.0;
 	if (game->camera.x < 0)
 		game->camera.x = 0;
-	if (game->camera.x > CAMERA_END_X)
-		game->camera.x = CAMERA_END_X;
+	if (game->camera.x > game->camera_end.x)
+		game->camera.x = game->camera_end.x;
 	if (game->camera.y < 0)
 		game->camera.y = 0;
-	if (game->camera.y > CAMERA_END_Y)
-		game->camera.y = CAMERA_END_Y;
+	if (game->camera.y > game->camera_end.y)
+		game->camera.y = game->camera_end.y;
 	game->player.camera.x = game->player.pos.x - game->camera.x;
 	game->player.camera.y = game->player.pos.y - game->camera.y;
 }

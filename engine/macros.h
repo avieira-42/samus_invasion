@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 03:16:22 by avieira-          #+#    #+#             */
-/*   Updated: 2025/11/27 03:16:23 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/11/27 20:22:42 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@
 // SCREEN
 # define SCREEN_SIZE_X 1296
 # define SCREEN_SIZE_Y 720
-# define SCREEN_END_X 2304
-# define CAMERA_END_X 1104
-# define SCREEN_END_Y 1500
-# define CAMERA_END_Y 680
+# define CAMERA_END_X 1296
+# define CAMERA_END_Y 720
 # define GROUND_LEVEL 624
 # define LINE_COLOR 0xFFFFFF
 # define TILE_SIZE_X 80

@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 02:02:37 by avieira-          #+#    #+#             */
-/*   Updated: 2025/11/27 04:47:45 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/11/27 21:34:46 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@
 #include "../libs/minilibx-linux/mlx.h"
 #include "main.h"
 
+#include <stdio.h>
 void	init_window(t_game *game)
 {
 	if (game->reset == false)
 	{
-		game->map.height = game->map.height * TILE_SIZE_Y;
-		game->map.width = game->map.width * TILE_SIZE_X;
 		(*game).mlx_ptr = mlx_init();
+		printf("%i\n", game->map.height);
+		printf("%i\n", game->map.width);
 		(*game).win_ptr = mlx_new_window((*game).mlx_ptr,
 				SCREEN_SIZE_X, SCREEN_SIZE_Y, "so_long_bonus");
 	}
@@ -47,6 +48,8 @@ void	init_main_struct(t_game *game)
 	game->enemies = NULL;
 	game->camera.x = game->player.pos.x - SCREEN_SIZE_X / 2.0;
 	game->camera.y = game->player.pos.y - SCREEN_SIZE_Y / 2.0;
+	game->camera_end.x = game->map.width - SCREEN_SIZE_X;
+	game->camera_end.y = game->map.height - SCREEN_SIZE_Y;
 }
 
 void	init_image(t_game *game)
