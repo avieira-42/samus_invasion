@@ -2,3 +2,7 @@
 */*.o
 */*/*.o
 samus_invasion
+libs/libft/libft.a
+libs/libft/srcs/*.o
+libs/minilibx-linux/libmlx.a
+libs/minilibx-linux/*.o
