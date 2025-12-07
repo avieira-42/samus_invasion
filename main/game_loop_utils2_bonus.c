@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 21:50:14 by avieira-          #+#    #+#             */
-/*   Updated: 2025/11/27 20:51:16 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/12/07 02:29:48 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	load_image(t_game *game)
 
 void	draw_background(t_game *game)
 {
+	game->bckgrnd.pos.x = game->camera.x;
+	game->bckgrnd.pos.y = game->camera.y;
 	drawtexture(&game->image, &game->bckgrnd.sprite,
-		game->bckgrnd.pos, game->bckgrnd.scale);
+			game->bckgrnd.pos, game->bckgrnd.scale);
 }
