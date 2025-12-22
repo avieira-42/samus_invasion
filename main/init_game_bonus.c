@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 02:02:37 by avieira-          #+#    #+#             */
-/*   Updated: 2025/11/27 21:34:46 by avieira-         ###   ########.fr       */
+/*   Updated: 2025/12/22 11:12:10 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	init_background(t_game *game)
 {
 	game->bckgrnd.pos.x = 0;
 	game->bckgrnd.pos.y = 0;
-	game->bckgrnd.scale = 0.7;
+	game->bckgrnd.scale = 0.8;
 	zero_sprites(&game->bckgrnd.sprite, 1);
 	init_bckgrnd_sprite(game);
 }
