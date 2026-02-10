@@ -6,14 +6,14 @@
 #    By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 21:49:52 by avieira-          #+#    #+#              #
-#    Updated: 2025/12/22 10:27:49 by avieira-         ###   ########.fr        #
+#    Updated: 2026/02/10 18:02:53 by avieira-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = samus_invasion
 
 CC = cc
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror -O3
 
 LIBFT_DIR = libs/libft/
 LIBFT = $(LIBFT_DIR)/libft.a
