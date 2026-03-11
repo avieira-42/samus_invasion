@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:17:13 by avieira-          #+#    #+#             */
-/*   Updated: 2025/11/27 04:18:43 by avieira-         ###   ########.fr       */
+/*   Updated: 2026/03/11 03:31:40 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,10 +112,10 @@ int	player_touching_ceiling(t_game *game)
 
 int	player_touching_exit(t_game *game)
 {
-	if ((game->player.pos.x >= game->portal.pos.x
-			&& game->player.pos.x <= game->portal.pos.x + TILE_SIZE_X)
+	if ((game->player.pos.x >= game->portal.pos.x - 30
+			&& game->player.pos.x <= game->portal.pos.x + 30)
 		&& (game->player.pos.y >= game->portal.pos.y
-			&& game->player.pos.y <= game->portal.pos.y + TILE_SIZE_X))
+			&& game->player.pos.y <= game->portal.pos.y + TILE_SIZE_Y))
 		return (1);
 	return (0);
 }

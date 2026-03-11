@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 18:01:59 by avieira-          #+#    #+#             */
-/*   Updated: 2025/11/27 04:30:08 by avieira-         ###   ########.fr       */
+/*   Updated: 2026/03/11 03:24:38 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ void	clear_item(t_game *game)
 	prev = NULL;
 	while (curr)
 	{
-		if ((game->player.pos.x <= curr->pos.x + 20
-				&& game->player.pos.x >= curr->pos.x - 15)
-			&& (game->player.pos.y <= curr->pos.y + 20
+		if ((game->player.pos.x <= curr->pos.x + 40
+				&& game->player.pos.x >= curr->pos.x - 30)
+			&& (game->player.pos.y <= curr->pos.y + 25
 				&& game->player.pos.y >= curr->pos.y - 15))
 		{
 			to_free = curr;
