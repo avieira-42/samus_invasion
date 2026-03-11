@@ -6,31 +6,13 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 01:48:17 by avieira-          #+#    #+#             */
-/*   Updated: 2025/11/27 04:52:15 by avieira-         ###   ########.fr       */
+/*   Updated: 2026/03/10 14:18:46 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../types.h"
 #include "../macros.h"
 #include "../rendering.h"
-
-void	drawobj(t_image *image, t_point pos, t_point size, int color)
-{
-	int	x;
-	int	y;
-
-	x = 0;
-	y = 0;
-	while (x < size.x)
-	{
-		y = 0;
-		while (y < size.y)
-		{
-			ft_pixelput(image, pos.x + x, pos.y + y++, color);
-		}
-		x++;
-	}
-}
 
 int	ft_get_color(t_image *data, int x, int y)
 {
@@ -50,9 +32,7 @@ void	drawtexture(t_image *image, t_image *texture, t_point pos,
 	int	y;
 	int	color;
 
-	color = 0;
 	x = 0;
-	y = 0;
 	while (x < texture->x * scale)
 	{
 		y = 0;

@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 03:16:44 by avieira-          #+#    #+#             */
-/*   Updated: 2025/11/27 20:42:34 by avieira-         ###   ########.fr       */
+/*   Updated: 2026/03/10 14:22:50 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ typedef struct s_jump
 
 typedef struct s_image
 {
+	void	*image;
+	char	*addr;
 	int		x;
 	int		y;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-	void	*image;
-	char	*addr;
 }	t_image;
 
 typedef struct s_item

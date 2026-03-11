@@ -6,7 +6,7 @@
 /*   By: avieira- <avieira-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 03:16:48 by avieira-          #+#    #+#             */
-/*   Updated: 2025/11/27 04:42:44 by avieira-         ###   ########.fr       */
+/*   Updated: 2026/03/10 14:15:00 by avieira-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void		draw_walls(t_game *game);
 void		add_wall(t_tile **walls, t_tile *new_wall);
 t_tile		*new_wall(t_game *game);
 void		position_sprites(t_game *game, int x, int y);
-void		drawobj(t_image *image, t_point pos, t_point size, int color);
 int			ft_get_color(t_image *data, int x, int y);
 void		ft_pixelput(t_image *data, int x, int y, int color);
 void		drawline(t_game *game, t_point start, t_point dest);
